@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KidStreet — Greenwich</title>
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-quartz.css" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    header { padding: 12px 20px; background: #14213d; color: white; }
+    header h1 { margin: 0; font-size: 18px; }
+    header p { margin: 2px 0 0; font-size: 12px; color: #cbd5e1; }
+    #layout { display: flex; height: calc(100vh - 56px); }
+    #map { flex: 2; }
+    #grid-panel { flex: 1; padding: 10px; min-width: 320px; display: flex; flex-direction: column; }
+    #score-grid { flex: 1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KidStreet — Greenwich</h1>
+    <p>Street-level safety, access and fun scores. Methodology shown on click.</p>
+  </header>
+
+  <div id="layout">
+    <div id="map"></div>
+    <div id="grid-panel">
+      <div id="score-grid" class="ag-theme-quartz"></div>
+    </div>
+  </div>
+
+  <script>
+    const map = L.map('map').setView([51.4892, 0.0648], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const placeholderCells = [
+      { id: 'GRN-001', name: 'Greenwich Park area', lat: 51.4769, lng: -0.0005, safety: 72, access: 68, fun: 80, composite: 73 },
+      { id: 'GRN-002', name: 'Woolwich', lat: 51.4900, lng: 0.0648, safety: 55, access: 60, fun: 50, composite: 55 },
+      { id: 'GRN-003', name: 'Blackheath', lat: 51.4660, lng: 0.0090, safety: 78, access: 70, fun: 75, composite: 75 }
+    ];
+
+    function colourFor(score) {
+      if (score >= 70) return '#2e7d32';
+      if (score >= 50) return '#f9a825';
+      return '#c62828';
+    }
+
+    placeholderCells.forEach(cell => {
+      L.circleMarker([cell.lat, cell.lng], {
+        radius: 14,
+        fillColor: colourFor(cell.composite),
+        color: '#222',
+        weight: 1,
+        fillOpacity: 0.75
+      })
+      .addTo(map)
+      .bindPopup(`<b>${cell.name}</b><br>Composite: ${cell.composite}<br>Safety: ${cell.safety} · Access: ${cell.access} · Fun: ${cell.fun}`);
+    });
+
+    const gridOptions = {
+      columnDefs: [
+        { field: 'name', headerName: 'Area' },
+        { field: 'safety', headerName: 'Safety', sort: 'desc' },
+        { field: 'access', headerName: 'Access' },
+        { field: 'fun', headerName: 'Fun' },
+        { field: 'composite', headerName: 'Composite' }
+      ],
+      rowData: placeholderCells,
+      defaultColDef: { flex: 1, sortable: true, filter: true },
+      onRowClicked: (e) => {
+        map.setView([e.data.lat, e.data.lng], 15);
+      }
+    };
+
+    agGrid.createGrid(document.getElementById('score-grid'), gridOptions);
+  </script>
+</body>
+</html>
