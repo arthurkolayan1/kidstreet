@@ -98,6 +98,10 @@
 
 <p class="credit">Ward boundaries: Office for National Statistics (Wards May 2024, super-generalised). Contains OS data &copy; Crown copyright and database right 2024. Postcode lookup: postcodes.io.</p>
 
+<!-- ElevenLabs conversational agent (public agent, auth disabled). -->
+<elevenlabs-convai agent-id="agent_1501kwpaz2scewg9xk6aws461npn"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
 <script>
@@ -362,6 +366,36 @@
       document.getElementById('detail').innerHTML =
         '<h2>Data failed to load</h2><p class="hint">' + err + '</p>';
     });
+
+  // Voice agent recommendation: rank the already-loaded scores by the user's
+  // stated priorities. Uses wardData (the hardcoded /api/scores JSON) directly.
+  function recommendWards({ safety_importance = 5, green_importance = 5, narrative_importance = 5, top_n = 3 } = {}) {
+    if (!wardData.length) return { error: 'Ward data is still loading, ask again in a moment.' };
+    const raw = [Number(safety_importance) || 0, Number(green_importance) || 0, Number(narrative_importance) || 0];
+    const total = raw[0] + raw[1] + raw[2] || 1;
+    const [wSafety, wGreen, wNarrative] = raw.map(w => w / total);
+    const ranked = wardData
+      .map(w => ({ w, score: Math.round(wSafety * w.safety + wGreen * w.green + wNarrative * w.narrative) }))
+      .sort((a, b) => b.score - a.score);
+    const n = Math.max(1, Math.min(Number(top_n) || 3, 5));
+    const top = ranked.slice(0, n);
+    if (top[0]) selectWard(top[0].w); // highlight the best match on the map + detail panel
+    return {
+      top: top.map(({ w, score }) => ({ ward: w.ward, matchScore: score, safety: w.safety, green: w.green, narrative: w.narrative })),
+      spoken: 'Top match: ' + top.map(t => t.w.ward + ' (' + t.score + ')').join(', ') + '.'
+    };
+  }
+
+  // Register the client tool with the ElevenLabs embed widget.
+  document.addEventListener('DOMContentLoaded', () => {
+    const widget = document.querySelector('elevenlabs-convai');
+    if (!widget) return;
+    widget.addEventListener('elevenlabs-convai:call', (event) => {
+      event.detail.config.clientTools = {
+        recommend_wards: async (params) => recommendWards(params || {})
+      };
+    });
+  });
 </script>
 
 </body>
