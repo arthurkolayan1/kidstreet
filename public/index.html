@@ -17,12 +17,17 @@
   .controls { display: flex; gap: 8px; margin: 14px 24px 0; flex-wrap: wrap; align-items: center; }
   .lens { border: 1.5px solid #ccc; background: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; cursor: pointer; font-weight: 600; color: #444; }
   .lens.active { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+  #askBtn { display: none; border: 1.5px solid #2e7d32; background: #fff; color: #2e7d32; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+  #askBtn.on { display: inline-block; }
   .pcwrap { display: flex; gap: 6px; margin-left: auto; }
   #pcInput { border: 1.5px solid #ccc; border-radius: 20px; padding: 8px 14px; font-size: 13.5px; width: 170px; }
   #pcBtn { border: none; background: #1c1c1c; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
   #pcMsg { font-size: 12px; color: #c62828; margin: 4px 24px 0; min-height: 15px; }
   .lens-note { font-size: 11.5px; color: #777; margin: 2px 24px 0; }
   .methodology { margin: 10px 24px 0; padding: 8px 12px; background: #eaf0ea; border-left: 3px solid #2e7d32; font-size: 12px; color: #333; border-radius: 0 4px 4px 0; }
+  details.prbox { margin: 10px 24px 0; background: #fff; border-left: 3px solid #1c1c1c; border-radius: 0 4px 4px 0; font-size: 12px; color: #333; }
+  details.prbox summary { padding: 8px 12px; cursor: pointer; font-weight: 600; user-select: none; }
+  details.prbox .prbody { padding: 0 12px 10px; }
   .layout { display: flex; gap: 14px; padding: 14px 24px 24px; align-items: stretch; }
   #map { flex: 1.4; min-height: 520px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
   .side { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 340px; }
@@ -53,6 +58,7 @@
   <button class="lens active" data-lens="move">Where do I move?</button>
   <button class="lens" data-lens="hangout">Where's a good day out?</button>
   <button class="lens" data-lens="council">What should the council fix?</button>
+  <button id="askBtn">&#127908; Ask KidStreet</button>
   <div class="pcwrap">
     <input id="pcInput" placeholder="Your postcode, e.g. SE10 8XJ">
     <button id="pcBtn">Find my ward</button>
@@ -68,14 +74,16 @@
   Composite 0–100. All sources open. Disagree with the inputs? Good, they're published.
 </div>
 
-<div class="methodology" style="background:#fff; border-left-color:#1c1c1c;">
-  <strong>Try it live:</strong> paste any council or estate agent claim about an area and watch the narrative scorer judge it in real time.
-  <div style="display:flex; gap:8px; margin-top:8px;">
-    <textarea id="claimInput" rows="2" style="flex:1; font-family:inherit; font-size:12.5px; padding:8px; border:1.5px solid #ccc; border-radius:6px;" placeholder="e.g. 'Our vibrant riverside community offers unparalleled opportunities for young families...'"></textarea>
-    <button id="claimBtn" style="border:none; background:#2e7d32; color:#fff; padding:8px 18px; border-radius:6px; font-weight:600; cursor:pointer; white-space:nowrap;">Score it</button>
+<details class="prbox">
+  <summary>PR detector: paste any council or estate agent claim, get an honesty score</summary>
+  <div class="prbody">
+    <div style="display:flex; gap:8px; margin-top:4px;">
+      <textarea id="claimInput" rows="2" style="flex:1; font-family:inherit; font-size:12.5px; padding:8px; border:1.5px solid #ccc; border-radius:6px;" placeholder="e.g. 'Our vibrant riverside community offers unparalleled opportunities for young families...'"></textarea>
+      <button id="claimBtn" style="border:none; background:#2e7d32; color:#fff; padding:8px 18px; border-radius:6px; font-weight:600; cursor:pointer; white-space:nowrap;">Score it</button>
+    </div>
+    <div id="claimResult" style="margin-top:8px; font-size:13px;"></div>
   </div>
-  <div id="claimResult" style="margin-top:8px; font-size:13px;"></div>
-</div>
+</details>
 
 <div class="layout">
   <div id="map"></div>
@@ -272,6 +280,7 @@
 
     const el = document.createElement('elevenlabs-convai');
     el.setAttribute('agent-id', ELEVENLABS_AGENT_ID);
+    el.setAttribute('action-text', 'Ask KidStreet');
     document.body.appendChild(el);
 
     el.addEventListener('elevenlabs-convai:call', (event) => {
@@ -293,6 +302,14 @@
           return 'Now showing ' + w.ward + ' (composite ' + w.composite + ') on the map.';
         }
       };
+    });
+
+    const askBtn = document.getElementById('askBtn');
+    askBtn.classList.add('on');
+    askBtn.addEventListener('click', () => {
+      if (typeof el.startConversation === 'function') {
+        el.startConversation();
+      }
     });
   }
 
