@@ -79,4 +79,210 @@
   </div>
 </div>
 
-<p class="credit">Ward boundaries: Office for National Statistics (Wards May 2024, super-generalised). Contains OS data &copy; Crown copyright and database
+<p class="credit">Ward boundaries: Office for National Statistics (Wards May 2024, super-generalised). Contains OS data &copy; Crown copyright and database right 2024. Postcode lookup: postcodes.io.</p>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
+<script>
+  const ONS_WARDS_URL =
+    'https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_2024_Boundaries_UK_BSC/FeatureServer/0/query'
+    + '?where=1%3D1'
+    + '&geometry=-0.04,51.40,0.16,51.52'
+    + '&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects'
+    + '&outFields=WD24CD,WD24NM&outSR=4326&f=geojson';
+
+  const LENSES = {
+    move: {
+      note: 'Published composite: safety 40% · green 30% · narrative 30%. Best score first.',
+      score: w => w.composite,
+      sortDesc: true
+    },
+    hangout: {
+      note: 'Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you\'re visiting, not buying.',
+      score: w => Math.round(0.6 * w.green + 0.4 * w.safety),
+      sortDesc: true
+    },
+    council: {
+      note: 'Same composite, worst first. Wards under 60 flagged as needing improvement.',
+      score: w => w.composite,
+      sortDesc: false,
+      flagUnder: 60
+    }
+  };
+  let activeLens = 'move';
+  let wardData = [];
+  let scoresByName = {};
+  let yourWard = null;
+  const layersByWard = {};
+  let gridApi = null;
+
+  const map = L.map('map').setView([51.465, 0.06], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  function normName(s) {
+    return s.toLowerCase().replace(/&/g, 'and').replace(/[,.']/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  function scoreColour(s) {
+    if (s >= 75) return '#2e7d32';
+    if (s >= 65) return '#7cb342';
+    if (s >= 55) return '#f9a825';
+    if (s >= 45) return '#ef6c00';
+    return '#c62828';
+  }
+
+  function lensScore(w) { return LENSES[activeLens].score(w); }
+
+  function repaint() {
+    const lens = LENSES[activeLens];
+    document.getElementById('lensNote').textContent = lens.note;
+    wardData.forEach(w => {
+      const s = lensScore(w);
+      const layer = layersByWard[normName(w.ward)];
+      if (layer) {
+        layer.setStyle({ fillColor: scoreColour(s) });
+        layer.unbindTooltip();
+        layer.bindTooltip(w.ward + ' — ' + s, { sticky: true });
+      }
+    });
+    if (gridApi) {
+      gridApi.applyColumnState({
+        state: [{ colId: 'lensScore', sort: lens.sortDesc ? 'desc' : 'asc' }],
+        defaultState: { sort: null }
+      });
+      gridApi.refreshCells({ force: true });
+    }
+  }
+
+  function showDetail(w) {
+    const lens = LENSES[activeLens];
+    const s = lensScore(w);
+    let html = '<span class="composite-big" style="color:' + scoreColour(s) + '">' + s + '</span>';
+    html += '<h2>' + w.ward + '</h2>';
+    if (yourWard === normName(w.ward)) {
+      html += '<span class="yourward">YOUR WARD</span>';
+    }
+    if (lens.flagUnder && s < lens.flagUnder) {
+      html += '<span class="flag">NEEDS IMPROVEMENT</span>';
+    }
+    if (yourWard === normName(w.ward) || (lens.flagUnder && s < lens.flagUnder)) {
+      html += '<br>';
+    }
+    const rows = [
+      ['Safety (police.uk)', w.safety],
+      ['Green access', w.green],
+      ['Council narrative', w.narrative]
+    ];
+    for (const [label, val] of rows) {
+      html += '<div class="scorebar"><span class="label">' + label + '</span>'
+        + '<span class="track"><span class="fill" style="width:' + val + '%;background:' + scoreColour(val) + '"></span></span>'
+        + '<span class="num">' + val + '</span></div>';
+    }
+    html += '<div class="just">&ldquo;' + w.justification + '&rdquo;</div>';
+    document.getElementById('detail').innerHTML = html;
+  }
+
+  function selectWard(w) {
+    showDetail(w);
+    const layer = layersByWard[normName(w.ward)];
+    if (layer) {
+      map.fitBounds(layer.getBounds(), { padding: [30, 30] });
+      layer.setStyle({ weight: 3.5 });
+      setTimeout(() => layer.setStyle({ weight: 1.5 }), 1200);
+    }
+  }
+
+  document.querySelectorAll('.lens').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lens').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeLens = btn.dataset.lens;
+      repaint();
+    });
+  });
+
+  function findPostcode() {
+    const pc = document.getElementById('pcInput').value.trim();
+    const msg = document.getElementById('pcMsg');
+    msg.textContent = '';
+    if (!pc) return;
+    fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(pc))
+      .then(r => r.json())
+      .then(data => {
+        if (data.status !== 200 || !data.result) {
+          msg.textContent = 'Postcode not recognised. Check the spelling.';
+          return;
+        }
+        const wardName = data.result.admin_ward || '';
+        const w = scoresByName[normName(wardName)];
+        if (!w) {
+          msg.textContent = wardName
+            ? 'That postcode is in ' + wardName + ', outside Greenwich. Greenwich only for now — more boroughs coming.'
+            : 'Could not resolve that postcode to a ward.';
+          return;
+        }
+        yourWard = normName(w.ward);
+        selectWard(w);
+      })
+      .catch(() => { msg.textContent = 'Postcode lookup unavailable right now.'; });
+  }
+  document.getElementById('pcBtn').addEventListener('click', findPostcode);
+  document.getElementById('pcInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') findPostcode();
+  });
+
+  function loadBoundaries() {
+    return fetch('/wards.geojson')
+      .then(r => { if (!r.ok) throw new Error('no local snapshot'); return r.json(); })
+      .catch(() => fetch(ONS_WARDS_URL).then(r => r.json()));
+  }
+
+  Promise.all([
+    fetch('/api/scores').then(r => r.json()),
+    loadBoundaries()
+  ])
+    .then(([scores, geo]) => {
+      wardData = scores;
+      scores.forEach(w => { scoresByName[normName(w.ward)] = w; });
+
+      geo.features.forEach(f => {
+        const wname = f.properties.WD24NM || '';
+        const w = scoresByName[normName(wname)];
+        if (!w) return;
+        const layer = L.geoJSON(f, {
+          style: { color: '#2b2b2b', weight: 1.5, fillColor: scoreColour(w.composite), fillOpacity: 0.55 }
+        }).addTo(map);
+        layer.on('click', () => selectWard(w));
+        layersByWard[normName(w.ward)] = layer;
+      });
+
+      const matched = Object.keys(layersByWard).length;
+      if (matched < scores.length) {
+        console.warn('Unmatched wards:', scores.filter(w => !layersByWard[normName(w.ward)]).map(w => w.ward));
+      }
+
+      gridApi = agGrid.createGrid(document.getElementById('grid'), {
+        rowData: scores,
+        columnDefs: [
+          { field: 'ward', headerName: 'Ward', flex: 1.6 },
+          { field: 'safety', headerName: 'Safety', flex: 0.8 },
+          { field: 'green', headerName: 'Green', flex: 0.8 },
+          { field: 'narrative', headerName: 'Narrative', flex: 0.9 },
+          { colId: 'lensScore', headerName: 'Score', flex: 0.8, sort: 'desc',
+            valueGetter: p => LENSES[activeLens].score(p.data),
+            cellStyle: p => ({ fontWeight: 800, color: scoreColour(p.value) }) }
+        ],
+        onRowClicked: e => selectWard(e.data)
+      });
+      repaint();
+    })
+    .catch(err => {
+      document.getElementById('detail').innerHTML =
+        '<h2>Data failed to load</h2><p class="hint">' + err + '</p>';
+    });
+</script>
+
+</body>
+</html>
