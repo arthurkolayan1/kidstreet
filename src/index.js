@@ -78,31 +78,66 @@ export default {
 
     if (url.pathname === '/api/scores') {
       try {
-        // Read the pipeline's file from the assets bundle (public/data/wards.json).
-        const fileReq = new Request(new URL('/data/wards.json', request.url));
-        const fileRes = await env.ASSETS.fetch(fileReq);
+        const fileRes = await env.ASSETS.fetch(new Request(new URL('/data/wards.json', request.url)));
         if (!fileRes.ok) {
-          return new Response(JSON.stringify({ error: 'wards.json not found (expected at public/data/wards.json)' }), {
+          return new Response(JSON.stringify({ error: 'wards.json not found at public/data/wards.json' }), {
             status: 500, headers: { 'Content-Type': 'application/json' }
           });
         }
         const raw = await fileRes.json();
         const wards = Array.isArray(raw.wards) ? raw.wards : [];
 
+        // Published weights. Nulls renormalise: missing data never counts as zero.
+        const WEIGHTS = { safety: 0.30, green: 0.20, education: 0.20, transport: 0.15, family: 0.10, planning: 0.05 };
+
         const scores = wards.map(w => {
           const s = w.scores || {};
-          const safety = Number(s.safety) || 0;
-          const green = Number(s.green_space) || 0;
-          const narrative = Number(s.liveability) || 0; // proxy until live LLM scoring lands
-          const composite = Math.round(0.4 * safety + 0.3 * green + 0.3 * narrative);
+          const d = w.dimensions || {};
+          const vals = {
+            safety: s.safety, green: s.green_space, transport: s.transport,
+            education: s.education, planning: s.planning, family: s.family_fit
+          };
+
+          let wsum = 0, total = 0;
+          for (const k of Object.keys(WEIGHTS)) {
+            if (vals[k] !== null && vals[k] !== undefined) {
+              wsum += WEIGHTS[k];
+              total += WEIGHTS[k] * vals[k];
+            }
+          }
+          const composite = wsum > 0 ? Math.round(total / wsum) : null;
+
+          // Justification built from real evidence in the file.
+          const parts = [];
+          if (d.safety && d.safety.crimes_last_month !== null && d.safety.crimes_last_month !== undefined) {
+            parts.push(d.safety.crimes_last_month + ' crimes last month');
+          }
+          if (d.green_space) {
+            const g = d.green_space;
+            if (g.named_green_space_count) {
+              let t = g.named_green_space_count + ' green spaces';
+              if (g.playground_count) t += ', ' + g.playground_count + ' playgrounds';
+              if (g.notable_parks && g.notable_parks.length) t += ' incl. ' + g.notable_parks[0];
+              parts.push(t);
+            }
+          }
+          if (d.education && d.education.pct_good_or_outstanding !== null && d.education.pct_good_or_outstanding !== undefined) {
+            parts.push(Math.round(d.education.pct_good_or_outstanding) + '% of ' + d.education.school_count + ' schools Good/Outstanding');
+          }
+          if (d.planning && d.planning.upcoming_facility_count) {
+            parts.push(d.planning.upcoming_facility_count + ' child facilities in planning');
+          }
+          const justification = parts.length
+            ? parts.slice(0, 3).join('; ') + '.'
+            : 'Sourced data; several metrics unavailable for this ward.';
+
           return {
             ward: w.ward_name,
             borough: w.borough,
-            safety,
-            green,
-            narrative,
-            composite,
-            justification: 'Narrative uses liveability as an interim proxy; live LLM scoring to follow.'
+            ward_code: w.ward_code || null,
+            safety: vals.safety, green: vals.green, transport: vals.transport,
+            education: vals.education, planning: vals.planning, family: vals.family,
+            composite, justification
           };
         });
 
