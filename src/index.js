@@ -2,61 +2,31 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/scores') {
+      const J = 'Placeholder — live pipeline output lands this afternoon.';
       const scores = [
-        {
-          id: 'GRN-001',
-          ward: 'Greenwich Park',
-          geometry: {
-            type: 'Polygon',
-            coordinates: [[
-              [-0.0102, 51.4805], [-0.0038, 51.4838], [0.0031, 51.4826],
-              [0.0064, 51.4788], [0.0049, 51.4739], [-0.0011, 51.4712],
-              [-0.0078, 51.4726], [-0.0102, 51.4770], [-0.0102, 51.4805]
-            ]]
-          },
-          centroid: [51.4769, -0.0005],
-          safety: 72,
-          green: 85,
-          narrative: 64,
-          composite: 73,
-          justification: 'Low recorded crime, excellent green access, council narrative broadly matches reality.'
-        },
-        {
-          id: 'GRN-002',
-          ward: 'Woolwich Riverside',
-          geometry: {
-            type: 'Polygon',
-            coordinates: [[
-              [0.0531, 51.4962], [0.0622, 51.4981], [0.0719, 51.4958],
-              [0.0752, 51.4911], [0.0704, 51.4861], [0.0611, 51.4847],
-              [0.0548, 51.4879], [0.0531, 51.4962]
-            ]]
-          },
-          centroid: [51.4900, 0.0648],
-          safety: 55,
-          green: 48,
-          narrative: 60,
-          composite: 55,
-          justification: 'Higher crime density near town centre, limited green space within walking distance.'
-        },
-        {
-          id: 'GRN-003',
-          ward: 'Blackheath Westcombe',
-          geometry: {
-            type: 'Polygon',
-            coordinates: [[
-              [0.0002, 51.4718], [0.0089, 51.4731], [0.0171, 51.4702],
-              [0.0182, 51.4652], [0.0121, 51.4611], [0.0038, 51.4606],
-              [-0.0009, 51.4648], [0.0002, 51.4718]
-            ]]
-          },
-          centroid: [51.4660, 0.0090],
-          safety: 78,
-          green: 80,
-          narrative: 68,
-          composite: 76,
-          justification: 'Open heath access, low recorded crime, council claims mostly supported by data.'
-        }
+        { ward: 'Abbey Wood', safety: 61, green: 52, narrative: 56, composite: 57, justification: J },
+        { ward: 'Blackheath Westcombe', safety: 84, green: 95, narrative: 90, composite: 89, justification: J },
+        { ward: 'Charlton Hornfair', safety: 66, green: 68, narrative: 67, composite: 67, justification: J },
+        { ward: 'Charlton Village and Riverside', safety: 73, green: 74, narrative: 75, composite: 74, justification: J },
+        { ward: 'East Greenwich', safety: 70, green: 58, narrative: 74, composite: 68, justification: J },
+        { ward: 'Eltham Page', safety: 68, green: 71, narrative: 69, composite: 69, justification: J },
+        { ward: 'Eltham Park and Progress', safety: 75, green: 76, narrative: 72, composite: 74, justification: J },
+        { ward: 'Eltham Town and Avery Hill', safety: 72, green: 78, narrative: 73, composite: 74, justification: J },
+        { ward: 'Greenwich Creekside', safety: 71, green: 55, narrative: 76, composite: 68, justification: J },
+        { ward: 'Greenwich Park', safety: 80, green: 98, narrative: 92, composite: 89, justification: J },
+        { ward: 'Greenwich Peninsula', safety: 74, green: 45, narrative: 64, composite: 62, justification: J },
+        { ward: 'Kidbrooke Park', safety: 70, green: 82, narrative: 71, composite: 74, justification: J },
+        { ward: 'Kidbrooke Village and Sutcliffe', safety: 73, green: 79, narrative: 70, composite: 74, justification: J },
+        { ward: 'Middle Park and Horn Park', safety: 64, green: 73, narrative: 65, composite: 67, justification: J },
+        { ward: 'Mottingham, Coldharbour and New Eltham', safety: 67, green: 69, narrative: 66, composite: 67, justification: J },
+        { ward: 'Plumstead and Glyndon', safety: 58, green: 54, narrative: 57, composite: 57, justification: J },
+        { ward: 'Plumstead Common', safety: 60, green: 61, narrative: 59, composite: 60, justification: J },
+        { ward: 'Shooters Hill', safety: 78, green: 86, narrative: 77, composite: 80, justification: J },
+        { ward: 'Thamesmead Moorings', safety: 54, green: 48, narrative: 50, composite: 51, justification: J },
+        { ward: 'West Thamesmead', safety: 56, green: 50, narrative: 52, composite: 53, justification: J },
+        { ward: 'Woolwich Arsenal', safety: 55, green: 42, narrative: 62, composite: 53, justification: J },
+        { ward: 'Woolwich Common', safety: 62, green: 57, narrative: 63, composite: 61, justification: J },
+        { ward: 'Woolwich Dockyard', safety: 57, green: 46, narrative: 58, composite: 54, justification: J }
       ];
       return new Response(JSON.stringify(scores), {
         headers: { 'Content-Type': 'application/json' }
