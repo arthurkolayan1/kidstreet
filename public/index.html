@@ -20,7 +20,7 @@
   .lens-note { font-size: 11.5px; color: #777; margin: 6px 24px 0; }
   .methodology { margin: 10px 24px 0; padding: 8px 12px; background: #eaf0ea; border-left: 3px solid #2e7d32; font-size: 12px; color: #333; border-radius: 0 4px 4px 0; }
   .layout { display: flex; gap: 14px; padding: 14px 24px 24px; align-items: stretch; }
-  #map { flex: 1.4; min-height: 460px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  #map { flex: 1.4; min-height: 520px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
   .side { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 340px; }
   #detail { background: #fff; border-radius: 10px; padding: 16px 18px; min-height: 170px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
   #detail h2 { margin: 0 0 10px; font-size: 18px; }
@@ -32,8 +32,9 @@
   .scorebar .fill { display: block; height: 8px; border-radius: 4px; }
   .scorebar .num { margin-left: 8px; font-weight: 700; }
   .just { margin-top: 12px; font-size: 13px; color: #333; font-style: italic; border-top: 1px solid #eee; padding-top: 10px; }
-  #grid { flex: 1; min-height: 260px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+  #grid { flex: 1; min-height: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
   .composite-big { font-size: 32px; font-weight: 800; float: right; }
+  .credit { margin: 0 24px 16px; font-size: 10.5px; color: #999; }
 </style>
 </head>
 <body>
@@ -62,15 +63,24 @@
   <div class="side">
     <div id="detail">
       <h2>Select a ward</h2>
-      <p class="hint">Click a shaded area on the map, or a row in the table.</p>
+      <p class="hint">Click a shaded ward on the map, or a row in the table.</p>
     </div>
     <div id="grid" class="ag-theme-quartz"></div>
   </div>
 </div>
 
+<p class="credit">Ward boundaries: Office for National Statistics (Wards May 2024, super-generalised). Contains OS data &copy; Crown copyright and database right 2024.</p>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
 <script>
+  const ONS_WARDS_URL =
+    'https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_2024_Boundaries_UK_BSC/FeatureServer/0/query'
+    + '?where=1%3D1'
+    + '&geometry=-0.04,51.40,0.16,51.52'
+    + '&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects'
+    + '&outFields=WD24CD,WD24NM&outSR=4326&f=geojson';
+
   const LENSES = {
     move: {
       note: 'Published composite: safety 40% · green 30% · narrative 30%. Best score first.',
@@ -91,13 +101,17 @@
   };
   let activeLens = 'move';
   let wardData = [];
-  const layersById = {};
+  const layersByWard = {};
   let gridApi = null;
 
-  const map = L.map('map').setView([51.480, 0.02], 12);
+  const map = L.map('map').setView([51.465, 0.06], 12);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
+
+  function normName(s) {
+    return s.toLowerCase().replace(/&/g, 'and').replace(/[,.']/g, '').replace(/\s+/g, ' ').trim();
+  }
 
   function scoreColour(s) {
     if (s >= 75) return '#2e7d32';
@@ -114,7 +128,7 @@
     document.getElementById('lensNote').textContent = lens.note;
     wardData.forEach(w => {
       const s = lensScore(w);
-      const layer = layersById[w.id];
+      const layer = layersByWard[normName(w.ward)];
       if (layer) {
         layer.setStyle({ fillColor: scoreColour(s) });
         layer.unbindTooltip();
@@ -154,7 +168,7 @@
 
   function selectWard(w) {
     showDetail(w);
-    const layer = layersById[w.id];
+    const layer = layersByWard[normName(w.ward)];
     if (layer) {
       map.fitBounds(layer.getBounds(), { padding: [30, 30] });
       layer.setStyle({ weight: 3.5 });
@@ -171,27 +185,46 @@
     });
   });
 
-  fetch('/api/scores')
-    .then(r => r.json())
-    .then(data => {
-      wardData = data;
-      data.forEach(w => {
-        const layer = L.geoJSON(
-          { type: 'Feature', geometry: w.geometry, properties: {} },
-          { style: { color: '#2b2b2b', weight: 1.5, fillColor: scoreColour(w.composite), fillOpacity: 0.55 } }
-        ).addTo(map);
+  function loadBoundaries() {
+    // Try a local snapshot first (public/wards.geojson), fall back to live ONS.
+    return fetch('/wards.geojson')
+      .then(r => { if (!r.ok) throw new Error('no local snapshot'); return r.json(); })
+      .catch(() => fetch(ONS_WARDS_URL).then(r => r.json()));
+  }
+
+  Promise.all([
+    fetch('/api/scores').then(r => r.json()),
+    loadBoundaries()
+  ])
+    .then(([scores, geo]) => {
+      wardData = scores;
+      const scoresByName = {};
+      scores.forEach(w => { scoresByName[normName(w.ward)] = w; });
+
+      geo.features.forEach(f => {
+        const wname = f.properties.WD24NM || '';
+        const w = scoresByName[normName(wname)];
+        if (!w) return; // ward outside Greenwich score list, skip
+        const layer = L.geoJSON(f, {
+          style: { color: '#2b2b2b', weight: 1.5, fillColor: scoreColour(w.composite), fillOpacity: 0.55 }
+        }).addTo(map);
         layer.on('click', () => selectWard(w));
-        layersById[w.id] = layer;
+        layersByWard[normName(w.ward)] = layer;
       });
 
+      const matched = Object.keys(layersByWard).length;
+      if (matched < scores.length) {
+        console.warn('Unmatched wards:', scores.filter(w => !layersByWard[normName(w.ward)]).map(w => w.ward));
+      }
+
       gridApi = agGrid.createGrid(document.getElementById('grid'), {
-        rowData: data,
+        rowData: scores,
         columnDefs: [
-          { field: 'ward', headerName: 'Ward', flex: 1.5 },
-          { field: 'safety', headerName: 'Safety', flex: 0.9 },
-          { field: 'green', headerName: 'Green', flex: 0.9 },
-          { field: 'narrative', headerName: 'Narrative', flex: 1 },
-          { colId: 'lensScore', headerName: 'Score', flex: 0.9, sort: 'desc',
+          { field: 'ward', headerName: 'Ward', flex: 1.6 },
+          { field: 'safety', headerName: 'Safety', flex: 0.8 },
+          { field: 'green', headerName: 'Green', flex: 0.8 },
+          { field: 'narrative', headerName: 'Narrative', flex: 0.9 },
+          { colId: 'lensScore', headerName: 'Score', flex: 0.8, sort: 'desc',
             valueGetter: p => LENSES[activeLens].score(p.data),
             cellStyle: p => ({ fontWeight: 800, color: scoreColour(p.value) }) }
         ],
