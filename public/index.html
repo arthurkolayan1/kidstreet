@@ -1,88 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KidStreet — Greenwich</title>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-quartz.css" />
-
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, sans-serif; }
-    header { padding: 12px 20px; background: #14213d; color: white; }
-    header h1 { margin: 0; font-size: 18px; }
-    header p { margin: 2px 0 0; font-size: 12px; color: #cbd5e1; }
-    #layout { display: flex; height: calc(100vh - 56px); }
-    #map { flex: 2; }
-    #grid-panel { flex: 1; padding: 10px; min-width: 320px; display: flex; flex-direction: column; }
-    #score-grid { flex: 1; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KidStreet — Greenwich</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-theme-quartz.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f7f7f5; }
+  header { padding: 14px 20px 6px; }
+  header h1 { margin: 0; font-size: 22px; }
+  header p { margin: 4px 0 0; color: #555; font-size: 13px; }
+  .methodology { margin: 8px 20px 0; padding: 8px 12px; background: #eef2ee; border-left: 3px solid #2e7d32; font-size: 12.5px; color: #333; border-radius: 0 4px 4px 0; }
+  .layout { display: flex; gap: 12px; padding: 12px 20px 20px; align-items: stretch; }
+  #map { flex: 1.4; min-height: 420px; border-radius: 8px; }
+  .side { flex: 1; display: flex; flex-direction: column; gap: 12px; min-width: 320px; }
+  #detail { background: #fff; border-radius: 8px; padding: 14px 16px; min-height: 150px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  #detail h2 { margin: 0 0 8px; font-size: 17px; }
+  #detail .hint { color: #888; font-size: 13px; }
+  .scorebar { margin: 6px 0; font-size: 13px; }
+  .scorebar .label { display: inline-block; width: 130px; color: #444; }
+  .scorebar .track { display: inline-block; width: 120px; height: 8px; background: #e5e5e5; border-radius: 4px; vertical-align: middle; }
+  .scorebar .fill { display: block; height: 8px; border-radius: 4px; }
+  .scorebar .num { margin-left: 8px; font-weight: 600; }
+  .just { margin-top: 10px; font-size: 13px; color: #333; font-style: italic; border-top: 1px solid #eee; padding-top: 8px; }
+  #grid { flex: 1; min-height: 230px; }
+  .composite-big { font-size: 30px; font-weight: 700; float: right; }
+</style>
 </head>
 <body>
-  <header>
-    <h1>KidStreet — Greenwich</h1>
-    <p>Street-level safety, access and fun scores. Methodology shown on click.</p>
-  </header>
 
-  <div id="layout">
-    <div id="map"></div>
-    <div id="grid-panel">
-      <div id="score-grid" class="ag-theme-quartz"></div>
+<header>
+  <h1>KidStreet</h1>
+  <p>Honest scores for how child-friendly Greenwich actually is. Open data, open methodology.</p>
+</header>
+
+<div class="methodology">
+  <strong>Methodology:</strong> Safety 40% (police.uk crime density, inverted) ·
+  Green access 30% (London Datastore) ·
+  Council narrative 30% (LLM score of real council documents) ·
+  Composite 0–100. All sources open. Disagree with the inputs? Good, they're published.
+</div>
+
+<div class="layout">
+  <div id="map"></div>
+  <div class="side">
+    <div id="detail">
+      <h2>Select a ward</h2>
+      <p class="hint">Click a shaded area on the map, or a row in the table.</p>
     </div>
+    <div id="grid" class="ag-theme-quartz"></div>
   </div>
+</div>
 
-  <script>
-    const map = L.map('map').setView([51.4892, 0.0648], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
+<script>
+  const map = L.map('map').setView([51.480, 0.02], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
-    const placeholderCells = [
-      { id: 'GRN-001', name: 'Greenwich Park area', lat: 51.4769, lng: -0.0005, safety: 72, access: 68, fun: 80, composite: 73 },
-      { id: 'GRN-002', name: 'Woolwich', lat: 51.4900, lng: 0.0648, safety: 55, access: 60, fun: 50, composite: 55 },
-      { id: 'GRN-003', name: 'Blackheath', lat: 51.4660, lng: 0.0090, safety: 78, access: 70, fun: 75, composite: 75 }
+  function scoreColour(s) {
+    if (s >= 75) return '#2e7d32';
+    if (s >= 65) return '#7cb342';
+    if (s >= 55) return '#f9a825';
+    if (s >= 45) return '#ef6c00';
+    return '#c62828';
+  }
+
+  const layersById = {};
+  let gridApi = null;
+
+  function showDetail(w) {
+    const rows = [
+      ['Safety (40%)', w.safety],
+      ['Green access (30%)', w.green],
+      ['Council narrative (30%)', w.narrative]
     ];
-
-    function colourFor(score) {
-      if (score >= 70) return '#2e7d32';
-      if (score >= 50) return '#f9a825';
-      return '#c62828';
+    let html = '<span class="composite-big" style="color:' + scoreColour(w.composite) + '">' + w.composite + '</span>';
+    html += '<h2>' + w.ward + '</h2>';
+    for (const [label, val] of rows) {
+      html += '<div class="scorebar"><span class="label">' + label + '</span>'
+        + '<span class="track"><span class="fill" style="width:' + val + '%;background:' + scoreColour(val) + '"></span></span>'
+        + '<span class="num">' + val + '</span></div>';
     }
+    html += '<div class="just">&ldquo;' + w.justification + '&rdquo;</div>';
+    document.getElementById('detail').innerHTML = html;
+  }
 
-    placeholderCells.forEach(cell => {
-      L.circleMarker([cell.lat, cell.lng], {
-        radius: 14,
-        fillColor: colourFor(cell.composite),
-        color: '#222',
-        weight: 1,
-        fillOpacity: 0.75
-      })
-      .addTo(map)
-      .bindPopup(`<b>${cell.name}</b><br>Composite: ${cell.composite}<br>Safety: ${cell.safety} · Access: ${cell.access} · Fun: ${cell.fun}`);
+  function selectWard(w) {
+    showDetail(w);
+    const layer = layersById[w.id];
+    if (layer) {
+      map.fitBounds(layer.getBounds(), { padding: [30, 30] });
+      layer.setStyle({ weight: 3 });
+      setTimeout(() => layer.setStyle({ weight: 1.5 }), 1200);
+    }
+  }
+
+  fetch('/api/scores')
+    .then(r => r.json())
+    .then(data => {
+      data.forEach(w => {
+        const layer = L.geoJSON(
+          { type: 'Feature', geometry: w.geometry, properties: {} },
+          {
+            style: {
+              color: '#333',
+              weight: 1.5,
+              fillColor: scoreColour(w.composite),
+              fillOpacity: 0.55
+            }
+          }
+        ).addTo(map);
+        layer.bindTooltip(w.ward + ' — ' + w.composite, { sticky: true });
+        layer.on('click', () => selectWard(w));
+        layersById[w.id] = layer;
+      });
+
+      const gridOptions = {
+        rowData: data,
+        columnDefs: [
+          { field: 'ward', headerName: 'Ward', flex: 1.4 },
+          { field: 'safety', headerName: 'Safety', flex: 1 },
+          { field: 'green', headerName: 'Green', flex: 1 },
+          { field: 'narrative', headerName: 'Narrative', flex: 1 },
+          { field: 'composite', headerName: 'Score', flex: 1, sort: 'desc',
+            cellStyle: p => ({ fontWeight: 700, color: scoreColour(p.value) }) }
+        ],
+        onRowClicked: e => selectWard(e.data)
+      };
+      gridApi = agGrid.createGrid(document.getElementById('grid'), gridOptions);
+    })
+    .catch(err => {
+      document.getElementById('detail').innerHTML =
+        '<h2>Data failed to load</h2><p class="hint">' + err + '</p>';
     });
+</script>
 
-    const gridOptions = {
-      columnDefs: [
-        { field: 'name', headerName: 'Area' },
-        { field: 'safety', headerName: 'Safety', sort: 'desc' },
-        { field: 'access', headerName: 'Access' },
-        { field: 'fun', headerName: 'Fun' },
-        { field: 'composite', headerName: 'Composite' }
-      ],
-      rowData: placeholderCells,
-      defaultColDef: { flex: 1, sortable: true, filter: true },
-      onRowClicked: (e) => {
-        map.setView([e.data.lat, e.data.lng], 15);
-      }
-    };
-
-    agGrid.createGrid(document.getElementById('score-grid'), gridOptions);
-  </script>
 </body>
 </html>
