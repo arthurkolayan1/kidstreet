@@ -33,6 +33,18 @@ The UI answers three questions with the same data:
 2. **Where's a good day out?** Re-weighted on screen: green 60, safety 40. Narrative excluded. The re-weighting is disclosed in the UI because a transparency product cannot have a secret second formula.
 3. **What should the council fix?** Same composite, worst first. Wards under 60 are flagged.
 
+## Voice Agent (ElevenLabs)
+
+KidStreet includes an interactive voice agent powered by ElevenLabs ConvAI. It allows users to ask questions about child-friendliness in Greenwich and receive personalized ward recommendations.
+
+The agent has access to the following client-side tools:
+
+- **`recommend_wards`**: Ranks wards based on user-specified priorities for safety, green space, and council narrative. It calculates a custom match score and highlights the top match on the map.
+- **`get_ward_scores`**: Provides the agent with the current score data for all Greenwich wards, including safety, green access, narrative, composite scores, and justifications.
+- **`show_ward`**: Allows the agent to programmatically select and highlight a specific ward on the map and detail panel.
+
+The agent is integrated via the ElevenLabs conversational AI widget and can be triggered using the "Ask KidStreet" button in the UI.
+
 ## Scoring methodology
 
 | Metric | Weight | Source | Status |
