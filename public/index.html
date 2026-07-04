@@ -250,7 +250,6 @@
             <button class="lens" data-lens="council">
                 What should the council fix?
             </button>
-            <button id="askBtn">&#127908; Ask KidStreet</button>
             <div class="pcwrap">
                 <input
                     id="pcInput"
@@ -585,14 +584,6 @@
                             );
                         },
                     };
-                });
-
-                const askBtn = document.getElementById("askBtn");
-                askBtn.classList.add("on");
-                askBtn.addEventListener("click", () => {
-                    if (typeof el.startConversation === "function") {
-                        el.startConversation();
-                    }
                 });
             }
 
