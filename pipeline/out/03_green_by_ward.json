@@ -1,0 +1,7402 @@
+{
+  "generated_at": "2026-07-04T14:19:43.736Z",
+  "source": "OpenStreetMap Overpass API (leisure=playground|park|nature_reserve; leisure=garden excluded from scoring as mostly private plots), single London-wide query, point-in-polygon join. © OpenStreetMap contributors, ODbL.",
+  "wards": [
+    {
+      "ward_code": "E05009288",
+      "ward_name": "Aldersgate",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "St Anne & St Agnes",
+        "Postman's Park"
+      ]
+    },
+    {
+      "ward_code": "E05009289",
+      "ward_name": "Aldgate",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "St Katharine Cree Churchyard"
+      ]
+    },
+    {
+      "ward_code": "E05009290",
+      "ward_name": "Bassishaw",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Church Yard of St Mary Aldermanbury"
+      ]
+    },
+    {
+      "ward_code": "E05009291",
+      "ward_name": "Billingsgate",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009292",
+      "ward_name": "Bishopsgate",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009293",
+      "ward_name": "Bread Street",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Festival Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009294",
+      "ward_name": "Bridge",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009295",
+      "ward_name": "Broad Street",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009296",
+      "ward_name": "Candlewick",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009297",
+      "ward_name": "Castle Baynard",
+      "playground_count": 0,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Carter Lane Gardens",
+        "St Paul's Churchyard"
+      ]
+    },
+    {
+      "ward_code": "E05009298",
+      "ward_name": "Cheap",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009299",
+      "ward_name": "Coleman Street",
+      "playground_count": 0,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Finsbury Circus Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009300",
+      "ward_name": "Cordwainer",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009301",
+      "ward_name": "Cornhill",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009302",
+      "ward_name": "Cripplegate",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009303",
+      "ward_name": "Dowgate",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009304",
+      "ward_name": "Farringdon Within",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Churchyard of St. Ann Blackfriars"
+      ]
+    },
+    {
+      "ward_code": "E05009305",
+      "ward_name": "Farringdon Without",
+      "playground_count": 0,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Smithfield Rotunda Garden",
+        "Gray's Inn Gardens",
+        "Princess Alice Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009306",
+      "ward_name": "Langbourn",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009307",
+      "ward_name": "Lime Street",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009308",
+      "ward_name": "Portsoken",
+      "playground_count": 2,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009309",
+      "ward_name": "Queenhithe",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009310",
+      "ward_name": "Tower",
+      "playground_count": 1,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Tower Hill Garden",
+        "Trinity Square Gardens",
+        "Seething Lane Garden",
+        "Portsoken Street Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009311",
+      "ward_name": "Vintry",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009312",
+      "ward_name": "Walbrook",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009317",
+      "ward_name": "Bethnal Green East",
+      "playground_count": 16,
+      "park_reserve_count": 15,
+      "notable_parks": [
+        "Paradise Gardens",
+        "Bethnal Green Gardens",
+        "Carlton Square Gardens",
+        "Meath Gardens",
+        "Museum Gardens",
+        "Carlton Square"
+      ]
+    },
+    {
+      "ward_code": "E05009318",
+      "ward_name": "Blackwall & Cubitt Town",
+      "playground_count": 13,
+      "park_reserve_count": 19,
+      "notable_parks": [
+        "St John's Park",
+        "Harbord Square Park",
+        "East India Dock Basin",
+        "Harbour Quay Gardens",
+        "Compton Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009319",
+      "ward_name": "Bow East",
+      "playground_count": 9,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Lefevre Park",
+        "Grove Hall Park",
+        "McKenna Green"
+      ]
+    },
+    {
+      "ward_code": "E05009320",
+      "ward_name": "Bow West",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Tredegar Square",
+        "Selwyn Green",
+        "St Stephen's Green",
+        "Wennington Green"
+      ]
+    },
+    {
+      "ward_code": "E05009321",
+      "ward_name": "Bromley North",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Bromley Recreation Ground",
+        "St. Leonard's Priory Park",
+        "Archibald Open Space",
+        "Bow Estate Park"
+      ]
+    },
+    {
+      "ward_code": "E05009322",
+      "ward_name": "Bromley South",
+      "playground_count": 12,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Clara Grant Green",
+        "Furze Green",
+        "Chiltern Green",
+        "Prospect Park",
+        "Rounton Park",
+        "Brock Place Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009323",
+      "ward_name": "Canary Wharf",
+      "playground_count": 9,
+      "park_reserve_count": 20,
+      "notable_parks": [
+        "Sir John McDougall Gardens",
+        "Jubilee Park",
+        "Canada Square Park",
+        "Erebus Gardens",
+        "Indescon Square",
+        "Canary Central",
+        "Westferry Circus"
+      ]
+    },
+    {
+      "ward_code": "E05009324",
+      "ward_name": "Island Gardens",
+      "playground_count": 6,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Island Gardens",
+        "Millwall Park",
+        "Mudchute Park & Farm",
+        "Manchester Estate Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009325",
+      "ward_name": "Lansbury",
+      "playground_count": 20,
+      "park_reserve_count": 21,
+      "notable_parks": [
+        "Bartlett Park",
+        "Langdon Park",
+        "Brabazon Green",
+        "Leven Road Open Space",
+        "Braithwaite Park",
+        "Aberfeldy Millennium Green",
+        "Jolly's Green",
+        "Church Green"
+      ]
+    },
+    {
+      "ward_code": "E05009326",
+      "ward_name": "Limehouse",
+      "playground_count": 5,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Ropemakers Fields",
+        "St James' Gardens",
+        "St Anne's Churchyard",
+        "Rectory Gardens",
+        "Kings Wharf Park"
+      ]
+    },
+    {
+      "ward_code": "E05009327",
+      "ward_name": "Mile End",
+      "playground_count": 12,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Brickfield Gardens",
+        "Tower Hamlets Cemetery Park",
+        "Scrapyard Meadow",
+        "Blackberry Meadow",
+        "Cowslip Meadow",
+        "Pear Tree Meadow",
+        "Primrose Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05009328",
+      "ward_name": "Poplar",
+      "playground_count": 15,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Millennium Green",
+        "Poplar Recreation Ground",
+        "Pennyfields Park",
+        "All Saints Church",
+        "Storey House Green"
+      ]
+    },
+    {
+      "ward_code": "E05009329",
+      "ward_name": "St Dunstan's",
+      "playground_count": 11,
+      "park_reserve_count": 14,
+      "notable_parks": [
+        "York Square Gardens",
+        "Belgrave Open Space",
+        "Beaumont Square Gardens",
+        "St. Dunstans Churchyard",
+        "Whitehorse Open Space",
+        "Shandy Park",
+        "Stonebridge Wharf",
+        "Trafalgar Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009330",
+      "ward_name": "St Katharine's & Wapping",
+      "playground_count": 12,
+      "park_reserve_count": 15,
+      "notable_parks": [
+        "Wapping Woods",
+        "Wapping Green",
+        "Wapping Gardens",
+        "St John's Churchyard",
+        "King Edward Memorial Park",
+        "Hellings Street Open Space",
+        "Royal Mint Green",
+        "Tower Bridge Piazza"
+      ]
+    },
+    {
+      "ward_code": "E05009331",
+      "ward_name": "Bethnal Green West",
+      "playground_count": 22,
+      "park_reserve_count": 13,
+      "notable_parks": [
+        "Pollard Square",
+        "St. Bartholomew's Gardens",
+        "Middleton Green",
+        "Warner Green",
+        "Weaver's Fields",
+        "Bethnal Green Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05009332",
+      "ward_name": "Shadwell",
+      "playground_count": 10,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "St George's Gardens",
+        "Gosling Gardens",
+        "Albert Gardens",
+        "Pearl and Mizanur’s Memorial Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009333",
+      "ward_name": "Spitalfields & Banglatown",
+      "playground_count": 13,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Elder Gardens",
+        "Allen Gardens",
+        "Vallance Gardens",
+        "Christ Church Churchyard",
+        "Chicksand Street Park",
+        "Altab Ali Park",
+        "Mallon Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009334",
+      "ward_name": "Stepney Green",
+      "playground_count": 9,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Sidney Square Gardens",
+        "Jubilee Gardens",
+        "Arbour Square Gardens",
+        "Stepney Green Park"
+      ]
+    },
+    {
+      "ward_code": "E05009335",
+      "ward_name": "Weavers",
+      "playground_count": 7,
+      "park_reserve_count": 14,
+      "notable_parks": [
+        "Jesus Green",
+        "Ion Square Gardens",
+        "Ravenscroft Park",
+        "Virginia Gardens",
+        "Baxendale Street Open Space",
+        "Naseem's Garden",
+        "Boundary Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009336",
+      "ward_name": "Whitechapel",
+      "playground_count": 13,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Ford Square Gardens",
+        "Swedenborg Gardens",
+        "Braham Street Park",
+        "Cavell Street Gardens",
+        "Chaucer Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009367",
+      "ward_name": "Brownswood",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009368",
+      "ward_name": "Cazenove",
+      "playground_count": 10,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009369",
+      "ward_name": "Clissold",
+      "playground_count": 9,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Clissold Park",
+        "Church Street Gardens",
+        "Albion Parade"
+      ]
+    },
+    {
+      "ward_code": "E05009370",
+      "ward_name": "Dalston",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009371",
+      "ward_name": "De Beauvoir",
+      "playground_count": 8,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "De Beauvoir Square",
+        "Ufton Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009372",
+      "ward_name": "Hackney Central",
+      "playground_count": 15,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "The Walled Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009373",
+      "ward_name": "Hackney Downs",
+      "playground_count": 12,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Hackney Downs"
+      ]
+    },
+    {
+      "ward_code": "E05009374",
+      "ward_name": "Hackney Wick",
+      "playground_count": 14,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Canal Park",
+        "Canal Park (North)",
+        "Gascoyne Estate Play Space",
+        "Wick Green"
+      ]
+    },
+    {
+      "ward_code": "E05009375",
+      "ward_name": "Haggerston",
+      "playground_count": 15,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Haggerston Park",
+        "Weymouth Terrace",
+        "Fairchild’s Garden",
+        "Ivy's Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009376",
+      "ward_name": "Homerton",
+      "playground_count": 21,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Clapton Square",
+        "Homerton Grove",
+        "Shore Gardens",
+        "Build Up Hackney"
+      ]
+    },
+    {
+      "ward_code": "E05009377",
+      "ward_name": "Hoxton East & Shoreditch",
+      "playground_count": 12,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Hoxton Square",
+        "Aske Gardens",
+        "Charles Square",
+        "Mark Street Gardens",
+        "St Leonard's Churchyard",
+        "Shoreditch Park",
+        "Whitmore Estate Gardens Play Area",
+        "Nuttal Street Gardens Play Area"
+      ]
+    },
+    {
+      "ward_code": "E05009378",
+      "ward_name": "Hoxton West",
+      "playground_count": 7,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Shepherdess Walk Park",
+        "Community Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009379",
+      "ward_name": "King's Park",
+      "playground_count": 13,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Daubeney Fields",
+        "Melbourne Green",
+        "East Marsh",
+        "South Marsh",
+        "North Marsh",
+        "All-Mead Gardens",
+        "Middlesex Filter Beds Nature Reserve",
+        "Hackney Marshes"
+      ]
+    },
+    {
+      "ward_code": "E05009380",
+      "ward_name": "Lea Bridge",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "The Wharf Park"
+      ]
+    },
+    {
+      "ward_code": "E05009381",
+      "ward_name": "London Fields",
+      "playground_count": 13,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "London Fields",
+        "Stonebridge Gardens",
+        "Stonebridge Common",
+        "Broadway Market Green",
+        "Albion Square Gardens",
+        "London Fields Ecology Classroom & Wildlife Habitat"
+      ]
+    },
+    {
+      "ward_code": "E05009382",
+      "ward_name": "Shacklewell",
+      "playground_count": 12,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Shacklewell Green"
+      ]
+    },
+    {
+      "ward_code": "E05009383",
+      "ward_name": "Springfield",
+      "playground_count": 16,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Springfield Park"
+      ]
+    },
+    {
+      "ward_code": "E05009384",
+      "ward_name": "Stamford Hill West",
+      "playground_count": 8,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Allens Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009385",
+      "ward_name": "Stoke Newington",
+      "playground_count": 8,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Abney Park",
+        "Kynaston Gardens",
+        "West Hackney Recreational"
+      ]
+    },
+    {
+      "ward_code": "E05009386",
+      "ward_name": "Victoria",
+      "playground_count": 7,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Well Street Common",
+        "St Thomas's Square",
+        "St Thomas's Recreation Ground",
+        "St Thomas's Long Burial Ground",
+        "Kit Crowley Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009387",
+      "ward_name": "Woodberry Down",
+      "playground_count": 9,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Woodberry Wetlands"
+      ]
+    },
+    {
+      "ward_code": "E05009388",
+      "ward_name": "Abingdon",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009389",
+      "ward_name": "Brompton & Hans Town",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009390",
+      "ward_name": "Campden",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "St Mary Abbots Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009391",
+      "ward_name": "Chelsea Riverside",
+      "playground_count": 10,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Westfield Park",
+        "Cremorne Gardens",
+        "Roper's Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009392",
+      "ward_name": "Colville",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Powis Square",
+        "Colville Square Gardens",
+        "Portobello Green",
+        "Tavistock Road Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009393",
+      "ward_name": "Courtfield",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009394",
+      "ward_name": "Dalgarno",
+      "playground_count": 8,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Sunbeam Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009395",
+      "ward_name": "Earl's Court",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009396",
+      "ward_name": "Golborne",
+      "playground_count": 10,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Meanwhile Gardens",
+        "Athlone Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009397",
+      "ward_name": "Holland",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Holland Park"
+      ]
+    },
+    {
+      "ward_code": "E05009398",
+      "ward_name": "Norland",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009399",
+      "ward_name": "Notting Dale",
+      "playground_count": 10,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Avondale Park",
+        "Maxilla Walk",
+        "Westway Garden",
+        "Waynflete Square Garden"
+      ]
+    },
+    {
+      "ward_code": "E05009400",
+      "ward_name": "Pembridge",
+      "playground_count": 4,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009401",
+      "ward_name": "Queen's Gate",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009402",
+      "ward_name": "Redcliffe",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Redcliffe Square Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009403",
+      "ward_name": "Royal Hospital",
+      "playground_count": 1,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Burton Court",
+        "Royal Avenue",
+        "Dove Place",
+        "Ranelagh Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05009404",
+      "ward_name": "St. Helen's",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05009405",
+      "ward_name": "Stanley",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Dovehouse Green",
+        "St Luke's Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011095",
+      "ward_name": "Borough & Bankside",
+      "playground_count": 11,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Christ Church Garden",
+        "Hatfields Green",
+        "Red Cross Garden",
+        "Nelson Square",
+        "Little Dorrit Park",
+        "Rennie Garden",
+        "Mint Street Park"
+      ]
+    },
+    {
+      "ward_code": "E05011096",
+      "ward_name": "Camberwell Green",
+      "playground_count": 10,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Camberwell Green",
+        "Addington Square"
+      ]
+    },
+    {
+      "ward_code": "E05011097",
+      "ward_name": "Champion Hill",
+      "playground_count": 9,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "St Francis Park"
+      ]
+    },
+    {
+      "ward_code": "E05011098",
+      "ward_name": "Chaucer",
+      "playground_count": 10,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Tabard Gardens",
+        "Newington Gardens",
+        "Dickens' Fields",
+        "St George's Churchyard Gardens",
+        "Bricklayers Arms Roundabout",
+        "Falmouth Road Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011099",
+      "ward_name": "Dulwich Hill",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Piermont Green",
+        "Dawson's Hill",
+        "Dawson's Hill Park"
+      ]
+    },
+    {
+      "ward_code": "E05011100",
+      "ward_name": "Dulwich Village",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Dulwich Park",
+        "Sunray Gardens",
+        "Belair Park"
+      ]
+    },
+    {
+      "ward_code": "E05011101",
+      "ward_name": "Dulwich Wood",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Sydenham Hill Wood"
+      ]
+    },
+    {
+      "ward_code": "E05011102",
+      "ward_name": "Faraday",
+      "playground_count": 15,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Surrey Square Park",
+        "Saint Peter's Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011103",
+      "ward_name": "Goose Green",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Goose Green",
+        "Centre for Wildlife Gardening"
+      ]
+    },
+    {
+      "ward_code": "E05011104",
+      "ward_name": "London Bridge & West Bermondsey",
+      "playground_count": 13,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "St. John's Churchyard",
+        "Tanner Street Park",
+        "Leathermarket Gardens",
+        "Guy Street Park",
+        "Potters Fields Park"
+      ]
+    },
+    {
+      "ward_code": "E05011105",
+      "ward_name": "Newington",
+      "playground_count": 10,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Pasley Park",
+        "Pullens Open Space",
+        "Pelier Park"
+      ]
+    },
+    {
+      "ward_code": "E05011106",
+      "ward_name": "North Bermondsey",
+      "playground_count": 13,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011107",
+      "ward_name": "North Walworth",
+      "playground_count": 17,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Salisbury Row",
+        "Nursery Row Park",
+        "Victory Community Park",
+        "Faraday Gardens",
+        "Elephant Park",
+        "Wansey Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011108",
+      "ward_name": "Nunhead & Queen's Road",
+      "playground_count": 7,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Consort Park",
+        "Dr Harold Moody Park",
+        "Nunhead Green",
+        "Cossall Park",
+        "Kirkwood Nature Reserve",
+        "St Mary Frobisher Park",
+        "Montague Square"
+      ]
+    },
+    {
+      "ward_code": "E05011109",
+      "ward_name": "Old Kent Road",
+      "playground_count": 16,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Bramcote Nature",
+        "Brimmington Park",
+        "Bird-in-Bush Park",
+        "Cobourg Road Nature Reserve",
+        "Leyton Square",
+        "Wildflower meadow"
+      ]
+    },
+    {
+      "ward_code": "E05011110",
+      "ward_name": "Peckham",
+      "playground_count": 16,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Calypso Gardens",
+        "Central Venture Park",
+        "Jowett Street Park",
+        "Goldsmith Nature Garden",
+        "Sumner Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05011111",
+      "ward_name": "Peckham Rye",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Brenchley Gardens",
+        "Community Wildlife Garden"
+      ]
+    },
+    {
+      "ward_code": "E05011112",
+      "ward_name": "Rotherhithe",
+      "playground_count": 10,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Stave Hill Ecology Park",
+        "King George's Park",
+        "Neptune Street Park",
+        "Cumberland Wharf",
+        "Southwark Park"
+      ]
+    },
+    {
+      "ward_code": "E05011113",
+      "ward_name": "Rye Lane",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Holly Grove Shrubbery",
+        "Bellenden Road Nature Garden"
+      ]
+    },
+    {
+      "ward_code": "E05011114",
+      "ward_name": "St George's",
+      "playground_count": 4,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "West Square Gardens",
+        "Geraldine Mary Harmsworth Park",
+        "St Mary's Churchyard",
+        "Diversity Garden",
+        "Elliott's Row Pocket Park"
+      ]
+    },
+    {
+      "ward_code": "E05011115",
+      "ward_name": "St Giles",
+      "playground_count": 14,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Lucas Gardens",
+        "St Giles' Churchyard",
+        "Brunswick Park"
+      ]
+    },
+    {
+      "ward_code": "E05011116",
+      "ward_name": "South Bermondsey",
+      "playground_count": 13,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Bermondsey Spa Gardens",
+        "Shuttleworth Park",
+        "Galleywall Nature Reserve",
+        "Paterson Park"
+      ]
+    },
+    {
+      "ward_code": "E05011117",
+      "ward_name": "Surrey Docks",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Lavender Pond Nature Park",
+        "Pearsons Park",
+        "Mayflower Park",
+        "Tommy's Park"
+      ]
+    },
+    {
+      "ward_code": "E05011462",
+      "ward_name": "Addiscombe East",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Ashburton Park",
+        "Addiscombe Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011463",
+      "ward_name": "Addiscombe West",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Addiscombe Railway Park",
+        "Dartnell Road Wayside Amenity Area"
+      ]
+    },
+    {
+      "ward_code": "E05011464",
+      "ward_name": "Bensham Manor",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Thornton Heath Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011465",
+      "ward_name": "Broad Green",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011466",
+      "ward_name": "Coulsdon Town",
+      "playground_count": 6,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011467",
+      "ward_name": "Crystal Palace & Upper Norwood",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Upper Norwood Recreation Ground",
+        "The Lawns",
+        "Westow Park"
+      ]
+    },
+    {
+      "ward_code": "E05011468",
+      "ward_name": "Fairfield",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Queen's Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011469",
+      "ward_name": "Kenley",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Riddlesdown",
+        "Kenley Common",
+        "Bourne Park"
+      ]
+    },
+    {
+      "ward_code": "E05011470",
+      "ward_name": "New Addington North",
+      "playground_count": 20,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011471",
+      "ward_name": "New Addington South",
+      "playground_count": 15,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Milne Park",
+        "North Downs Park",
+        "Addington Vale"
+      ]
+    },
+    {
+      "ward_code": "E05011472",
+      "ward_name": "Norbury & Pollards Hill",
+      "playground_count": 0,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Pollards Hill",
+        "Norbury Hall Park",
+        "Tree Space"
+      ]
+    },
+    {
+      "ward_code": "E05011473",
+      "ward_name": "Norbury Park",
+      "playground_count": 4,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Norwood Grove",
+        "Norbury Park",
+        "Biggin Woods",
+        "Green Lane Sports Ground",
+        "Manor Farm Nature Reserve",
+        "Maggie's Garden"
+      ]
+    },
+    {
+      "ward_code": "E05011474",
+      "ward_name": "Old Coulsdon",
+      "playground_count": 3,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Coulsdon Memorial Ground",
+        "Grange Park",
+        "Bleakfield Shaw",
+        "Coulsdon Common",
+        "Dollypers Hill Nature Reserve",
+        "Farthing Downs",
+        "New Hill",
+        "Happy Valley"
+      ]
+    },
+    {
+      "ward_code": "E05011475",
+      "ward_name": "Park Hill & Whitgift",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Park Hill Recreation Ground",
+        "Lloyd Park"
+      ]
+    },
+    {
+      "ward_code": "E05011476",
+      "ward_name": "Purley & Woodcote",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "The Glade",
+        "Woodcote Village Green"
+      ]
+    },
+    {
+      "ward_code": "E05011477",
+      "ward_name": "Purley Oaks & Riddlesdown",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Rotary Field"
+      ]
+    },
+    {
+      "ward_code": "E05011478",
+      "ward_name": "Sanderstead",
+      "playground_count": 2,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Birch (Selsdon)",
+        "Sanderstead to Whyteleafe Countryside Area",
+        "Sanderstead Recreation Ground",
+        "Hamsey Green Pond"
+      ]
+    },
+    {
+      "ward_code": "E05011479",
+      "ward_name": "Selhurst",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Whitehorse Road Recreation Ground",
+        "Wilford Road Recreation Ground",
+        "King George's Field"
+      ]
+    },
+    {
+      "ward_code": "E05011480",
+      "ward_name": "Selsdon & Addington Village",
+      "playground_count": 2,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Clears Croft",
+        "Bramley Bank",
+        "Heathfield",
+        "Addington Park",
+        "Littleheath Woods",
+        "Fallen Oak Field"
+      ]
+    },
+    {
+      "ward_code": "E05011481",
+      "ward_name": "Selsdon Vale & Forestdale",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Selsdon Recreation Ground",
+        "Hutchinson's Bank",
+        "Selsdon Wood"
+      ]
+    },
+    {
+      "ward_code": "E05011482",
+      "ward_name": "Shirley North",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Ashburton Playing Fields",
+        "Parkfields Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011483",
+      "ward_name": "Shirley South",
+      "playground_count": 2,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Addington Hills",
+        "Millers Pond",
+        "Shirley Heath",
+        "Shirley Church Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011484",
+      "ward_name": "South Croydon",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "South Croydon Recreation Ground",
+        "Haling Grove"
+      ]
+    },
+    {
+      "ward_code": "E05011485",
+      "ward_name": "South Norwood",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "South Norwood Recreation Ground",
+        "Heavers Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05011486",
+      "ward_name": "Thornton Heath",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Whitehorse Meadow",
+        "Grangewood Park"
+      ]
+    },
+    {
+      "ward_code": "E05011487",
+      "ward_name": "Waddon",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Wandle Park",
+        "Duppas Hill Recreation Ground",
+        "Purley Way Playing Fields",
+        "Waddon Ponds"
+      ]
+    },
+    {
+      "ward_code": "E05011488",
+      "ward_name": "West Thornton",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011489",
+      "ward_name": "Woodside",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "South Norwood Country Park",
+        "Woodside Green"
+      ]
+    },
+    {
+      "ward_code": "E05011249",
+      "ward_name": "Monkhams",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Woodford Green"
+      ]
+    },
+    {
+      "ward_code": "E05011250",
+      "ward_name": "Newbury",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Seven Kings Park",
+        "Ilford War Memorial Gardens",
+        "Vicarage Lane Play Park"
+      ]
+    },
+    {
+      "ward_code": "E05011251",
+      "ward_name": "Seven Kings",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Barley Lane Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011217",
+      "ward_name": "Barnehurst",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011218",
+      "ward_name": "Belvedere",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Lesnes Abbey Park",
+        "Franks Park",
+        "Lesnes Abbey Wood Recreation Ground",
+        "Crossness Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05011219",
+      "ward_name": "Bexleyheath",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Russell Park",
+        "Bursted Woods",
+        "Martens Grove",
+        "The Warren",
+        "King George's Field"
+      ]
+    },
+    {
+      "ward_code": "E05011220",
+      "ward_name": "Blackfen & Lamorbey",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Lamorbey Park",
+        "Willersley Park",
+        "Old Farm Park",
+        "Parish Wood",
+        "Hollyoak Wood Park"
+      ]
+    },
+    {
+      "ward_code": "E05011221",
+      "ward_name": "Blendon & Penhill",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Riverside West",
+        "Abbey Hill Park",
+        "Marlborough Park"
+      ]
+    },
+    {
+      "ward_code": "E05011222",
+      "ward_name": "Crayford",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Waterside Gardens",
+        "Braeburn Park",
+        "Shenstone Park",
+        "Crayford Way parkland",
+        "Jolly Farmers Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05011223",
+      "ward_name": "Crook Log",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011224",
+      "ward_name": "East Wickham",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Shoulder of Mutton Green",
+        "Eastcote Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011225",
+      "ward_name": "Erith",
+      "playground_count": 7,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Nordenfeldt Gardens",
+        "Riverside Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011226",
+      "ward_name": "Falconwood & Welling",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Danson Park",
+        "The Green"
+      ]
+    },
+    {
+      "ward_code": "E05011227",
+      "ward_name": "Longlands",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011228",
+      "ward_name": "Northumberland Heath",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011229",
+      "ward_name": "St Mary's & St James",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Footscray Meadows"
+      ]
+    },
+    {
+      "ward_code": "E05011230",
+      "ward_name": "Sidcup",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Waring Park",
+        "Foots Cray Recreation Ground",
+        "Rectory Lane Pond Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05011231",
+      "ward_name": "Slade Green & Northend",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Howbury Lane Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05011232",
+      "ward_name": "Thamesmead East",
+      "playground_count": 11,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Southmere Park",
+        "Crossway Park",
+        "Manorway Green",
+        "Woodland Way"
+      ]
+    },
+    {
+      "ward_code": "E05011233",
+      "ward_name": "West Heath",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Stevens Park"
+      ]
+    },
+    {
+      "ward_code": "E05011234",
+      "ward_name": "Aldborough",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Fairlop Waters Country Park",
+        "Hainault Lodge Nature Reserve",
+        "Barnardo''s Village Green"
+      ]
+    },
+    {
+      "ward_code": "E05011235",
+      "ward_name": "Barkingside",
+      "playground_count": 2,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011236",
+      "ward_name": "Bridge",
+      "playground_count": 2,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Ray Park",
+        "Whitbread Playing Fields",
+        "Claybury Park"
+      ]
+    },
+    {
+      "ward_code": "E05011237",
+      "ward_name": "Chadwell",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011238",
+      "ward_name": "Churchfields",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Elmhurst Gardens",
+        "Churchfields",
+        "The Green"
+      ]
+    },
+    {
+      "ward_code": "E05011239",
+      "ward_name": "Clayhall",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Clayhall Park",
+        "Roding Valley Park"
+      ]
+    },
+    {
+      "ward_code": "E05011240",
+      "ward_name": "Clementswood",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011241",
+      "ward_name": "Cranbrook",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "The Glade"
+      ]
+    },
+    {
+      "ward_code": "E05011242",
+      "ward_name": "Fairlop",
+      "playground_count": 6,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011243",
+      "ward_name": "Fullwell",
+      "playground_count": 9,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Barkingside Recreation Ground",
+        "Hurstleigh Gardens Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05011244",
+      "ward_name": "Goodmayes",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Goodmayes Park"
+      ]
+    },
+    {
+      "ward_code": "E05011245",
+      "ward_name": "Hainault",
+      "playground_count": 4,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Hainault Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011246",
+      "ward_name": "Ilford Town",
+      "playground_count": 0,
+      "park_reserve_count": 4,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011247",
+      "ward_name": "Loxford",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Loxford Park",
+        "Uphall Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05011248",
+      "ward_name": "Mayfield",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "South Park"
+      ]
+    },
+    {
+      "ward_code": "E05011252",
+      "ward_name": "South Woodford",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Oakdale Play Area",
+        "Onslow Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05011253",
+      "ward_name": "Valentines",
+      "playground_count": 2,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05011254",
+      "ward_name": "Wanstead Park",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Wanstead Flats",
+        "Wanstead Park"
+      ]
+    },
+    {
+      "ward_code": "E05011255",
+      "ward_name": "Wanstead Village",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "George Green",
+        "Wanstead Flats",
+        "Nightingale Green",
+        "Christchurch Green"
+      ]
+    },
+    {
+      "ward_code": "E05013496",
+      "ward_name": "Alperton",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Heather Park Open Space",
+        "Abbey Estate Open Space",
+        "WISE Project"
+      ]
+    },
+    {
+      "ward_code": "E05013497",
+      "ward_name": "Barnhill",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Chalkhill Park"
+      ]
+    },
+    {
+      "ward_code": "E05013498",
+      "ward_name": "Brondesbury Park",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Chelmsford Square Tennis Courts & Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013499",
+      "ward_name": "Cricklewood & Mapesbury",
+      "playground_count": 5,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Mapesbury Dell"
+      ]
+    },
+    {
+      "ward_code": "E05013500",
+      "ward_name": "Dollis Hill",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Gladstone Park",
+        "Pinemartin Acitivty Park"
+      ]
+    },
+    {
+      "ward_code": "E05013501",
+      "ward_name": "Harlesden & Kensal Green",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Tubbs Road Pocket Park",
+        "Bramshill Road Open Space",
+        "Furness Road Pocket Park",
+        "St Marys Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013552",
+      "ward_name": "Kenton West",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Kenton Recreation Ground",
+        "Priestmead Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013553",
+      "ward_name": "Marlborough",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013554",
+      "ward_name": "North Harrow",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Rayners Mead"
+      ]
+    },
+    {
+      "ward_code": "E05013555",
+      "ward_name": "Pinner",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Montesole Playing Fields",
+        "Little Common"
+      ]
+    },
+    {
+      "ward_code": "E05013556",
+      "ward_name": "Pinner South",
+      "playground_count": 2,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Pinner Village Gardens",
+        "Pinner Memorial Park"
+      ]
+    },
+    {
+      "ward_code": "E05013557",
+      "ward_name": "Rayners Lane",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013558",
+      "ward_name": "Roxbourne",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Newton Park West",
+        "Sandpiper Community Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013559",
+      "ward_name": "Roxeth",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Alexandra Park"
+      ]
+    },
+    {
+      "ward_code": "E05013560",
+      "ward_name": "Stanmore",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013561",
+      "ward_name": "Wealdstone North",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013562",
+      "ward_name": "Wealdstone South",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Byron Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013563",
+      "ward_name": "West Harrow",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "West Harrow Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013564",
+      "ward_name": "Belmore",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Warrren Park"
+      ]
+    },
+    {
+      "ward_code": "E05013565",
+      "ward_name": "Charville",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Park Road Green"
+      ]
+    },
+    {
+      "ward_code": "E05013652",
+      "ward_name": "Belsize",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013602",
+      "ward_name": "Tottenham Hale",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013502",
+      "ward_name": "Kenton",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Woodcock Park",
+        "Tenterden Sports Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013702",
+      "ward_name": "Clerkenwell",
+      "playground_count": 8,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Northampton Square",
+        "St Johns Garden",
+        "Wilmington Square",
+        "Owens Field",
+        "Friedrick Street Garden",
+        "Vernon Square"
+      ]
+    },
+    {
+      "ward_code": "E05013566",
+      "ward_name": "Colham & Cowley",
+      "playground_count": 8,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "The Grove Nature Reserve",
+        "Connaught Recreation Ground",
+        "Crank Garden",
+        "Benjamin Zephaniah Square",
+        "Coney Green",
+        "Hale Field Park"
+      ]
+    },
+    {
+      "ward_code": "E05013567",
+      "ward_name": "Eastcote",
+      "playground_count": 5,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Columbia Avenue Recreation Ground",
+        "Warrender Park",
+        "Enigma Square",
+        "Eastcote House Gardens",
+        "Long Meadow",
+        "Broadhurst Gardens",
+        "Haydon Hall Park"
+      ]
+    },
+    {
+      "ward_code": "E05013568",
+      "ward_name": "Harefield Village",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Harefield Village Green",
+        "Old Park Wood Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013569",
+      "ward_name": "Hayes Town",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Lake Farm Country Park",
+        "The Park"
+      ]
+    },
+    {
+      "ward_code": "E05013570",
+      "ward_name": "Heathrow Villages",
+      "playground_count": 10,
+      "park_reserve_count": 16,
+      "notable_parks": [
+        "Cranford Country Park",
+        "Two Bridges",
+        "Berkeley Meadows",
+        "William Byrd Park",
+        "Bolton's Lane Open Space",
+        "Harmondsworth Moor",
+        "Colne Valley Biodiversity Site",
+        "Heathrow Colne Valley Biodiversity Site"
+      ]
+    },
+    {
+      "ward_code": "E05013571",
+      "ward_name": "Hillingdon East",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Hillingdon Court Park",
+        "Knights Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013572",
+      "ward_name": "Hillingdon West",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Dowding Park",
+        "Bubridge Gardens Pocket Park",
+        "Churchill Road Pocket Park"
+      ]
+    },
+    {
+      "ward_code": "E05013573",
+      "ward_name": "Ickenham & South Harefield",
+      "playground_count": 9,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Moorhall Recreation Ground",
+        "Swakeleys Park",
+        "Harefield Place Nature Reserve",
+        "Milton Court",
+        "Dews Farm Sand Pits"
+      ]
+    },
+    {
+      "ward_code": "E05013574",
+      "ward_name": "Northwood",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Frithwood Park",
+        "Crowe's Nest"
+      ]
+    },
+    {
+      "ward_code": "E05013575",
+      "ward_name": "Northwood Hills",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Hog's Back Open Space",
+        "Catlin's Lane Open Space",
+        "Raisins Hill Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013576",
+      "ward_name": "Pinkwell",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Pinkwell Park",
+        "Langthorne Park"
+      ]
+    },
+    {
+      "ward_code": "E05013577",
+      "ward_name": "Ruislip",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Manor Farm"
+      ]
+    },
+    {
+      "ward_code": "E05013578",
+      "ward_name": "Ruislip Manor",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Shenley Park"
+      ]
+    },
+    {
+      "ward_code": "E05013579",
+      "ward_name": "South Ruislip",
+      "playground_count": 12,
+      "park_reserve_count": 19,
+      "notable_parks": [
+        "Queens Walk Children's Playground",
+        "Brook Common",
+        "Bridgwater Road Fields",
+        "Dean Park",
+        "Ten Acres",
+        "Fairway Triangle",
+        "Polish War Memorial Garden",
+        "Torcross Green"
+      ]
+    },
+    {
+      "ward_code": "E05013580",
+      "ward_name": "Uxbridge",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Uxbridge Common",
+        "Fassnidge Park"
+      ]
+    },
+    {
+      "ward_code": "E05013581",
+      "ward_name": "West Drayton",
+      "playground_count": 6,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "The Closes Recreation Ground",
+        "Spring Green",
+        "Four Seasons Green",
+        "Paddocks",
+        "Frays Island & Mabey's Meadow Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013582",
+      "ward_name": "Wood End",
+      "playground_count": 11,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Barra Hall Park",
+        "Hayes End Community Park",
+        "Minet Country Park",
+        "Rosedale Park",
+        "Botanic Gardens",
+        "Hitherbroom Park"
+      ]
+    },
+    {
+      "ward_code": "E05013583",
+      "ward_name": "Yeading",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Yeading Brook Meadows",
+        "Willow Tree Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013584",
+      "ward_name": "Yiewsley",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013585",
+      "ward_name": "Alexandra Park",
+      "playground_count": 8,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Alexandra Park",
+        "Hollickwood Park",
+        "Albert Road Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013586",
+      "ward_name": "Bounds Green",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013587",
+      "ward_name": "Bruce Castle",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Bruce Castle Park"
+      ]
+    },
+    {
+      "ward_code": "E05013588",
+      "ward_name": "Crouch End",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Shepherds Hill Gardens",
+        "Avenue Road Common"
+      ]
+    },
+    {
+      "ward_code": "E05013589",
+      "ward_name": "Fortis Green",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Coldfall Wood",
+        "Muswell Hill Playing Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013590",
+      "ward_name": "Harringay",
+      "playground_count": 9,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Fairland Park",
+        "Finsbury Park",
+        "Railway Fields Nature Reserve",
+        "Ducketts Common",
+        "Green Gate Common",
+        "New River Path West Bank"
+      ]
+    },
+    {
+      "ward_code": "E05013591",
+      "ward_name": "Hermitage & Gardens",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Doncaster Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013592",
+      "ward_name": "Highgate",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Staff Yard",
+        "Highgate Woods Fields",
+        "Pond Square",
+        "Highgate Wood"
+      ]
+    },
+    {
+      "ward_code": "E05013593",
+      "ward_name": "Hornsey",
+      "playground_count": 10,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Priory Park",
+        "St Mary's Churchyard Hornsey",
+        "Priory Common",
+        "The Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013594",
+      "ward_name": "Muswell Hill",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Parkland Walk Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013595",
+      "ward_name": "Noel Park",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Russell Park",
+        "Wood Green Common",
+        "Hornsey Park",
+        "Barratt Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013596",
+      "ward_name": "Northumberland Park",
+      "playground_count": 12,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Hartington Park",
+        "Somerford Grove Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013597",
+      "ward_name": "St Ann's",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Chestnuts Park",
+        "Stanley Road Open Space",
+        "Stanley Culross Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013598",
+      "ward_name": "Seven Sisters",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Brunswick Park",
+        "Manchester Gardens",
+        "Paignton Park"
+      ]
+    },
+    {
+      "ward_code": "E05013599",
+      "ward_name": "South Tottenham",
+      "playground_count": 7,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Markfield Park",
+        "Rangemoor Road Open Space",
+        "Armadale Green",
+        "Page Green Common"
+      ]
+    },
+    {
+      "ward_code": "E05013600",
+      "ward_name": "Stroud Green",
+      "playground_count": 14,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Stationers Park"
+      ]
+    },
+    {
+      "ward_code": "E05013601",
+      "ward_name": "Tottenham Central",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Tottenham Green"
+      ]
+    },
+    {
+      "ward_code": "E05013752",
+      "ward_name": "White City",
+      "playground_count": 9,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Hammersmith Park"
+      ]
+    },
+    {
+      "ward_code": "E05013802",
+      "ward_name": "Pimlico North",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013653",
+      "ward_name": "Bloomsbury",
+      "playground_count": 5,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Russell Square",
+        "Tavistock Square",
+        "Woburn Square",
+        "Gordon Square",
+        "Crabtree Fields",
+        "Bloomsbury Square Gardens",
+        "Whitfield Gardens",
+        "Alfred Place Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013603",
+      "ward_name": "West Green",
+      "playground_count": 14,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Lordship Recreation Ground",
+        "Memorial Gardens",
+        "Graham Green",
+        "Downhills Park"
+      ]
+    },
+    {
+      "ward_code": "E05013803",
+      "ward_name": "Pimlico South",
+      "playground_count": 5,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "St. George's Square",
+        "Bessborough Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013654",
+      "ward_name": "Camden Square",
+      "playground_count": 8,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Camden Square Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013753",
+      "ward_name": "Wormholt",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Wormholt Park",
+        "Clayton Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013503",
+      "ward_name": "Kilburn",
+      "playground_count": 11,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Cambridge Gardens",
+        "South Kilburn Open Space",
+        "Ely Court",
+        "Woodhouse Urban Park"
+      ]
+    },
+    {
+      "ward_code": "E05013703",
+      "ward_name": "Finsbury Park",
+      "playground_count": 9,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Kinloch Gardens",
+        "Isledon Gardens",
+        "Woodfall Park",
+        "Everleigh Street Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013604",
+      "ward_name": "White Hart Lane",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Waltheof Gardens",
+        "Chapman's Green"
+      ]
+    },
+    {
+      "ward_code": "E05013804",
+      "ward_name": "Queen's Park",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Queen's Park Court Communal Gardens",
+        "Harrow Road Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013655",
+      "ward_name": "Camden Town",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "St. Martin's Gardens",
+        "Castlehaven Open Space",
+        "Camden Gardens",
+        "Castlehaven Community Park",
+        "Inverness Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013754",
+      "ward_name": "Beddington",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Beddington Park",
+        "Mellows Park"
+      ]
+    },
+    {
+      "ward_code": "E05013504",
+      "ward_name": "Kingsbury",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Roe Green Park",
+        "Grove Park"
+      ]
+    },
+    {
+      "ward_code": "E05013704",
+      "ward_name": "Highbury",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013605",
+      "ward_name": "Woodside",
+      "playground_count": 16,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "King George VI Memorial Garden",
+        "Cranbrook Park",
+        "Riversdale Gardens",
+        "Nightingale Gardens",
+        "Bowes Park Community Garden",
+        "Woodside Park",
+        "Finsbury Gardens",
+        "White Hart Lane Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013805",
+      "ward_name": "Regent's Park",
+      "playground_count": 6,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "St. John's Wood Church Grounds",
+        "Bird breeding area",
+        "Gorilla Circus Regents Park Flying Trapeze School"
+      ]
+    },
+    {
+      "ward_code": "E05013656",
+      "ward_name": "Fortune Green",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Fortune Green",
+        "Hampstead Cemetery",
+        "Maygrove Peace Park",
+        "Jane Evans Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013755",
+      "ward_name": "Belmont",
+      "playground_count": 3,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "The Pastures"
+      ]
+    },
+    {
+      "ward_code": "E05013505",
+      "ward_name": "Northwick Park",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Sudbury Court",
+        "Elmwood Park"
+      ]
+    },
+    {
+      "ward_code": "E05013705",
+      "ward_name": "Hillrise",
+      "playground_count": 15,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Elthorne Park",
+        "Hillside Park",
+        "Scholefield Road Open Space",
+        "Zoffany Park",
+        "Crouch Hill Park"
+      ]
+    },
+    {
+      "ward_code": "E05013606",
+      "ward_name": "Bedfont",
+      "playground_count": 7,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Causeway",
+        "Cain's Lane Open Space",
+        "Bedfont Park",
+        "The Pitts",
+        "Bedfont Lakes Country Park.",
+        "Bedfont Lakes Country Park",
+        "Cage Park",
+        "Bedfont lakes nature reserve."
+      ]
+    },
+    {
+      "ward_code": "E05013806",
+      "ward_name": "St James's",
+      "playground_count": 5,
+      "park_reserve_count": 21,
+      "notable_parks": [
+        "Leicester Square",
+        "Victoria Embankment Gardens",
+        "Whitehall Garden",
+        "Christchurch Gardens",
+        "Dean's Yard",
+        "College Green",
+        "Victoria Tower Gardens",
+        "St James's Square Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013657",
+      "ward_name": "Frognal",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013756",
+      "ward_name": "Carshalton Central",
+      "playground_count": 4,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Carshalton Park",
+        "Wrythe Recreation Ground",
+        "Warren Park",
+        "The Warren",
+        "The Grove"
+      ]
+    },
+    {
+      "ward_code": "E05013506",
+      "ward_name": "Preston",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Preston Park"
+      ]
+    },
+    {
+      "ward_code": "E05013706",
+      "ward_name": "Holloway",
+      "playground_count": 10,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Caledonian Park",
+        "Penn Road Gardens",
+        "Biddestone Park",
+        "Camden Road Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013607",
+      "ward_name": "Brentford East",
+      "playground_count": 7,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Carville Hall Park North",
+        "Carville Hall Park South",
+        "Green Dragon Lane Open Space",
+        "Watermans Park"
+      ]
+    },
+    {
+      "ward_code": "E05013807",
+      "ward_name": "Vincent Square",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "St John's Gardens",
+        "Riverside Walk Gardens",
+        "Millbank Gardens",
+        "Causton Street Playground"
+      ]
+    },
+    {
+      "ward_code": "E05013658",
+      "ward_name": "Gospel Oak",
+      "playground_count": 17,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Lismore Circus Open Space",
+        "Belsize Wood Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013659",
+      "ward_name": "Hampstead Town",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Hampstead Green"
+      ]
+    },
+    {
+      "ward_code": "E05013660",
+      "ward_name": "Haverstock",
+      "playground_count": 10,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Talacre Town Green"
+      ]
+    },
+    {
+      "ward_code": "E05013661",
+      "ward_name": "Highgate",
+      "playground_count": 9,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Waterlow Park",
+        "Hampstead Heath Woods",
+        "Highgate Enclosures",
+        "Hampstead Heath"
+      ]
+    },
+    {
+      "ward_code": "E05013662",
+      "ward_name": "Holborn & Covent Garden",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Lincoln's Inn",
+        "Queen Square Gardens",
+        "Red Lion Square Gardens",
+        "Lincoln's Inn Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013663",
+      "ward_name": "Kentish Town North",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Montpelier Gardens",
+        "Leighton Crescent Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013664",
+      "ward_name": "Kentish Town South",
+      "playground_count": 16,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Cantelowes Gardens",
+        "Rochester Terrace Gardens",
+        "College Gardens",
+        "Inkerman Garden",
+        "Falkland Place Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013665",
+      "ward_name": "Kilburn",
+      "playground_count": 9,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Greville Place Nature Reserve",
+        "Kilburn Grange Park",
+        "The Meadow",
+        "Alexandra Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05013666",
+      "ward_name": "King's Cross",
+      "playground_count": 10,
+      "park_reserve_count": 13,
+      "notable_parks": [
+        "Argyle Square Gardens",
+        "Gray's Inn Gardens",
+        "St George's Gardens",
+        "Brunswick Square Gardens",
+        "Coram's Fields",
+        "Bramber Green",
+        "Lewis Cubitt Park",
+        "Gasholder Park"
+      ]
+    },
+    {
+      "ward_code": "E05013667",
+      "ward_name": "Primrose Hill",
+      "playground_count": 11,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Primrose Hill",
+        "Chalcot Square Gardens",
+        "Swiss Cottage Open Space",
+        "Adelaide Nature Reserve",
+        "Primrose Hill Court Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013668",
+      "ward_name": "Regent's Park",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Harrington Square Gardens",
+        "Cumberland Market"
+      ]
+    },
+    {
+      "ward_code": "E05013669",
+      "ward_name": "St Pancras & Somers Town",
+      "playground_count": 8,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Goldington Crescent Gardens",
+        "Oakley Square Gardens",
+        "Purchese Street Open Space",
+        "Catholic Central Library Gardens",
+        "Olympic Ring Park"
+      ]
+    },
+    {
+      "ward_code": "E05013670",
+      "ward_name": "South Hampstead",
+      "playground_count": 4,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013671",
+      "ward_name": "West Hampstead",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "West End Green",
+        "Mill Lane Open Space",
+        "Sumatra Road Open Space",
+        "Lithos Road Communal Park"
+      ]
+    },
+    {
+      "ward_code": "E05013672",
+      "ward_name": "Arnos Grove",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Walker Ground",
+        "Arnos Park",
+        "Minchenden Oak Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013673",
+      "ward_name": "Bowes",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Tottenhall Recreation Ground",
+        "Bowes Meadow",
+        "Tile Kiln Lane Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013674",
+      "ward_name": "Brimsdown",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Durants Park",
+        "Albany Park",
+        "Prince of Wales Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013675",
+      "ward_name": "Bullsmoor",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Holmesdale Tunnel Open Space",
+        "Elsinge Golden Jubilee Park"
+      ]
+    },
+    {
+      "ward_code": "E05013676",
+      "ward_name": "Bush Hill Park",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Bury Lodge Park",
+        "Bush Hill Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013677",
+      "ward_name": "Carterhatch",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Hoe Lane Space"
+      ]
+    },
+    {
+      "ward_code": "E05013678",
+      "ward_name": "Cockfosters",
+      "playground_count": 9,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Covert Way LNR",
+        "Trent Park"
+      ]
+    },
+    {
+      "ward_code": "E05013679",
+      "ward_name": "Edmonton Green",
+      "playground_count": 5,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Craig Park",
+        "Pymmes Park",
+        "Kenninghall Open Space",
+        "Angel Gardens",
+        "Angel Walk"
+      ]
+    },
+    {
+      "ward_code": "E05013680",
+      "ward_name": "Enfield Lock",
+      "playground_count": 10,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Soham Lane Open Space",
+        "Enfield Island Village Play Area",
+        "Painters Lane Open Space",
+        "Rammey Marsh",
+        "Painters Lane Neighbourhood Park"
+      ]
+    },
+    {
+      "ward_code": "E05013681",
+      "ward_name": "Grange Park",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Enfield Town Park",
+        "Riverside Park"
+      ]
+    },
+    {
+      "ward_code": "E05013682",
+      "ward_name": "Haselbury",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Churchfield Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013683",
+      "ward_name": "Highfield",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Tatem Park"
+      ]
+    },
+    {
+      "ward_code": "E05013684",
+      "ward_name": "Jubilee",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Jubilee Park",
+        "Lee Road Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013685",
+      "ward_name": "Lower Edmonton",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Montagu Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013686",
+      "ward_name": "New Southgate",
+      "playground_count": 4,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Millennium Green",
+        "High Road Open Space",
+        "Grove Road Open Space",
+        "Russell Road Community Park",
+        "New River Path"
+      ]
+    },
+    {
+      "ward_code": "E05013687",
+      "ward_name": "Oakwood",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Oakwood Park"
+      ]
+    },
+    {
+      "ward_code": "E05013688",
+      "ward_name": "Palmers Green",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Broomfield Park"
+      ]
+    },
+    {
+      "ward_code": "E05013689",
+      "ward_name": "Ponders End",
+      "playground_count": 5,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Ponders End Park"
+      ]
+    },
+    {
+      "ward_code": "E05013690",
+      "ward_name": "Ridgeway",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Cheyne Walk Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013691",
+      "ward_name": "Southbury",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Bush Hill Park",
+        "Enfield Playing Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013692",
+      "ward_name": "Southgate",
+      "playground_count": 8,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013693",
+      "ward_name": "Town",
+      "playground_count": 1,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Aldersbrook Avenue Recreation Ground",
+        "Library Green"
+      ]
+    },
+    {
+      "ward_code": "E05013694",
+      "ward_name": "Upper Edmonton",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Wilbury Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013695",
+      "ward_name": "Whitewebbs",
+      "playground_count": 6,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "St Michael's Green",
+        "Hilly Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013696",
+      "ward_name": "Winchmore Hill",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Grovelands Park",
+        "Woodcroft Wildspace"
+      ]
+    },
+    {
+      "ward_code": "E05013697",
+      "ward_name": "Arsenal",
+      "playground_count": 6,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Gillespie Park Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013698",
+      "ward_name": "Barnsbury",
+      "playground_count": 9,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Thornhill Square",
+        "Lonsdale Square Garden",
+        "Barnsbury Square",
+        "Thornhill Road Gardens",
+        "Barnsbury Wood",
+        "Culpeper Park"
+      ]
+    },
+    {
+      "ward_code": "E05013699",
+      "ward_name": "Bunhill",
+      "playground_count": 11,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Fortune Street Park",
+        "St Luke's Garden",
+        "Radnor Street Open Space",
+        "Saint John's Churchyard",
+        "Compton Park",
+        "Finsbury Square"
+      ]
+    },
+    {
+      "ward_code": "E05013700",
+      "ward_name": "Caledonian",
+      "playground_count": 11,
+      "park_reserve_count": 21,
+      "notable_parks": [
+        "Bingfield Park",
+        "Joseph Grimaldi Park",
+        "Edward Square",
+        "Market Road Garden",
+        "Thornhill Bridge Community Gardens",
+        "Killick Street Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013701",
+      "ward_name": "Canonbury",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Rosemary Gardens",
+        "Annette Gardens",
+        "Nightingale Park",
+        "St Paul's Park",
+        "Mitchison Baxter Park"
+      ]
+    },
+    {
+      "ward_code": "E05013507",
+      "ward_name": "Queens Park",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Queens Park",
+        "Hazel Road Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013808",
+      "ward_name": "West End",
+      "playground_count": 0,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Grosvenor Square",
+        "Berkeley Square",
+        "Golden Square",
+        "Hanover Square",
+        "Mount Street Gardens",
+        "St Anne's Churchyard",
+        "Cavendish Square",
+        "Soho Square Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013757",
+      "ward_name": "Carshalton South & Clockhouse",
+      "playground_count": 2,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Stanley Park",
+        "Oaks Park",
+        "Corrigan Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013608",
+      "ward_name": "Brentford West",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Blondin Park Nature Reserve",
+        "Boston Manor Park",
+        "St. Paul's Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013508",
+      "ward_name": "Queensbury",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Leybourne Road Park",
+        "Eton Grove Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013809",
+      "ward_name": "Westbourne",
+      "playground_count": 10,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013758",
+      "ward_name": "Cheam",
+      "playground_count": 1,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Cheam Park",
+        "Cheam Recreation Ground",
+        "Cheam War Memorial"
+      ]
+    },
+    {
+      "ward_code": "E05013609",
+      "ward_name": "Chiswick Gunnersbury",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Chiswick Back Common",
+        "Gunnersbury Triangle Local Nature Reserve",
+        "Gunnersbury Park",
+        "Birds area"
+      ]
+    },
+    {
+      "ward_code": "E05013509",
+      "ward_name": "Roundwood",
+      "playground_count": 8,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Roundwood Park",
+        "Neasden Lane Park"
+      ]
+    },
+    {
+      "ward_code": "E05013707",
+      "ward_name": "Junction",
+      "playground_count": 13,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Dartmouth Park",
+        "Girdlestone Park",
+        "Foxham Gardens",
+        "Davenant Road Park",
+        "Archway Corner",
+        "Archway Park",
+        "Giesbach Road Open Space",
+        "Whittington Park"
+      ]
+    },
+    {
+      "ward_code": "E05013810",
+      "ward_name": "Abbey",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Abbey Recreation Ground",
+        "Haydons Road Recreation Ground",
+        "Railway Path",
+        "Nelson Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013759",
+      "ward_name": "Hackbridge",
+      "playground_count": 4,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "The Green Hackbridge",
+        "Orchard Avenue Recreation Ground",
+        "Watercress Park",
+        "Felnex Park",
+        "Felnex Mini Park"
+      ]
+    },
+    {
+      "ward_code": "E05013610",
+      "ward_name": "Chiswick Homefields",
+      "playground_count": 4,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Dukes Meadows",
+        "Stamford Brook Common",
+        "Chiswick Rugby Football Club",
+        "Homefield Recreation Ground North",
+        "Land at Prebend Gardens",
+        "Homefield Recreation Ground South"
+      ]
+    },
+    {
+      "ward_code": "E05013510",
+      "ward_name": "Stonebridge",
+      "playground_count": 11,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Gibbons Recreation Ground",
+        "Brent River Park",
+        "Brentfield Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013708",
+      "ward_name": "Laycock",
+      "playground_count": 13,
+      "park_reserve_count": 14,
+      "notable_parks": [
+        "Paradise Park",
+        "Arundel Square",
+        "Laycock Green",
+        "St Mary Magdalene Gardens",
+        "Martin Luther King Adventure Playground",
+        "Highbury Island"
+      ]
+    },
+    {
+      "ward_code": "E05013811",
+      "ward_name": "Cannon Hill",
+      "playground_count": 3,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Cannon Hill Common",
+        "Cherry Wood"
+      ]
+    },
+    {
+      "ward_code": "E05013760",
+      "ward_name": "North Cheam",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013611",
+      "ward_name": "Chiswick Riverside",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Harvard Hill Recreation Ground",
+        "Chiswick Village Green",
+        "Wellesley Road Playground",
+        "Kew Bridge Court Resident Park"
+      ]
+    },
+    {
+      "ward_code": "E05013511",
+      "ward_name": "Sudbury",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Maybank Open Space",
+        "Butlers Green"
+      ]
+    },
+    {
+      "ward_code": "E05013709",
+      "ward_name": "Mildmay",
+      "playground_count": 15,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Newington Green",
+        "St Paul's Shrubbery",
+        "Northampton Park Triangle",
+        "Burder Close Community Space"
+      ]
+    },
+    {
+      "ward_code": "E05013812",
+      "ward_name": "Colliers Wood",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Colliers Wood Recreation Ground",
+        "Wandle Park"
+      ]
+    },
+    {
+      "ward_code": "E05013813",
+      "ward_name": "Cricket Green",
+      "playground_count": 6,
+      "park_reserve_count": 14,
+      "notable_parks": [
+        "Baron Fields",
+        "Miles Road Recreation Ground",
+        "Vestry Green",
+        "Three Kings Piece",
+        "Bennett's Hole"
+      ]
+    },
+    {
+      "ward_code": "E05013814",
+      "ward_name": "Figge's Marsh",
+      "playground_count": 7,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Figges Marsh",
+        "Brenley Park"
+      ]
+    },
+    {
+      "ward_code": "E05013815",
+      "ward_name": "Graveney",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Vectis Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013816",
+      "ward_name": "Hillside",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013817",
+      "ward_name": "Lavender Fields",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Lavender Park"
+      ]
+    },
+    {
+      "ward_code": "E05013818",
+      "ward_name": "Longthornton",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Oakleigh Way Recreation Ground",
+        "Long Bolstead Recreation Ground",
+        "Rowan Road Recreation Ground",
+        "Rowan Park informal recreation area"
+      ]
+    },
+    {
+      "ward_code": "E05013819",
+      "ward_name": "Lower Morden",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Morden Park",
+        "Pyl Brook Nature Reserve",
+        "George Hill Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013820",
+      "ward_name": "Merton Park",
+      "playground_count": 2,
+      "park_reserve_count": 17,
+      "notable_parks": [
+        "Kendor Gardens",
+        "Mostyn Gardens",
+        "John Innes Park",
+        "St Mary's Glebe"
+      ]
+    },
+    {
+      "ward_code": "E05013821",
+      "ward_name": "Pollards Hill",
+      "playground_count": 6,
+      "park_reserve_count": 10,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013822",
+      "ward_name": "Ravensbury",
+      "playground_count": 3,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Morden Hall Park",
+        "Moreton Green",
+        "Ravensbury Park",
+        "Watermeads Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013823",
+      "ward_name": "Raynes Park",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013824",
+      "ward_name": "St Helier",
+      "playground_count": 1,
+      "park_reserve_count": 15,
+      "notable_parks": [
+        "Evesham Green"
+      ]
+    },
+    {
+      "ward_code": "E05013825",
+      "ward_name": "Village",
+      "playground_count": 4,
+      "park_reserve_count": 15,
+      "notable_parks": [
+        "Cottenham Park",
+        "Temple grounds",
+        "Cannizaro Park",
+        "Morley Park",
+        "Holland Garden",
+        "Farm Bog",
+        "Beverley Meads",
+        "Fishponds Wood"
+      ]
+    },
+    {
+      "ward_code": "E05013826",
+      "ward_name": "Wandle",
+      "playground_count": 3,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Wandle Meadow Nature Park",
+        "Trafalgar Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013827",
+      "ward_name": "West Barnes",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Sir Joseph Hood Memorial Playing Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013828",
+      "ward_name": "Wimbledon Park",
+      "playground_count": 6,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Wimbledon Park",
+        "Durnsford Road Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013829",
+      "ward_name": "Wimbledon Town & Dundonald",
+      "playground_count": 1,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Dundonald Recreation Ground",
+        "South Park Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013710",
+      "ward_name": "St Mary's & St James'",
+      "playground_count": 10,
+      "park_reserve_count": 18,
+      "notable_parks": [
+        "Islington Green",
+        "Gibson Square",
+        "Andersons Square",
+        "Arlington Square",
+        "Dibden Street Triangle",
+        "Morton Road Park",
+        "Pleasant Place Garden",
+        "Tibby Place"
+      ]
+    },
+    {
+      "ward_code": "E05013612",
+      "ward_name": "Cranford",
+      "playground_count": 14,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Avenue Park",
+        "Chester Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05013711",
+      "ward_name": "St Peter's & Canalside",
+      "playground_count": 10,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "King Square Gardens",
+        "Graham Street Park",
+        "Canalside Square"
+      ]
+    },
+    {
+      "ward_code": "E05013613",
+      "ward_name": "Feltham North",
+      "playground_count": 2,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Glebelands Playing Fields Park",
+        "Glebelands Open Space",
+        "Glebelands Playing Fields Sport Zone",
+        "Feltham Park",
+        "Blenheim Park",
+        "Bridge House Park"
+      ]
+    },
+    {
+      "ward_code": "E05013712",
+      "ward_name": "Tollington",
+      "playground_count": 10,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Landseer Gardens",
+        "Grenville Gardens",
+        "Royal Northern Gardens",
+        "Wray Crescent",
+        "Cornwallis Square",
+        "Sussex Way Gardens",
+        "Evershot Road Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013614",
+      "ward_name": "Feltham West",
+      "playground_count": 8,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Raleigh Park",
+        "Grosvenor Park",
+        "Bedfont Lakes South Side."
+      ]
+    },
+    {
+      "ward_code": "E05013512",
+      "ward_name": "Tokyngton",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Sherrins Farm Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013761",
+      "ward_name": "St Helier East",
+      "playground_count": 2,
+      "park_reserve_count": 20,
+      "notable_parks": [
+        "Selby Green",
+        "Poulter Park"
+      ]
+    },
+    {
+      "ward_code": "E05013713",
+      "ward_name": "Tufnell Park",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Chambers Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05013615",
+      "ward_name": "Hanworth Park",
+      "playground_count": 0,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Hanworth Park",
+        "Feltham Green",
+        "Ludlow Road Open Space",
+        "Rochester Avenue Park",
+        "William Smith Park"
+      ]
+    },
+    {
+      "ward_code": "E05013513",
+      "ward_name": "Welsh Harp",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Quainton Street Open Space",
+        "Church Lane Recreation Ground",
+        "Silver Jubilee Park"
+      ]
+    },
+    {
+      "ward_code": "E05013762",
+      "ward_name": "St Helier West",
+      "playground_count": 2,
+      "park_reserve_count": 11,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013714",
+      "ward_name": "Bellingham",
+      "playground_count": 16,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Bellingham Green",
+        "Southend Park",
+        "Beckenham Place Park"
+      ]
+    },
+    {
+      "ward_code": "E05013616",
+      "ward_name": "Hanworth Village",
+      "playground_count": 9,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Leitrim Park",
+        "Kempton Nature Reserve",
+        "Butts Farm Estate Park",
+        "Pevensey Road Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013514",
+      "ward_name": "Wembley Central",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "One Tree Hill Open Space",
+        "Barham Park"
+      ]
+    },
+    {
+      "ward_code": "E05013763",
+      "ward_name": "South Beddington & Roundshaw",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Roundshaw Park Playing Fields",
+        "Roundshaw Park",
+        "Roundshaw Downs",
+        "Woodcote Green"
+      ]
+    },
+    {
+      "ward_code": "E05013715",
+      "ward_name": "Blackheath",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013617",
+      "ward_name": "Heston Central",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Wellington Park"
+      ]
+    },
+    {
+      "ward_code": "E05013515",
+      "ward_name": "Wembley Hill",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013764",
+      "ward_name": "Stonecot",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Kimpton Linear Park"
+      ]
+    },
+    {
+      "ward_code": "E05013716",
+      "ward_name": "Brockley",
+      "playground_count": 7,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Luxmore Gardens",
+        "Friendly Gardens",
+        "Brookmill Park",
+        "Deptford Railway Meadow",
+        "Brockley Nature Reserve",
+        "Borough of Deptford Memorial Gardens",
+        "Broadway Fields",
+        "Brookmill Road Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013618",
+      "ward_name": "Heston East",
+      "playground_count": 4,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Lampton Park"
+      ]
+    },
+    {
+      "ward_code": "E05013619",
+      "ward_name": "Heston West",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013620",
+      "ward_name": "Hounslow Central",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "The Highlands Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013621",
+      "ward_name": "Hounslow East",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Inwood Park",
+        "Thornbury Park",
+        "Kingsley Park"
+      ]
+    },
+    {
+      "ward_code": "E05013622",
+      "ward_name": "Hounslow Heath",
+      "playground_count": 10,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Hounslow Heath",
+        "Hounslow Heath Open Space",
+        "Mid Summer Children's Park"
+      ]
+    },
+    {
+      "ward_code": "E05013623",
+      "ward_name": "Hounslow South",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013624",
+      "ward_name": "Hounslow West",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Beaversfield Park"
+      ]
+    },
+    {
+      "ward_code": "E05013625",
+      "ward_name": "Isleworth",
+      "playground_count": 7,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "St. John's Gardens",
+        "Silverhall Park",
+        "Redlees Park"
+      ]
+    },
+    {
+      "ward_code": "E05013626",
+      "ward_name": "Osterley & Spring Grove",
+      "playground_count": 7,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Jersey Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013627",
+      "ward_name": "Syon & Brentford Lock",
+      "playground_count": 4,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Rose Gardens",
+        "The Butts"
+      ]
+    },
+    {
+      "ward_code": "E05013628",
+      "ward_name": "Barnet Vale",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Monken Hadley Common",
+        "Greenhill Gardens",
+        "Highlands Gardens",
+        "New Barnet Reservoir"
+      ]
+    },
+    {
+      "ward_code": "E05013629",
+      "ward_name": "Brunswick Park",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Brunswick Park",
+        "New Southgate Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013630",
+      "ward_name": "Burnt Oak",
+      "playground_count": 7,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Woodcroft Park",
+        "Lyndhurst Park",
+        "Watling Park",
+        "Montrose Playing Fields",
+        "Silk Stream Park"
+      ]
+    },
+    {
+      "ward_code": "E05013631",
+      "ward_name": "Childs Hill",
+      "playground_count": 5,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Childs Hill Park",
+        "Golders Hill Park",
+        "Basing Hill Park",
+        "Elm Park"
+      ]
+    },
+    {
+      "ward_code": "E05013632",
+      "ward_name": "Colindale North",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Grahame Park Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013633",
+      "ward_name": "Colindale South",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Colindale Park",
+        "Rushgrove Park"
+      ]
+    },
+    {
+      "ward_code": "E05013634",
+      "ward_name": "Cricklewood",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Clitterhouse Playing Fields",
+        "Millennium Green",
+        "Exploratory Park Brent Cross",
+        "Claremont Park"
+      ]
+    },
+    {
+      "ward_code": "E05013635",
+      "ward_name": "East Barnet",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Victoria Recreation Ground",
+        "Oak Hill Wood Nature Reserve",
+        "Ludgrove Playing Field"
+      ]
+    },
+    {
+      "ward_code": "E05013636",
+      "ward_name": "East Finchley",
+      "playground_count": 6,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "St Pancras and Islington Cemetery",
+        "Cherry Tree Wood",
+        "Oak Lane Open Space",
+        "East End Road open space",
+        "Park Road green"
+      ]
+    },
+    {
+      "ward_code": "E05013637",
+      "ward_name": "Edgware",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Stonegrove Park"
+      ]
+    },
+    {
+      "ward_code": "E05013638",
+      "ward_name": "Edgwarebury",
+      "playground_count": 7,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Stoneyfields Park",
+        "Edgwarebury Park",
+        "Moat Mount Open Space",
+        "Scratchwood Park",
+        "Highwood Park"
+      ]
+    },
+    {
+      "ward_code": "E05013639",
+      "ward_name": "Finchley Church End",
+      "playground_count": 5,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Stephens House & Grounds",
+        "Windsor Open Space",
+        "Marie Curie Cancer Care Garden of Hope",
+        "Church End Gardens",
+        "Wildlife Area",
+        "Monkey Hill",
+        "Outdoor Learning Area"
+      ]
+    },
+    {
+      "ward_code": "E05013640",
+      "ward_name": "Friern Barnet",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Bethune Park",
+        "Friern Park",
+        "Friern Bridge Open Space",
+        "Halliwick Recreation Ground",
+        "Kennard Road Open Space",
+        "Bethune Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013641",
+      "ward_name": "Garden Suburb",
+      "playground_count": 8,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Big Wood",
+        "Little Wood",
+        "Hampstead Heath Extension",
+        "Lyttelton Playing Fields",
+        "Northway Gardens",
+        "Willifield Green",
+        "Ossulton Way Open Space",
+        "Willifield Way Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013642",
+      "ward_name": "Golders Green",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Princes Park"
+      ]
+    },
+    {
+      "ward_code": "E05013643",
+      "ward_name": "Hendon",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Sunnyhill Park",
+        "Grove Park",
+        "Hendon Park"
+      ]
+    },
+    {
+      "ward_code": "E05013644",
+      "ward_name": "High Barnet",
+      "playground_count": 2,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Whitings Hill Open Space",
+        "Ravenscroft Park",
+        "Rowley Lodge Field",
+        "Arkley Open Space",
+        "Arkley Rise Estate Open Space",
+        "Arkley Lane Open Space",
+        "Arkley Lane Pastures",
+        "Byng Road Playing Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013645",
+      "ward_name": "Mill Hill",
+      "playground_count": 4,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Arrandene Open Space",
+        "Mill Hill Park",
+        "Copthall Playing Fields",
+        "Bittacy Hill Park",
+        "The Mill Field",
+        "Copthall South Fields",
+        "Ridgeway Views Woodland Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013646",
+      "ward_name": "Totteridge & Woodside",
+      "playground_count": 7,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Whetstone Stray",
+        "Totteridge Fields Nature Reserve",
+        "Wyatts Farm Open Space",
+        "Brook Farm Open Space",
+        "Chiddingfold",
+        "Buttercup Field",
+        "Darland's Lake Nature Reserve",
+        "Panoramic Park"
+      ]
+    },
+    {
+      "ward_code": "E05013647",
+      "ward_name": "Underhill",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "King George V Playing Fields",
+        "Old Courthouse Recreation Ground",
+        "Barnet Playing Fields",
+        "Whitings Hill Wood",
+        "West Park"
+      ]
+    },
+    {
+      "ward_code": "E05013648",
+      "ward_name": "West Finchley",
+      "playground_count": 4,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Victoria Park",
+        "Finchley Memorial Hospital Communal Space",
+        "Long Lane Pasture"
+      ]
+    },
+    {
+      "ward_code": "E05013649",
+      "ward_name": "West Hendon",
+      "playground_count": 7,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Sturgess Park",
+        "West Hendon Playing Fields",
+        "Malcolm Park"
+      ]
+    },
+    {
+      "ward_code": "E05013650",
+      "ward_name": "Whetstone",
+      "playground_count": 8,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013651",
+      "ward_name": "Woodhouse",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Friary Park",
+        "Woodhouse Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013717",
+      "ward_name": "Catford South",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "School Playing Fields",
+        "Culverley Green Open Space",
+        "Forster Memorial Park"
+      ]
+    },
+    {
+      "ward_code": "E05013765",
+      "ward_name": "Sutton Central",
+      "playground_count": 6,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Manor Park",
+        "Benhill Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013516",
+      "ward_name": "Wembley Park",
+      "playground_count": 2,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Elvin Gardens",
+        "Union Park",
+        "Samovar Space",
+        "Canada Gardens - Play Area",
+        "Repton Gardens - Play Area"
+      ]
+    },
+    {
+      "ward_code": "E05013718",
+      "ward_name": "Crofton Park",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Blythe Hill Fields",
+        "Crofton Park Railway Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013766",
+      "ward_name": "Sutton North",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Collingwood Recreation Ground",
+        "Sutton Green",
+        "Rosehill Park East",
+        "Rosehill Park"
+      ]
+    },
+    {
+      "ward_code": "E05013517",
+      "ward_name": "Willesden Green",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Willesden Community Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013719",
+      "ward_name": "Deptford",
+      "playground_count": 24,
+      "park_reserve_count": 13,
+      "notable_parks": [
+        "Fordham Park",
+        "Ferrant Park",
+        "Mary Ann Gardens",
+        "Crossfield Open Space",
+        "Creekside Discovery Centre",
+        "Evelyn Green",
+        "Douglas Way Garden",
+        "Charlottenburg Park"
+      ]
+    },
+    {
+      "ward_code": "E05013767",
+      "ward_name": "Sutton South",
+      "playground_count": 0,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Devonshire Avenue Nature Area"
+      ]
+    },
+    {
+      "ward_code": "E05013518",
+      "ward_name": "Central Greenford",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Cayton Green Park",
+        "Paradise Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013720",
+      "ward_name": "Downham",
+      "playground_count": 7,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Downham Fields",
+        "Downham Park",
+        "Whitefoot Lane Playing Fields",
+        "Peter Pan's Park",
+        "Beechmore play park",
+        "Swiftsden Green",
+        "Downham memorial park.",
+        "St. Barnabas Park"
+      ]
+    },
+    {
+      "ward_code": "E05013768",
+      "ward_name": "Sutton West & East Cheam",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Seears Park",
+        "Quarry Park",
+        "Perrett's Field"
+      ]
+    },
+    {
+      "ward_code": "E05013519",
+      "ward_name": "Dormers Wells",
+      "playground_count": 6,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Dormers Wells Moated Manor"
+      ]
+    },
+    {
+      "ward_code": "E05013721",
+      "ward_name": "Evelyn",
+      "playground_count": 11,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Deptford Park",
+        "Pepys Park",
+        "Folkestone Gardens",
+        "Upper Pepys Park",
+        "Aragon Gardens",
+        "Admiralty Square",
+        "Saint George's Square",
+        "Sayes Court Park"
+      ]
+    },
+    {
+      "ward_code": "E05013769",
+      "ward_name": "The Wrythe",
+      "playground_count": 4,
+      "park_reserve_count": 17,
+      "notable_parks": [
+        "Royston Park",
+        "Wilderness Island",
+        "Limes Green",
+        "Dale Park",
+        "The Spinney Local Nature Reserve",
+        "Wrythe Green"
+      ]
+    },
+    {
+      "ward_code": "E05013520",
+      "ward_name": "Ealing Broadway",
+      "playground_count": 0,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Haven Green",
+        "Tortoise Green"
+      ]
+    },
+    {
+      "ward_code": "E05013722",
+      "ward_name": "Forest Hill",
+      "playground_count": 11,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Horniman Museum and Gardens",
+        "Horniman Triangle",
+        "Albion Millennium Green",
+        "Baxters Field",
+        "Devonshire Road Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013770",
+      "ward_name": "Wallington North",
+      "playground_count": 1,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "St Mary's Field",
+        "Wallington Green",
+        "Elm Grove"
+      ]
+    },
+    {
+      "ward_code": "E05013521",
+      "ward_name": "Ealing Common",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Warwick Dene",
+        "Village Park Rec.",
+        "Maytrees Rest Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013723",
+      "ward_name": "Grove Park",
+      "playground_count": 8,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Northbrook Park",
+        "Library Gardens",
+        "Burst Ash Pond"
+      ]
+    },
+    {
+      "ward_code": "E05013771",
+      "ward_name": "Wallington South",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013522",
+      "ward_name": "East Acton",
+      "playground_count": 7,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Acton Park",
+        "Trinity Way Open Space",
+        "The Green, East Acton",
+        "Friars Gardens",
+        "St Dunstans Gardens",
+        "Friary Park Green",
+        "Saint Dunstans Church area",
+        "Bromyard Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013724",
+      "ward_name": "Hither Green",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013772",
+      "ward_name": "Worcester Park North",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Mayflower Park",
+        "Amphitheatre"
+      ]
+    },
+    {
+      "ward_code": "E05013523",
+      "ward_name": "Greenford Broadway",
+      "playground_count": 11,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Smiths Farm",
+        "Ravenor Park",
+        "Northala Fields",
+        "Greenford Lagoons",
+        "Litten Local Nature Reserve",
+        "Marnham Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013725",
+      "ward_name": "Ladywell",
+      "playground_count": 9,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Lewisham Park"
+      ]
+    },
+    {
+      "ward_code": "E05013773",
+      "ward_name": "Worcester Park South",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013524",
+      "ward_name": "Hanger Hill",
+      "playground_count": 6,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Hanger Hill Park",
+        "Montpelier Park",
+        "Brentham Meadows",
+        "Montpelier Park Woodland",
+        "Denison-Ludlow Green"
+      ]
+    },
+    {
+      "ward_code": "E05013726",
+      "ward_name": "Lee Green",
+      "playground_count": 6,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Manor House Gardens",
+        "Manor Park",
+        "Edith Nesbit Gardens",
+        "Hither Green Nature Triangle"
+      ]
+    },
+    {
+      "ward_code": "E05013774",
+      "ward_name": "Barnes",
+      "playground_count": 4,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Barnes Green",
+        "Barn Elms Playing Fields",
+        "Barn Elms Sports Centre",
+        "Rocks Lane Sports Centre",
+        "Sun Square"
+      ]
+    },
+    {
+      "ward_code": "E05013525",
+      "ward_name": "Hanwell Broadway",
+      "playground_count": 3,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Conolly Dell",
+        "King George V Playing Field",
+        "Elthorne Park",
+        "St Margaret's Open Space",
+        "Trumpers Field",
+        "Elthorne Waterside (Elthorne Rough)"
+      ]
+    },
+    {
+      "ward_code": "E05013727",
+      "ward_name": "Lewisham Central",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Cornmill Gardens",
+        "Gilmore Estate open space",
+        "Confluence Park"
+      ]
+    },
+    {
+      "ward_code": "E05013728",
+      "ward_name": "New Cross Gate",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Bridgehouse Meadows",
+        "Eckington Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013729",
+      "ward_name": "Perry Vale",
+      "playground_count": 4,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Mayow Park",
+        "Dacres Wood Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013730",
+      "ward_name": "Rushey Green",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Mountsfield Park",
+        "Ravensbourne Park Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013731",
+      "ward_name": "Sydenham",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Sydenham Wells Park",
+        "Home Park",
+        "MacColl Gardens",
+        "Baird Gardens",
+        "Kirkdale Green"
+      ]
+    },
+    {
+      "ward_code": "E05013732",
+      "ward_name": "Telegraph Hill",
+      "playground_count": 15,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Telegraph Hill Lower Park",
+        "Telegraph Hill Upper Park",
+        "Hatcham Gardens",
+        "St Norbert Green"
+      ]
+    },
+    {
+      "ward_code": "E05013733",
+      "ward_name": "Addison",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013734",
+      "ward_name": "Avonmore",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Gwendwr Gardens",
+        "Marcus Garvey Park"
+      ]
+    },
+    {
+      "ward_code": "E05013735",
+      "ward_name": "Brook Green",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Brook Green"
+      ]
+    },
+    {
+      "ward_code": "E05013736",
+      "ward_name": "College Park & Old Oak",
+      "playground_count": 4,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Little Wormwood Scrubs",
+        "Mary Seacole Memorial Park",
+        "Exhibition Park"
+      ]
+    },
+    {
+      "ward_code": "E05013737",
+      "ward_name": "Coningham",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Cathnor Park",
+        "Godolphin Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013738",
+      "ward_name": "Fulham Reach",
+      "playground_count": 6,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Bayonne Road Open Space",
+        "Normand Park"
+      ]
+    },
+    {
+      "ward_code": "E05013739",
+      "ward_name": "Fulham Town",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013740",
+      "ward_name": "Grove",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013741",
+      "ward_name": "Hammersmith Broadway",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Furnivall Gardens",
+        "Frank Banfield Park",
+        "Beckett's Wharf"
+      ]
+    },
+    {
+      "ward_code": "E05013742",
+      "ward_name": "Lillie",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Brompton Park",
+        "Lost River Park",
+        "Columbia Gardens",
+        "Lillie Square"
+      ]
+    },
+    {
+      "ward_code": "E05013743",
+      "ward_name": "Munster",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Lillie Road Gardens",
+        "Purcell Crescent Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013744",
+      "ward_name": "Palace & Hurlingham",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Hurlingham Park",
+        "South Park",
+        "Bishop's Park",
+        "Bishop's Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05013745",
+      "ward_name": "Parsons Green & Sandford",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Parsons Green",
+        "Eel Brook Common"
+      ]
+    },
+    {
+      "ward_code": "E05013746",
+      "ward_name": "Ravenscourt",
+      "playground_count": 6,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Ravenscourt Park",
+        "St. Peter's Square",
+        "Dalling Road Open Space",
+        "North Verbena Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013747",
+      "ward_name": "Sands End",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "William Parnell Park",
+        "Imperial Park"
+      ]
+    },
+    {
+      "ward_code": "E05013748",
+      "ward_name": "Shepherd's Bush Green",
+      "playground_count": 8,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Shepherds Bush Green",
+        "Norland North Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013749",
+      "ward_name": "Walham Green",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013750",
+      "ward_name": "Wendell Park",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Wendell Park"
+      ]
+    },
+    {
+      "ward_code": "E05013751",
+      "ward_name": "West Kensington",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013526",
+      "ward_name": "Lady Margaret",
+      "playground_count": 6,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Cranleigh Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013775",
+      "ward_name": "East Sheen",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Palewell Fields and Common",
+        "East Sheen Common"
+      ]
+    },
+    {
+      "ward_code": "E05013527",
+      "ward_name": "North Acton",
+      "playground_count": 6,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "North Acton Playing Field",
+        "Wesley Playing Fields",
+        "Twyford Crescent Gardens",
+        "Springfield Gardens",
+        "North Acton Triangle",
+        "Victoria Gardens",
+        "Cerebos Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013776",
+      "ward_name": "Fulwell & Hampton Hill",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Arundel Close Open Space",
+        "Holly Road Recreation Ground",
+        "Pantile Bridge Open Space",
+        "Alpha Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05013528",
+      "ward_name": "North Greenford",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Grove Farm local nature reserve",
+        "Wood End East Recreation Ground",
+        "Ridding Lane Open Space",
+        "Horsenden Hill Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013777",
+      "ward_name": "Ham, Petersham & Richmond Riverside",
+      "playground_count": 8,
+      "park_reserve_count": 16,
+      "notable_parks": [
+        "Terrace Field",
+        "Terrace Gardens",
+        "Ham Lands",
+        "Buccleuch Gardens",
+        "Richmond Park",
+        "Sudbrook Park",
+        "King George's Field",
+        "Gothic Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013529",
+      "ward_name": "North Hanwell",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Bittern's Field",
+        "Brent Lodge Park (Bunny Park)",
+        "Cuckoo Park"
+      ]
+    },
+    {
+      "ward_code": "E05013778",
+      "ward_name": "Hampton",
+      "playground_count": 4,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Hatherop Park",
+        "Carlisle Park",
+        "Hampton Court Green",
+        "Hampton Court Park",
+        "Cigarette Island Park",
+        "Hampton Village Green",
+        "Terrace Gardens",
+        "Beveree Wildlife Site"
+      ]
+    },
+    {
+      "ward_code": "E05013530",
+      "ward_name": "Northfield",
+      "playground_count": 5,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Blondin Park",
+        "Bramley Road Open Space",
+        "Clayponds Recreation Ground",
+        "Walmer Gardens",
+        "Fielding Walk",
+        "Wildberry Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013779",
+      "ward_name": "Hampton North",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Oak Avenue Nature Reserve",
+        "Hampton Common",
+        "Nursery Green"
+      ]
+    },
+    {
+      "ward_code": "E05013531",
+      "ward_name": "Northolt Mandeville",
+      "playground_count": 6,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Mandeville Parkway",
+        "Belvue Park",
+        "Islip Manor Park",
+        "Islip Manor Meadows",
+        "Lord Halsbury Memorial Playing Field",
+        "Priors Field",
+        "Eskdale Open space"
+      ]
+    },
+    {
+      "ward_code": "E05013780",
+      "ward_name": "Hampton Wick & South Teddington",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Langdon Park",
+        "Broom Road Recreation Ground",
+        "Udney Hall Gardens",
+        "Udney Park Playing Fields",
+        "School House Lane Orchard"
+      ]
+    },
+    {
+      "ward_code": "E05013532",
+      "ward_name": "Northolt West End",
+      "playground_count": 17,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Rectory Park",
+        "Yeading Brook Meadow",
+        "Medlar Fields",
+        "Lime Tree Park"
+      ]
+    },
+    {
+      "ward_code": "E05013781",
+      "ward_name": "Heathfield",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Crane Park",
+        "Crane Park Island Nature Reserve",
+        "Heathfield Recreation Ground",
+        "Jubilee Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05013882",
+      "ward_name": "Cann Hall",
+      "playground_count": 10,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Langthorne Park",
+        "Jubilee Gardens",
+        "Cann Hall Park"
+      ]
+    },
+    {
+      "ward_code": "E05013533",
+      "ward_name": "Norwood Green",
+      "playground_count": 4,
+      "park_reserve_count": 17,
+      "notable_parks": [
+        "Brent Meadow",
+        "Earl of Jersey's Field",
+        "Glade Lane Canalside Park",
+        "Wolf Fields Park",
+        "Brent River Park",
+        "Three Bridges Park",
+        "Bixley Field",
+        "Canalway Park"
+      ]
+    },
+    {
+      "ward_code": "E05013782",
+      "ward_name": "Kew",
+      "playground_count": 7,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "North Sheen Recreation Ground",
+        "Westerly Ware",
+        "St Luke's Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013883",
+      "ward_name": "Cathall",
+      "playground_count": 7,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Linear Park",
+        "Cathall Green"
+      ]
+    },
+    {
+      "ward_code": "E05013534",
+      "ward_name": "Perivale",
+      "playground_count": 5,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Pear Tree Park",
+        "Perivale Park",
+        "Horsenden Lower Thrifts Field",
+        "Perivale Wood Local Nature Reserve",
+        "Perivale East Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05013783",
+      "ward_name": "Mortlake & Barnes Common",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Mortlake Green",
+        "Dovecote Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013884",
+      "ward_name": "Chapel End",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Lloyd Park",
+        "Aveling Fields",
+        "Kitchener Park"
+      ]
+    },
+    {
+      "ward_code": "E05013535",
+      "ward_name": "Pitshanger",
+      "playground_count": 8,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Drayton Green",
+        "Cleveland Park",
+        "Pitshanger Park",
+        "Castlebar Park"
+      ]
+    },
+    {
+      "ward_code": "E05013784",
+      "ward_name": "North Richmond",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Old Deer Park",
+        "Tangier Green",
+        "Raleigh Road Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013885",
+      "ward_name": "Chingford Green",
+      "playground_count": 5,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Hawkswood Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013536",
+      "ward_name": "South Acton",
+      "playground_count": 9,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Bollo Brook Park",
+        "Mill Hill Gardens",
+        "The Woodlands",
+        "Mill Hill Park",
+        "Poets' Corner Community Garden",
+        "West Park",
+        "Heathfield Nature Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013785",
+      "ward_name": "St Margarets & North Twickenham",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Craneford Way",
+        "Moormead Park",
+        "Craneford Way Wild Park"
+      ]
+    },
+    {
+      "ward_code": "E05013886",
+      "ward_name": "Endlebury",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Mansfield Park",
+        "Ridgeway Park"
+      ]
+    },
+    {
+      "ward_code": "E05013537",
+      "ward_name": "Southall Broadway",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Southall Park"
+      ]
+    },
+    {
+      "ward_code": "E05013786",
+      "ward_name": "South Richmond",
+      "playground_count": 2,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Richmond Riverside",
+        "Rotary Gardens",
+        "Little Green",
+        "Grove Road Gardens",
+        "Bridge House Gardens",
+        "Pesthouse Common"
+      ]
+    },
+    {
+      "ward_code": "E05013887",
+      "ward_name": "Forest",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Abbotts Park"
+      ]
+    },
+    {
+      "ward_code": "E05013888",
+      "ward_name": "Grove Green",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Sidmouth Park"
+      ]
+    },
+    {
+      "ward_code": "E05013889",
+      "ward_name": "Hale End & Highams Park South",
+      "playground_count": 7,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013890",
+      "ward_name": "Hatch Lane & Highams Park North",
+      "playground_count": 5,
+      "park_reserve_count": 14,
+      "notable_parks": [
+        "The Highams Park",
+        "Pimp Hall Nature Reserve",
+        "Pimp Hall Park"
+      ]
+    },
+    {
+      "ward_code": "E05013891",
+      "ward_name": "High Street",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Stoneydown Park"
+      ]
+    },
+    {
+      "ward_code": "E05013892",
+      "ward_name": "Higham Hill",
+      "playground_count": 10,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Cheney Row Park",
+        "Higham Hill Recreation Ground",
+        "Folly Lane Playground",
+        "Rodney Green"
+      ]
+    },
+    {
+      "ward_code": "E05013893",
+      "ward_name": "Hoe Street",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Wingfield Park"
+      ]
+    },
+    {
+      "ward_code": "E05013894",
+      "ward_name": "Larkswood",
+      "playground_count": 6,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Memorial Park"
+      ]
+    },
+    {
+      "ward_code": "E05013895",
+      "ward_name": "Lea Bridge",
+      "playground_count": 7,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "WaterWorks Centre Field",
+        "Leyton Manor Park",
+        "Leyton Marsh",
+        "WaterWorks Centre Nature Reserve",
+        "Walthamstow Marsh",
+        "Cambrian Gardens",
+        "Friendship Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013896",
+      "ward_name": "Leyton",
+      "playground_count": 14,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Coronation Gardens",
+        "Jack Cornwell Park"
+      ]
+    },
+    {
+      "ward_code": "E05013897",
+      "ward_name": "Leytonstone",
+      "playground_count": 14,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Henry Reynolds Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013898",
+      "ward_name": "Markhouse",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Thomas Gamuel Park"
+      ]
+    },
+    {
+      "ward_code": "E05013899",
+      "ward_name": "St James",
+      "playground_count": 9,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "St James Park",
+        "Coppermill Fields",
+        "Coppermill Park and Gardens",
+        "Canal Walk"
+      ]
+    },
+    {
+      "ward_code": "E05013900",
+      "ward_name": "Upper Walthamstow",
+      "playground_count": 5,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Johnian's",
+        "Bisterne Avenue Park",
+        "Greenway Avenue Nature Conservation Area",
+        "Ambering Park"
+      ]
+    },
+    {
+      "ward_code": "E05013901",
+      "ward_name": "Valley",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Chase Lane Park"
+      ]
+    },
+    {
+      "ward_code": "E05013787",
+      "ward_name": "South Twickenham",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Mereway Nature Reserve",
+        "Radnor Gardens",
+        "Twickenham Green"
+      ]
+    },
+    {
+      "ward_code": "E05013788",
+      "ward_name": "Teddington",
+      "playground_count": 9,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Manor Road Recreation Ground",
+        "Bushy Park",
+        "Grove Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013789",
+      "ward_name": "Twickenham Riverside",
+      "playground_count": 6,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Cambridge Gardens",
+        "York House Gardens",
+        "Diamond Jubilee Gardens",
+        "Holly Road Garden",
+        "Champions Wharf",
+        "Marble Hill Park"
+      ]
+    },
+    {
+      "ward_code": "E05013790",
+      "ward_name": "West Twickenham",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Kneller Gardens",
+        "Crane Park",
+        "Crane Park - Willow Way"
+      ]
+    },
+    {
+      "ward_code": "E05013791",
+      "ward_name": "Whitton",
+      "playground_count": 6,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Murray Park"
+      ]
+    },
+    {
+      "ward_code": "E05013792",
+      "ward_name": "Abbey Road",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Violet Hill Park"
+      ]
+    },
+    {
+      "ward_code": "E05013793",
+      "ward_name": "Bayswater",
+      "playground_count": 2,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013794",
+      "ward_name": "Church Street",
+      "playground_count": 9,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Broadley Street Gardens",
+        "Tresham Gardens",
+        "Orange Park"
+      ]
+    },
+    {
+      "ward_code": "E05013795",
+      "ward_name": "Harrow Road",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Edbrooke Road Gardens",
+        "Tamplin Mews Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013796",
+      "ward_name": "Hyde Park",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Hyde Park",
+        "Floating Pocket Park"
+      ]
+    },
+    {
+      "ward_code": "E05013797",
+      "ward_name": "Knightsbridge & Belgravia",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Grosvenor Gardens",
+        "Ebury Square Gardens",
+        "Hyde Park Enclosed Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013798",
+      "ward_name": "Lancaster Gate",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Kensington Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013799",
+      "ward_name": "Little Venice",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "St Mary's Churchyard",
+        "Paddington Green",
+        "Rembrandt Gardens",
+        "Saint Mary's Square"
+      ]
+    },
+    {
+      "ward_code": "E05013800",
+      "ward_name": "Maida Vale",
+      "playground_count": 8,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Paddington Recreation Ground",
+        "Forty Tree Green"
+      ]
+    },
+    {
+      "ward_code": "E05013801",
+      "ward_name": "Marylebone",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Paddington Street Gardens North",
+        "Paddington Street Gardens South"
+      ]
+    },
+    {
+      "ward_code": "E05013538",
+      "ward_name": "Southall Green",
+      "playground_count": 5,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Manor House Grounds (Phoola Walla Park)"
+      ]
+    },
+    {
+      "ward_code": "E05013539",
+      "ward_name": "Southall West",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Central Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013540",
+      "ward_name": "Southfield",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Acton Green Common",
+        "Duke of Sussex Island",
+        "Beaconsfield Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013541",
+      "ward_name": "Walpole",
+      "playground_count": 6,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Lammas Park",
+        "Walpole Park",
+        "Dean Gardens",
+        "Lammas Enclosure",
+        "Play Service Nature Area"
+      ]
+    },
+    {
+      "ward_code": "E05013542",
+      "ward_name": "Belmont",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013543",
+      "ward_name": "Canons",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Stanmore Marsh North",
+        "Canons Park"
+      ]
+    },
+    {
+      "ward_code": "E05013544",
+      "ward_name": "Centenary",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Centenary Park",
+        "Stanmore Marsh South"
+      ]
+    },
+    {
+      "ward_code": "E05013545",
+      "ward_name": "Edgware",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Chandos Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013546",
+      "ward_name": "Greenhill",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013547",
+      "ward_name": "Harrow on the Hill",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Church Fields",
+        "Lowlands Recreation Ground",
+        "The Grove Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013548",
+      "ward_name": "Harrow Weald",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Harrow Weald Recreation Ground",
+        "The Cedars"
+      ]
+    },
+    {
+      "ward_code": "E05013549",
+      "ward_name": "Hatch End",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Shaftesbury Playing Fields",
+        "Hatch End Riverside Park"
+      ]
+    },
+    {
+      "ward_code": "E05013550",
+      "ward_name": "Headstone",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Harrow Recreation Ground",
+        "Old Lyonian Association Sports Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013551",
+      "ward_name": "Kenton East",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013902",
+      "ward_name": "William Morris",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014104",
+      "ward_name": "Herne Hill & Loughborough Junction",
+      "playground_count": 10,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Milkwood Community Park",
+        "Wildlife Garden",
+        "Ruskin Park"
+      ]
+    },
+    {
+      "ward_code": "E05013903",
+      "ward_name": "Wood Street",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014054",
+      "ward_name": "Alibon",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014105",
+      "ward_name": "Kennington",
+      "playground_count": 16,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Cleaver Square",
+        "Lambeth Walk Doorstep Green",
+        "Kennington Green"
+      ]
+    },
+    {
+      "ward_code": "E05013904",
+      "ward_name": "Beckton",
+      "playground_count": 12,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "New Beckton Park",
+        "Gallions Place"
+      ]
+    },
+    {
+      "ward_code": "E05014055",
+      "ward_name": "Barking Riverside",
+      "playground_count": 11,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Ripple Nature Reserve",
+        "The Wilds Ecology Park",
+        "Northgate Park",
+        "The Circus",
+        "Oystercatcher Park"
+      ]
+    },
+    {
+      "ward_code": "E05014004",
+      "ward_name": "Plaistow",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Shaftesbury Park",
+        "Kings Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05014106",
+      "ward_name": "Knight's Hill",
+      "playground_count": 8,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Tivoli Park",
+        "St Luke's Memorial Garden",
+        "Cedar Park",
+        "Peregrine Park",
+        "Knight's Hill Wood Nature Reserve",
+        "Tivoli Road Community Garden",
+        "West Norwood Health & Leisure Centre Grounds"
+      ]
+    },
+    {
+      "ward_code": "E05013905",
+      "ward_name": "Boleyn",
+      "playground_count": 7,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Priory Park"
+      ]
+    },
+    {
+      "ward_code": "E05014056",
+      "ward_name": "Beam",
+      "playground_count": 0,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "King George's Field"
+      ]
+    },
+    {
+      "ward_code": "E05014005",
+      "ward_name": "Shortlands & Park Langley",
+      "playground_count": 2,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014107",
+      "ward_name": "Myatt's Fields",
+      "playground_count": 7,
+      "park_reserve_count": 15,
+      "notable_parks": [
+        "Myatt's Fields",
+        "Dan Leno Gardens",
+        "Eythorne Park",
+        "Olive Morris Gardens",
+        "Cowley Road Open Space",
+        "Myatt's Fields Park Roundabout"
+      ]
+    },
+    {
+      "ward_code": "E05013906",
+      "ward_name": "Canning Town North",
+      "playground_count": 13,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Star Park",
+        "Malmesbury Road Park",
+        "Gas Light and Coke Company Memorial Garden",
+        "Cody Dock",
+        "Cody Wilds Nature Space",
+        "Linear Park"
+      ]
+    },
+    {
+      "ward_code": "E05014057",
+      "ward_name": "Becontree",
+      "playground_count": 0,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014006",
+      "ward_name": "St Mary Cray",
+      "playground_count": 7,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Grassmeade Recreation Ground",
+        "Poverest Park",
+        "Village Green",
+        "Riverside Gardens",
+        "Riverside gardens",
+        "Sandway Park",
+        "Oakmore Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014108",
+      "ward_name": "Oval",
+      "playground_count": 14,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "St Mark's Churchyard",
+        "Claylands Road Open Space",
+        "Oval Triangle"
+      ]
+    },
+    {
+      "ward_code": "E05014109",
+      "ward_name": "St Martin's",
+      "playground_count": 12,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014110",
+      "ward_name": "Stockwell East",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Van Gogh Walk"
+      ]
+    },
+    {
+      "ward_code": "E05014111",
+      "ward_name": "Stockwell West & Larkhall",
+      "playground_count": 13,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Larkhall Park",
+        "Lansdowne Gardens",
+        "Stockwell Memorial Gardens",
+        "Thorparch Road Pocket Park",
+        "Larkhall Park Community Garden"
+      ]
+    },
+    {
+      "ward_code": "E05014112",
+      "ward_name": "Streatham Common & Vale",
+      "playground_count": 5,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Streatham Common",
+        "Eardley Road Sidings Nature Reserve",
+        "Streatham Memorial Garden",
+        "Streatham Vale Park",
+        "Streatham Common Nature Reserve",
+        "Eardley Road Sidings",
+        "Sherwood Avenue Gardens",
+        "The Rookery"
+      ]
+    },
+    {
+      "ward_code": "E05014113",
+      "ward_name": "Streatham Hill East",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Palace Road Nature Gardens",
+        "Hillside Gardens Park",
+        "Palace Road  Nature Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014114",
+      "ward_name": "Streatham Hill West & Thornton",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Kirkstall Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014115",
+      "ward_name": "Streatham St Leonard's",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Woodfield Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05014116",
+      "ward_name": "Streatham Wells",
+      "playground_count": 2,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Valley Road playing fields",
+        "Unigate Wood"
+      ]
+    },
+    {
+      "ward_code": "E05014117",
+      "ward_name": "Vauxhall",
+      "playground_count": 8,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Vauxhall Pleasure Gardens",
+        "Albert Embankment Gardens",
+        "Pedlar's Park",
+        "Bonnington Gardens",
+        "Effra Quay"
+      ]
+    },
+    {
+      "ward_code": "E05014118",
+      "ward_name": "Waterloo & South Bank",
+      "playground_count": 12,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Archbishop's Park",
+        "Jubilee Gardens",
+        "Waterloo Millennium Green",
+        "Bernie Spain Gardens (North Park)",
+        "Bernie Spain Gardens (South Park)",
+        "St. John's Church Gardens",
+        "Old Paradise Gardens",
+        "Emma Cons Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014119",
+      "ward_name": "West Dulwich",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Peabody Hill Wood",
+        "Vale Street MUGA"
+      ]
+    },
+    {
+      "ward_code": "E05014007",
+      "ward_name": "St Paul's Cray",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "St. Paul's Cray Recreation Ground",
+        "Pauls Cray Hill Park",
+        "Ruxley Gravel Pits"
+      ]
+    },
+    {
+      "ward_code": "E05014058",
+      "ward_name": "Chadwell Heath",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "St. Chad's Park"
+      ]
+    },
+    {
+      "ward_code": "E05014008",
+      "ward_name": "West Wickham",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Spring Park",
+        "Blake Park Recreation Ground",
+        "McAndrew's Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013907",
+      "ward_name": "Canning Town South",
+      "playground_count": 18,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Keir Hardie Park",
+        "Bow Creek Ecology Park",
+        "Essex Wharf"
+      ]
+    },
+    {
+      "ward_code": "E05014059",
+      "ward_name": "Eastbrook & Rush Green",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Central Park",
+        "Eastbrookend Country Park",
+        "The Chase Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05014009",
+      "ward_name": "Balham",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Nightingale Square"
+      ]
+    },
+    {
+      "ward_code": "E05013908",
+      "ward_name": "Custom House",
+      "playground_count": 5,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Cundy Park",
+        "Canning Town Recreation Ground",
+        "King George V Park"
+      ]
+    },
+    {
+      "ward_code": "E05014060",
+      "ward_name": "Eastbury",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Castle Green",
+        "Essex Road Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014010",
+      "ward_name": "Battersea Park",
+      "playground_count": 9,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Latchmere Recreation Ground",
+        "Battersea Park"
+      ]
+    },
+    {
+      "ward_code": "E05013909",
+      "ward_name": "East Ham",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Central Park"
+      ]
+    },
+    {
+      "ward_code": "E05013910",
+      "ward_name": "East Ham South",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "East Ham Nature Reserve",
+        "Gooseley Playing Field",
+        "Brampton Park",
+        "Cuckold Haven Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013911",
+      "ward_name": "Forest Gate North",
+      "playground_count": 11,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Wellington Road Open Space"
+      ]
+    },
+    {
+      "ward_code": "E05013912",
+      "ward_name": "Forest Gate South",
+      "playground_count": 8,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013913",
+      "ward_name": "Green Street East",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013914",
+      "ward_name": "Green Street West",
+      "playground_count": 8,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013915",
+      "ward_name": "Little Ilford",
+      "playground_count": 12,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Little Ilford Park",
+        "Hathaway Crescent Park"
+      ]
+    },
+    {
+      "ward_code": "E05013916",
+      "ward_name": "Manor Park",
+      "playground_count": 6,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013917",
+      "ward_name": "Maryland",
+      "playground_count": 13,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Chandos Road Open Space",
+        "Major Road Open Space",
+        "Alma Street Community Play Areas"
+      ]
+    },
+    {
+      "ward_code": "E05013918",
+      "ward_name": "Plaistow North",
+      "playground_count": 16,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013919",
+      "ward_name": "Plaistow South",
+      "playground_count": 6,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Upperton Road Park"
+      ]
+    },
+    {
+      "ward_code": "E05013920",
+      "ward_name": "Plaistow West & Canning Town East",
+      "playground_count": 13,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Plaistow Park",
+        "Lister Gardens",
+        "Hermit Road Recreational Ground",
+        "Daisy Parsons Memorial Garden",
+        "Gandhi Chaplin Memorial Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013921",
+      "ward_name": "Plashet",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Plashet Park"
+      ]
+    },
+    {
+      "ward_code": "E05013922",
+      "ward_name": "Royal Albert",
+      "playground_count": 18,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Tate Park",
+        "Royal Victoria Gardens",
+        "The Green",
+        "Northern Square"
+      ]
+    },
+    {
+      "ward_code": "E05013923",
+      "ward_name": "Royal Victoria",
+      "playground_count": 8,
+      "park_reserve_count": 16,
+      "notable_parks": [
+        "Thames Barrier Park",
+        "Lyle Park",
+        "Britannia Village Green",
+        "Royal Victoria Square",
+        "Royal Wharf Gardens",
+        "Corinthian Square",
+        "Bombardier Beetle Relocation Area"
+      ]
+    },
+    {
+      "ward_code": "E05013924",
+      "ward_name": "Stratford",
+      "playground_count": 17,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Channelsea Path",
+        "Greenway"
+      ]
+    },
+    {
+      "ward_code": "E05013925",
+      "ward_name": "Stratford Olympic Park",
+      "playground_count": 19,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Mirabelle Gardens",
+        "Old Ford Island"
+      ]
+    },
+    {
+      "ward_code": "E05013926",
+      "ward_name": "Wall End",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Barking Road Recreation Ground",
+        "Miers Close Wildlife Area"
+      ]
+    },
+    {
+      "ward_code": "E05013927",
+      "ward_name": "West Ham",
+      "playground_count": 15,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "West Ham Park",
+        "Stratford Park",
+        "Sandal Street Play Area"
+      ]
+    },
+    {
+      "ward_code": "E05013928",
+      "ward_name": "Alexandra",
+      "playground_count": 0,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Alexandra Park",
+        "Alexandra Millennium Green",
+        "Elmbridge Meadows Nature Reserve",
+        "Berrylands Park",
+        "Edith Gardens Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013929",
+      "ward_name": "Berrylands",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Rose Walk Nature Reserve",
+        "Berrylands Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013930",
+      "ward_name": "Canbury Gardens",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Canbury Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05013931",
+      "ward_name": "Chessington South & Malden Rushett",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Merritt Gardens Park",
+        "Castle Hill Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013932",
+      "ward_name": "Coombe Hill",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Coombe Hill Wood"
+      ]
+    },
+    {
+      "ward_code": "E05013933",
+      "ward_name": "Coombe Vale",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Dickerage Recreation Ground",
+        "The Green",
+        "Barton Green"
+      ]
+    },
+    {
+      "ward_code": "E05013934",
+      "ward_name": "Green Lane & St James",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Green Lane Recreation Ground",
+        "Hogsmill Wood Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013935",
+      "ward_name": "Hook & Chessington North",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Hook Leisure Gardens",
+        "Woodgate Avenue Playground"
+      ]
+    },
+    {
+      "ward_code": "E05013936",
+      "ward_name": "King George's & Sunray",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Southwood",
+        "Signal Park Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013937",
+      "ward_name": "Kingston Gate",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Dinton Field"
+      ]
+    },
+    {
+      "ward_code": "E05013938",
+      "ward_name": "Kingston Town",
+      "playground_count": 3,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Athelstan Recreation Ground",
+        "Charter Quay Wildlife Habitat"
+      ]
+    },
+    {
+      "ward_code": "E05013939",
+      "ward_name": "Motspur Park & Old Malden East",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013940",
+      "ward_name": "New Malden Village",
+      "playground_count": 8,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Cromwell Avenue Open Space",
+        "Blagdon Road Recreation Ground",
+        "Beverley Park"
+      ]
+    },
+    {
+      "ward_code": "E05013941",
+      "ward_name": "Norbiton",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Kingston Road Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013942",
+      "ward_name": "Old Malden",
+      "playground_count": 1,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Long Meadow"
+      ]
+    },
+    {
+      "ward_code": "E05013943",
+      "ward_name": "St Mark's & Seething Wells",
+      "playground_count": 1,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Hogsmill STW Nature Reserve",
+        "Claremont Gardens",
+        "Saint Andrew's Square",
+        "Victoria Park"
+      ]
+    },
+    {
+      "ward_code": "E05013944",
+      "ward_name": "Surbiton Hill",
+      "playground_count": 0,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Fishponds Park",
+        "Middle Green",
+        "The Wood"
+      ]
+    },
+    {
+      "ward_code": "E05013945",
+      "ward_name": "Tolworth",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013946",
+      "ward_name": "Tudor",
+      "playground_count": 3,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Latchmere Rec"
+      ]
+    },
+    {
+      "ward_code": "E05014061",
+      "ward_name": "Gascoigne",
+      "playground_count": 16,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Greatfields Park",
+        "Central Park"
+      ]
+    },
+    {
+      "ward_code": "E05014062",
+      "ward_name": "Goresbrook",
+      "playground_count": 4,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Goresbrook Park"
+      ]
+    },
+    {
+      "ward_code": "E05014063",
+      "ward_name": "Heath",
+      "playground_count": 3,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014011",
+      "ward_name": "East Putney",
+      "playground_count": 8,
+      "park_reserve_count": 8,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014064",
+      "ward_name": "Longbridge",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Mayesbrook Park",
+        "Barking Park"
+      ]
+    },
+    {
+      "ward_code": "E05014012",
+      "ward_name": "Falconbrook",
+      "playground_count": 10,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "York Gardens",
+        "Falcon Glade",
+        "Petergate Green"
+      ]
+    },
+    {
+      "ward_code": "E05014065",
+      "ward_name": "Mayesbrook",
+      "playground_count": 3,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014066",
+      "ward_name": "Northbury",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Quaker Burial Ground"
+      ]
+    },
+    {
+      "ward_code": "E05014013",
+      "ward_name": "Furzedown",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Furzedown Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05014067",
+      "ward_name": "Parsloes",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Parsloes Park Squatts"
+      ]
+    },
+    {
+      "ward_code": "E05014014",
+      "ward_name": "Lavender",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Lavender Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014068",
+      "ward_name": "Thames View",
+      "playground_count": 7,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Chilworth Green",
+        "Patrick Park",
+        "Lillie's Lawn",
+        "Creekmouth Open Space",
+        "Bastable Green"
+      ]
+    },
+    {
+      "ward_code": "E05014015",
+      "ward_name": "Nine Elms",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Riverside Gardens",
+        "Central Gardens",
+        "Heathwall Quay"
+      ]
+    },
+    {
+      "ward_code": "E05014069",
+      "ward_name": "Valence",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Valence Park"
+      ]
+    },
+    {
+      "ward_code": "E05014016",
+      "ward_name": "Northcote",
+      "playground_count": 5,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014070",
+      "ward_name": "Village",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Old Dagenham Park",
+        "Dagenham Village Churchyard"
+      ]
+    },
+    {
+      "ward_code": "E05014017",
+      "ward_name": "Roehampton",
+      "playground_count": 15,
+      "park_reserve_count": 19,
+      "notable_parks": [
+        "Richardson Evans Memorial Playing Fields",
+        "Lennox Estate Green"
+      ]
+    },
+    {
+      "ward_code": "E05014018",
+      "ward_name": "St Mary's",
+      "playground_count": 3,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Fred Wells Gardens",
+        "Bramford Gardens",
+        "Price's Park"
+      ]
+    },
+    {
+      "ward_code": "E05013967",
+      "ward_name": "Beam Park",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Linear Park",
+        "South Lawns"
+      ]
+    },
+    {
+      "ward_code": "E05014019",
+      "ward_name": "Shaftesbury & Queenstown",
+      "playground_count": 18,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Falcon Park",
+        "Shillington Park",
+        "Heathbrook Park",
+        "Montefiore Gardens",
+        "Queenstown Green"
+      ]
+    },
+    {
+      "ward_code": "E05014071",
+      "ward_name": "Whalebone",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013968",
+      "ward_name": "Cranham",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Upminster Hall Playing Fields",
+        "Cranham Brickfields"
+      ]
+    },
+    {
+      "ward_code": "E05014020",
+      "ward_name": "South Balham",
+      "playground_count": 2,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014072",
+      "ward_name": "Abbey Wood",
+      "playground_count": 4,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Abbey Wood Park"
+      ]
+    },
+    {
+      "ward_code": "E05013969",
+      "ward_name": "Elm Park",
+      "playground_count": 8,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Bretons Park",
+        "The Glens",
+        "Beaumont Green Field",
+        "Malan Square",
+        "Hornchurch Country Park",
+        "Memorial Woodland"
+      ]
+    },
+    {
+      "ward_code": "E05014021",
+      "ward_name": "Southfields",
+      "playground_count": 9,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Coronation Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014073",
+      "ward_name": "Blackheath Westcombe",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Batley Park",
+        "The Woodlands Dell"
+      ]
+    },
+    {
+      "ward_code": "E05013970",
+      "ward_name": "Emerson Park",
+      "playground_count": 0,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Platford Green"
+      ]
+    },
+    {
+      "ward_code": "E05014022",
+      "ward_name": "Thamesfield",
+      "playground_count": 7,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Waterman's Green",
+        "Leader's Gardens",
+        "Communal Garden Square",
+        "Putney Embankment Foreshore"
+      ]
+    },
+    {
+      "ward_code": "E05014074",
+      "ward_name": "Charlton Hornfair",
+      "playground_count": 9,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Hornfair Park"
+      ]
+    },
+    {
+      "ward_code": "E05013971",
+      "ward_name": "Gooshays",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Central Park",
+        "Dagnam Park"
+      ]
+    },
+    {
+      "ward_code": "E05014023",
+      "ward_name": "Tooting Bec",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014075",
+      "ward_name": "Charlton Village & Riverside",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Maryon Wilson Park",
+        "Charlton Park",
+        "Gilbert's Pit"
+      ]
+    },
+    {
+      "ward_code": "E05013972",
+      "ward_name": "Hacton",
+      "playground_count": 8,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Ingrebourne Valley Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05014024",
+      "ward_name": "Tooting Broadway",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Tooting Gardens",
+        "Graveney Pocket Park"
+      ]
+    },
+    {
+      "ward_code": "E05014076",
+      "ward_name": "East Greenwich",
+      "playground_count": 12,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "East Greenwich Pleasaunce"
+      ]
+    },
+    {
+      "ward_code": "E05013973",
+      "ward_name": "Harold Wood",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Tyler's Common",
+        "Folkes Lane Wood",
+        "Kings Park Play Area"
+      ]
+    },
+    {
+      "ward_code": "E05014025",
+      "ward_name": "Trinity",
+      "playground_count": 1,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014077",
+      "ward_name": "Eltham Page",
+      "playground_count": 2,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Well Hall Pleasaunce",
+        "Briset Park",
+        "Birdbrook Nature Reserve",
+        "Kidbrooke Green Park"
+      ]
+    },
+    {
+      "ward_code": "E05013974",
+      "ward_name": "Havering-atte-Bower",
+      "playground_count": 1,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Bedfords Park",
+        "Deer Enclosure"
+      ]
+    },
+    {
+      "ward_code": "E05014026",
+      "ward_name": "Wandle",
+      "playground_count": 6,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014078",
+      "ward_name": "Eltham Park & Progress",
+      "playground_count": 0,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Oxleas Meadow",
+        "King George's Field"
+      ]
+    },
+    {
+      "ward_code": "E05014027",
+      "ward_name": "Wandsworth Common",
+      "playground_count": 7,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Garratt Park",
+        "Garratt Green",
+        "Godley Gardens",
+        "Heathfield Square",
+        "Springfield Park"
+      ]
+    },
+    {
+      "ward_code": "E05013975",
+      "ward_name": "Heaton",
+      "playground_count": 1,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014079",
+      "ward_name": "Eltham Town & Avery Hill",
+      "playground_count": 7,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Eltham Park South",
+        "Avery Hill Park"
+      ]
+    },
+    {
+      "ward_code": "E05014028",
+      "ward_name": "Wandsworth Town",
+      "playground_count": 9,
+      "park_reserve_count": 16,
+      "notable_parks": [
+        "Garratt Lane Old Burial Ground",
+        "King George's Park"
+      ]
+    },
+    {
+      "ward_code": "E05013976",
+      "ward_name": "Hylands & Harrow Lodge",
+      "playground_count": 9,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Hylands Park",
+        "Park Lane Recreation Ground",
+        "Harrow Lodge Park",
+        "Haveringwell Memorial",
+        "Grenfell Park",
+        "Bancroft Chase"
+      ]
+    },
+    {
+      "ward_code": "E05014080",
+      "ward_name": "Greenwich Creekside",
+      "playground_count": 11,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Twinkle Park",
+        "Charlotte Turner Gardens",
+        "St Alfege Park",
+        "Marryat Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014029",
+      "ward_name": "West Hill",
+      "playground_count": 6,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "Historic Southfields Pond",
+        "Oak Park Gardens",
+        "William Harvey Community Garden",
+        "Radley/Simon Lodge Communal Garden",
+        "Whitelands Park"
+      ]
+    },
+    {
+      "ward_code": "E05013977",
+      "ward_name": "Marshalls & Rise Park",
+      "playground_count": 2,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "Rise Park",
+        "Conservation Area",
+        "Raphael Park"
+      ]
+    },
+    {
+      "ward_code": "E05014081",
+      "ward_name": "Greenwich Park",
+      "playground_count": 8,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Greenwich Park"
+      ]
+    },
+    {
+      "ward_code": "E05014030",
+      "ward_name": "West Putney",
+      "playground_count": 4,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "The Pleasance"
+      ]
+    },
+    {
+      "ward_code": "E05013978",
+      "ward_name": "Mawneys",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Lawns Park",
+        "King George's Playing Fields"
+      ]
+    },
+    {
+      "ward_code": "E05013979",
+      "ward_name": "Rainham & Wennington",
+      "playground_count": 5,
+      "park_reserve_count": 8,
+      "notable_parks": [
+        "Spring Farm Park",
+        "Abbey Wood Public Open Space",
+        "Ingrebourne Marshes SSSI",
+        "Berwick Glades"
+      ]
+    },
+    {
+      "ward_code": "E05013980",
+      "ward_name": "Rush Green & Crowlands",
+      "playground_count": 4,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Cottons Park",
+        "Jutsums Park",
+        "Jubilee Park"
+      ]
+    },
+    {
+      "ward_code": "E05013981",
+      "ward_name": "St Alban's",
+      "playground_count": 0,
+      "park_reserve_count": 0,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05013982",
+      "ward_name": "St Andrew's",
+      "playground_count": 1,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "St. Andrew's Park",
+        "Queen's Green",
+        "Fielder's Field"
+      ]
+    },
+    {
+      "ward_code": "E05013983",
+      "ward_name": "St Edward's",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Lodge Farm Park"
+      ]
+    },
+    {
+      "ward_code": "E05013984",
+      "ward_name": "South Hornchurch",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Ingrebourne Hill",
+        "Whybridge Close Playsite"
+      ]
+    },
+    {
+      "ward_code": "E05013985",
+      "ward_name": "Squirrels Heath",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Haynes Park"
+      ]
+    },
+    {
+      "ward_code": "E05013986",
+      "ward_name": "Upminster",
+      "playground_count": 3,
+      "park_reserve_count": 11,
+      "notable_parks": [
+        "The Glade",
+        "Clockhouse Gardens",
+        "Parklands",
+        "Bonnetts Wood",
+        "Monks Farm Island",
+        "Upminster Park",
+        "Upminster Windmill Field"
+      ]
+    },
+    {
+      "ward_code": "E05013987",
+      "ward_name": "Beckenham Town & Copers Cope",
+      "playground_count": 0,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Thornton Green"
+      ]
+    },
+    {
+      "ward_code": "E05013988",
+      "ward_name": "Bickley & Sundridge",
+      "playground_count": 12,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Jubilee Country Park"
+      ]
+    },
+    {
+      "ward_code": "E05013989",
+      "ward_name": "Biggin Hill",
+      "playground_count": 1,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Biggin Hill Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013990",
+      "ward_name": "Bromley Common & Holwood",
+      "playground_count": 10,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "South Park",
+        "Richmal Crompton Fields",
+        "Farnborough Common",
+        "Hollydale Recreation Grounds",
+        "Holwood Park",
+        "Havelock Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013991",
+      "ward_name": "Bromley Town",
+      "playground_count": 3,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Church House Gardens",
+        "Bromley Palace Park",
+        "College Green"
+      ]
+    },
+    {
+      "ward_code": "E05013992",
+      "ward_name": "Chelsfield",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "The Green",
+        "Pratts Bottom Nature Reserve",
+        "Chelsfield Green"
+      ]
+    },
+    {
+      "ward_code": "E05013993",
+      "ward_name": "Chislehurst",
+      "playground_count": 5,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Scadbury Park",
+        "Walden Recreation Ground",
+        "Chislehurst Recreation Ground"
+      ]
+    },
+    {
+      "ward_code": "E05013994",
+      "ward_name": "Clock House",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Churchfields Recreation Ground",
+        "Love Lane Green",
+        "Library Green"
+      ]
+    },
+    {
+      "ward_code": "E05013995",
+      "ward_name": "Crystal Palace & Anerley",
+      "playground_count": 9,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Betts Park",
+        "Fox Hill Playing Field",
+        "Fox Hill Green",
+        "Crystal Palace Park",
+        "The Secret Garden"
+      ]
+    },
+    {
+      "ward_code": "E05013996",
+      "ward_name": "Darwin",
+      "playground_count": 5,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Downe Recreation Ground",
+        "Leaves Green",
+        "Pratts Bottom Village Green"
+      ]
+    },
+    {
+      "ward_code": "E05013997",
+      "ward_name": "Farnborough & Crofton",
+      "playground_count": 6,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Tugmutton Common",
+        "Broadstreet Green",
+        "Darrick & Newstead Woods Local Nature Reserve"
+      ]
+    },
+    {
+      "ward_code": "E05013998",
+      "ward_name": "Hayes & Coney Hall",
+      "playground_count": 7,
+      "park_reserve_count": 12,
+      "notable_parks": [
+        "Husseywell Park",
+        "The Knoll",
+        "Norman Park",
+        "Pickhurst Green",
+        "Sparrows Den",
+        "Hayes Common"
+      ]
+    },
+    {
+      "ward_code": "E05013999",
+      "ward_name": "Kelsey & Eden Park",
+      "playground_count": 5,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Crease Park",
+        "Croydon Road Recreation Ground",
+        "Kelsey Park",
+        "Elmers End Recreation Ground",
+        "Harvington Estate"
+      ]
+    },
+    {
+      "ward_code": "E05014000",
+      "ward_name": "Mottingham",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014001",
+      "ward_name": "Orpington",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Goddington Park",
+        "Priory Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014002",
+      "ward_name": "Penge & Cator",
+      "playground_count": 10,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Penge Recreation Ground",
+        "Alexandra Recreation Ground",
+        "Winsford Gardens",
+        "Cator Park",
+        "River Pool Walkway Open Space",
+        "Royston Playing Field"
+      ]
+    },
+    {
+      "ward_code": "E05014003",
+      "ward_name": "Petts Wood & Knoll",
+      "playground_count": 2,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Broomhill Common",
+        "Broxbourne Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014082",
+      "ward_name": "Greenwich Peninsula",
+      "playground_count": 12,
+      "park_reserve_count": 6,
+      "notable_parks": [
+        "Central Park",
+        "Greenwich Peninsula Ecology Park",
+        "Reminder Gardens",
+        "Southern Park"
+      ]
+    },
+    {
+      "ward_code": "E05014083",
+      "ward_name": "Kidbrooke Park",
+      "playground_count": 5,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Hervey Road Playing Field",
+        "Eltham Common"
+      ]
+    },
+    {
+      "ward_code": "E05014084",
+      "ward_name": "Kidbrooke Village & Sutcliffe",
+      "playground_count": 4,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Sutcliffe Park"
+      ]
+    },
+    {
+      "ward_code": "E05014085",
+      "ward_name": "Middle Park & Horn Park",
+      "playground_count": 6,
+      "park_reserve_count": 2,
+      "notable_parks": [
+        "Queenscroft Recreation Ground",
+        "Horn Park"
+      ]
+    },
+    {
+      "ward_code": "E05014086",
+      "ward_name": "Mottingham, Coldharbour & New Eltham",
+      "playground_count": 6,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Fairy Hill Park",
+        "Wynford Park",
+        "Altash Gardens",
+        "The Course",
+        "The Tarn Bird Sanctuary",
+        "Queen's Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014087",
+      "ward_name": "Plumstead & Glyndon",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Plumstead Gardens",
+        "Winns Common",
+        "St. Nicholas Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014088",
+      "ward_name": "Plumstead Common",
+      "playground_count": 2,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Plumstead Common",
+        "Rockliffe Gardens",
+        "Kirkham Walkway",
+        "William Barefoot Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014089",
+      "ward_name": "Shooters Hill",
+      "playground_count": 4,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Shrewsbury Park"
+      ]
+    },
+    {
+      "ward_code": "E05014090",
+      "ward_name": "Thamesmead Moorings",
+      "playground_count": 3,
+      "park_reserve_count": 5,
+      "notable_parks": [
+        "Birchmere Park"
+      ]
+    },
+    {
+      "ward_code": "E05014091",
+      "ward_name": "West Thamesmead",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Gallions Reach Park"
+      ]
+    },
+    {
+      "ward_code": "E05014092",
+      "ward_name": "Woolwich Arsenal",
+      "playground_count": 4,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Wellington Park",
+        "General Gordon Square",
+        "James Clavell Square",
+        "Dial Arch Square",
+        "Royal Arsenal Thames Path Garden",
+        "Maribor Park"
+      ]
+    },
+    {
+      "ward_code": "E05014093",
+      "ward_name": "Woolwich Common",
+      "playground_count": 7,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Woolwich Common"
+      ]
+    },
+    {
+      "ward_code": "E05014094",
+      "ward_name": "Woolwich Dockyard",
+      "playground_count": 8,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Saint Mary's Garden"
+      ]
+    },
+    {
+      "ward_code": "E05014095",
+      "ward_name": "Brixton Acre Lane",
+      "playground_count": 4,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Windmill Gardens",
+        "Trinity Gardens"
+      ]
+    },
+    {
+      "ward_code": "E05014096",
+      "ward_name": "Brixton North",
+      "playground_count": 14,
+      "park_reserve_count": 10,
+      "notable_parks": [
+        "Elam Street Open Space",
+        "Wyck Gardens",
+        "Dora Boatemah Memorial Garden",
+        "Papa's Park"
+      ]
+    },
+    {
+      "ward_code": "E05014097",
+      "ward_name": "Brixton Rush Common",
+      "playground_count": 13,
+      "park_reserve_count": 9,
+      "notable_parks": [
+        "St. Matthew's Church Gardens",
+        "Holmewood Gardens",
+        "Rush Common",
+        "Rush Common Woodland Walk",
+        "Pencil Park"
+      ]
+    },
+    {
+      "ward_code": "E05014098",
+      "ward_name": "Brixton Windrush",
+      "playground_count": 1,
+      "park_reserve_count": 3,
+      "notable_parks": [
+        "Loughborough Park",
+        "Coldharbour Lane Open Space",
+        "Windrush Square"
+      ]
+    },
+    {
+      "ward_code": "E05014099",
+      "ward_name": "Clapham Common & Abbeville",
+      "playground_count": 3,
+      "park_reserve_count": 1,
+      "notable_parks": [
+        "Bandstand Beds Community Garden"
+      ]
+    },
+    {
+      "ward_code": "E05014100",
+      "ward_name": "Clapham East",
+      "playground_count": 5,
+      "park_reserve_count": 1,
+      "notable_parks": []
+    },
+    {
+      "ward_code": "E05014101",
+      "ward_name": "Clapham Park",
+      "playground_count": 4,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Agnes Riley Gardens",
+        "Dumbarton Court Public Open Space",
+        "Atkins Road Roundabout"
+      ]
+    },
+    {
+      "ward_code": "E05014102",
+      "ward_name": "Clapham Town",
+      "playground_count": 6,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Grafton Square",
+        "St Paul's Churchyard",
+        "Holy Trinity Churchyard"
+      ]
+    },
+    {
+      "ward_code": "E05014103",
+      "ward_name": "Gipsy Hill",
+      "playground_count": 15,
+      "park_reserve_count": 7,
+      "notable_parks": [
+        "Norwood Park",
+        "Long Meadow",
+        "Becondale Road Open Space",
+        "Paxton Parklet"
+      ]
+    },
+    {
+      "ward_code": "E05014053",
+      "ward_name": "Abbey",
+      "playground_count": 3,
+      "park_reserve_count": 4,
+      "notable_parks": [
+        "Abbey Green",
+        "Drydock Square",
+        "Gascoigne Square"
+      ]
+    }
+  ]
+}

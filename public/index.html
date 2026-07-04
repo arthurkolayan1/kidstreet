@@ -665,6 +665,36 @@
                                 ") on the map."
                             );
                         },
+                        // Richer, named facts for a single ward (schools, stations, parks,
+                        // planning applications) so the agent can cite specifics instead of
+                        // just scores. Backed by /api/wards/<name>, which reads the full
+                        // pipeline output (see src/index.js) rather than the flat /api/scores
+                        // contract the map uses.
+                        get_ward_details: async ({ ward }) => {
+                            if (!ward)
+                                return JSON.stringify({
+                                    error: "ward name is required",
+                                });
+                            try {
+                                const res = await fetch(
+                                    "/api/wards/" + encodeURIComponent(ward),
+                                );
+                                if (!res.ok) {
+                                    return JSON.stringify({
+                                        error:
+                                            "Ward not found: " +
+                                            ward +
+                                            ". Use exact ward names from get_ward_scores.",
+                                    });
+                                }
+                                const detail = await res.json();
+                                return JSON.stringify(detail);
+                            } catch (e) {
+                                return JSON.stringify({
+                                    error: "Ward detail lookup failed.",
+                                });
+                            }
+                        },
                     };
                 });
                 const askBtn = document.getElementById("askBtn");

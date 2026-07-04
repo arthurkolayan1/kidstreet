@@ -1,0 +1,5643 @@
+{
+  "generated_at": "2026-07-04T13:30:15.212Z",
+  "source": "ONS Census 2021 via Nomis API: TS003 household composition (NM_2023_1) and TS007B age bands (NM_2018_1), both at \"2022 wards\" (WD22CD) geography. Joined to WD24 wards by ward code, with normalized-name fallback for boundary changes between 2022 and 2024; unmatched wards (new/renamed since 2022) are left null rather than estimated.",
+  "match_stats": {
+    "matchedByCode": 679,
+    "matchedByName": 0,
+    "unmatched": 25
+  },
+  "wards": [
+    {
+      "ward_code": "E05009288",
+      "ward_name": "Aldersgate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009289",
+      "ward_name": "Aldgate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009290",
+      "ward_name": "Bassishaw",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009291",
+      "ward_name": "Billingsgate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009292",
+      "ward_name": "Bishopsgate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009293",
+      "ward_name": "Bread Street",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009294",
+      "ward_name": "Bridge",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009295",
+      "ward_name": "Broad Street",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009296",
+      "ward_name": "Candlewick",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009297",
+      "ward_name": "Castle Baynard",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009298",
+      "ward_name": "Cheap",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009299",
+      "ward_name": "Coleman Street",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009300",
+      "ward_name": "Cordwainer",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009301",
+      "ward_name": "Cornhill",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009302",
+      "ward_name": "Cripplegate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009303",
+      "ward_name": "Dowgate",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009304",
+      "ward_name": "Farringdon Within",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009305",
+      "ward_name": "Farringdon Without",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009306",
+      "ward_name": "Langbourn",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009307",
+      "ward_name": "Lime Street",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009308",
+      "ward_name": "Portsoken",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009309",
+      "ward_name": "Queenhithe",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009310",
+      "ward_name": "Tower",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009311",
+      "ward_name": "Vintry",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009312",
+      "ward_name": "Walbrook",
+      "pct_households_with_dependent_children": null,
+      "pct_population_family_forming_age": null,
+      "total_households": null,
+      "total_population": null
+    },
+    {
+      "ward_code": "E05009317",
+      "ward_name": "Bethnal Green East",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 44.5,
+      "total_households": 7249,
+      "total_population": 21088
+    },
+    {
+      "ward_code": "E05009318",
+      "ward_name": "Blackwall & Cubitt Town",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 57.9,
+      "total_households": 9511,
+      "total_population": 21422
+    },
+    {
+      "ward_code": "E05009319",
+      "ward_name": "Bow East",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 54.9,
+      "total_households": 8407,
+      "total_population": 19526
+    },
+    {
+      "ward_code": "E05009320",
+      "ward_name": "Bow West",
+      "pct_households_with_dependent_children": 12.8,
+      "pct_population_family_forming_age": 47.7,
+      "total_households": 5279,
+      "total_population": 13711
+    },
+    {
+      "ward_code": "E05009321",
+      "ward_name": "Bromley North",
+      "pct_households_with_dependent_children": 16.3,
+      "pct_population_family_forming_age": 48.2,
+      "total_households": 4523,
+      "total_population": 11702
+    },
+    {
+      "ward_code": "E05009322",
+      "ward_name": "Bromley South",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 48.5,
+      "total_households": 5050,
+      "total_population": 13966
+    },
+    {
+      "ward_code": "E05009323",
+      "ward_name": "Canary Wharf",
+      "pct_households_with_dependent_children": 8.9,
+      "pct_population_family_forming_age": 58,
+      "total_households": 8558,
+      "total_population": 17976
+    },
+    {
+      "ward_code": "E05009324",
+      "ward_name": "Island Gardens",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 52,
+      "total_households": 6139,
+      "total_population": 15304
+    },
+    {
+      "ward_code": "E05009325",
+      "ward_name": "Lansbury",
+      "pct_households_with_dependent_children": 18,
+      "pct_population_family_forming_age": 45,
+      "total_households": 7530,
+      "total_population": 21704
+    },
+    {
+      "ward_code": "E05009326",
+      "ward_name": "Limehouse",
+      "pct_households_with_dependent_children": 7.3,
+      "pct_population_family_forming_age": 59,
+      "total_households": 2927,
+      "total_population": 6556
+    },
+    {
+      "ward_code": "E05009327",
+      "ward_name": "Mile End",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 48.8,
+      "total_households": 7802,
+      "total_population": 21652
+    },
+    {
+      "ward_code": "E05009328",
+      "ward_name": "Poplar",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 45.5,
+      "total_households": 2862,
+      "total_population": 8068
+    },
+    {
+      "ward_code": "E05009329",
+      "ward_name": "St Dunstan's",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 44.4,
+      "total_households": 4839,
+      "total_population": 14746
+    },
+    {
+      "ward_code": "E05009330",
+      "ward_name": "St Katharine's & Wapping",
+      "pct_households_with_dependent_children": 6.3,
+      "pct_population_family_forming_age": 57.5,
+      "total_households": 5797,
+      "total_population": 11961
+    },
+    {
+      "ward_code": "E05009331",
+      "ward_name": "Bethnal Green West",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 50.9,
+      "total_households": 7414,
+      "total_population": 19779
+    },
+    {
+      "ward_code": "E05009332",
+      "ward_name": "Shadwell",
+      "pct_households_with_dependent_children": 15.8,
+      "pct_population_family_forming_age": 43.6,
+      "total_households": 4492,
+      "total_population": 13278
+    },
+    {
+      "ward_code": "E05009333",
+      "ward_name": "Spitalfields & Banglatown",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 50.7,
+      "total_households": 5058,
+      "total_population": 13337
+    },
+    {
+      "ward_code": "E05009334",
+      "ward_name": "Stepney Green",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 42.3,
+      "total_households": 4262,
+      "total_population": 12343
+    },
+    {
+      "ward_code": "E05009335",
+      "ward_name": "Weavers",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 50,
+      "total_households": 5468,
+      "total_population": 13340
+    },
+    {
+      "ward_code": "E05009336",
+      "ward_name": "Whitechapel",
+      "pct_households_with_dependent_children": 10.2,
+      "pct_population_family_forming_age": 50.4,
+      "total_households": 7377,
+      "total_population": 18841
+    },
+    {
+      "ward_code": "E05009367",
+      "ward_name": "Brownswood",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 55.1,
+      "total_households": 4109,
+      "total_population": 9011
+    },
+    {
+      "ward_code": "E05009368",
+      "ward_name": "Cazenove",
+      "pct_households_with_dependent_children": 15.6,
+      "pct_population_family_forming_age": 39.4,
+      "total_households": 5190,
+      "total_population": 15334
+    },
+    {
+      "ward_code": "E05009369",
+      "ward_name": "Clissold",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 48.6,
+      "total_households": 5473,
+      "total_population": 12580
+    },
+    {
+      "ward_code": "E05009370",
+      "ward_name": "Dalston",
+      "pct_households_with_dependent_children": 11.2,
+      "pct_population_family_forming_age": 59.4,
+      "total_households": 3998,
+      "total_population": 8880
+    },
+    {
+      "ward_code": "E05009371",
+      "ward_name": "De Beauvoir",
+      "pct_households_with_dependent_children": 13.8,
+      "pct_population_family_forming_age": 54.1,
+      "total_households": 4055,
+      "total_population": 9195
+    },
+    {
+      "ward_code": "E05009372",
+      "ward_name": "Hackney Central",
+      "pct_households_with_dependent_children": 15.8,
+      "pct_population_family_forming_age": 48.6,
+      "total_households": 5688,
+      "total_population": 12719
+    },
+    {
+      "ward_code": "E05009373",
+      "ward_name": "Hackney Downs",
+      "pct_households_with_dependent_children": 16.3,
+      "pct_population_family_forming_age": 49.1,
+      "total_households": 5370,
+      "total_population": 12996
+    },
+    {
+      "ward_code": "E05009374",
+      "ward_name": "Hackney Wick",
+      "pct_households_with_dependent_children": 19.2,
+      "pct_population_family_forming_age": 44.5,
+      "total_households": 4946,
+      "total_population": 12307
+    },
+    {
+      "ward_code": "E05009375",
+      "ward_name": "Haggerston",
+      "pct_households_with_dependent_children": 13.5,
+      "pct_population_family_forming_age": 51.1,
+      "total_households": 6249,
+      "total_population": 14406
+    },
+    {
+      "ward_code": "E05009376",
+      "ward_name": "Homerton",
+      "pct_households_with_dependent_children": 19.8,
+      "pct_population_family_forming_age": 45.8,
+      "total_households": 5531,
+      "total_population": 13884
+    },
+    {
+      "ward_code": "E05009377",
+      "ward_name": "Hoxton East & Shoreditch",
+      "pct_households_with_dependent_children": 12.9,
+      "pct_population_family_forming_age": 53,
+      "total_households": 5382,
+      "total_population": 11771
+    },
+    {
+      "ward_code": "E05009378",
+      "ward_name": "Hoxton West",
+      "pct_households_with_dependent_children": 12.9,
+      "pct_population_family_forming_age": 51.4,
+      "total_households": 6288,
+      "total_population": 13752
+    },
+    {
+      "ward_code": "E05009379",
+      "ward_name": "King's Park",
+      "pct_households_with_dependent_children": 21.8,
+      "pct_population_family_forming_age": 40,
+      "total_households": 4934,
+      "total_population": 13062
+    },
+    {
+      "ward_code": "E05009380",
+      "ward_name": "Lea Bridge",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 46.7,
+      "total_households": 5335,
+      "total_population": 14124
+    },
+    {
+      "ward_code": "E05009381",
+      "ward_name": "London Fields",
+      "pct_households_with_dependent_children": 13.3,
+      "pct_population_family_forming_age": 49.4,
+      "total_households": 5585,
+      "total_population": 12682
+    },
+    {
+      "ward_code": "E05009382",
+      "ward_name": "Shacklewell",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 50,
+      "total_households": 3802,
+      "total_population": 9123
+    },
+    {
+      "ward_code": "E05009383",
+      "ward_name": "Springfield",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 33.2,
+      "total_households": 5213,
+      "total_population": 15316
+    },
+    {
+      "ward_code": "E05009384",
+      "ward_name": "Stamford Hill West",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 32.8,
+      "total_households": 3239,
+      "total_population": 10345
+    },
+    {
+      "ward_code": "E05009385",
+      "ward_name": "Stoke Newington",
+      "pct_households_with_dependent_children": 13.2,
+      "pct_population_family_forming_age": 47.2,
+      "total_households": 5573,
+      "total_population": 13380
+    },
+    {
+      "ward_code": "E05009386",
+      "ward_name": "Victoria",
+      "pct_households_with_dependent_children": 15.9,
+      "pct_population_family_forming_age": 47.7,
+      "total_households": 5195,
+      "total_population": 12156
+    },
+    {
+      "ward_code": "E05009387",
+      "ward_name": "Woodberry Down",
+      "pct_households_with_dependent_children": 18.9,
+      "pct_population_family_forming_age": 45.6,
+      "total_households": 4932,
+      "total_population": 12113
+    },
+    {
+      "ward_code": "E05009388",
+      "ward_name": "Abingdon",
+      "pct_households_with_dependent_children": 6.7,
+      "pct_population_family_forming_age": 40.3,
+      "total_households": 3834,
+      "total_population": 7894
+    },
+    {
+      "ward_code": "E05009389",
+      "ward_name": "Brompton & Hans Town",
+      "pct_households_with_dependent_children": 6.6,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 4008,
+      "total_population": 7789
+    },
+    {
+      "ward_code": "E05009390",
+      "ward_name": "Campden",
+      "pct_households_with_dependent_children": 8.6,
+      "pct_population_family_forming_age": 36.8,
+      "total_households": 3889,
+      "total_population": 8619
+    },
+    {
+      "ward_code": "E05009391",
+      "ward_name": "Chelsea Riverside",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 34,
+      "total_households": 3749,
+      "total_population": 7634
+    },
+    {
+      "ward_code": "E05009392",
+      "ward_name": "Colville",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 42.3,
+      "total_households": 4346,
+      "total_population": 8570
+    },
+    {
+      "ward_code": "E05009393",
+      "ward_name": "Courtfield",
+      "pct_households_with_dependent_children": 5.1,
+      "pct_population_family_forming_age": 42.5,
+      "total_households": 4167,
+      "total_population": 8332
+    },
+    {
+      "ward_code": "E05009394",
+      "ward_name": "Dalgarno",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 35,
+      "total_households": 2784,
+      "total_population": 7212
+    },
+    {
+      "ward_code": "E05009395",
+      "ward_name": "Earl's Court",
+      "pct_households_with_dependent_children": 5.7,
+      "pct_population_family_forming_age": 43.7,
+      "total_households": 4664,
+      "total_population": 8938
+    },
+    {
+      "ward_code": "E05009396",
+      "ward_name": "Golborne",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 3806,
+      "total_population": 8800
+    },
+    {
+      "ward_code": "E05009397",
+      "ward_name": "Holland",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 3837,
+      "total_population": 9102
+    },
+    {
+      "ward_code": "E05009398",
+      "ward_name": "Norland",
+      "pct_households_with_dependent_children": 7.5,
+      "pct_population_family_forming_age": 38.4,
+      "total_households": 2699,
+      "total_population": 5702
+    },
+    {
+      "ward_code": "E05009399",
+      "ward_name": "Notting Dale",
+      "pct_households_with_dependent_children": 17.8,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 3620,
+      "total_population": 9139
+    },
+    {
+      "ward_code": "E05009400",
+      "ward_name": "Pembridge",
+      "pct_households_with_dependent_children": 5.6,
+      "pct_population_family_forming_age": 45,
+      "total_households": 2671,
+      "total_population": 5382
+    },
+    {
+      "ward_code": "E05009401",
+      "ward_name": "Queen's Gate",
+      "pct_households_with_dependent_children": 5.8,
+      "pct_population_family_forming_age": 39.3,
+      "total_households": 3639,
+      "total_population": 7906
+    },
+    {
+      "ward_code": "E05009402",
+      "ward_name": "Redcliffe",
+      "pct_households_with_dependent_children": 8.2,
+      "pct_population_family_forming_age": 40.8,
+      "total_households": 4397,
+      "total_population": 9194
+    },
+    {
+      "ward_code": "E05009403",
+      "ward_name": "Royal Hospital",
+      "pct_households_with_dependent_children": 7.2,
+      "pct_population_family_forming_age": 33.2,
+      "total_households": 3920,
+      "total_population": 8417
+    },
+    {
+      "ward_code": "E05009404",
+      "ward_name": "St. Helen's",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 38.8,
+      "total_households": 2771,
+      "total_population": 6156
+    },
+    {
+      "ward_code": "E05009405",
+      "ward_name": "Stanley",
+      "pct_households_with_dependent_children": 9.4,
+      "pct_population_family_forming_age": 37.5,
+      "total_households": 4078,
+      "total_population": 8582
+    },
+    {
+      "ward_code": "E05011095",
+      "ward_name": "Borough & Bankside",
+      "pct_households_with_dependent_children": 8,
+      "pct_population_family_forming_age": 43.8,
+      "total_households": 4106,
+      "total_population": 9010
+    },
+    {
+      "ward_code": "E05011096",
+      "ward_name": "Camberwell Green",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 46.2,
+      "total_households": 6835,
+      "total_population": 15508
+    },
+    {
+      "ward_code": "E05011097",
+      "ward_name": "Champion Hill",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 45.3,
+      "total_households": 3842,
+      "total_population": 9219
+    },
+    {
+      "ward_code": "E05011098",
+      "ward_name": "Chaucer",
+      "pct_households_with_dependent_children": 13.7,
+      "pct_population_family_forming_age": 45.4,
+      "total_households": 6121,
+      "total_population": 14732
+    },
+    {
+      "ward_code": "E05011099",
+      "ward_name": "Dulwich Hill",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 46,
+      "total_households": 3885,
+      "total_population": 9590
+    },
+    {
+      "ward_code": "E05011100",
+      "ward_name": "Dulwich Village",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 33.5,
+      "total_households": 3766,
+      "total_population": 10255
+    },
+    {
+      "ward_code": "E05011101",
+      "ward_name": "Dulwich Wood",
+      "pct_households_with_dependent_children": 18.9,
+      "pct_population_family_forming_age": 39.9,
+      "total_households": 4339,
+      "total_population": 10588
+    },
+    {
+      "ward_code": "E05011102",
+      "ward_name": "Faraday",
+      "pct_households_with_dependent_children": 22.7,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 4796,
+      "total_population": 12466
+    },
+    {
+      "ward_code": "E05011103",
+      "ward_name": "Goose Green",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 51.7,
+      "total_households": 5909,
+      "total_population": 13613
+    },
+    {
+      "ward_code": "E05011104",
+      "ward_name": "London Bridge & West Bermondsey",
+      "pct_households_with_dependent_children": 11.2,
+      "pct_population_family_forming_age": 53,
+      "total_households": 7202,
+      "total_population": 15098
+    },
+    {
+      "ward_code": "E05011105",
+      "ward_name": "Newington",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 42.3,
+      "total_households": 5810,
+      "total_population": 13443
+    },
+    {
+      "ward_code": "E05011106",
+      "ward_name": "North Bermondsey",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 51.4,
+      "total_households": 7161,
+      "total_population": 15282
+    },
+    {
+      "ward_code": "E05011107",
+      "ward_name": "North Walworth",
+      "pct_households_with_dependent_children": 13.9,
+      "pct_population_family_forming_age": 48.1,
+      "total_households": 7161,
+      "total_population": 15844
+    },
+    {
+      "ward_code": "E05011108",
+      "ward_name": "Nunhead & Queen's Road",
+      "pct_households_with_dependent_children": 17.1,
+      "pct_population_family_forming_age": 46.3,
+      "total_households": 6648,
+      "total_population": 15554
+    },
+    {
+      "ward_code": "E05011109",
+      "ward_name": "Old Kent Road",
+      "pct_households_with_dependent_children": 21.7,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 7437,
+      "total_population": 19039
+    },
+    {
+      "ward_code": "E05011110",
+      "ward_name": "Peckham",
+      "pct_households_with_dependent_children": 21.5,
+      "pct_population_family_forming_age": 41,
+      "total_households": 5788,
+      "total_population": 14788
+    },
+    {
+      "ward_code": "E05011111",
+      "ward_name": "Peckham Rye",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 4002,
+      "total_population": 10157
+    },
+    {
+      "ward_code": "E05011112",
+      "ward_name": "Rotherhithe",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 51.2,
+      "total_households": 6924,
+      "total_population": 15627
+    },
+    {
+      "ward_code": "E05011113",
+      "ward_name": "Rye Lane",
+      "pct_households_with_dependent_children": 14.8,
+      "pct_population_family_forming_age": 47.2,
+      "total_households": 6221,
+      "total_population": 14471
+    },
+    {
+      "ward_code": "E05011114",
+      "ward_name": "St George's",
+      "pct_households_with_dependent_children": 13.7,
+      "pct_population_family_forming_age": 44.9,
+      "total_households": 3649,
+      "total_population": 8456
+    },
+    {
+      "ward_code": "E05011115",
+      "ward_name": "St Giles",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 45.5,
+      "total_households": 6430,
+      "total_population": 15947
+    },
+    {
+      "ward_code": "E05011116",
+      "ward_name": "South Bermondsey",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 44.7,
+      "total_households": 6902,
+      "total_population": 15947
+    },
+    {
+      "ward_code": "E05011117",
+      "ward_name": "Surrey Docks",
+      "pct_households_with_dependent_children": 9.8,
+      "pct_population_family_forming_age": 57.1,
+      "total_households": 5894,
+      "total_population": 13008
+    },
+    {
+      "ward_code": "E05011462",
+      "ward_name": "Addiscombe East",
+      "pct_households_with_dependent_children": 15.3,
+      "pct_population_family_forming_age": 36.5,
+      "total_households": 4637,
+      "total_population": 11465
+    },
+    {
+      "ward_code": "E05011463",
+      "ward_name": "Addiscombe West",
+      "pct_households_with_dependent_children": 16.6,
+      "pct_population_family_forming_age": 44.4,
+      "total_households": 6853,
+      "total_population": 16208
+    },
+    {
+      "ward_code": "E05011464",
+      "ward_name": "Bensham Manor",
+      "pct_households_with_dependent_children": 21.8,
+      "pct_population_family_forming_age": 36,
+      "total_households": 6090,
+      "total_population": 16935
+    },
+    {
+      "ward_code": "E05011465",
+      "ward_name": "Broad Green",
+      "pct_households_with_dependent_children": 24.2,
+      "pct_population_family_forming_age": 38.6,
+      "total_households": 7341,
+      "total_population": 20220
+    },
+    {
+      "ward_code": "E05011466",
+      "ward_name": "Coulsdon Town",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 36.2,
+      "total_households": 5724,
+      "total_population": 15418
+    },
+    {
+      "ward_code": "E05011467",
+      "ward_name": "Crystal Palace & Upper Norwood",
+      "pct_households_with_dependent_children": 16.8,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 7219,
+      "total_population": 16352
+    },
+    {
+      "ward_code": "E05011468",
+      "ward_name": "Fairfield",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 56.3,
+      "total_households": 7371,
+      "total_population": 15343
+    },
+    {
+      "ward_code": "E05011469",
+      "ward_name": "Kenley",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 32.4,
+      "total_households": 4137,
+      "total_population": 10983
+    },
+    {
+      "ward_code": "E05011470",
+      "ward_name": "New Addington North",
+      "pct_households_with_dependent_children": 31.5,
+      "pct_population_family_forming_age": 30.7,
+      "total_households": 3634,
+      "total_population": 10937
+    },
+    {
+      "ward_code": "E05011471",
+      "ward_name": "New Addington South",
+      "pct_households_with_dependent_children": 24.2,
+      "pct_population_family_forming_age": 31.6,
+      "total_households": 4050,
+      "total_population": 11328
+    },
+    {
+      "ward_code": "E05011472",
+      "ward_name": "Norbury & Pollards Hill",
+      "pct_households_with_dependent_children": 20.7,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 4470,
+      "total_population": 12146
+    },
+    {
+      "ward_code": "E05011473",
+      "ward_name": "Norbury Park",
+      "pct_households_with_dependent_children": 18.9,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 3697,
+      "total_population": 10827
+    },
+    {
+      "ward_code": "E05011474",
+      "ward_name": "Old Coulsdon",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 29.6,
+      "total_households": 3951,
+      "total_population": 10106
+    },
+    {
+      "ward_code": "E05011475",
+      "ward_name": "Park Hill & Whitgift",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 39.4,
+      "total_households": 2407,
+      "total_population": 5786
+    },
+    {
+      "ward_code": "E05011476",
+      "ward_name": "Purley & Woodcote",
+      "pct_households_with_dependent_children": 13.9,
+      "pct_population_family_forming_age": 34.9,
+      "total_households": 5897,
+      "total_population": 15183
+    },
+    {
+      "ward_code": "E05011477",
+      "ward_name": "Purley Oaks & Riddlesdown",
+      "pct_households_with_dependent_children": 13.2,
+      "pct_population_family_forming_age": 35.9,
+      "total_households": 3794,
+      "total_population": 9715
+    },
+    {
+      "ward_code": "E05011478",
+      "ward_name": "Sanderstead",
+      "pct_households_with_dependent_children": 11,
+      "pct_population_family_forming_age": 28.9,
+      "total_households": 6005,
+      "total_population": 15774
+    },
+    {
+      "ward_code": "E05011479",
+      "ward_name": "Selhurst",
+      "pct_households_with_dependent_children": 25,
+      "pct_population_family_forming_age": 38.8,
+      "total_households": 5248,
+      "total_population": 13183
+    },
+    {
+      "ward_code": "E05011480",
+      "ward_name": "Selsdon & Addington Village",
+      "pct_households_with_dependent_children": 15,
+      "pct_population_family_forming_age": 29.3,
+      "total_households": 3715,
+      "total_population": 9928
+    },
+    {
+      "ward_code": "E05011481",
+      "ward_name": "Selsdon Vale & Forestdale",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 32.4,
+      "total_households": 4246,
+      "total_population": 10012
+    },
+    {
+      "ward_code": "E05011482",
+      "ward_name": "Shirley North",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 30.4,
+      "total_households": 6036,
+      "total_population": 15402
+    },
+    {
+      "ward_code": "E05011483",
+      "ward_name": "Shirley South",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 27.6,
+      "total_households": 3830,
+      "total_population": 10619
+    },
+    {
+      "ward_code": "E05011484",
+      "ward_name": "South Croydon",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 43.8,
+      "total_households": 7756,
+      "total_population": 18064
+    },
+    {
+      "ward_code": "E05011485",
+      "ward_name": "South Norwood",
+      "pct_households_with_dependent_children": 19.7,
+      "pct_population_family_forming_age": 41,
+      "total_households": 7094,
+      "total_population": 16447
+    },
+    {
+      "ward_code": "E05011486",
+      "ward_name": "Thornton Heath",
+      "pct_households_with_dependent_children": 21.6,
+      "pct_population_family_forming_age": 36.8,
+      "total_households": 7041,
+      "total_population": 18002
+    },
+    {
+      "ward_code": "E05011487",
+      "ward_name": "Waddon",
+      "pct_households_with_dependent_children": 20.9,
+      "pct_population_family_forming_age": 40,
+      "total_households": 7354,
+      "total_population": 18684
+    },
+    {
+      "ward_code": "E05011488",
+      "ward_name": "West Thornton",
+      "pct_households_with_dependent_children": 23.8,
+      "pct_population_family_forming_age": 36.5,
+      "total_households": 6494,
+      "total_population": 18764
+    },
+    {
+      "ward_code": "E05011489",
+      "ward_name": "Woodside",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 39.2,
+      "total_households": 6844,
+      "total_population": 16875
+    },
+    {
+      "ward_code": "E05011249",
+      "ward_name": "Monkhams",
+      "pct_households_with_dependent_children": 9.9,
+      "pct_population_family_forming_age": 30.6,
+      "total_households": 3721,
+      "total_population": 9480
+    },
+    {
+      "ward_code": "E05011250",
+      "ward_name": "Newbury",
+      "pct_households_with_dependent_children": 20.3,
+      "pct_population_family_forming_age": 36.6,
+      "total_households": 4306,
+      "total_population": 14459
+    },
+    {
+      "ward_code": "E05011251",
+      "ward_name": "Seven Kings",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 39.7,
+      "total_households": 4575,
+      "total_population": 15046
+    },
+    {
+      "ward_code": "E05011217",
+      "ward_name": "Barnehurst",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 33.4,
+      "total_households": 4439,
+      "total_population": 11680
+    },
+    {
+      "ward_code": "E05011218",
+      "ward_name": "Belvedere",
+      "pct_households_with_dependent_children": 21,
+      "pct_population_family_forming_age": 37.4,
+      "total_households": 6836,
+      "total_population": 17690
+    },
+    {
+      "ward_code": "E05011219",
+      "ward_name": "Bexleyheath",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 31.6,
+      "total_households": 6310,
+      "total_population": 15617
+    },
+    {
+      "ward_code": "E05011220",
+      "ward_name": "Blackfen & Lamorbey",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 31.4,
+      "total_households": 6476,
+      "total_population": 16726
+    },
+    {
+      "ward_code": "E05011221",
+      "ward_name": "Blendon & Penhill",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 31.7,
+      "total_households": 5992,
+      "total_population": 15632
+    },
+    {
+      "ward_code": "E05011222",
+      "ward_name": "Crayford",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 35.9,
+      "total_households": 6543,
+      "total_population": 16281
+    },
+    {
+      "ward_code": "E05011223",
+      "ward_name": "Crook Log",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 33.5,
+      "total_households": 5963,
+      "total_population": 15260
+    },
+    {
+      "ward_code": "E05011224",
+      "ward_name": "East Wickham",
+      "pct_households_with_dependent_children": 15.3,
+      "pct_population_family_forming_age": 33.3,
+      "total_households": 5931,
+      "total_population": 15913
+    },
+    {
+      "ward_code": "E05011225",
+      "ward_name": "Erith",
+      "pct_households_with_dependent_children": 25.9,
+      "pct_population_family_forming_age": 38.6,
+      "total_households": 5107,
+      "total_population": 13102
+    },
+    {
+      "ward_code": "E05011226",
+      "ward_name": "Falconwood & Welling",
+      "pct_households_with_dependent_children": 15.7,
+      "pct_population_family_forming_age": 35.2,
+      "total_households": 6191,
+      "total_population": 16573
+    },
+    {
+      "ward_code": "E05011227",
+      "ward_name": "Longlands",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 32.7,
+      "total_households": 4256,
+      "total_population": 10080
+    },
+    {
+      "ward_code": "E05011228",
+      "ward_name": "Northumberland Heath",
+      "pct_households_with_dependent_children": 20.4,
+      "pct_population_family_forming_age": 32.5,
+      "total_households": 4061,
+      "total_population": 11143
+    },
+    {
+      "ward_code": "E05011229",
+      "ward_name": "St Mary's & St James",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 30.5,
+      "total_households": 4336,
+      "total_population": 10747
+    },
+    {
+      "ward_code": "E05011230",
+      "ward_name": "Sidcup",
+      "pct_households_with_dependent_children": 13.3,
+      "pct_population_family_forming_age": 32.1,
+      "total_households": 6534,
+      "total_population": 15421
+    },
+    {
+      "ward_code": "E05011231",
+      "ward_name": "Slade Green & Northend",
+      "pct_households_with_dependent_children": 25.5,
+      "pct_population_family_forming_age": 35.7,
+      "total_households": 4677,
+      "total_population": 12748
+    },
+    {
+      "ward_code": "E05011232",
+      "ward_name": "Thamesmead East",
+      "pct_households_with_dependent_children": 27,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 5705,
+      "total_population": 15927
+    },
+    {
+      "ward_code": "E05011233",
+      "ward_name": "West Heath",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 30.8,
+      "total_households": 5948,
+      "total_population": 15936
+    },
+    {
+      "ward_code": "E05011234",
+      "ward_name": "Aldborough",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 4981,
+      "total_population": 15462
+    },
+    {
+      "ward_code": "E05011235",
+      "ward_name": "Barkingside",
+      "pct_households_with_dependent_children": 16.9,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 4894,
+      "total_population": 15331
+    },
+    {
+      "ward_code": "E05011236",
+      "ward_name": "Bridge",
+      "pct_households_with_dependent_children": 16.2,
+      "pct_population_family_forming_age": 37.6,
+      "total_households": 5247,
+      "total_population": 13391
+    },
+    {
+      "ward_code": "E05011237",
+      "ward_name": "Chadwell",
+      "pct_households_with_dependent_children": 20.8,
+      "pct_population_family_forming_age": 37.6,
+      "total_households": 5411,
+      "total_population": 16532
+    },
+    {
+      "ward_code": "E05011238",
+      "ward_name": "Churchfields",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 38.3,
+      "total_households": 6177,
+      "total_population": 15709
+    },
+    {
+      "ward_code": "E05011239",
+      "ward_name": "Clayhall",
+      "pct_households_with_dependent_children": 17.9,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 4187,
+      "total_population": 14422
+    },
+    {
+      "ward_code": "E05011240",
+      "ward_name": "Clementswood",
+      "pct_households_with_dependent_children": 24.1,
+      "pct_population_family_forming_age": 37.9,
+      "total_households": 3681,
+      "total_population": 13505
+    },
+    {
+      "ward_code": "E05011241",
+      "ward_name": "Cranbrook",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 3977,
+      "total_population": 13239
+    },
+    {
+      "ward_code": "E05011242",
+      "ward_name": "Fairlop",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 5258,
+      "total_population": 14716
+    },
+    {
+      "ward_code": "E05011243",
+      "ward_name": "Fullwell",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 5231,
+      "total_population": 15409
+    },
+    {
+      "ward_code": "E05011244",
+      "ward_name": "Goodmayes",
+      "pct_households_with_dependent_children": 20.9,
+      "pct_population_family_forming_age": 40.6,
+      "total_households": 4704,
+      "total_population": 15258
+    },
+    {
+      "ward_code": "E05011245",
+      "ward_name": "Hainault",
+      "pct_households_with_dependent_children": 19.7,
+      "pct_population_family_forming_age": 39.7,
+      "total_households": 5740,
+      "total_population": 15703
+    },
+    {
+      "ward_code": "E05011246",
+      "ward_name": "Ilford Town",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 4106,
+      "total_population": 12328
+    },
+    {
+      "ward_code": "E05011247",
+      "ward_name": "Loxford",
+      "pct_households_with_dependent_children": 25.2,
+      "pct_population_family_forming_age": 39.6,
+      "total_households": 4560,
+      "total_population": 15123
+    },
+    {
+      "ward_code": "E05011248",
+      "ward_name": "Mayfield",
+      "pct_households_with_dependent_children": 22.3,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 4431,
+      "total_population": 16292
+    },
+    {
+      "ward_code": "E05011252",
+      "ward_name": "South Woodford",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 5119,
+      "total_population": 12833
+    },
+    {
+      "ward_code": "E05011253",
+      "ward_name": "Valentines",
+      "pct_households_with_dependent_children": 18.5,
+      "pct_population_family_forming_age": 41,
+      "total_households": 4746,
+      "total_population": 15207
+    },
+    {
+      "ward_code": "E05011254",
+      "ward_name": "Wanstead Park",
+      "pct_households_with_dependent_children": 13.2,
+      "pct_population_family_forming_age": 34.7,
+      "total_households": 3059,
+      "total_population": 8063
+    },
+    {
+      "ward_code": "E05011255",
+      "ward_name": "Wanstead Village",
+      "pct_households_with_dependent_children": 9.9,
+      "pct_population_family_forming_age": 40.6,
+      "total_households": 5616,
+      "total_population": 12765
+    },
+    {
+      "ward_code": "E05013496",
+      "ward_name": "Alperton",
+      "pct_households_with_dependent_children": 22.6,
+      "pct_population_family_forming_age": 42.5,
+      "total_households": 4487,
+      "total_population": 15057
+    },
+    {
+      "ward_code": "E05013497",
+      "ward_name": "Barnhill",
+      "pct_households_with_dependent_children": 19.2,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 3763,
+      "total_population": 11422
+    },
+    {
+      "ward_code": "E05013498",
+      "ward_name": "Brondesbury Park",
+      "pct_households_with_dependent_children": 12,
+      "pct_population_family_forming_age": 41.6,
+      "total_households": 5508,
+      "total_population": 13434
+    },
+    {
+      "ward_code": "E05013499",
+      "ward_name": "Cricklewood & Mapesbury",
+      "pct_households_with_dependent_children": 13.7,
+      "pct_population_family_forming_age": 44.2,
+      "total_households": 5719,
+      "total_population": 14151
+    },
+    {
+      "ward_code": "E05013500",
+      "ward_name": "Dollis Hill",
+      "pct_households_with_dependent_children": 19.9,
+      "pct_population_family_forming_age": 35.4,
+      "total_households": 7331,
+      "total_population": 21848
+    },
+    {
+      "ward_code": "E05013501",
+      "ward_name": "Harlesden & Kensal Green",
+      "pct_households_with_dependent_children": 20.1,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 8059,
+      "total_population": 20075
+    },
+    {
+      "ward_code": "E05013552",
+      "ward_name": "Kenton West",
+      "pct_households_with_dependent_children": 15.5,
+      "pct_population_family_forming_age": 35.1,
+      "total_households": 3055,
+      "total_population": 9990
+    },
+    {
+      "ward_code": "E05013553",
+      "ward_name": "Marlborough",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 44.1,
+      "total_households": 4249,
+      "total_population": 11988
+    },
+    {
+      "ward_code": "E05013554",
+      "ward_name": "North Harrow",
+      "pct_households_with_dependent_children": 13.3,
+      "pct_population_family_forming_age": 36.9,
+      "total_households": 3160,
+      "total_population": 8997
+    },
+    {
+      "ward_code": "E05013555",
+      "ward_name": "Pinner",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 32.7,
+      "total_households": 4998,
+      "total_population": 13137
+    },
+    {
+      "ward_code": "E05013556",
+      "ward_name": "Pinner South",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 33.7,
+      "total_households": 5585,
+      "total_population": 15736
+    },
+    {
+      "ward_code": "E05013557",
+      "ward_name": "Rayners Lane",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 36,
+      "total_households": 2910,
+      "total_population": 9143
+    },
+    {
+      "ward_code": "E05013558",
+      "ward_name": "Roxbourne",
+      "pct_households_with_dependent_children": 18.5,
+      "pct_population_family_forming_age": 37,
+      "total_households": 3329,
+      "total_population": 9905
+    },
+    {
+      "ward_code": "E05013559",
+      "ward_name": "Roxeth",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 38.3,
+      "total_households": 5328,
+      "total_population": 15864
+    },
+    {
+      "ward_code": "E05013560",
+      "ward_name": "Stanmore",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 32.7,
+      "total_households": 5059,
+      "total_population": 13501
+    },
+    {
+      "ward_code": "E05013561",
+      "ward_name": "Wealdstone North",
+      "pct_households_with_dependent_children": 19.1,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 3389,
+      "total_population": 10488
+    },
+    {
+      "ward_code": "E05013562",
+      "ward_name": "Wealdstone South",
+      "pct_households_with_dependent_children": 20.4,
+      "pct_population_family_forming_age": 39.7,
+      "total_households": 2585,
+      "total_population": 7959
+    },
+    {
+      "ward_code": "E05013563",
+      "ward_name": "West Harrow",
+      "pct_households_with_dependent_children": 15.7,
+      "pct_population_family_forming_age": 39.8,
+      "total_households": 3583,
+      "total_population": 10363
+    },
+    {
+      "ward_code": "E05013564",
+      "ward_name": "Belmore",
+      "pct_households_with_dependent_children": 22.4,
+      "pct_population_family_forming_age": 37.6,
+      "total_households": 5148,
+      "total_population": 17489
+    },
+    {
+      "ward_code": "E05013565",
+      "ward_name": "Charville",
+      "pct_households_with_dependent_children": 18.4,
+      "pct_population_family_forming_age": 35,
+      "total_households": 3797,
+      "total_population": 11513
+    },
+    {
+      "ward_code": "E05013652",
+      "ward_name": "Belsize",
+      "pct_households_with_dependent_children": 7,
+      "pct_population_family_forming_age": 46.7,
+      "total_households": 5993,
+      "total_population": 12299
+    },
+    {
+      "ward_code": "E05013602",
+      "ward_name": "Tottenham Hale",
+      "pct_households_with_dependent_children": 23.4,
+      "pct_population_family_forming_age": 41.7,
+      "total_households": 4036,
+      "total_population": 12175
+    },
+    {
+      "ward_code": "E05013502",
+      "ward_name": "Kenton",
+      "pct_households_with_dependent_children": 15.8,
+      "pct_population_family_forming_age": 36.2,
+      "total_households": 5703,
+      "total_population": 17686
+    },
+    {
+      "ward_code": "E05013702",
+      "ward_name": "Clerkenwell",
+      "pct_households_with_dependent_children": 11,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 4921,
+      "total_population": 10954
+    },
+    {
+      "ward_code": "E05013566",
+      "ward_name": "Colham & Cowley",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 34.6,
+      "total_households": 6629,
+      "total_population": 19139
+    },
+    {
+      "ward_code": "E05013567",
+      "ward_name": "Eastcote",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 33.4,
+      "total_households": 6753,
+      "total_population": 16915
+    },
+    {
+      "ward_code": "E05013568",
+      "ward_name": "Harefield Village",
+      "pct_households_with_dependent_children": 14.5,
+      "pct_population_family_forming_age": 32.1,
+      "total_households": 2326,
+      "total_population": 5741
+    },
+    {
+      "ward_code": "E05013569",
+      "ward_name": "Hayes Town",
+      "pct_households_with_dependent_children": 20.9,
+      "pct_population_family_forming_age": 43.1,
+      "total_households": 4941,
+      "total_population": 14998
+    },
+    {
+      "ward_code": "E05013570",
+      "ward_name": "Heathrow Villages",
+      "pct_households_with_dependent_children": 20.3,
+      "pct_population_family_forming_age": 42.1,
+      "total_households": 4821,
+      "total_population": 14038
+    },
+    {
+      "ward_code": "E05013571",
+      "ward_name": "Hillingdon East",
+      "pct_households_with_dependent_children": 16.4,
+      "pct_population_family_forming_age": 34.9,
+      "total_households": 5470,
+      "total_population": 15806
+    },
+    {
+      "ward_code": "E05013572",
+      "ward_name": "Hillingdon West",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 42.2,
+      "total_households": 3734,
+      "total_population": 9690
+    },
+    {
+      "ward_code": "E05013573",
+      "ward_name": "Ickenham & South Harefield",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 34.3,
+      "total_households": 6042,
+      "total_population": 15515
+    },
+    {
+      "ward_code": "E05013574",
+      "ward_name": "Northwood",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 32.6,
+      "total_households": 4757,
+      "total_population": 11310
+    },
+    {
+      "ward_code": "E05013575",
+      "ward_name": "Northwood Hills",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 4514,
+      "total_population": 11771
+    },
+    {
+      "ward_code": "E05013576",
+      "ward_name": "Pinkwell",
+      "pct_households_with_dependent_children": 22.5,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 5095,
+      "total_population": 16708
+    },
+    {
+      "ward_code": "E05013577",
+      "ward_name": "Ruislip",
+      "pct_households_with_dependent_children": 10.5,
+      "pct_population_family_forming_age": 31.5,
+      "total_households": 6223,
+      "total_population": 15441
+    },
+    {
+      "ward_code": "E05013578",
+      "ward_name": "Ruislip Manor",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 35.6,
+      "total_households": 4203,
+      "total_population": 10982
+    },
+    {
+      "ward_code": "E05013579",
+      "ward_name": "South Ruislip",
+      "pct_households_with_dependent_children": 14.8,
+      "pct_population_family_forming_age": 39,
+      "total_households": 6140,
+      "total_population": 16841
+    },
+    {
+      "ward_code": "E05013580",
+      "ward_name": "Uxbridge",
+      "pct_households_with_dependent_children": 14.5,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 6412,
+      "total_population": 17962
+    },
+    {
+      "ward_code": "E05013581",
+      "ward_name": "West Drayton",
+      "pct_households_with_dependent_children": 18.7,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 6523,
+      "total_population": 18432
+    },
+    {
+      "ward_code": "E05013582",
+      "ward_name": "Wood End",
+      "pct_households_with_dependent_children": 22.3,
+      "pct_population_family_forming_age": 36.4,
+      "total_households": 6323,
+      "total_population": 19802
+    },
+    {
+      "ward_code": "E05013583",
+      "ward_name": "Yeading",
+      "pct_households_with_dependent_children": 22,
+      "pct_population_family_forming_age": 38.6,
+      "total_households": 4734,
+      "total_population": 13416
+    },
+    {
+      "ward_code": "E05013584",
+      "ward_name": "Yiewsley",
+      "pct_households_with_dependent_children": 21.1,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 4649,
+      "total_population": 12406
+    },
+    {
+      "ward_code": "E05013585",
+      "ward_name": "Alexandra Park",
+      "pct_households_with_dependent_children": 13.5,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 3320,
+      "total_population": 8839
+    },
+    {
+      "ward_code": "E05013586",
+      "ward_name": "Bounds Green",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 42.5,
+      "total_households": 4096,
+      "total_population": 9833
+    },
+    {
+      "ward_code": "E05013587",
+      "ward_name": "Bruce Castle",
+      "pct_households_with_dependent_children": 25.5,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 5100,
+      "total_population": 13477
+    },
+    {
+      "ward_code": "E05013588",
+      "ward_name": "Crouch End",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 43.6,
+      "total_households": 6087,
+      "total_population": 13042
+    },
+    {
+      "ward_code": "E05013589",
+      "ward_name": "Fortis Green",
+      "pct_households_with_dependent_children": 12.9,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 4881,
+      "total_population": 12597
+    },
+    {
+      "ward_code": "E05013590",
+      "ward_name": "Harringay",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 53.1,
+      "total_households": 6186,
+      "total_population": 14568
+    },
+    {
+      "ward_code": "E05013591",
+      "ward_name": "Hermitage & Gardens",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 51.8,
+      "total_households": 3072,
+      "total_population": 8437
+    },
+    {
+      "ward_code": "E05013592",
+      "ward_name": "Highgate",
+      "pct_households_with_dependent_children": 8.8,
+      "pct_population_family_forming_age": 43.7,
+      "total_households": 5775,
+      "total_population": 12762
+    },
+    {
+      "ward_code": "E05013593",
+      "ward_name": "Hornsey",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 45.9,
+      "total_households": 6707,
+      "total_population": 15035
+    },
+    {
+      "ward_code": "E05013594",
+      "ward_name": "Muswell Hill",
+      "pct_households_with_dependent_children": 10.3,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 3813,
+      "total_population": 8775
+    },
+    {
+      "ward_code": "E05013595",
+      "ward_name": "Noel Park",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 45.7,
+      "total_households": 5343,
+      "total_population": 13712
+    },
+    {
+      "ward_code": "E05013596",
+      "ward_name": "Northumberland Park",
+      "pct_households_with_dependent_children": 24.4,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 5649,
+      "total_population": 14705
+    },
+    {
+      "ward_code": "E05013597",
+      "ward_name": "St Ann's",
+      "pct_households_with_dependent_children": 18.1,
+      "pct_population_family_forming_age": 46.3,
+      "total_households": 4079,
+      "total_population": 10590
+    },
+    {
+      "ward_code": "E05013598",
+      "ward_name": "Seven Sisters",
+      "pct_households_with_dependent_children": 19.4,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 3456,
+      "total_population": 9238
+    },
+    {
+      "ward_code": "E05013599",
+      "ward_name": "South Tottenham",
+      "pct_households_with_dependent_children": 18.1,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 5444,
+      "total_population": 16821
+    },
+    {
+      "ward_code": "E05013600",
+      "ward_name": "Stroud Green",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 49,
+      "total_households": 4923,
+      "total_population": 10793
+    },
+    {
+      "ward_code": "E05013601",
+      "ward_name": "Tottenham Central",
+      "pct_households_with_dependent_children": 18.3,
+      "pct_population_family_forming_age": 46.3,
+      "total_households": 6038,
+      "total_population": 14739
+    },
+    {
+      "ward_code": "E05013752",
+      "ward_name": "White City",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 42.6,
+      "total_households": 4197,
+      "total_population": 10393
+    },
+    {
+      "ward_code": "E05013802",
+      "ward_name": "Pimlico North",
+      "pct_households_with_dependent_children": 6.4,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 5243,
+      "total_population": 10317
+    },
+    {
+      "ward_code": "E05013653",
+      "ward_name": "Bloomsbury",
+      "pct_households_with_dependent_children": 6.2,
+      "pct_population_family_forming_age": 32.2,
+      "total_households": 4612,
+      "total_population": 11095
+    },
+    {
+      "ward_code": "E05013603",
+      "ward_name": "West Green",
+      "pct_households_with_dependent_children": 17.7,
+      "pct_population_family_forming_age": 44.6,
+      "total_households": 5849,
+      "total_population": 14968
+    },
+    {
+      "ward_code": "E05013803",
+      "ward_name": "Pimlico South",
+      "pct_households_with_dependent_children": 10.5,
+      "pct_population_family_forming_age": 38.8,
+      "total_households": 4999,
+      "total_population": 10689
+    },
+    {
+      "ward_code": "E05013654",
+      "ward_name": "Camden Square",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 42.8,
+      "total_households": 3401,
+      "total_population": 7557
+    },
+    {
+      "ward_code": "E05013753",
+      "ward_name": "Wormholt",
+      "pct_households_with_dependent_children": 16.2,
+      "pct_population_family_forming_age": 39.4,
+      "total_households": 2989,
+      "total_population": 7984
+    },
+    {
+      "ward_code": "E05013503",
+      "ward_name": "Kilburn",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 44.8,
+      "total_households": 7644,
+      "total_population": 17212
+    },
+    {
+      "ward_code": "E05013703",
+      "ward_name": "Finsbury Park",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 47,
+      "total_households": 6102,
+      "total_population": 14647
+    },
+    {
+      "ward_code": "E05013604",
+      "ward_name": "White Hart Lane",
+      "pct_households_with_dependent_children": 21.1,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 5069,
+      "total_population": 13882
+    },
+    {
+      "ward_code": "E05013804",
+      "ward_name": "Queen's Park",
+      "pct_households_with_dependent_children": 16.8,
+      "pct_population_family_forming_age": 39.6,
+      "total_households": 5097,
+      "total_population": 12756
+    },
+    {
+      "ward_code": "E05013655",
+      "ward_name": "Camden Town",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 2813,
+      "total_population": 6393
+    },
+    {
+      "ward_code": "E05013754",
+      "ward_name": "Beddington",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 34.2,
+      "total_households": 4158,
+      "total_population": 11068
+    },
+    {
+      "ward_code": "E05013504",
+      "ward_name": "Kingsbury",
+      "pct_households_with_dependent_children": 19.1,
+      "pct_population_family_forming_age": 40.2,
+      "total_households": 3788,
+      "total_population": 11236
+    },
+    {
+      "ward_code": "E05013704",
+      "ward_name": "Highbury",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 48.6,
+      "total_households": 6014,
+      "total_population": 13808
+    },
+    {
+      "ward_code": "E05013605",
+      "ward_name": "Woodside",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 46.3,
+      "total_households": 6188,
+      "total_population": 15242
+    },
+    {
+      "ward_code": "E05013805",
+      "ward_name": "Regent's Park",
+      "pct_households_with_dependent_children": 6.7,
+      "pct_population_family_forming_age": 45,
+      "total_households": 5577,
+      "total_population": 11614
+    },
+    {
+      "ward_code": "E05013656",
+      "ward_name": "Fortune Green",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 46.9,
+      "total_households": 5060,
+      "total_population": 11410
+    },
+    {
+      "ward_code": "E05013755",
+      "ward_name": "Belmont",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 35.5,
+      "total_households": 4868,
+      "total_population": 11861
+    },
+    {
+      "ward_code": "E05013505",
+      "ward_name": "Northwick Park",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 34.7,
+      "total_households": 3877,
+      "total_population": 12367
+    },
+    {
+      "ward_code": "E05013705",
+      "ward_name": "Hillrise",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 42.7,
+      "total_households": 6437,
+      "total_population": 14969
+    },
+    {
+      "ward_code": "E05013606",
+      "ward_name": "Bedfont",
+      "pct_households_with_dependent_children": 20.9,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 5319,
+      "total_population": 15147
+    },
+    {
+      "ward_code": "E05013806",
+      "ward_name": "St James's",
+      "pct_households_with_dependent_children": 5.9,
+      "pct_population_family_forming_age": 42.8,
+      "total_households": 5299,
+      "total_population": 10362
+    },
+    {
+      "ward_code": "E05013657",
+      "ward_name": "Frognal",
+      "pct_households_with_dependent_children": 9.4,
+      "pct_population_family_forming_age": 40,
+      "total_households": 3299,
+      "total_population": 7725
+    },
+    {
+      "ward_code": "E05013756",
+      "ward_name": "Carshalton Central",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 36.2,
+      "total_households": 4629,
+      "total_population": 11539
+    },
+    {
+      "ward_code": "E05013506",
+      "ward_name": "Preston",
+      "pct_households_with_dependent_children": 19,
+      "pct_population_family_forming_age": 40.7,
+      "total_households": 3944,
+      "total_population": 12662
+    },
+    {
+      "ward_code": "E05013706",
+      "ward_name": "Holloway",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 46.7,
+      "total_households": 5365,
+      "total_population": 12736
+    },
+    {
+      "ward_code": "E05013607",
+      "ward_name": "Brentford East",
+      "pct_households_with_dependent_children": 18.1,
+      "pct_population_family_forming_age": 44.1,
+      "total_households": 3647,
+      "total_population": 8692
+    },
+    {
+      "ward_code": "E05013807",
+      "ward_name": "Vincent Square",
+      "pct_households_with_dependent_children": 8.8,
+      "pct_population_family_forming_age": 41.6,
+      "total_households": 5031,
+      "total_population": 10329
+    },
+    {
+      "ward_code": "E05013658",
+      "ward_name": "Gospel Oak",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 40.8,
+      "total_households": 5185,
+      "total_population": 11617
+    },
+    {
+      "ward_code": "E05013659",
+      "ward_name": "Hampstead Town",
+      "pct_households_with_dependent_children": 7.2,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 3719,
+      "total_population": 8014
+    },
+    {
+      "ward_code": "E05013660",
+      "ward_name": "Haverstock",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 41,
+      "total_households": 5112,
+      "total_population": 12038
+    },
+    {
+      "ward_code": "E05013661",
+      "ward_name": "Highgate",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 34.4,
+      "total_households": 4449,
+      "total_population": 10228
+    },
+    {
+      "ward_code": "E05013662",
+      "ward_name": "Holborn & Covent Garden",
+      "pct_households_with_dependent_children": 9.1,
+      "pct_population_family_forming_age": 39.5,
+      "total_households": 5061,
+      "total_population": 10359
+    },
+    {
+      "ward_code": "E05013663",
+      "ward_name": "Kentish Town North",
+      "pct_households_with_dependent_children": 11.8,
+      "pct_population_family_forming_age": 46.2,
+      "total_households": 3305,
+      "total_population": 7156
+    },
+    {
+      "ward_code": "E05013664",
+      "ward_name": "Kentish Town South",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 41.8,
+      "total_households": 4374,
+      "total_population": 10418
+    },
+    {
+      "ward_code": "E05013665",
+      "ward_name": "Kilburn",
+      "pct_households_with_dependent_children": 13.5,
+      "pct_population_family_forming_age": 43,
+      "total_households": 5562,
+      "total_population": 12061
+    },
+    {
+      "ward_code": "E05013666",
+      "ward_name": "King's Cross",
+      "pct_households_with_dependent_children": 11.2,
+      "pct_population_family_forming_age": 38.8,
+      "total_households": 4422,
+      "total_population": 11461
+    },
+    {
+      "ward_code": "E05013667",
+      "ward_name": "Primrose Hill",
+      "pct_households_with_dependent_children": 9.6,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 5660,
+      "total_population": 12542
+    },
+    {
+      "ward_code": "E05013668",
+      "ward_name": "Regent's Park",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 36.7,
+      "total_households": 4971,
+      "total_population": 11926
+    },
+    {
+      "ward_code": "E05013669",
+      "ward_name": "St Pancras & Somers Town",
+      "pct_households_with_dependent_children": 15.1,
+      "pct_population_family_forming_age": 36,
+      "total_households": 4866,
+      "total_population": 12512
+    },
+    {
+      "ward_code": "E05013670",
+      "ward_name": "South Hampstead",
+      "pct_households_with_dependent_children": 9.1,
+      "pct_population_family_forming_age": 49.2,
+      "total_households": 5549,
+      "total_population": 12163
+    },
+    {
+      "ward_code": "E05013671",
+      "ward_name": "West Hampstead",
+      "pct_households_with_dependent_children": 8.6,
+      "pct_population_family_forming_age": 52.4,
+      "total_households": 5343,
+      "total_population": 11162
+    },
+    {
+      "ward_code": "E05013672",
+      "ward_name": "Arnos Grove",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 33.5,
+      "total_households": 2960,
+      "total_population": 8221
+    },
+    {
+      "ward_code": "E05013673",
+      "ward_name": "Bowes",
+      "pct_households_with_dependent_children": 19.3,
+      "pct_population_family_forming_age": 39.6,
+      "total_households": 3836,
+      "total_population": 10788
+    },
+    {
+      "ward_code": "E05013674",
+      "ward_name": "Brimsdown",
+      "pct_households_with_dependent_children": 27.8,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 5634,
+      "total_population": 16250
+    },
+    {
+      "ward_code": "E05013675",
+      "ward_name": "Bullsmoor",
+      "pct_households_with_dependent_children": 26.1,
+      "pct_population_family_forming_age": 32.8,
+      "total_households": 3976,
+      "total_population": 11456
+    },
+    {
+      "ward_code": "E05013676",
+      "ward_name": "Bush Hill Park",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 31.2,
+      "total_households": 4878,
+      "total_population": 12708
+    },
+    {
+      "ward_code": "E05013677",
+      "ward_name": "Carterhatch",
+      "pct_households_with_dependent_children": 29.1,
+      "pct_population_family_forming_age": 32.6,
+      "total_households": 4046,
+      "total_population": 12368
+    },
+    {
+      "ward_code": "E05013678",
+      "ward_name": "Cockfosters",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 32.1,
+      "total_households": 4025,
+      "total_population": 10607
+    },
+    {
+      "ward_code": "E05013679",
+      "ward_name": "Edmonton Green",
+      "pct_households_with_dependent_children": 25.9,
+      "pct_population_family_forming_age": 35.5,
+      "total_households": 6252,
+      "total_population": 17132
+    },
+    {
+      "ward_code": "E05013680",
+      "ward_name": "Enfield Lock",
+      "pct_households_with_dependent_children": 30,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 6411,
+      "total_population": 17816
+    },
+    {
+      "ward_code": "E05013681",
+      "ward_name": "Grange Park",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 30.8,
+      "total_households": 3676,
+      "total_population": 9361
+    },
+    {
+      "ward_code": "E05013682",
+      "ward_name": "Haselbury",
+      "pct_households_with_dependent_children": 24.2,
+      "pct_population_family_forming_age": 34.2,
+      "total_households": 6140,
+      "total_population": 18136
+    },
+    {
+      "ward_code": "E05013683",
+      "ward_name": "Highfield",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 3285,
+      "total_population": 9250
+    },
+    {
+      "ward_code": "E05013684",
+      "ward_name": "Jubilee",
+      "pct_households_with_dependent_children": 24.9,
+      "pct_population_family_forming_age": 33.6,
+      "total_households": 5746,
+      "total_population": 16547
+    },
+    {
+      "ward_code": "E05013685",
+      "ward_name": "Lower Edmonton",
+      "pct_households_with_dependent_children": 26.3,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 5828,
+      "total_population": 16554
+    },
+    {
+      "ward_code": "E05013686",
+      "ward_name": "New Southgate",
+      "pct_households_with_dependent_children": 17.8,
+      "pct_population_family_forming_age": 43,
+      "total_households": 4576,
+      "total_population": 11908
+    },
+    {
+      "ward_code": "E05013687",
+      "ward_name": "Oakwood",
+      "pct_households_with_dependent_children": 15,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 3258,
+      "total_population": 8746
+    },
+    {
+      "ward_code": "E05013688",
+      "ward_name": "Palmers Green",
+      "pct_households_with_dependent_children": 16.1,
+      "pct_population_family_forming_age": 39.5,
+      "total_households": 4202,
+      "total_population": 11016
+    },
+    {
+      "ward_code": "E05013689",
+      "ward_name": "Ponders End",
+      "pct_households_with_dependent_children": 26.9,
+      "pct_population_family_forming_age": 35,
+      "total_households": 4537,
+      "total_population": 13681
+    },
+    {
+      "ward_code": "E05013690",
+      "ward_name": "Ridgeway",
+      "pct_households_with_dependent_children": 13.7,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 5448,
+      "total_population": 12535
+    },
+    {
+      "ward_code": "E05013691",
+      "ward_name": "Southbury",
+      "pct_households_with_dependent_children": 22.3,
+      "pct_population_family_forming_age": 36.8,
+      "total_households": 5966,
+      "total_population": 15911
+    },
+    {
+      "ward_code": "E05013692",
+      "ward_name": "Southgate",
+      "pct_households_with_dependent_children": 15.1,
+      "pct_population_family_forming_age": 37.2,
+      "total_households": 5665,
+      "total_population": 14514
+    },
+    {
+      "ward_code": "E05013693",
+      "ward_name": "Town",
+      "pct_households_with_dependent_children": 15.6,
+      "pct_population_family_forming_age": 36.4,
+      "total_households": 5495,
+      "total_population": 13517
+    },
+    {
+      "ward_code": "E05013694",
+      "ward_name": "Upper Edmonton",
+      "pct_households_with_dependent_children": 26.8,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 5580,
+      "total_population": 16723
+    },
+    {
+      "ward_code": "E05013695",
+      "ward_name": "Whitewebbs",
+      "pct_households_with_dependent_children": 19.1,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 5499,
+      "total_population": 13843
+    },
+    {
+      "ward_code": "E05013696",
+      "ward_name": "Winchmore Hill",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 3995,
+      "total_population": 10398
+    },
+    {
+      "ward_code": "E05013697",
+      "ward_name": "Arsenal",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 54.9,
+      "total_households": 6012,
+      "total_population": 13124
+    },
+    {
+      "ward_code": "E05013698",
+      "ward_name": "Barnsbury",
+      "pct_households_with_dependent_children": 10.7,
+      "pct_population_family_forming_age": 48,
+      "total_households": 5552,
+      "total_population": 11710
+    },
+    {
+      "ward_code": "E05013699",
+      "ward_name": "Bunhill",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 45.6,
+      "total_households": 5068,
+      "total_population": 11165
+    },
+    {
+      "ward_code": "E05013700",
+      "ward_name": "Caledonian",
+      "pct_households_with_dependent_children": 12.8,
+      "pct_population_family_forming_age": 44,
+      "total_households": 5044,
+      "total_population": 11579
+    },
+    {
+      "ward_code": "E05013701",
+      "ward_name": "Canonbury",
+      "pct_households_with_dependent_children": 13.9,
+      "pct_population_family_forming_age": 47.6,
+      "total_households": 5864,
+      "total_population": 12666
+    },
+    {
+      "ward_code": "E05013507",
+      "ward_name": "Queens Park",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 42.5,
+      "total_households": 7045,
+      "total_population": 17156
+    },
+    {
+      "ward_code": "E05013808",
+      "ward_name": "West End",
+      "pct_households_with_dependent_children": 6.1,
+      "pct_population_family_forming_age": 44.4,
+      "total_households": 6239,
+      "total_population": 11544
+    },
+    {
+      "ward_code": "E05013757",
+      "ward_name": "Carshalton South & Clockhouse",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 30.4,
+      "total_households": 3595,
+      "total_population": 9959
+    },
+    {
+      "ward_code": "E05013608",
+      "ward_name": "Brentford West",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 3367,
+      "total_population": 7879
+    },
+    {
+      "ward_code": "E05013508",
+      "ward_name": "Queensbury",
+      "pct_households_with_dependent_children": 18.4,
+      "pct_population_family_forming_age": 39.9,
+      "total_households": 5387,
+      "total_population": 17187
+    },
+    {
+      "ward_code": "E05013809",
+      "ward_name": "Westbourne",
+      "pct_households_with_dependent_children": 16.2,
+      "pct_population_family_forming_age": 39.9,
+      "total_households": 4605,
+      "total_population": 11685
+    },
+    {
+      "ward_code": "E05013758",
+      "ward_name": "Cheam",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 29.6,
+      "total_households": 4085,
+      "total_population": 10815
+    },
+    {
+      "ward_code": "E05013609",
+      "ward_name": "Chiswick Gunnersbury",
+      "pct_households_with_dependent_children": 8.3,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 5729,
+      "total_population": 12696
+    },
+    {
+      "ward_code": "E05013509",
+      "ward_name": "Roundwood",
+      "pct_households_with_dependent_children": 21.8,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 6226,
+      "total_population": 16708
+    },
+    {
+      "ward_code": "E05013707",
+      "ward_name": "Junction",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 45.7,
+      "total_households": 5852,
+      "total_population": 12853
+    },
+    {
+      "ward_code": "E05013810",
+      "ward_name": "Abbey",
+      "pct_households_with_dependent_children": 10.5,
+      "pct_population_family_forming_age": 52.1,
+      "total_households": 4457,
+      "total_population": 10534
+    },
+    {
+      "ward_code": "E05013759",
+      "ward_name": "Hackbridge",
+      "pct_households_with_dependent_children": 17.7,
+      "pct_population_family_forming_age": 48.6,
+      "total_households": 2757,
+      "total_population": 6578
+    },
+    {
+      "ward_code": "E05013610",
+      "ward_name": "Chiswick Homefields",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 5818,
+      "total_population": 13742
+    },
+    {
+      "ward_code": "E05013510",
+      "ward_name": "Stonebridge",
+      "pct_households_with_dependent_children": 23.3,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 7244,
+      "total_population": 20254
+    },
+    {
+      "ward_code": "E05013708",
+      "ward_name": "Laycock",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 45.6,
+      "total_households": 5363,
+      "total_population": 12441
+    },
+    {
+      "ward_code": "E05013811",
+      "ward_name": "Cannon Hill",
+      "pct_households_with_dependent_children": 12.1,
+      "pct_population_family_forming_age": 36.3,
+      "total_households": 3524,
+      "total_population": 9791
+    },
+    {
+      "ward_code": "E05013760",
+      "ward_name": "North Cheam",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 34,
+      "total_households": 4176,
+      "total_population": 11161
+    },
+    {
+      "ward_code": "E05013611",
+      "ward_name": "Chiswick Riverside",
+      "pct_households_with_dependent_children": 10.7,
+      "pct_population_family_forming_age": 40.5,
+      "total_households": 4459,
+      "total_population": 10299
+    },
+    {
+      "ward_code": "E05013511",
+      "ward_name": "Sudbury",
+      "pct_households_with_dependent_children": 20.8,
+      "pct_population_family_forming_age": 41.6,
+      "total_households": 4330,
+      "total_population": 13938
+    },
+    {
+      "ward_code": "E05013709",
+      "ward_name": "Mildmay",
+      "pct_households_with_dependent_children": 14.4,
+      "pct_population_family_forming_age": 49.4,
+      "total_households": 6151,
+      "total_population": 14266
+    },
+    {
+      "ward_code": "E05013812",
+      "ward_name": "Colliers Wood",
+      "pct_households_with_dependent_children": 12.1,
+      "pct_population_family_forming_age": 53.1,
+      "total_households": 4759,
+      "total_population": 11559
+    },
+    {
+      "ward_code": "E05013813",
+      "ward_name": "Cricket Green",
+      "pct_households_with_dependent_children": 21.7,
+      "pct_population_family_forming_age": 37.7,
+      "total_households": 4236,
+      "total_population": 11716
+    },
+    {
+      "ward_code": "E05013814",
+      "ward_name": "Figge's Marsh",
+      "pct_households_with_dependent_children": 21.6,
+      "pct_population_family_forming_age": 39.8,
+      "total_households": 4209,
+      "total_population": 11809
+    },
+    {
+      "ward_code": "E05013815",
+      "ward_name": "Graveney",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 43.7,
+      "total_households": 4179,
+      "total_population": 11835
+    },
+    {
+      "ward_code": "E05013816",
+      "ward_name": "Hillside",
+      "pct_households_with_dependent_children": 6.8,
+      "pct_population_family_forming_age": 45.6,
+      "total_households": 3760,
+      "total_population": 8242
+    },
+    {
+      "ward_code": "E05013817",
+      "ward_name": "Lavender Fields",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 4298,
+      "total_population": 11370
+    },
+    {
+      "ward_code": "E05013818",
+      "ward_name": "Longthornton",
+      "pct_households_with_dependent_children": 19.9,
+      "pct_population_family_forming_age": 39.8,
+      "total_households": 4105,
+      "total_population": 11904
+    },
+    {
+      "ward_code": "E05013819",
+      "ward_name": "Lower Morden",
+      "pct_households_with_dependent_children": 14.5,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 4102,
+      "total_population": 11339
+    },
+    {
+      "ward_code": "E05013820",
+      "ward_name": "Merton Park",
+      "pct_households_with_dependent_children": 10.7,
+      "pct_population_family_forming_age": 34.7,
+      "total_households": 3056,
+      "total_population": 8293
+    },
+    {
+      "ward_code": "E05013821",
+      "ward_name": "Pollards Hill",
+      "pct_households_with_dependent_children": 24.2,
+      "pct_population_family_forming_age": 35.2,
+      "total_households": 3888,
+      "total_population": 11646
+    },
+    {
+      "ward_code": "E05013822",
+      "ward_name": "Ravensbury",
+      "pct_households_with_dependent_children": 18.8,
+      "pct_population_family_forming_age": 37.5,
+      "total_households": 3435,
+      "total_population": 9480
+    },
+    {
+      "ward_code": "E05013823",
+      "ward_name": "Raynes Park",
+      "pct_households_with_dependent_children": 10.3,
+      "pct_population_family_forming_age": 44.8,
+      "total_households": 5123,
+      "total_population": 12302
+    },
+    {
+      "ward_code": "E05013824",
+      "ward_name": "St Helier",
+      "pct_households_with_dependent_children": 18.1,
+      "pct_population_family_forming_age": 40.2,
+      "total_households": 4084,
+      "total_population": 11312
+    },
+    {
+      "ward_code": "E05013825",
+      "ward_name": "Village",
+      "pct_households_with_dependent_children": 8.7,
+      "pct_population_family_forming_age": 31.7,
+      "total_households": 4824,
+      "total_population": 11804
+    },
+    {
+      "ward_code": "E05013826",
+      "ward_name": "Wandle",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 50.3,
+      "total_households": 2451,
+      "total_population": 5601
+    },
+    {
+      "ward_code": "E05013827",
+      "ward_name": "West Barnes",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 3891,
+      "total_population": 10610
+    },
+    {
+      "ward_code": "E05013828",
+      "ward_name": "Wimbledon Park",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 42.7,
+      "total_households": 4221,
+      "total_population": 11071
+    },
+    {
+      "ward_code": "E05013829",
+      "ward_name": "Wimbledon Town & Dundonald",
+      "pct_households_with_dependent_children": 8.5,
+      "pct_population_family_forming_age": 46.5,
+      "total_households": 5124,
+      "total_population": 12967
+    },
+    {
+      "ward_code": "E05013710",
+      "ward_name": "St Mary's & St James'",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 49.7,
+      "total_households": 5649,
+      "total_population": 11888
+    },
+    {
+      "ward_code": "E05013612",
+      "ward_name": "Cranford",
+      "pct_households_with_dependent_children": 22.4,
+      "pct_population_family_forming_age": 40.9,
+      "total_households": 4990,
+      "total_population": 16026
+    },
+    {
+      "ward_code": "E05013711",
+      "ward_name": "St Peter's & Canalside",
+      "pct_households_with_dependent_children": 12.8,
+      "pct_population_family_forming_age": 49.1,
+      "total_households": 5473,
+      "total_population": 11622
+    },
+    {
+      "ward_code": "E05013613",
+      "ward_name": "Feltham North",
+      "pct_households_with_dependent_children": 19.8,
+      "pct_population_family_forming_age": 38.3,
+      "total_households": 4218,
+      "total_population": 12906
+    },
+    {
+      "ward_code": "E05013712",
+      "ward_name": "Tollington",
+      "pct_households_with_dependent_children": 12.9,
+      "pct_population_family_forming_age": 50,
+      "total_households": 6112,
+      "total_population": 13762
+    },
+    {
+      "ward_code": "E05013614",
+      "ward_name": "Feltham West",
+      "pct_households_with_dependent_children": 20.2,
+      "pct_population_family_forming_age": 40.2,
+      "total_households": 5691,
+      "total_population": 16224
+    },
+    {
+      "ward_code": "E05013512",
+      "ward_name": "Tokyngton",
+      "pct_households_with_dependent_children": 21.3,
+      "pct_population_family_forming_age": 37.1,
+      "total_households": 2823,
+      "total_population": 10006
+    },
+    {
+      "ward_code": "E05013761",
+      "ward_name": "St Helier East",
+      "pct_households_with_dependent_children": 21.8,
+      "pct_population_family_forming_age": 36.8,
+      "total_households": 3133,
+      "total_population": 8557
+    },
+    {
+      "ward_code": "E05013713",
+      "ward_name": "Tufnell Park",
+      "pct_households_with_dependent_children": 12.9,
+      "pct_population_family_forming_age": 45.5,
+      "total_households": 5513,
+      "total_population": 12398
+    },
+    {
+      "ward_code": "E05013615",
+      "ward_name": "Hanworth Park",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 3870,
+      "total_population": 10406
+    },
+    {
+      "ward_code": "E05013513",
+      "ward_name": "Welsh Harp",
+      "pct_households_with_dependent_children": 19.4,
+      "pct_population_family_forming_age": 37.2,
+      "total_households": 5944,
+      "total_population": 17923
+    },
+    {
+      "ward_code": "E05013762",
+      "ward_name": "St Helier West",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 4418,
+      "total_population": 12178
+    },
+    {
+      "ward_code": "E05013714",
+      "ward_name": "Bellingham",
+      "pct_households_with_dependent_children": 24.5,
+      "pct_population_family_forming_age": 35.9,
+      "total_households": 4640,
+      "total_population": 11661
+    },
+    {
+      "ward_code": "E05013616",
+      "ward_name": "Hanworth Village",
+      "pct_households_with_dependent_children": 21.9,
+      "pct_population_family_forming_age": 37.2,
+      "total_households": 5661,
+      "total_population": 16265
+    },
+    {
+      "ward_code": "E05013514",
+      "ward_name": "Wembley Central",
+      "pct_households_with_dependent_children": 23.8,
+      "pct_population_family_forming_age": 41,
+      "total_households": 4931,
+      "total_population": 17925
+    },
+    {
+      "ward_code": "E05013763",
+      "ward_name": "South Beddington & Roundshaw",
+      "pct_households_with_dependent_children": 18.2,
+      "pct_population_family_forming_age": 31.4,
+      "total_households": 4065,
+      "total_population": 10912
+    },
+    {
+      "ward_code": "E05013715",
+      "ward_name": "Blackheath",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 7385,
+      "total_population": 16429
+    },
+    {
+      "ward_code": "E05013617",
+      "ward_name": "Heston Central",
+      "pct_households_with_dependent_children": 20.6,
+      "pct_population_family_forming_age": 40.1,
+      "total_households": 4329,
+      "total_population": 14531
+    },
+    {
+      "ward_code": "E05013515",
+      "ward_name": "Wembley Hill",
+      "pct_households_with_dependent_children": 19.9,
+      "pct_population_family_forming_age": 42.7,
+      "total_households": 4626,
+      "total_population": 15062
+    },
+    {
+      "ward_code": "E05013764",
+      "ward_name": "Stonecot",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 32.8,
+      "total_households": 2954,
+      "total_population": 8278
+    },
+    {
+      "ward_code": "E05013716",
+      "ward_name": "Brockley",
+      "pct_households_with_dependent_children": 13.9,
+      "pct_population_family_forming_age": 49.7,
+      "total_households": 7348,
+      "total_population": 17497
+    },
+    {
+      "ward_code": "E05013618",
+      "ward_name": "Heston East",
+      "pct_households_with_dependent_children": 20.6,
+      "pct_population_family_forming_age": 39.6,
+      "total_households": 3548,
+      "total_population": 11156
+    },
+    {
+      "ward_code": "E05013619",
+      "ward_name": "Heston West",
+      "pct_households_with_dependent_children": 22.1,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 4708,
+      "total_population": 15729
+    },
+    {
+      "ward_code": "E05013620",
+      "ward_name": "Hounslow Central",
+      "pct_households_with_dependent_children": 19.5,
+      "pct_population_family_forming_age": 49.1,
+      "total_households": 3632,
+      "total_population": 10659
+    },
+    {
+      "ward_code": "E05013621",
+      "ward_name": "Hounslow East",
+      "pct_households_with_dependent_children": 20.5,
+      "pct_population_family_forming_age": 43,
+      "total_households": 3039,
+      "total_population": 8672
+    },
+    {
+      "ward_code": "E05013622",
+      "ward_name": "Hounslow Heath",
+      "pct_households_with_dependent_children": 20.7,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 5154,
+      "total_population": 16074
+    },
+    {
+      "ward_code": "E05013623",
+      "ward_name": "Hounslow South",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 37.6,
+      "total_households": 4806,
+      "total_population": 13748
+    },
+    {
+      "ward_code": "E05013624",
+      "ward_name": "Hounslow West",
+      "pct_households_with_dependent_children": 21,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 4880,
+      "total_population": 15914
+    },
+    {
+      "ward_code": "E05013625",
+      "ward_name": "Isleworth",
+      "pct_households_with_dependent_children": 17.1,
+      "pct_population_family_forming_age": 40.2,
+      "total_households": 5455,
+      "total_population": 13799
+    },
+    {
+      "ward_code": "E05013626",
+      "ward_name": "Osterley & Spring Grove",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 41.8,
+      "total_households": 5273,
+      "total_population": 14659
+    },
+    {
+      "ward_code": "E05013627",
+      "ward_name": "Syon & Brentford Lock",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 44.9,
+      "total_households": 5366,
+      "total_population": 12951
+    },
+    {
+      "ward_code": "E05013628",
+      "ward_name": "Barnet Vale",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 35.2,
+      "total_households": 7098,
+      "total_population": 16869
+    },
+    {
+      "ward_code": "E05013629",
+      "ward_name": "Brunswick Park",
+      "pct_households_with_dependent_children": 14.4,
+      "pct_population_family_forming_age": 32.8,
+      "total_households": 5988,
+      "total_population": 16211
+    },
+    {
+      "ward_code": "E05013630",
+      "ward_name": "Burnt Oak",
+      "pct_households_with_dependent_children": 22.9,
+      "pct_population_family_forming_age": 38,
+      "total_households": 7398,
+      "total_population": 21854
+    },
+    {
+      "ward_code": "E05013631",
+      "ward_name": "Childs Hill",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 39.7,
+      "total_households": 7975,
+      "total_population": 19629
+    },
+    {
+      "ward_code": "E05013632",
+      "ward_name": "Colindale North",
+      "pct_households_with_dependent_children": 22.9,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 4474,
+      "total_population": 12060
+    },
+    {
+      "ward_code": "E05013633",
+      "ward_name": "Colindale South",
+      "pct_households_with_dependent_children": 14.3,
+      "pct_population_family_forming_age": 49.1,
+      "total_households": 7468,
+      "total_population": 19417
+    },
+    {
+      "ward_code": "E05013634",
+      "ward_name": "Cricklewood",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 39.4,
+      "total_households": 3965,
+      "total_population": 10726
+    },
+    {
+      "ward_code": "E05013635",
+      "ward_name": "East Barnet",
+      "pct_households_with_dependent_children": 16.4,
+      "pct_population_family_forming_age": 34.6,
+      "total_households": 6991,
+      "total_population": 18145
+    },
+    {
+      "ward_code": "E05013636",
+      "ward_name": "East Finchley",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 6899,
+      "total_population": 16640
+    },
+    {
+      "ward_code": "E05013637",
+      "ward_name": "Edgware",
+      "pct_households_with_dependent_children": 13.7,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 7213,
+      "total_population": 19996
+    },
+    {
+      "ward_code": "E05013638",
+      "ward_name": "Edgwarebury",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 31.4,
+      "total_households": 3995,
+      "total_population": 12112
+    },
+    {
+      "ward_code": "E05013639",
+      "ward_name": "Finchley Church End",
+      "pct_households_with_dependent_children": 11.2,
+      "pct_population_family_forming_age": 37.1,
+      "total_households": 7561,
+      "total_population": 18838
+    },
+    {
+      "ward_code": "E05013640",
+      "ward_name": "Friern Barnet",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 7650,
+      "total_population": 19449
+    },
+    {
+      "ward_code": "E05013641",
+      "ward_name": "Garden Suburb",
+      "pct_households_with_dependent_children": 9.1,
+      "pct_population_family_forming_age": 31.6,
+      "total_households": 4896,
+      "total_population": 12207
+    },
+    {
+      "ward_code": "E05013642",
+      "ward_name": "Golders Green",
+      "pct_households_with_dependent_children": 8.7,
+      "pct_population_family_forming_age": 35.5,
+      "total_households": 5027,
+      "total_population": 14742
+    },
+    {
+      "ward_code": "E05013643",
+      "ward_name": "Hendon",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 8269,
+      "total_population": 21981
+    },
+    {
+      "ward_code": "E05013644",
+      "ward_name": "High Barnet",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 32,
+      "total_households": 4794,
+      "total_population": 11928
+    },
+    {
+      "ward_code": "E05013645",
+      "ward_name": "Mill Hill",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 34.9,
+      "total_households": 6923,
+      "total_population": 18309
+    },
+    {
+      "ward_code": "E05013646",
+      "ward_name": "Totteridge & Woodside",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 5483,
+      "total_population": 14493
+    },
+    {
+      "ward_code": "E05013647",
+      "ward_name": "Underhill",
+      "pct_households_with_dependent_children": 14.8,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 4845,
+      "total_population": 12371
+    },
+    {
+      "ward_code": "E05013648",
+      "ward_name": "West Finchley",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 40.9,
+      "total_households": 7752,
+      "total_population": 19430
+    },
+    {
+      "ward_code": "E05013649",
+      "ward_name": "West Hendon",
+      "pct_households_with_dependent_children": 14.3,
+      "pct_population_family_forming_age": 44.3,
+      "total_households": 6457,
+      "total_population": 17253
+    },
+    {
+      "ward_code": "E05013650",
+      "ward_name": "Whetstone",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 37.3,
+      "total_households": 4284,
+      "total_population": 10771
+    },
+    {
+      "ward_code": "E05013651",
+      "ward_name": "Woodhouse",
+      "pct_households_with_dependent_children": 13.8,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 5515,
+      "total_population": 13917
+    },
+    {
+      "ward_code": "E05013717",
+      "ward_name": "Catford South",
+      "pct_households_with_dependent_children": 18.5,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 6263,
+      "total_population": 17259
+    },
+    {
+      "ward_code": "E05013765",
+      "ward_name": "Sutton Central",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 45.7,
+      "total_households": 5408,
+      "total_population": 12566
+    },
+    {
+      "ward_code": "E05013516",
+      "ward_name": "Wembley Park",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 49,
+      "total_households": 2670,
+      "total_population": 7550
+    },
+    {
+      "ward_code": "E05013718",
+      "ward_name": "Crofton Park",
+      "pct_households_with_dependent_children": 16.3,
+      "pct_population_family_forming_age": 45.7,
+      "total_households": 6206,
+      "total_population": 15425
+    },
+    {
+      "ward_code": "E05013766",
+      "ward_name": "Sutton North",
+      "pct_households_with_dependent_children": 15.3,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 4250,
+      "total_population": 11296
+    },
+    {
+      "ward_code": "E05013517",
+      "ward_name": "Willesden Green",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 42.9,
+      "total_households": 7561,
+      "total_population": 18958
+    },
+    {
+      "ward_code": "E05013719",
+      "ward_name": "Deptford",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 46.2,
+      "total_households": 7096,
+      "total_population": 17004
+    },
+    {
+      "ward_code": "E05013767",
+      "ward_name": "Sutton South",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 5593,
+      "total_population": 12248
+    },
+    {
+      "ward_code": "E05013518",
+      "ward_name": "Central Greenford",
+      "pct_households_with_dependent_children": 17.2,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 5051,
+      "total_population": 14353
+    },
+    {
+      "ward_code": "E05013720",
+      "ward_name": "Downham",
+      "pct_households_with_dependent_children": 23.5,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 6890,
+      "total_population": 18358
+    },
+    {
+      "ward_code": "E05013768",
+      "ward_name": "Sutton West & East Cheam",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 4470,
+      "total_population": 10907
+    },
+    {
+      "ward_code": "E05013519",
+      "ward_name": "Dormers Wells",
+      "pct_households_with_dependent_children": 21.8,
+      "pct_population_family_forming_age": 35.4,
+      "total_households": 4809,
+      "total_population": 15610
+    },
+    {
+      "ward_code": "E05013721",
+      "ward_name": "Evelyn",
+      "pct_households_with_dependent_children": 15.9,
+      "pct_population_family_forming_age": 52,
+      "total_households": 6134,
+      "total_population": 14435
+    },
+    {
+      "ward_code": "E05013769",
+      "ward_name": "The Wrythe",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 4246,
+      "total_population": 10939
+    },
+    {
+      "ward_code": "E05013520",
+      "ward_name": "Ealing Broadway",
+      "pct_households_with_dependent_children": 8.3,
+      "pct_population_family_forming_age": 46.6,
+      "total_households": 6214,
+      "total_population": 13921
+    },
+    {
+      "ward_code": "E05013722",
+      "ward_name": "Forest Hill",
+      "pct_households_with_dependent_children": 16.2,
+      "pct_population_family_forming_age": 44.6,
+      "total_households": 6408,
+      "total_population": 15175
+    },
+    {
+      "ward_code": "E05013770",
+      "ward_name": "Wallington North",
+      "pct_households_with_dependent_children": 15.1,
+      "pct_population_family_forming_age": 37.7,
+      "total_households": 4979,
+      "total_population": 12236
+    },
+    {
+      "ward_code": "E05013521",
+      "ward_name": "Ealing Common",
+      "pct_households_with_dependent_children": 9.4,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 6694,
+      "total_population": 15944
+    },
+    {
+      "ward_code": "E05013723",
+      "ward_name": "Grove Park",
+      "pct_households_with_dependent_children": 18.7,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 6305,
+      "total_population": 15728
+    },
+    {
+      "ward_code": "E05013771",
+      "ward_name": "Wallington South",
+      "pct_households_with_dependent_children": 14.3,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 4647,
+      "total_population": 11046
+    },
+    {
+      "ward_code": "E05013522",
+      "ward_name": "East Acton",
+      "pct_households_with_dependent_children": 15.5,
+      "pct_population_family_forming_age": 43.8,
+      "total_households": 5883,
+      "total_population": 15211
+    },
+    {
+      "ward_code": "E05013724",
+      "ward_name": "Hither Green",
+      "pct_households_with_dependent_children": 19.7,
+      "pct_population_family_forming_age": 41.8,
+      "total_households": 7965,
+      "total_population": 20149
+    },
+    {
+      "ward_code": "E05013772",
+      "ward_name": "Worcester Park North",
+      "pct_households_with_dependent_children": 15.1,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 3208,
+      "total_population": 8427
+    },
+    {
+      "ward_code": "E05013523",
+      "ward_name": "Greenford Broadway",
+      "pct_households_with_dependent_children": 20.4,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 6110,
+      "total_population": 17385
+    },
+    {
+      "ward_code": "E05013725",
+      "ward_name": "Ladywell",
+      "pct_households_with_dependent_children": 17.1,
+      "pct_population_family_forming_age": 43.3,
+      "total_households": 6240,
+      "total_population": 15572
+    },
+    {
+      "ward_code": "E05013773",
+      "ward_name": "Worcester Park South",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 31,
+      "total_households": 2697,
+      "total_population": 7069
+    },
+    {
+      "ward_code": "E05013524",
+      "ward_name": "Hanger Hill",
+      "pct_households_with_dependent_children": 10.8,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 6757,
+      "total_population": 17044
+    },
+    {
+      "ward_code": "E05013726",
+      "ward_name": "Lee Green",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 6142,
+      "total_population": 15015
+    },
+    {
+      "ward_code": "E05013774",
+      "ward_name": "Barnes",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 31.1,
+      "total_households": 4290,
+      "total_population": 10424
+    },
+    {
+      "ward_code": "E05013525",
+      "ward_name": "Hanwell Broadway",
+      "pct_households_with_dependent_children": 16.5,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 6208,
+      "total_population": 15289
+    },
+    {
+      "ward_code": "E05013727",
+      "ward_name": "Lewisham Central",
+      "pct_households_with_dependent_children": 13.5,
+      "pct_population_family_forming_age": 57.8,
+      "total_households": 3806,
+      "total_population": 8201
+    },
+    {
+      "ward_code": "E05013728",
+      "ward_name": "New Cross Gate",
+      "pct_households_with_dependent_children": 19.7,
+      "pct_population_family_forming_age": 44.5,
+      "total_households": 4233,
+      "total_population": 11078
+    },
+    {
+      "ward_code": "E05013729",
+      "ward_name": "Perry Vale",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 42.6,
+      "total_households": 7627,
+      "total_population": 18656
+    },
+    {
+      "ward_code": "E05013730",
+      "ward_name": "Rushey Green",
+      "pct_households_with_dependent_children": 20.6,
+      "pct_population_family_forming_age": 45.5,
+      "total_households": 7825,
+      "total_population": 19019
+    },
+    {
+      "ward_code": "E05013731",
+      "ward_name": "Sydenham",
+      "pct_households_with_dependent_children": 18.2,
+      "pct_population_family_forming_age": 40.9,
+      "total_households": 7125,
+      "total_population": 16972
+    },
+    {
+      "ward_code": "E05013732",
+      "ward_name": "Telegraph Hill",
+      "pct_households_with_dependent_children": 17.8,
+      "pct_population_family_forming_age": 45.3,
+      "total_households": 6764,
+      "total_population": 16917
+    },
+    {
+      "ward_code": "E05013733",
+      "ward_name": "Addison",
+      "pct_households_with_dependent_children": 9.9,
+      "pct_population_family_forming_age": 49.2,
+      "total_households": 3785,
+      "total_population": 7718
+    },
+    {
+      "ward_code": "E05013734",
+      "ward_name": "Avonmore",
+      "pct_households_with_dependent_children": 7.7,
+      "pct_population_family_forming_age": 46.2,
+      "total_households": 3657,
+      "total_population": 7530
+    },
+    {
+      "ward_code": "E05013735",
+      "ward_name": "Brook Green",
+      "pct_households_with_dependent_children": 9,
+      "pct_population_family_forming_age": 44.8,
+      "total_households": 3870,
+      "total_population": 8249
+    },
+    {
+      "ward_code": "E05013736",
+      "ward_name": "College Park & Old Oak",
+      "pct_households_with_dependent_children": 14.5,
+      "pct_population_family_forming_age": 43.9,
+      "total_households": 3878,
+      "total_population": 9985
+    },
+    {
+      "ward_code": "E05013737",
+      "ward_name": "Coningham",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 46.1,
+      "total_households": 4804,
+      "total_population": 10584
+    },
+    {
+      "ward_code": "E05013738",
+      "ward_name": "Fulham Reach",
+      "pct_households_with_dependent_children": 8.6,
+      "pct_population_family_forming_age": 44.8,
+      "total_households": 5366,
+      "total_population": 12166
+    },
+    {
+      "ward_code": "E05013739",
+      "ward_name": "Fulham Town",
+      "pct_households_with_dependent_children": 7.5,
+      "pct_population_family_forming_age": 49.5,
+      "total_households": 3378,
+      "total_population": 7387
+    },
+    {
+      "ward_code": "E05013740",
+      "ward_name": "Grove",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 45.3,
+      "total_households": 3369,
+      "total_population": 7246
+    },
+    {
+      "ward_code": "E05013741",
+      "ward_name": "Hammersmith Broadway",
+      "pct_households_with_dependent_children": 12.2,
+      "pct_population_family_forming_age": 46.6,
+      "total_households": 3607,
+      "total_population": 7847
+    },
+    {
+      "ward_code": "E05013742",
+      "ward_name": "Lillie",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 46.3,
+      "total_households": 3212,
+      "total_population": 6711
+    },
+    {
+      "ward_code": "E05013743",
+      "ward_name": "Munster",
+      "pct_households_with_dependent_children": 8.1,
+      "pct_population_family_forming_age": 48.7,
+      "total_households": 5299,
+      "total_population": 12135
+    },
+    {
+      "ward_code": "E05013744",
+      "ward_name": "Palace & Hurlingham",
+      "pct_households_with_dependent_children": 9.7,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 4647,
+      "total_population": 11173
+    },
+    {
+      "ward_code": "E05013745",
+      "ward_name": "Parsons Green & Sandford",
+      "pct_households_with_dependent_children": 9.6,
+      "pct_population_family_forming_age": 41.5,
+      "total_households": 3124,
+      "total_population": 7729
+    },
+    {
+      "ward_code": "E05013746",
+      "ward_name": "Ravenscourt",
+      "pct_households_with_dependent_children": 9.8,
+      "pct_population_family_forming_age": 43,
+      "total_households": 3079,
+      "total_population": 6932
+    },
+    {
+      "ward_code": "E05013747",
+      "ward_name": "Sands End",
+      "pct_households_with_dependent_children": 12.5,
+      "pct_population_family_forming_age": 48,
+      "total_households": 5137,
+      "total_population": 11128
+    },
+    {
+      "ward_code": "E05013748",
+      "ward_name": "Shepherd's Bush Green",
+      "pct_households_with_dependent_children": 13.8,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 2620,
+      "total_population": 5570
+    },
+    {
+      "ward_code": "E05013749",
+      "ward_name": "Walham Green",
+      "pct_households_with_dependent_children": 10.9,
+      "pct_population_family_forming_age": 46.8,
+      "total_households": 3590,
+      "total_population": 7952
+    },
+    {
+      "ward_code": "E05013750",
+      "ward_name": "Wendell Park",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 3148,
+      "total_population": 7419
+    },
+    {
+      "ward_code": "E05013751",
+      "ward_name": "West Kensington",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 48.2,
+      "total_households": 4503,
+      "total_population": 9310
+    },
+    {
+      "ward_code": "E05013526",
+      "ward_name": "Lady Margaret",
+      "pct_households_with_dependent_children": 20.2,
+      "pct_population_family_forming_age": 36.7,
+      "total_households": 4611,
+      "total_population": 15785
+    },
+    {
+      "ward_code": "E05013775",
+      "ward_name": "East Sheen",
+      "pct_households_with_dependent_children": 9.1,
+      "pct_population_family_forming_age": 32.9,
+      "total_households": 4125,
+      "total_population": 10671
+    },
+    {
+      "ward_code": "E05013527",
+      "ward_name": "North Acton",
+      "pct_households_with_dependent_children": 12,
+      "pct_population_family_forming_age": 40.5,
+      "total_households": 7061,
+      "total_population": 19043
+    },
+    {
+      "ward_code": "E05013776",
+      "ward_name": "Fulwell & Hampton Hill",
+      "pct_households_with_dependent_children": 10.7,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 4442,
+      "total_population": 10722
+    },
+    {
+      "ward_code": "E05013528",
+      "ward_name": "North Greenford",
+      "pct_households_with_dependent_children": 17.5,
+      "pct_population_family_forming_age": 40.6,
+      "total_households": 5239,
+      "total_population": 15559
+    },
+    {
+      "ward_code": "E05013777",
+      "ward_name": "Ham, Petersham & Richmond Riverside",
+      "pct_households_with_dependent_children": 13.3,
+      "pct_population_family_forming_age": 32.8,
+      "total_households": 4397,
+      "total_population": 10828
+    },
+    {
+      "ward_code": "E05013529",
+      "ward_name": "North Hanwell",
+      "pct_households_with_dependent_children": 17.8,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 5475,
+      "total_population": 15040
+    },
+    {
+      "ward_code": "E05013778",
+      "ward_name": "Hampton",
+      "pct_households_with_dependent_children": 10.1,
+      "pct_population_family_forming_age": 32,
+      "total_households": 4254,
+      "total_population": 10299
+    },
+    {
+      "ward_code": "E05013530",
+      "ward_name": "Northfield",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 37.9,
+      "total_households": 5585,
+      "total_population": 14265
+    },
+    {
+      "ward_code": "E05013779",
+      "ward_name": "Hampton North",
+      "pct_households_with_dependent_children": 14,
+      "pct_population_family_forming_age": 32.5,
+      "total_households": 4096,
+      "total_population": 9715
+    },
+    {
+      "ward_code": "E05013531",
+      "ward_name": "Northolt Mandeville",
+      "pct_households_with_dependent_children": 22.2,
+      "pct_population_family_forming_age": 37.9,
+      "total_households": 6134,
+      "total_population": 17532
+    },
+    {
+      "ward_code": "E05013780",
+      "ward_name": "Hampton Wick & South Teddington",
+      "pct_households_with_dependent_children": 10.7,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 4634,
+      "total_population": 10757
+    },
+    {
+      "ward_code": "E05013532",
+      "ward_name": "Northolt West End",
+      "pct_households_with_dependent_children": 23.3,
+      "pct_population_family_forming_age": 36.4,
+      "total_households": 5617,
+      "total_population": 16537
+    },
+    {
+      "ward_code": "E05013781",
+      "ward_name": "Heathfield",
+      "pct_households_with_dependent_children": 16.6,
+      "pct_population_family_forming_age": 33.6,
+      "total_households": 3751,
+      "total_population": 10412
+    },
+    {
+      "ward_code": "E05013882",
+      "ward_name": "Cann Hall",
+      "pct_households_with_dependent_children": 22.8,
+      "pct_population_family_forming_age": 44.4,
+      "total_households": 5652,
+      "total_population": 16324
+    },
+    {
+      "ward_code": "E05013533",
+      "ward_name": "Norwood Green",
+      "pct_households_with_dependent_children": 21.3,
+      "pct_population_family_forming_age": 39.7,
+      "total_households": 5015,
+      "total_population": 16098
+    },
+    {
+      "ward_code": "E05013782",
+      "ward_name": "Kew",
+      "pct_households_with_dependent_children": 9.2,
+      "pct_population_family_forming_age": 37.4,
+      "total_households": 5001,
+      "total_population": 11839
+    },
+    {
+      "ward_code": "E05013883",
+      "ward_name": "Cathall",
+      "pct_households_with_dependent_children": 18.9,
+      "pct_population_family_forming_age": 47.2,
+      "total_households": 3823,
+      "total_population": 10482
+    },
+    {
+      "ward_code": "E05013534",
+      "ward_name": "Perivale",
+      "pct_households_with_dependent_children": 15.8,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 5659,
+      "total_population": 16184
+    },
+    {
+      "ward_code": "E05013783",
+      "ward_name": "Mortlake & Barnes Common",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 39.5,
+      "total_households": 5230,
+      "total_population": 12032
+    },
+    {
+      "ward_code": "E05013884",
+      "ward_name": "Chapel End",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 4868,
+      "total_population": 13614
+    },
+    {
+      "ward_code": "E05013535",
+      "ward_name": "Pitshanger",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 5920,
+      "total_population": 15173
+    },
+    {
+      "ward_code": "E05013784",
+      "ward_name": "North Richmond",
+      "pct_households_with_dependent_children": 10.1,
+      "pct_population_family_forming_age": 40.2,
+      "total_households": 4543,
+      "total_population": 10629
+    },
+    {
+      "ward_code": "E05013885",
+      "ward_name": "Chingford Green",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 31.9,
+      "total_households": 4710,
+      "total_population": 11398
+    },
+    {
+      "ward_code": "E05013536",
+      "ward_name": "South Acton",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 46.6,
+      "total_households": 7234,
+      "total_population": 16820
+    },
+    {
+      "ward_code": "E05013785",
+      "ward_name": "St Margarets & North Twickenham",
+      "pct_households_with_dependent_children": 10.1,
+      "pct_population_family_forming_age": 39.3,
+      "total_households": 4805,
+      "total_population": 11945
+    },
+    {
+      "ward_code": "E05013886",
+      "ward_name": "Endlebury",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 32.5,
+      "total_households": 3563,
+      "total_population": 9325
+    },
+    {
+      "ward_code": "E05013537",
+      "ward_name": "Southall Broadway",
+      "pct_households_with_dependent_children": 25.1,
+      "pct_population_family_forming_age": 38.3,
+      "total_households": 2843,
+      "total_population": 10824
+    },
+    {
+      "ward_code": "E05013786",
+      "ward_name": "South Richmond",
+      "pct_households_with_dependent_children": 7.7,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 5047,
+      "total_population": 11084
+    },
+    {
+      "ward_code": "E05013887",
+      "ward_name": "Forest",
+      "pct_households_with_dependent_children": 21,
+      "pct_population_family_forming_age": 42,
+      "total_households": 5829,
+      "total_population": 17256
+    },
+    {
+      "ward_code": "E05013888",
+      "ward_name": "Grove Green",
+      "pct_households_with_dependent_children": 16.8,
+      "pct_population_family_forming_age": 51.7,
+      "total_households": 5487,
+      "total_population": 14747
+    },
+    {
+      "ward_code": "E05013889",
+      "ward_name": "Hale End & Highams Park South",
+      "pct_households_with_dependent_children": 18.8,
+      "pct_population_family_forming_age": 37,
+      "total_households": 3549,
+      "total_population": 9818
+    },
+    {
+      "ward_code": "E05013890",
+      "ward_name": "Hatch Lane & Highams Park North",
+      "pct_households_with_dependent_children": 16.7,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 4990,
+      "total_population": 12951
+    },
+    {
+      "ward_code": "E05013891",
+      "ward_name": "High Street",
+      "pct_households_with_dependent_children": 18,
+      "pct_population_family_forming_age": 50.3,
+      "total_households": 4484,
+      "total_population": 11563
+    },
+    {
+      "ward_code": "E05013892",
+      "ward_name": "Higham Hill",
+      "pct_households_with_dependent_children": 23.4,
+      "pct_population_family_forming_age": 43,
+      "total_households": 4983,
+      "total_population": 14313
+    },
+    {
+      "ward_code": "E05013893",
+      "ward_name": "Hoe Street",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 47.4,
+      "total_households": 5698,
+      "total_population": 14278
+    },
+    {
+      "ward_code": "E05013894",
+      "ward_name": "Larkswood",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 37,
+      "total_households": 5096,
+      "total_population": 13536
+    },
+    {
+      "ward_code": "E05013895",
+      "ward_name": "Lea Bridge",
+      "pct_households_with_dependent_children": 20.1,
+      "pct_population_family_forming_age": 46.6,
+      "total_households": 5558,
+      "total_population": 15523
+    },
+    {
+      "ward_code": "E05013896",
+      "ward_name": "Leyton",
+      "pct_households_with_dependent_children": 18.8,
+      "pct_population_family_forming_age": 46,
+      "total_households": 4833,
+      "total_population": 13114
+    },
+    {
+      "ward_code": "E05013897",
+      "ward_name": "Leytonstone",
+      "pct_households_with_dependent_children": 15.6,
+      "pct_population_family_forming_age": 47.6,
+      "total_households": 4816,
+      "total_population": 12239
+    },
+    {
+      "ward_code": "E05013898",
+      "ward_name": "Markhouse",
+      "pct_households_with_dependent_children": 19.3,
+      "pct_population_family_forming_age": 44.9,
+      "total_households": 3200,
+      "total_population": 9275
+    },
+    {
+      "ward_code": "E05013899",
+      "ward_name": "St James",
+      "pct_households_with_dependent_children": 17.2,
+      "pct_population_family_forming_age": 51.9,
+      "total_households": 4564,
+      "total_population": 11745
+    },
+    {
+      "ward_code": "E05013900",
+      "ward_name": "Upper Walthamstow",
+      "pct_households_with_dependent_children": 20.8,
+      "pct_population_family_forming_age": 39.1,
+      "total_households": 2901,
+      "total_population": 8196
+    },
+    {
+      "ward_code": "E05013901",
+      "ward_name": "Valley",
+      "pct_households_with_dependent_children": 19.4,
+      "pct_population_family_forming_age": 35.4,
+      "total_households": 5010,
+      "total_population": 14086
+    },
+    {
+      "ward_code": "E05013787",
+      "ward_name": "South Twickenham",
+      "pct_households_with_dependent_children": 9.8,
+      "pct_population_family_forming_age": 33.1,
+      "total_households": 4165,
+      "total_population": 10628
+    },
+    {
+      "ward_code": "E05013788",
+      "ward_name": "Teddington",
+      "pct_households_with_dependent_children": 8.7,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 4718,
+      "total_population": 10562
+    },
+    {
+      "ward_code": "E05013789",
+      "ward_name": "Twickenham Riverside",
+      "pct_households_with_dependent_children": 8.2,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 4853,
+      "total_population": 10992
+    },
+    {
+      "ward_code": "E05013790",
+      "ward_name": "West Twickenham",
+      "pct_households_with_dependent_children": 14.3,
+      "pct_population_family_forming_age": 35,
+      "total_households": 4322,
+      "total_population": 11307
+    },
+    {
+      "ward_code": "E05013791",
+      "ward_name": "Whitton",
+      "pct_households_with_dependent_children": 12.1,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 4024,
+      "total_population": 10437
+    },
+    {
+      "ward_code": "E05013792",
+      "ward_name": "Abbey Road",
+      "pct_households_with_dependent_children": 7,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 6089,
+      "total_population": 13043
+    },
+    {
+      "ward_code": "E05013793",
+      "ward_name": "Bayswater",
+      "pct_households_with_dependent_children": 6.4,
+      "pct_population_family_forming_age": 51,
+      "total_households": 6210,
+      "total_population": 12366
+    },
+    {
+      "ward_code": "E05013794",
+      "ward_name": "Church Street",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 36.6,
+      "total_households": 4545,
+      "total_population": 11672
+    },
+    {
+      "ward_code": "E05013795",
+      "ward_name": "Harrow Road",
+      "pct_households_with_dependent_children": 13.1,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 5106,
+      "total_population": 11379
+    },
+    {
+      "ward_code": "E05013796",
+      "ward_name": "Hyde Park",
+      "pct_households_with_dependent_children": 7.3,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 4689,
+      "total_population": 10319
+    },
+    {
+      "ward_code": "E05013797",
+      "ward_name": "Knightsbridge & Belgravia",
+      "pct_households_with_dependent_children": 8.9,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 4943,
+      "total_population": 11029
+    },
+    {
+      "ward_code": "E05013798",
+      "ward_name": "Lancaster Gate",
+      "pct_households_with_dependent_children": 6.1,
+      "pct_population_family_forming_age": 51.1,
+      "total_households": 5520,
+      "total_population": 10954
+    },
+    {
+      "ward_code": "E05013799",
+      "ward_name": "Little Venice",
+      "pct_households_with_dependent_children": 8.3,
+      "pct_population_family_forming_age": 42.6,
+      "total_households": 4465,
+      "total_population": 10365
+    },
+    {
+      "ward_code": "E05013800",
+      "ward_name": "Maida Vale",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 46,
+      "total_households": 4973,
+      "total_population": 11660
+    },
+    {
+      "ward_code": "E05013801",
+      "ward_name": "Marylebone",
+      "pct_households_with_dependent_children": 4.8,
+      "pct_population_family_forming_age": 47.2,
+      "total_households": 6184,
+      "total_population": 12157
+    },
+    {
+      "ward_code": "E05013538",
+      "ward_name": "Southall Green",
+      "pct_households_with_dependent_children": 25.5,
+      "pct_population_family_forming_age": 38.6,
+      "total_households": 4248,
+      "total_population": 15695
+    },
+    {
+      "ward_code": "E05013539",
+      "ward_name": "Southall West",
+      "pct_households_with_dependent_children": 25.1,
+      "pct_population_family_forming_age": 37.4,
+      "total_households": 1803,
+      "total_population": 6582
+    },
+    {
+      "ward_code": "E05013540",
+      "ward_name": "Southfield",
+      "pct_households_with_dependent_children": 9.6,
+      "pct_population_family_forming_age": 44.2,
+      "total_households": 7295,
+      "total_population": 16475
+    },
+    {
+      "ward_code": "E05013541",
+      "ward_name": "Walpole",
+      "pct_households_with_dependent_children": 10.5,
+      "pct_population_family_forming_age": 42.8,
+      "total_households": 6204,
+      "total_population": 14756
+    },
+    {
+      "ward_code": "E05013542",
+      "ward_name": "Belmont",
+      "pct_households_with_dependent_children": 14.3,
+      "pct_population_family_forming_age": 33.9,
+      "total_households": 2885,
+      "total_population": 9021
+    },
+    {
+      "ward_code": "E05013543",
+      "ward_name": "Canons",
+      "pct_households_with_dependent_children": 10.3,
+      "pct_population_family_forming_age": 34.3,
+      "total_households": 3681,
+      "total_population": 9738
+    },
+    {
+      "ward_code": "E05013544",
+      "ward_name": "Centenary",
+      "pct_households_with_dependent_children": 16.2,
+      "pct_population_family_forming_age": 38.1,
+      "total_households": 4726,
+      "total_population": 15201
+    },
+    {
+      "ward_code": "E05013545",
+      "ward_name": "Edgware",
+      "pct_households_with_dependent_children": 19.8,
+      "pct_population_family_forming_age": 39.9,
+      "total_households": 4781,
+      "total_population": 15713
+    },
+    {
+      "ward_code": "E05013546",
+      "ward_name": "Greenhill",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 49.9,
+      "total_households": 4495,
+      "total_population": 11014
+    },
+    {
+      "ward_code": "E05013547",
+      "ward_name": "Harrow on the Hill",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 38.2,
+      "total_households": 3941,
+      "total_population": 10786
+    },
+    {
+      "ward_code": "E05013548",
+      "ward_name": "Harrow Weald",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 31.9,
+      "total_households": 5021,
+      "total_population": 14343
+    },
+    {
+      "ward_code": "E05013549",
+      "ward_name": "Hatch End",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 32,
+      "total_households": 3531,
+      "total_population": 9822
+    },
+    {
+      "ward_code": "E05013550",
+      "ward_name": "Headstone",
+      "pct_households_with_dependent_children": 13.3,
+      "pct_population_family_forming_age": 38,
+      "total_households": 5175,
+      "total_population": 14882
+    },
+    {
+      "ward_code": "E05013551",
+      "ward_name": "Kenton East",
+      "pct_households_with_dependent_children": 19.2,
+      "pct_population_family_forming_age": 37.4,
+      "total_households": 4178,
+      "total_population": 13614
+    },
+    {
+      "ward_code": "E05013902",
+      "ward_name": "William Morris",
+      "pct_households_with_dependent_children": 18,
+      "pct_population_family_forming_age": 47.9,
+      "total_households": 5653,
+      "total_population": 15058
+    },
+    {
+      "ward_code": "E05014104",
+      "ward_name": "Herne Hill & Loughborough Junction",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 47.1,
+      "total_households": 6567,
+      "total_population": 16156
+    },
+    {
+      "ward_code": "E05013903",
+      "ward_name": "Wood Street",
+      "pct_households_with_dependent_children": 20,
+      "pct_population_family_forming_age": 44.9,
+      "total_households": 3639,
+      "total_population": 9592
+    },
+    {
+      "ward_code": "E05014054",
+      "ward_name": "Alibon",
+      "pct_households_with_dependent_children": 27.1,
+      "pct_population_family_forming_age": 37.4,
+      "total_households": 3387,
+      "total_population": 10026
+    },
+    {
+      "ward_code": "E05014105",
+      "ward_name": "Kennington",
+      "pct_households_with_dependent_children": 15.1,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 6498,
+      "total_population": 14604
+    },
+    {
+      "ward_code": "E05013904",
+      "ward_name": "Beckton",
+      "pct_households_with_dependent_children": 22.6,
+      "pct_population_family_forming_age": 42.5,
+      "total_households": 5478,
+      "total_population": 16149
+    },
+    {
+      "ward_code": "E05014055",
+      "ward_name": "Barking Riverside",
+      "pct_households_with_dependent_children": 30.6,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 3358,
+      "total_population": 9956
+    },
+    {
+      "ward_code": "E05014004",
+      "ward_name": "Plaistow",
+      "pct_households_with_dependent_children": 15.3,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 5493,
+      "total_population": 13479
+    },
+    {
+      "ward_code": "E05014106",
+      "ward_name": "Knight's Hill",
+      "pct_households_with_dependent_children": 19.2,
+      "pct_population_family_forming_age": 40.4,
+      "total_households": 6913,
+      "total_population": 16907
+    },
+    {
+      "ward_code": "E05013905",
+      "ward_name": "Boleyn",
+      "pct_households_with_dependent_children": 20.5,
+      "pct_population_family_forming_age": 41.5,
+      "total_households": 4559,
+      "total_population": 15106
+    },
+    {
+      "ward_code": "E05014056",
+      "ward_name": "Beam",
+      "pct_households_with_dependent_children": 28.9,
+      "pct_population_family_forming_age": 35.5,
+      "total_households": 2786,
+      "total_population": 8607
+    },
+    {
+      "ward_code": "E05014005",
+      "ward_name": "Shortlands & Park Langley",
+      "pct_households_with_dependent_children": 11.3,
+      "pct_population_family_forming_age": 35,
+      "total_households": 6703,
+      "total_population": 16210
+    },
+    {
+      "ward_code": "E05014107",
+      "ward_name": "Myatt's Fields",
+      "pct_households_with_dependent_children": 16.6,
+      "pct_population_family_forming_age": 45.1,
+      "total_households": 4626,
+      "total_population": 10931
+    },
+    {
+      "ward_code": "E05013906",
+      "ward_name": "Canning Town North",
+      "pct_households_with_dependent_children": 19.6,
+      "pct_population_family_forming_age": 44.6,
+      "total_households": 3825,
+      "total_population": 10571
+    },
+    {
+      "ward_code": "E05014057",
+      "ward_name": "Becontree",
+      "pct_households_with_dependent_children": 23.7,
+      "pct_population_family_forming_age": 36.7,
+      "total_households": 3072,
+      "total_population": 9801
+    },
+    {
+      "ward_code": "E05014006",
+      "ward_name": "St Mary Cray",
+      "pct_households_with_dependent_children": 16.8,
+      "pct_population_family_forming_age": 33.8,
+      "total_households": 7608,
+      "total_population": 18436
+    },
+    {
+      "ward_code": "E05014108",
+      "ward_name": "Oval",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 48.8,
+      "total_households": 5531,
+      "total_population": 12443
+    },
+    {
+      "ward_code": "E05014109",
+      "ward_name": "St Martin's",
+      "pct_households_with_dependent_children": 19.5,
+      "pct_population_family_forming_age": 45.3,
+      "total_households": 4553,
+      "total_population": 10844
+    },
+    {
+      "ward_code": "E05014110",
+      "ward_name": "Stockwell East",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 51.9,
+      "total_households": 4714,
+      "total_population": 10746
+    },
+    {
+      "ward_code": "E05014111",
+      "ward_name": "Stockwell West & Larkhall",
+      "pct_households_with_dependent_children": 16.9,
+      "pct_population_family_forming_age": 46,
+      "total_households": 6862,
+      "total_population": 16333
+    },
+    {
+      "ward_code": "E05014112",
+      "ward_name": "Streatham Common & Vale",
+      "pct_households_with_dependent_children": 17,
+      "pct_population_family_forming_age": 43.4,
+      "total_households": 6634,
+      "total_population": 17659
+    },
+    {
+      "ward_code": "E05014113",
+      "ward_name": "Streatham Hill East",
+      "pct_households_with_dependent_children": 16.3,
+      "pct_population_family_forming_age": 48.3,
+      "total_households": 4021,
+      "total_population": 9877
+    },
+    {
+      "ward_code": "E05014114",
+      "ward_name": "Streatham Hill West & Thornton",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 52.3,
+      "total_households": 4632,
+      "total_population": 10889
+    },
+    {
+      "ward_code": "E05014115",
+      "ward_name": "Streatham St Leonard's",
+      "pct_households_with_dependent_children": 14.9,
+      "pct_population_family_forming_age": 50.5,
+      "total_households": 6533,
+      "total_population": 15815
+    },
+    {
+      "ward_code": "E05014116",
+      "ward_name": "Streatham Wells",
+      "pct_households_with_dependent_children": 14.4,
+      "pct_population_family_forming_age": 49,
+      "total_households": 4089,
+      "total_population": 9759
+    },
+    {
+      "ward_code": "E05014117",
+      "ward_name": "Vauxhall",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 50.7,
+      "total_households": 4849,
+      "total_population": 9733
+    },
+    {
+      "ward_code": "E05014118",
+      "ward_name": "Waterloo & South Bank",
+      "pct_households_with_dependent_children": 9.4,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 3863,
+      "total_population": 8857
+    },
+    {
+      "ward_code": "E05014119",
+      "ward_name": "West Dulwich",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 42.6,
+      "total_households": 4701,
+      "total_population": 11386
+    },
+    {
+      "ward_code": "E05014007",
+      "ward_name": "St Paul's Cray",
+      "pct_households_with_dependent_children": 21.4,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 6817,
+      "total_population": 17316
+    },
+    {
+      "ward_code": "E05014058",
+      "ward_name": "Chadwell Heath",
+      "pct_households_with_dependent_children": 24.6,
+      "pct_population_family_forming_age": 36.2,
+      "total_households": 4913,
+      "total_population": 14088
+    },
+    {
+      "ward_code": "E05014008",
+      "ward_name": "West Wickham",
+      "pct_households_with_dependent_children": 9.9,
+      "pct_population_family_forming_age": 27.2,
+      "total_households": 5705,
+      "total_population": 14772
+    },
+    {
+      "ward_code": "E05013907",
+      "ward_name": "Canning Town South",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 51.5,
+      "total_households": 2791,
+      "total_population": 7120
+    },
+    {
+      "ward_code": "E05014059",
+      "ward_name": "Eastbrook & Rush Green",
+      "pct_households_with_dependent_children": 20.4,
+      "pct_population_family_forming_age": 35.3,
+      "total_households": 3023,
+      "total_population": 8648
+    },
+    {
+      "ward_code": "E05014009",
+      "ward_name": "Balham",
+      "pct_households_with_dependent_children": 8,
+      "pct_population_family_forming_age": 52.5,
+      "total_households": 7430,
+      "total_population": 17708
+    },
+    {
+      "ward_code": "E05013908",
+      "ward_name": "Custom House",
+      "pct_households_with_dependent_children": 24.9,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 6204,
+      "total_population": 17658
+    },
+    {
+      "ward_code": "E05014060",
+      "ward_name": "Eastbury",
+      "pct_households_with_dependent_children": 25.9,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 5165,
+      "total_population": 15600
+    },
+    {
+      "ward_code": "E05014010",
+      "ward_name": "Battersea Park",
+      "pct_households_with_dependent_children": 12.8,
+      "pct_population_family_forming_age": 47.8,
+      "total_households": 8504,
+      "total_population": 19176
+    },
+    {
+      "ward_code": "E05013909",
+      "ward_name": "East Ham",
+      "pct_households_with_dependent_children": 23.1,
+      "pct_population_family_forming_age": 40.3,
+      "total_households": 4297,
+      "total_population": 15130
+    },
+    {
+      "ward_code": "E05013910",
+      "ward_name": "East Ham South",
+      "pct_households_with_dependent_children": 25.7,
+      "pct_population_family_forming_age": 37.8,
+      "total_households": 5445,
+      "total_population": 18516
+    },
+    {
+      "ward_code": "E05013911",
+      "ward_name": "Forest Gate North",
+      "pct_households_with_dependent_children": 19.6,
+      "pct_population_family_forming_age": 42.9,
+      "total_households": 3810,
+      "total_population": 10987
+    },
+    {
+      "ward_code": "E05013912",
+      "ward_name": "Forest Gate South",
+      "pct_households_with_dependent_children": 20.3,
+      "pct_population_family_forming_age": 43.9,
+      "total_households": 5859,
+      "total_population": 17775
+    },
+    {
+      "ward_code": "E05013913",
+      "ward_name": "Green Street East",
+      "pct_households_with_dependent_children": 25.7,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 4438,
+      "total_population": 16975
+    },
+    {
+      "ward_code": "E05013914",
+      "ward_name": "Green Street West",
+      "pct_households_with_dependent_children": 25.5,
+      "pct_population_family_forming_age": 43.2,
+      "total_households": 4133,
+      "total_population": 15790
+    },
+    {
+      "ward_code": "E05013915",
+      "ward_name": "Little Ilford",
+      "pct_households_with_dependent_children": 24.3,
+      "pct_population_family_forming_age": 37.7,
+      "total_households": 5060,
+      "total_population": 17545
+    },
+    {
+      "ward_code": "E05013916",
+      "ward_name": "Manor Park",
+      "pct_households_with_dependent_children": 24.4,
+      "pct_population_family_forming_age": 41.4,
+      "total_households": 4686,
+      "total_population": 15833
+    },
+    {
+      "ward_code": "E05013917",
+      "ward_name": "Maryland",
+      "pct_households_with_dependent_children": 17.7,
+      "pct_population_family_forming_age": 45.7,
+      "total_households": 4521,
+      "total_population": 12454
+    },
+    {
+      "ward_code": "E05013918",
+      "ward_name": "Plaistow North",
+      "pct_households_with_dependent_children": 23.8,
+      "pct_population_family_forming_age": 41.5,
+      "total_households": 5739,
+      "total_population": 18290
+    },
+    {
+      "ward_code": "E05013919",
+      "ward_name": "Plaistow South",
+      "pct_households_with_dependent_children": 22.6,
+      "pct_population_family_forming_age": 40.8,
+      "total_households": 4223,
+      "total_population": 13173
+    },
+    {
+      "ward_code": "E05013920",
+      "ward_name": "Plaistow West & Canning Town East",
+      "pct_households_with_dependent_children": 23.1,
+      "pct_population_family_forming_age": 41.3,
+      "total_households": 5817,
+      "total_population": 16696
+    },
+    {
+      "ward_code": "E05013921",
+      "ward_name": "Plashet",
+      "pct_households_with_dependent_children": 26.3,
+      "pct_population_family_forming_age": 40.3,
+      "total_households": 2947,
+      "total_population": 11619
+    },
+    {
+      "ward_code": "E05013922",
+      "ward_name": "Royal Albert",
+      "pct_households_with_dependent_children": 20,
+      "pct_population_family_forming_age": 48.4,
+      "total_households": 3657,
+      "total_population": 9305
+    },
+    {
+      "ward_code": "E05013923",
+      "ward_name": "Royal Victoria",
+      "pct_households_with_dependent_children": 9.6,
+      "pct_population_family_forming_age": 65.1,
+      "total_households": 6750,
+      "total_population": 14540
+    },
+    {
+      "ward_code": "E05013924",
+      "ward_name": "Stratford",
+      "pct_households_with_dependent_children": 13,
+      "pct_population_family_forming_age": 56.5,
+      "total_households": 6808,
+      "total_population": 15742
+    },
+    {
+      "ward_code": "E05013925",
+      "ward_name": "Stratford Olympic Park",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 59.7,
+      "total_households": 4520,
+      "total_population": 11859
+    },
+    {
+      "ward_code": "E05013926",
+      "ward_name": "Wall End",
+      "pct_households_with_dependent_children": 23,
+      "pct_population_family_forming_age": 41,
+      "total_households": 4594,
+      "total_population": 16502
+    },
+    {
+      "ward_code": "E05013927",
+      "ward_name": "West Ham",
+      "pct_households_with_dependent_children": 20.3,
+      "pct_population_family_forming_age": 44.1,
+      "total_households": 5333,
+      "total_population": 15700
+    },
+    {
+      "ward_code": "E05013928",
+      "ward_name": "Alexandra",
+      "pct_households_with_dependent_children": 11.2,
+      "pct_population_family_forming_age": 33.7,
+      "total_households": 2377,
+      "total_population": 6411
+    },
+    {
+      "ward_code": "E05013929",
+      "ward_name": "Berrylands",
+      "pct_households_with_dependent_children": 7.7,
+      "pct_population_family_forming_age": 35.6,
+      "total_households": 2563,
+      "total_population": 6113
+    },
+    {
+      "ward_code": "E05013930",
+      "ward_name": "Canbury Gardens",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 40.7,
+      "total_households": 3459,
+      "total_population": 8261
+    },
+    {
+      "ward_code": "E05013931",
+      "ward_name": "Chessington South & Malden Rushett",
+      "pct_households_with_dependent_children": 15.7,
+      "pct_population_family_forming_age": 35.1,
+      "total_households": 3706,
+      "total_population": 9487
+    },
+    {
+      "ward_code": "E05013932",
+      "ward_name": "Coombe Hill",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 31,
+      "total_households": 2667,
+      "total_population": 7418
+    },
+    {
+      "ward_code": "E05013933",
+      "ward_name": "Coombe Vale",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 34,
+      "total_households": 3820,
+      "total_population": 10456
+    },
+    {
+      "ward_code": "E05013934",
+      "ward_name": "Green Lane & St James",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 33.2,
+      "total_households": 2453,
+      "total_population": 7052
+    },
+    {
+      "ward_code": "E05013935",
+      "ward_name": "Hook & Chessington North",
+      "pct_households_with_dependent_children": 14.6,
+      "pct_population_family_forming_age": 34.3,
+      "total_households": 4157,
+      "total_population": 11113
+    },
+    {
+      "ward_code": "E05013936",
+      "ward_name": "King George's & Sunray",
+      "pct_households_with_dependent_children": 15.7,
+      "pct_population_family_forming_age": 34.2,
+      "total_households": 2052,
+      "total_population": 5603
+    },
+    {
+      "ward_code": "E05013937",
+      "ward_name": "Kingston Gate",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 39.5,
+      "total_households": 4206,
+      "total_population": 10825
+    },
+    {
+      "ward_code": "E05013938",
+      "ward_name": "Kingston Town",
+      "pct_households_with_dependent_children": 9.3,
+      "pct_population_family_forming_age": 39.5,
+      "total_households": 4289,
+      "total_population": 10289
+    },
+    {
+      "ward_code": "E05013939",
+      "ward_name": "Motspur Park & Old Malden East",
+      "pct_households_with_dependent_children": 9.8,
+      "pct_population_family_forming_age": 32.4,
+      "total_households": 2493,
+      "total_population": 6990
+    },
+    {
+      "ward_code": "E05013940",
+      "ward_name": "New Malden Village",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 37,
+      "total_households": 3710,
+      "total_population": 9584
+    },
+    {
+      "ward_code": "E05013941",
+      "ward_name": "Norbiton",
+      "pct_households_with_dependent_children": 17.3,
+      "pct_population_family_forming_age": 39.4,
+      "total_households": 4166,
+      "total_population": 11188
+    },
+    {
+      "ward_code": "E05013942",
+      "ward_name": "Old Malden",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 31.5,
+      "total_households": 2482,
+      "total_population": 6696
+    },
+    {
+      "ward_code": "E05013943",
+      "ward_name": "St Mark's & Seething Wells",
+      "pct_households_with_dependent_children": 7.8,
+      "pct_population_family_forming_age": 47.2,
+      "total_households": 5343,
+      "total_population": 11809
+    },
+    {
+      "ward_code": "E05013944",
+      "ward_name": "Surbiton Hill",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 45.2,
+      "total_households": 4961,
+      "total_population": 10636
+    },
+    {
+      "ward_code": "E05013945",
+      "ward_name": "Tolworth",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 38.9,
+      "total_households": 4185,
+      "total_population": 11188
+    },
+    {
+      "ward_code": "E05013946",
+      "ward_name": "Tudor",
+      "pct_households_with_dependent_children": 10.9,
+      "pct_population_family_forming_age": 30,
+      "total_households": 2542,
+      "total_population": 6944
+    },
+    {
+      "ward_code": "E05014061",
+      "ward_name": "Gascoigne",
+      "pct_households_with_dependent_children": 26.3,
+      "pct_population_family_forming_age": 43.7,
+      "total_households": 3862,
+      "total_population": 10831
+    },
+    {
+      "ward_code": "E05014062",
+      "ward_name": "Goresbrook",
+      "pct_households_with_dependent_children": 28.1,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 4526,
+      "total_population": 13069
+    },
+    {
+      "ward_code": "E05014063",
+      "ward_name": "Heath",
+      "pct_households_with_dependent_children": 27.1,
+      "pct_population_family_forming_age": 37.1,
+      "total_households": 3255,
+      "total_population": 8992
+    },
+    {
+      "ward_code": "E05014011",
+      "ward_name": "East Putney",
+      "pct_households_with_dependent_children": 7.8,
+      "pct_population_family_forming_age": 51.9,
+      "total_households": 7482,
+      "total_population": 16919
+    },
+    {
+      "ward_code": "E05014064",
+      "ward_name": "Longbridge",
+      "pct_households_with_dependent_children": 24,
+      "pct_population_family_forming_age": 37.1,
+      "total_households": 3768,
+      "total_population": 13306
+    },
+    {
+      "ward_code": "E05014012",
+      "ward_name": "Falconbrook",
+      "pct_households_with_dependent_children": 15.8,
+      "pct_population_family_forming_age": 46.9,
+      "total_households": 5037,
+      "total_population": 11982
+    },
+    {
+      "ward_code": "E05014065",
+      "ward_name": "Mayesbrook",
+      "pct_households_with_dependent_children": 27.3,
+      "pct_population_family_forming_age": 38.6,
+      "total_households": 5427,
+      "total_population": 15922
+    },
+    {
+      "ward_code": "E05014066",
+      "ward_name": "Northbury",
+      "pct_households_with_dependent_children": 25.6,
+      "pct_population_family_forming_age": 43,
+      "total_households": 4383,
+      "total_population": 13080
+    },
+    {
+      "ward_code": "E05014013",
+      "ward_name": "Furzedown",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 6851,
+      "total_population": 18053
+    },
+    {
+      "ward_code": "E05014067",
+      "ward_name": "Parsloes",
+      "pct_households_with_dependent_children": 24.5,
+      "pct_population_family_forming_age": 36.8,
+      "total_households": 5341,
+      "total_population": 15251
+    },
+    {
+      "ward_code": "E05014014",
+      "ward_name": "Lavender",
+      "pct_households_with_dependent_children": 6.4,
+      "pct_population_family_forming_age": 59.1,
+      "total_households": 5883,
+      "total_population": 13454
+    },
+    {
+      "ward_code": "E05014068",
+      "ward_name": "Thames View",
+      "pct_households_with_dependent_children": 27.4,
+      "pct_population_family_forming_age": 38.5,
+      "total_households": 1954,
+      "total_population": 6003
+    },
+    {
+      "ward_code": "E05014015",
+      "ward_name": "Nine Elms",
+      "pct_households_with_dependent_children": 8.1,
+      "pct_population_family_forming_age": 62.7,
+      "total_households": 2817,
+      "total_population": 5397
+    },
+    {
+      "ward_code": "E05014069",
+      "ward_name": "Valence",
+      "pct_households_with_dependent_children": 26.5,
+      "pct_population_family_forming_age": 36.6,
+      "total_households": 5285,
+      "total_population": 15480
+    },
+    {
+      "ward_code": "E05014016",
+      "ward_name": "Northcote",
+      "pct_households_with_dependent_children": 10.6,
+      "pct_population_family_forming_age": 42.1,
+      "total_households": 4610,
+      "total_population": 12864
+    },
+    {
+      "ward_code": "E05014070",
+      "ward_name": "Village",
+      "pct_households_with_dependent_children": 26.6,
+      "pct_population_family_forming_age": 36.9,
+      "total_households": 4532,
+      "total_population": 12540
+    },
+    {
+      "ward_code": "E05014017",
+      "ward_name": "Roehampton",
+      "pct_households_with_dependent_children": 19.5,
+      "pct_population_family_forming_age": 36.6,
+      "total_households": 6697,
+      "total_population": 18840
+    },
+    {
+      "ward_code": "E05014018",
+      "ward_name": "St Mary's",
+      "pct_households_with_dependent_children": 8.1,
+      "pct_population_family_forming_age": 56.2,
+      "total_households": 6901,
+      "total_population": 14183
+    },
+    {
+      "ward_code": "E05013967",
+      "ward_name": "Beam Park",
+      "pct_households_with_dependent_children": 25.3,
+      "pct_population_family_forming_age": 38.1,
+      "total_households": 1812,
+      "total_population": 4881
+    },
+    {
+      "ward_code": "E05014019",
+      "ward_name": "Shaftesbury & Queenstown",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 49.3,
+      "total_households": 6663,
+      "total_population": 15180
+    },
+    {
+      "ward_code": "E05014071",
+      "ward_name": "Whalebone",
+      "pct_households_with_dependent_children": 25.2,
+      "pct_population_family_forming_age": 39.9,
+      "total_households": 4451,
+      "total_population": 13707
+    },
+    {
+      "ward_code": "E05013968",
+      "ward_name": "Cranham",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 29.6,
+      "total_households": 5151,
+      "total_population": 12987
+    },
+    {
+      "ward_code": "E05014020",
+      "ward_name": "South Balham",
+      "pct_households_with_dependent_children": 7.5,
+      "pct_population_family_forming_age": 51.9,
+      "total_households": 4426,
+      "total_population": 9832
+    },
+    {
+      "ward_code": "E05014072",
+      "ward_name": "Abbey Wood",
+      "pct_households_with_dependent_children": 25.6,
+      "pct_population_family_forming_age": 37.1,
+      "total_households": 6301,
+      "total_population": 17688
+    },
+    {
+      "ward_code": "E05013969",
+      "ward_name": "Elm Park",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 33.4,
+      "total_households": 6437,
+      "total_population": 16647
+    },
+    {
+      "ward_code": "E05014021",
+      "ward_name": "Southfields",
+      "pct_households_with_dependent_children": 9.1,
+      "pct_population_family_forming_age": 49.4,
+      "total_households": 5193,
+      "total_population": 12659
+    },
+    {
+      "ward_code": "E05014073",
+      "ward_name": "Blackheath Westcombe",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 40.7,
+      "total_households": 6796,
+      "total_population": 15035
+    },
+    {
+      "ward_code": "E05013970",
+      "ward_name": "Emerson Park",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 28.2,
+      "total_households": 3510,
+      "total_population": 9536
+    },
+    {
+      "ward_code": "E05014022",
+      "ward_name": "Thamesfield",
+      "pct_households_with_dependent_children": 7.1,
+      "pct_population_family_forming_age": 50.6,
+      "total_households": 7441,
+      "total_population": 16715
+    },
+    {
+      "ward_code": "E05014074",
+      "ward_name": "Charlton Hornfair",
+      "pct_households_with_dependent_children": 20.5,
+      "pct_population_family_forming_age": 41.9,
+      "total_households": 4522,
+      "total_population": 12308
+    },
+    {
+      "ward_code": "E05013971",
+      "ward_name": "Gooshays",
+      "pct_households_with_dependent_children": 23.7,
+      "pct_population_family_forming_age": 35.3,
+      "total_households": 6581,
+      "total_population": 17779
+    },
+    {
+      "ward_code": "E05014023",
+      "ward_name": "Tooting Bec",
+      "pct_households_with_dependent_children": 12.6,
+      "pct_population_family_forming_age": 49.2,
+      "total_households": 6645,
+      "total_population": 17023
+    },
+    {
+      "ward_code": "E05014075",
+      "ward_name": "Charlton Village & Riverside",
+      "pct_households_with_dependent_children": 18.3,
+      "pct_population_family_forming_age": 39.2,
+      "total_households": 4053,
+      "total_population": 10515
+    },
+    {
+      "ward_code": "E05013972",
+      "ward_name": "Hacton",
+      "pct_households_with_dependent_children": 12.3,
+      "pct_population_family_forming_age": 30.9,
+      "total_households": 3358,
+      "total_population": 8488
+    },
+    {
+      "ward_code": "E05014024",
+      "ward_name": "Tooting Broadway",
+      "pct_households_with_dependent_children": 11.7,
+      "pct_population_family_forming_age": 52.3,
+      "total_households": 6956,
+      "total_population": 17215
+    },
+    {
+      "ward_code": "E05014076",
+      "ward_name": "East Greenwich",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 51.7,
+      "total_households": 6421,
+      "total_population": 14482
+    },
+    {
+      "ward_code": "E05013973",
+      "ward_name": "Harold Wood",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 37.9,
+      "total_households": 5644,
+      "total_population": 13807
+    },
+    {
+      "ward_code": "E05014025",
+      "ward_name": "Trinity",
+      "pct_households_with_dependent_children": 8.4,
+      "pct_population_family_forming_age": 50.4,
+      "total_households": 4928,
+      "total_population": 11183
+    },
+    {
+      "ward_code": "E05014077",
+      "ward_name": "Eltham Page",
+      "pct_households_with_dependent_children": 21.3,
+      "pct_population_family_forming_age": 35.4,
+      "total_households": 3419,
+      "total_population": 9752
+    },
+    {
+      "ward_code": "E05013974",
+      "ward_name": "Havering-atte-Bower",
+      "pct_households_with_dependent_children": 19.9,
+      "pct_population_family_forming_age": 32.4,
+      "total_households": 5943,
+      "total_population": 16374
+    },
+    {
+      "ward_code": "E05014026",
+      "ward_name": "Wandle",
+      "pct_households_with_dependent_children": 10.8,
+      "pct_population_family_forming_age": 52.1,
+      "total_households": 4367,
+      "total_population": 10584
+    },
+    {
+      "ward_code": "E05014078",
+      "ward_name": "Eltham Park & Progress",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 34.6,
+      "total_households": 4238,
+      "total_population": 10767
+    },
+    {
+      "ward_code": "E05014027",
+      "ward_name": "Wandsworth Common",
+      "pct_households_with_dependent_children": 9,
+      "pct_population_family_forming_age": 50.2,
+      "total_households": 6523,
+      "total_population": 16590
+    },
+    {
+      "ward_code": "E05013975",
+      "ward_name": "Heaton",
+      "pct_households_with_dependent_children": 24.5,
+      "pct_population_family_forming_age": 35.1,
+      "total_households": 6470,
+      "total_population": 17209
+    },
+    {
+      "ward_code": "E05014079",
+      "ward_name": "Eltham Town & Avery Hill",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 34.5,
+      "total_households": 6295,
+      "total_population": 15534
+    },
+    {
+      "ward_code": "E05014028",
+      "ward_name": "Wandsworth Town",
+      "pct_households_with_dependent_children": 8.6,
+      "pct_population_family_forming_age": 56.9,
+      "total_households": 8301,
+      "total_population": 18211
+    },
+    {
+      "ward_code": "E05013976",
+      "ward_name": "Hylands & Harrow Lodge",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 31.5,
+      "total_households": 5295,
+      "total_population": 13755
+    },
+    {
+      "ward_code": "E05014080",
+      "ward_name": "Greenwich Creekside",
+      "pct_households_with_dependent_children": 14.5,
+      "pct_population_family_forming_age": 52.9,
+      "total_households": 4780,
+      "total_population": 10999
+    },
+    {
+      "ward_code": "E05014029",
+      "ward_name": "West Hill",
+      "pct_households_with_dependent_children": 14.2,
+      "pct_population_family_forming_age": 43.3,
+      "total_households": 6599,
+      "total_population": 16816
+    },
+    {
+      "ward_code": "E05013977",
+      "ward_name": "Marshalls & Rise Park",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 29.5,
+      "total_households": 4888,
+      "total_population": 12954
+    },
+    {
+      "ward_code": "E05014081",
+      "ward_name": "Greenwich Park",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 47,
+      "total_households": 4621,
+      "total_population": 10557
+    },
+    {
+      "ward_code": "E05014030",
+      "ward_name": "West Putney",
+      "pct_households_with_dependent_children": 10.5,
+      "pct_population_family_forming_age": 42.1,
+      "total_households": 7144,
+      "total_population": 16911
+    },
+    {
+      "ward_code": "E05013978",
+      "ward_name": "Mawneys",
+      "pct_households_with_dependent_children": 18.4,
+      "pct_population_family_forming_age": 33.6,
+      "total_households": 5487,
+      "total_population": 14477
+    },
+    {
+      "ward_code": "E05013979",
+      "ward_name": "Rainham & Wennington",
+      "pct_households_with_dependent_children": 19,
+      "pct_population_family_forming_age": 33.5,
+      "total_households": 5117,
+      "total_population": 13567
+    },
+    {
+      "ward_code": "E05013980",
+      "ward_name": "Rush Green & Crowlands",
+      "pct_households_with_dependent_children": 21.7,
+      "pct_population_family_forming_age": 40.5,
+      "total_households": 5908,
+      "total_population": 16022
+    },
+    {
+      "ward_code": "E05013981",
+      "ward_name": "St Alban's",
+      "pct_households_with_dependent_children": 20.4,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 3519,
+      "total_population": 8739
+    },
+    {
+      "ward_code": "E05013982",
+      "ward_name": "St Andrew's",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 32.1,
+      "total_households": 6204,
+      "total_population": 14653
+    },
+    {
+      "ward_code": "E05013983",
+      "ward_name": "St Edward's",
+      "pct_households_with_dependent_children": 14.8,
+      "pct_population_family_forming_age": 40.4,
+      "total_households": 4482,
+      "total_population": 10423
+    },
+    {
+      "ward_code": "E05013984",
+      "ward_name": "South Hornchurch",
+      "pct_households_with_dependent_children": 19.2,
+      "pct_population_family_forming_age": 32.9,
+      "total_households": 3992,
+      "total_population": 10884
+    },
+    {
+      "ward_code": "E05013985",
+      "ward_name": "Squirrels Heath",
+      "pct_households_with_dependent_children": 14.7,
+      "pct_population_family_forming_age": 35.8,
+      "total_households": 6311,
+      "total_population": 15514
+    },
+    {
+      "ward_code": "E05013986",
+      "ward_name": "Upminster",
+      "pct_households_with_dependent_children": 9,
+      "pct_population_family_forming_age": 27.9,
+      "total_households": 5163,
+      "total_population": 13349
+    },
+    {
+      "ward_code": "E05013987",
+      "ward_name": "Beckenham Town & Copers Cope",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 8019,
+      "total_population": 16362
+    },
+    {
+      "ward_code": "E05013988",
+      "ward_name": "Bickley & Sundridge",
+      "pct_households_with_dependent_children": 11.5,
+      "pct_population_family_forming_age": 32.5,
+      "total_households": 7148,
+      "total_population": 17765
+    },
+    {
+      "ward_code": "E05013989",
+      "ward_name": "Biggin Hill",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 28.7,
+      "total_households": 4284,
+      "total_population": 10816
+    },
+    {
+      "ward_code": "E05013990",
+      "ward_name": "Bromley Common & Holwood",
+      "pct_households_with_dependent_children": 15.2,
+      "pct_population_family_forming_age": 35.6,
+      "total_households": 7589,
+      "total_population": 18779
+    },
+    {
+      "ward_code": "E05013991",
+      "ward_name": "Bromley Town",
+      "pct_households_with_dependent_children": 12.1,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 6716,
+      "total_population": 15400
+    },
+    {
+      "ward_code": "E05013992",
+      "ward_name": "Chelsfield",
+      "pct_households_with_dependent_children": 10,
+      "pct_population_family_forming_age": 31.4,
+      "total_households": 4388,
+      "total_population": 11235
+    },
+    {
+      "ward_code": "E05013993",
+      "ward_name": "Chislehurst",
+      "pct_households_with_dependent_children": 10.9,
+      "pct_population_family_forming_age": 31.2,
+      "total_households": 6268,
+      "total_population": 15570
+    },
+    {
+      "ward_code": "E05013994",
+      "ward_name": "Clock House",
+      "pct_households_with_dependent_children": 13.6,
+      "pct_population_family_forming_age": 41.2,
+      "total_households": 7466,
+      "total_population": 17358
+    },
+    {
+      "ward_code": "E05013995",
+      "ward_name": "Crystal Palace & Anerley",
+      "pct_households_with_dependent_children": 17.4,
+      "pct_population_family_forming_age": 48.6,
+      "total_households": 5682,
+      "total_population": 12030
+    },
+    {
+      "ward_code": "E05013996",
+      "ward_name": "Darwin",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 25.7,
+      "total_households": 2284,
+      "total_population": 5775
+    },
+    {
+      "ward_code": "E05013997",
+      "ward_name": "Farnborough & Crofton",
+      "pct_households_with_dependent_children": 10.4,
+      "pct_population_family_forming_age": 28.9,
+      "total_households": 7051,
+      "total_population": 17706
+    },
+    {
+      "ward_code": "E05013998",
+      "ward_name": "Hayes & Coney Hall",
+      "pct_households_with_dependent_children": 11.1,
+      "pct_population_family_forming_age": 27.7,
+      "total_households": 5915,
+      "total_population": 15908
+    },
+    {
+      "ward_code": "E05013999",
+      "ward_name": "Kelsey & Eden Park",
+      "pct_households_with_dependent_children": 12.7,
+      "pct_population_family_forming_age": 30.3,
+      "total_households": 5992,
+      "total_population": 15466
+    },
+    {
+      "ward_code": "E05014000",
+      "ward_name": "Mottingham",
+      "pct_households_with_dependent_children": 20.5,
+      "pct_population_family_forming_age": 36.1,
+      "total_households": 4634,
+      "total_population": 11490
+    },
+    {
+      "ward_code": "E05014001",
+      "ward_name": "Orpington",
+      "pct_households_with_dependent_children": 13.4,
+      "pct_population_family_forming_age": 31.2,
+      "total_households": 4729,
+      "total_population": 11959
+    },
+    {
+      "ward_code": "E05014002",
+      "ward_name": "Penge & Cator",
+      "pct_households_with_dependent_children": 16.3,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 8407,
+      "total_population": 18907
+    },
+    {
+      "ward_code": "E05014003",
+      "ward_name": "Petts Wood & Knoll",
+      "pct_households_with_dependent_children": 9.2,
+      "pct_population_family_forming_age": 31.4,
+      "total_households": 6910,
+      "total_population": 17258
+    },
+    {
+      "ward_code": "E05014082",
+      "ward_name": "Greenwich Peninsula",
+      "pct_households_with_dependent_children": 14,
+      "pct_population_family_forming_age": 61,
+      "total_households": 5032,
+      "total_population": 11416
+    },
+    {
+      "ward_code": "E05014083",
+      "ward_name": "Kidbrooke Park",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 38.1,
+      "total_households": 3935,
+      "total_population": 10088
+    },
+    {
+      "ward_code": "E05014084",
+      "ward_name": "Kidbrooke Village & Sutcliffe",
+      "pct_households_with_dependent_children": 11.9,
+      "pct_population_family_forming_age": 51.6,
+      "total_households": 2749,
+      "total_population": 6105
+    },
+    {
+      "ward_code": "E05014085",
+      "ward_name": "Middle Park & Horn Park",
+      "pct_households_with_dependent_children": 22.7,
+      "pct_population_family_forming_age": 34.1,
+      "total_households": 3437,
+      "total_population": 9517
+    },
+    {
+      "ward_code": "E05014086",
+      "ward_name": "Mottingham, Coldharbour & New Eltham",
+      "pct_households_with_dependent_children": 15.5,
+      "pct_population_family_forming_age": 34.8,
+      "total_households": 5693,
+      "total_population": 14532
+    },
+    {
+      "ward_code": "E05014087",
+      "ward_name": "Plumstead & Glyndon",
+      "pct_households_with_dependent_children": 24.2,
+      "pct_population_family_forming_age": 40.5,
+      "total_households": 7597,
+      "total_population": 21971
+    },
+    {
+      "ward_code": "E05014088",
+      "ward_name": "Plumstead Common",
+      "pct_households_with_dependent_children": 21.2,
+      "pct_population_family_forming_age": 36.3,
+      "total_households": 5858,
+      "total_population": 15168
+    },
+    {
+      "ward_code": "E05014089",
+      "ward_name": "Shooters Hill",
+      "pct_households_with_dependent_children": 18.6,
+      "pct_population_family_forming_age": 38.7,
+      "total_households": 4758,
+      "total_population": 11892
+    },
+    {
+      "ward_code": "E05014090",
+      "ward_name": "Thamesmead Moorings",
+      "pct_households_with_dependent_children": 26.9,
+      "pct_population_family_forming_age": 36.4,
+      "total_households": 4619,
+      "total_population": 12452
+    },
+    {
+      "ward_code": "E05014091",
+      "ward_name": "West Thamesmead",
+      "pct_households_with_dependent_children": 24.9,
+      "pct_population_family_forming_age": 43.5,
+      "total_households": 3956,
+      "total_population": 11813
+    },
+    {
+      "ward_code": "E05014092",
+      "ward_name": "Woolwich Arsenal",
+      "pct_households_with_dependent_children": 12.4,
+      "pct_population_family_forming_age": 58,
+      "total_households": 5717,
+      "total_population": 12100
+    },
+    {
+      "ward_code": "E05014093",
+      "ward_name": "Woolwich Common",
+      "pct_households_with_dependent_children": 23.6,
+      "pct_population_family_forming_age": 42.4,
+      "total_households": 4641,
+      "total_population": 12689
+    },
+    {
+      "ward_code": "E05014094",
+      "ward_name": "Woolwich Dockyard",
+      "pct_households_with_dependent_children": 23.7,
+      "pct_population_family_forming_age": 41,
+      "total_households": 4605,
+      "total_population": 11688
+    },
+    {
+      "ward_code": "E05014095",
+      "ward_name": "Brixton Acre Lane",
+      "pct_households_with_dependent_children": 9.5,
+      "pct_population_family_forming_age": 55.7,
+      "total_households": 6616,
+      "total_population": 15251
+    },
+    {
+      "ward_code": "E05014096",
+      "ward_name": "Brixton North",
+      "pct_households_with_dependent_children": 17.6,
+      "pct_population_family_forming_age": 45.1,
+      "total_households": 6708,
+      "total_population": 16324
+    },
+    {
+      "ward_code": "E05014097",
+      "ward_name": "Brixton Rush Common",
+      "pct_households_with_dependent_children": 16,
+      "pct_population_family_forming_age": 47.7,
+      "total_households": 6308,
+      "total_population": 14929
+    },
+    {
+      "ward_code": "E05014098",
+      "ward_name": "Brixton Windrush",
+      "pct_households_with_dependent_children": 14.1,
+      "pct_population_family_forming_age": 49.1,
+      "total_households": 4087,
+      "total_population": 9480
+    },
+    {
+      "ward_code": "E05014099",
+      "ward_name": "Clapham Common & Abbeville",
+      "pct_households_with_dependent_children": 8.6,
+      "pct_population_family_forming_age": 52.1,
+      "total_households": 4225,
+      "total_population": 10016
+    },
+    {
+      "ward_code": "E05014100",
+      "ward_name": "Clapham East",
+      "pct_households_with_dependent_children": 11.4,
+      "pct_population_family_forming_age": 51.6,
+      "total_households": 4247,
+      "total_population": 9842
+    },
+    {
+      "ward_code": "E05014101",
+      "ward_name": "Clapham Park",
+      "pct_households_with_dependent_children": 13.8,
+      "pct_population_family_forming_age": 49.8,
+      "total_households": 5433,
+      "total_population": 12711
+    },
+    {
+      "ward_code": "E05014102",
+      "ward_name": "Clapham Town",
+      "pct_households_with_dependent_children": 8.8,
+      "pct_population_family_forming_age": 52.2,
+      "total_households": 7108,
+      "total_population": 15905
+    },
+    {
+      "ward_code": "E05014103",
+      "ward_name": "Gipsy Hill",
+      "pct_households_with_dependent_children": 20,
+      "pct_population_family_forming_age": 43.2,
+      "total_households": 4374,
+      "total_population": 10259
+    },
+    {
+      "ward_code": "E05014053",
+      "ward_name": "Abbey",
+      "pct_households_with_dependent_children": 18.7,
+      "pct_population_family_forming_age": 49.7,
+      "total_households": 1419,
+      "total_population": 3956
+    }
+  ]
+}

@@ -1,0 +1,7041 @@
+{
+  "generated_at": "2026-07-04T13:09:10.334Z",
+  "period": "2026-04",
+  "source": "data.police.uk crimes-street/all-crime, tiled poly queries, point-in-polygon join",
+  "wards": [
+    {
+      "ward_code": "E05009288",
+      "ward_name": "Aldersgate",
+      "crimes_last_month": 14,
+      "top_categories": [
+        "vehicle-crime",
+        "anti-social-behaviour",
+        "bicycle-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009289",
+      "ward_name": "Aldgate",
+      "crimes_last_month": 14,
+      "top_categories": [
+        "violent-crime",
+        "burglary",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009290",
+      "ward_name": "Bassishaw",
+      "crimes_last_month": 3,
+      "top_categories": [
+        "other-theft",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009291",
+      "ward_name": "Billingsgate",
+      "crimes_last_month": 11,
+      "top_categories": [
+        "other-theft",
+        "bicycle-theft",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009292",
+      "ward_name": "Bishopsgate",
+      "crimes_last_month": 144,
+      "top_categories": [
+        "other-theft",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009293",
+      "ward_name": "Bread Street",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "shoplifting",
+        "other-theft",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009294",
+      "ward_name": "Bridge",
+      "crimes_last_month": 36,
+      "top_categories": [
+        "violent-crime",
+        "other-theft",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009295",
+      "ward_name": "Broad Street",
+      "crimes_last_month": 5,
+      "top_categories": [
+        "other-theft",
+        "bicycle-theft",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05009296",
+      "ward_name": "Candlewick",
+      "crimes_last_month": 9,
+      "top_categories": [
+        "other-theft",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05009297",
+      "ward_name": "Castle Baynard",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "other-theft",
+        "theft-from-the-person",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009298",
+      "ward_name": "Cheap",
+      "crimes_last_month": 16,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009299",
+      "ward_name": "Coleman Street",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "shoplifting",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009300",
+      "ward_name": "Cordwainer",
+      "crimes_last_month": 56,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009301",
+      "ward_name": "Cornhill",
+      "crimes_last_month": 11,
+      "top_categories": [
+        "burglary",
+        "criminal-damage-arson",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009302",
+      "ward_name": "Cripplegate",
+      "crimes_last_month": 17,
+      "top_categories": [
+        "other-theft",
+        "criminal-damage-arson",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05009303",
+      "ward_name": "Dowgate",
+      "crimes_last_month": 12,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009304",
+      "ward_name": "Farringdon Within",
+      "crimes_last_month": 35,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05009305",
+      "ward_name": "Farringdon Without",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "shoplifting",
+        "other-theft",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009306",
+      "ward_name": "Langbourn",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009307",
+      "ward_name": "Lime Street",
+      "crimes_last_month": 5,
+      "top_categories": [
+        "other-theft",
+        "burglary",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009308",
+      "ward_name": "Portsoken",
+      "crimes_last_month": 36,
+      "top_categories": [
+        "theft-from-the-person",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009309",
+      "ward_name": "Queenhithe",
+      "crimes_last_month": 2,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009310",
+      "ward_name": "Tower",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009311",
+      "ward_name": "Vintry",
+      "crimes_last_month": 17,
+      "top_categories": [
+        "vehicle-crime",
+        "other-theft",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009312",
+      "ward_name": "Walbrook",
+      "crimes_last_month": 0,
+      "top_categories": []
+    },
+    {
+      "ward_code": "E05009317",
+      "ward_name": "Bethnal Green East",
+      "crimes_last_month": 282,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009318",
+      "ward_name": "Blackwall & Cubitt Town",
+      "crimes_last_month": 204,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009319",
+      "ward_name": "Bow East",
+      "crimes_last_month": 227,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009320",
+      "ward_name": "Bow West",
+      "crimes_last_month": 171,
+      "top_categories": [
+        "shoplifting",
+        "theft-from-the-person",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009321",
+      "ward_name": "Bromley North",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009322",
+      "ward_name": "Bromley South",
+      "crimes_last_month": 152,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05009323",
+      "ward_name": "Canary Wharf",
+      "crimes_last_month": 296,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009324",
+      "ward_name": "Island Gardens",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009325",
+      "ward_name": "Lansbury",
+      "crimes_last_month": 237,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009326",
+      "ward_name": "Limehouse",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009327",
+      "ward_name": "Mile End",
+      "crimes_last_month": 269,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05009328",
+      "ward_name": "Poplar",
+      "crimes_last_month": 200,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009329",
+      "ward_name": "St Dunstan's",
+      "crimes_last_month": 161,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009330",
+      "ward_name": "St Katharine's & Wapping",
+      "crimes_last_month": 134,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009331",
+      "ward_name": "Bethnal Green West",
+      "crimes_last_month": 230,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009332",
+      "ward_name": "Shadwell",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009333",
+      "ward_name": "Spitalfields & Banglatown",
+      "crimes_last_month": 384,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009334",
+      "ward_name": "Stepney Green",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009335",
+      "ward_name": "Weavers",
+      "crimes_last_month": 161,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009336",
+      "ward_name": "Whitechapel",
+      "crimes_last_month": 219,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009367",
+      "ward_name": "Brownswood",
+      "crimes_last_month": 64,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009368",
+      "ward_name": "Cazenove",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009369",
+      "ward_name": "Clissold",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009370",
+      "ward_name": "Dalston",
+      "crimes_last_month": 206,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009371",
+      "ward_name": "De Beauvoir",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009372",
+      "ward_name": "Hackney Central",
+      "crimes_last_month": 261,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009373",
+      "ward_name": "Hackney Downs",
+      "crimes_last_month": 130,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009374",
+      "ward_name": "Hackney Wick",
+      "crimes_last_month": 205,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009375",
+      "ward_name": "Haggerston",
+      "crimes_last_month": 162,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05009376",
+      "ward_name": "Homerton",
+      "crimes_last_month": 169,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05009377",
+      "ward_name": "Hoxton East & Shoreditch",
+      "crimes_last_month": 323,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009378",
+      "ward_name": "Hoxton West",
+      "crimes_last_month": 112,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009379",
+      "ward_name": "King's Park",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009380",
+      "ward_name": "Lea Bridge",
+      "crimes_last_month": 158,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009381",
+      "ward_name": "London Fields",
+      "crimes_last_month": 198,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009382",
+      "ward_name": "Shacklewell",
+      "crimes_last_month": 150,
+      "top_categories": [
+        "theft-from-the-person",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009383",
+      "ward_name": "Springfield",
+      "crimes_last_month": 169,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009384",
+      "ward_name": "Stamford Hill West",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009385",
+      "ward_name": "Stoke Newington",
+      "crimes_last_month": 131,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05009386",
+      "ward_name": "Victoria",
+      "crimes_last_month": 123,
+      "top_categories": [
+        "anti-social-behaviour",
+        "theft-from-the-person",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009387",
+      "ward_name": "Woodberry Down",
+      "crimes_last_month": 137,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05009388",
+      "ward_name": "Abingdon",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009389",
+      "ward_name": "Brompton & Hans Town",
+      "crimes_last_month": 164,
+      "top_categories": [
+        "other-theft",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009390",
+      "ward_name": "Campden",
+      "crimes_last_month": 126,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009391",
+      "ward_name": "Chelsea Riverside",
+      "crimes_last_month": 88,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009392",
+      "ward_name": "Colville",
+      "crimes_last_month": 150,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009393",
+      "ward_name": "Courtfield",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "other-theft",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009394",
+      "ward_name": "Dalgarno",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05009395",
+      "ward_name": "Earl's Court",
+      "crimes_last_month": 116,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009396",
+      "ward_name": "Golborne",
+      "crimes_last_month": 83,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05009397",
+      "ward_name": "Holland",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "violent-crime",
+        "other-theft",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009398",
+      "ward_name": "Norland",
+      "crimes_last_month": 44,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05009399",
+      "ward_name": "Notting Dale",
+      "crimes_last_month": 213,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009400",
+      "ward_name": "Pembridge",
+      "crimes_last_month": 68,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05009401",
+      "ward_name": "Queen's Gate",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05009402",
+      "ward_name": "Redcliffe",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009403",
+      "ward_name": "Royal Hospital",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "shoplifting",
+        "other-theft",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05009404",
+      "ward_name": "St. Helen's",
+      "crimes_last_month": 44,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05009405",
+      "ward_name": "Stanley",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011095",
+      "ward_name": "Borough & Bankside",
+      "crimes_last_month": 353,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011096",
+      "ward_name": "Camberwell Green",
+      "crimes_last_month": 196,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011097",
+      "ward_name": "Champion Hill",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011098",
+      "ward_name": "Chaucer",
+      "crimes_last_month": 221,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011099",
+      "ward_name": "Dulwich Hill",
+      "crimes_last_month": 102,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011100",
+      "ward_name": "Dulwich Village",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "vehicle-crime",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011101",
+      "ward_name": "Dulwich Wood",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05011102",
+      "ward_name": "Faraday",
+      "crimes_last_month": 185,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011103",
+      "ward_name": "Goose Green",
+      "crimes_last_month": 121,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011104",
+      "ward_name": "London Bridge & West Bermondsey",
+      "crimes_last_month": 329,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011105",
+      "ward_name": "Newington",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011106",
+      "ward_name": "North Bermondsey",
+      "crimes_last_month": 186,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011107",
+      "ward_name": "North Walworth",
+      "crimes_last_month": 390,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011108",
+      "ward_name": "Nunhead & Queen's Road",
+      "crimes_last_month": 154,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011109",
+      "ward_name": "Old Kent Road",
+      "crimes_last_month": 183,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011110",
+      "ward_name": "Peckham",
+      "crimes_last_month": 152,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011111",
+      "ward_name": "Peckham Rye",
+      "crimes_last_month": 40,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011112",
+      "ward_name": "Rotherhithe",
+      "crimes_last_month": 180,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011113",
+      "ward_name": "Rye Lane",
+      "crimes_last_month": 325,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011114",
+      "ward_name": "St George's",
+      "crimes_last_month": 190,
+      "top_categories": [
+        "theft-from-the-person",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011115",
+      "ward_name": "St Giles",
+      "crimes_last_month": 197,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05011116",
+      "ward_name": "South Bermondsey",
+      "crimes_last_month": 183,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011117",
+      "ward_name": "Surrey Docks",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05011462",
+      "ward_name": "Addiscombe East",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011463",
+      "ward_name": "Addiscombe West",
+      "crimes_last_month": 128,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011464",
+      "ward_name": "Bensham Manor",
+      "crimes_last_month": 112,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011465",
+      "ward_name": "Broad Green",
+      "crimes_last_month": 263,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011466",
+      "ward_name": "Coulsdon Town",
+      "crimes_last_month": 62,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011467",
+      "ward_name": "Crystal Palace & Upper Norwood",
+      "crimes_last_month": 136,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011468",
+      "ward_name": "Fairfield",
+      "crimes_last_month": 665,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011469",
+      "ward_name": "Kenley",
+      "crimes_last_month": 56,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011470",
+      "ward_name": "New Addington North",
+      "crimes_last_month": 62,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011471",
+      "ward_name": "New Addington South",
+      "crimes_last_month": 82,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011472",
+      "ward_name": "Norbury & Pollards Hill",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011473",
+      "ward_name": "Norbury Park",
+      "crimes_last_month": 61,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011474",
+      "ward_name": "Old Coulsdon",
+      "crimes_last_month": 39,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011475",
+      "ward_name": "Park Hill & Whitgift",
+      "crimes_last_month": 34,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011476",
+      "ward_name": "Purley & Woodcote",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011477",
+      "ward_name": "Purley Oaks & Riddlesdown",
+      "crimes_last_month": 42,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05011478",
+      "ward_name": "Sanderstead",
+      "crimes_last_month": 49,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011479",
+      "ward_name": "Selhurst",
+      "crimes_last_month": 118,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011480",
+      "ward_name": "Selsdon & Addington Village",
+      "crimes_last_month": 60,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011481",
+      "ward_name": "Selsdon Vale & Forestdale",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "violent-crime",
+        "criminal-damage-arson",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011482",
+      "ward_name": "Shirley North",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011483",
+      "ward_name": "Shirley South",
+      "crimes_last_month": 57,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011484",
+      "ward_name": "South Croydon",
+      "crimes_last_month": 145,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011485",
+      "ward_name": "South Norwood",
+      "crimes_last_month": 162,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011486",
+      "ward_name": "Thornton Heath",
+      "crimes_last_month": 174,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011487",
+      "ward_name": "Waddon",
+      "crimes_last_month": 230,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011488",
+      "ward_name": "West Thornton",
+      "crimes_last_month": 211,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011489",
+      "ward_name": "Woodside",
+      "crimes_last_month": 128,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011249",
+      "ward_name": "Monkhams",
+      "crimes_last_month": 40,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011250",
+      "ward_name": "Newbury",
+      "crimes_last_month": 110,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011251",
+      "ward_name": "Seven Kings",
+      "crimes_last_month": 153,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011217",
+      "ward_name": "Barnehurst",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011218",
+      "ward_name": "Belvedere",
+      "crimes_last_month": 149,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011219",
+      "ward_name": "Bexleyheath",
+      "crimes_last_month": 177,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011220",
+      "ward_name": "Blackfen & Lamorbey",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011221",
+      "ward_name": "Blendon & Penhill",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011222",
+      "ward_name": "Crayford",
+      "crimes_last_month": 120,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011223",
+      "ward_name": "Crook Log",
+      "crimes_last_month": 69,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011224",
+      "ward_name": "East Wickham",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011225",
+      "ward_name": "Erith",
+      "crimes_last_month": 148,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011226",
+      "ward_name": "Falconwood & Welling",
+      "crimes_last_month": 111,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011227",
+      "ward_name": "Longlands",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011228",
+      "ward_name": "Northumberland Heath",
+      "crimes_last_month": 64,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011229",
+      "ward_name": "St Mary's & St James",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011230",
+      "ward_name": "Sidcup",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011231",
+      "ward_name": "Slade Green & Northend",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011232",
+      "ward_name": "Thamesmead East",
+      "crimes_last_month": 145,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011233",
+      "ward_name": "West Heath",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011234",
+      "ward_name": "Aldborough",
+      "crimes_last_month": 114,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05011235",
+      "ward_name": "Barkingside",
+      "crimes_last_month": 74,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011236",
+      "ward_name": "Bridge",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011237",
+      "ward_name": "Chadwell",
+      "crimes_last_month": 119,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011238",
+      "ward_name": "Churchfields",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011239",
+      "ward_name": "Clayhall",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011240",
+      "ward_name": "Clementswood",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011241",
+      "ward_name": "Cranbrook",
+      "crimes_last_month": 70,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011242",
+      "ward_name": "Fairlop",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011243",
+      "ward_name": "Fullwell",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011244",
+      "ward_name": "Goodmayes",
+      "crimes_last_month": 234,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011245",
+      "ward_name": "Hainault",
+      "crimes_last_month": 121,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05011246",
+      "ward_name": "Ilford Town",
+      "crimes_last_month": 330,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05011247",
+      "ward_name": "Loxford",
+      "crimes_last_month": 160,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011248",
+      "ward_name": "Mayfield",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011252",
+      "ward_name": "South Woodford",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05011253",
+      "ward_name": "Valentines",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05011254",
+      "ward_name": "Wanstead Park",
+      "crimes_last_month": 56,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05011255",
+      "ward_name": "Wanstead Village",
+      "crimes_last_month": 144,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013496",
+      "ward_name": "Alperton",
+      "crimes_last_month": 181,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013497",
+      "ward_name": "Barnhill",
+      "crimes_last_month": 132,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013498",
+      "ward_name": "Brondesbury Park",
+      "crimes_last_month": 133,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013499",
+      "ward_name": "Cricklewood & Mapesbury",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013500",
+      "ward_name": "Dollis Hill",
+      "crimes_last_month": 196,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013501",
+      "ward_name": "Harlesden & Kensal Green",
+      "crimes_last_month": 297,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013552",
+      "ward_name": "Kenton West",
+      "crimes_last_month": 33,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013553",
+      "ward_name": "Marlborough",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013554",
+      "ward_name": "North Harrow",
+      "crimes_last_month": 46,
+      "top_categories": [
+        "criminal-damage-arson",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013555",
+      "ward_name": "Pinner",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013556",
+      "ward_name": "Pinner South",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013557",
+      "ward_name": "Rayners Lane",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013558",
+      "ward_name": "Roxbourne",
+      "crimes_last_month": 56,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013559",
+      "ward_name": "Roxeth",
+      "crimes_last_month": 133,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013560",
+      "ward_name": "Stanmore",
+      "crimes_last_month": 119,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013561",
+      "ward_name": "Wealdstone North",
+      "crimes_last_month": 77,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013562",
+      "ward_name": "Wealdstone South",
+      "crimes_last_month": 98,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013563",
+      "ward_name": "West Harrow",
+      "crimes_last_month": 50,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013564",
+      "ward_name": "Belmore",
+      "crimes_last_month": 104,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013565",
+      "ward_name": "Charville",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013652",
+      "ward_name": "Belsize",
+      "crimes_last_month": 127,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013602",
+      "ward_name": "Tottenham Hale",
+      "crimes_last_month": 204,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013502",
+      "ward_name": "Kenton",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013702",
+      "ward_name": "Clerkenwell",
+      "crimes_last_month": 319,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013566",
+      "ward_name": "Colham & Cowley",
+      "crimes_last_month": 172,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013567",
+      "ward_name": "Eastcote",
+      "crimes_last_month": 86,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013568",
+      "ward_name": "Harefield Village",
+      "crimes_last_month": 31,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013569",
+      "ward_name": "Hayes Town",
+      "crimes_last_month": 197,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013570",
+      "ward_name": "Heathrow Villages",
+      "crimes_last_month": 644,
+      "top_categories": [
+        "other-crime",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013571",
+      "ward_name": "Hillingdon East",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013572",
+      "ward_name": "Hillingdon West",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013573",
+      "ward_name": "Ickenham & South Harefield",
+      "crimes_last_month": 65,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013574",
+      "ward_name": "Northwood",
+      "crimes_last_month": 50,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013575",
+      "ward_name": "Northwood Hills",
+      "crimes_last_month": 57,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013576",
+      "ward_name": "Pinkwell",
+      "crimes_last_month": 162,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013577",
+      "ward_name": "Ruislip",
+      "crimes_last_month": 100,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013578",
+      "ward_name": "Ruislip Manor",
+      "crimes_last_month": 46,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013579",
+      "ward_name": "South Ruislip",
+      "crimes_last_month": 149,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013580",
+      "ward_name": "Uxbridge",
+      "crimes_last_month": 356,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013581",
+      "ward_name": "West Drayton",
+      "crimes_last_month": 134,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013582",
+      "ward_name": "Wood End",
+      "crimes_last_month": 243,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013583",
+      "ward_name": "Yeading",
+      "crimes_last_month": 129,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013584",
+      "ward_name": "Yiewsley",
+      "crimes_last_month": 180,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013585",
+      "ward_name": "Alexandra Park",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013586",
+      "ward_name": "Bounds Green",
+      "crimes_last_month": 68,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013587",
+      "ward_name": "Bruce Castle",
+      "crimes_last_month": 169,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013588",
+      "ward_name": "Crouch End",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013589",
+      "ward_name": "Fortis Green",
+      "crimes_last_month": 44,
+      "top_categories": [
+        "vehicle-crime",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013590",
+      "ward_name": "Harringay",
+      "crimes_last_month": 158,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013591",
+      "ward_name": "Hermitage & Gardens",
+      "crimes_last_month": 135,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013592",
+      "ward_name": "Highgate",
+      "crimes_last_month": 89,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013593",
+      "ward_name": "Hornsey",
+      "crimes_last_month": 116,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013594",
+      "ward_name": "Muswell Hill",
+      "crimes_last_month": 74,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013595",
+      "ward_name": "Noel Park",
+      "crimes_last_month": 320,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013596",
+      "ward_name": "Northumberland Park",
+      "crimes_last_month": 233,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013597",
+      "ward_name": "St Ann's",
+      "crimes_last_month": 77,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013598",
+      "ward_name": "Seven Sisters",
+      "crimes_last_month": 156,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013599",
+      "ward_name": "South Tottenham",
+      "crimes_last_month": 201,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013600",
+      "ward_name": "Stroud Green",
+      "crimes_last_month": 106,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013601",
+      "ward_name": "Tottenham Central",
+      "crimes_last_month": 155,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013752",
+      "ward_name": "White City",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013802",
+      "ward_name": "Pimlico North",
+      "crimes_last_month": 193,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013653",
+      "ward_name": "Bloomsbury",
+      "crimes_last_month": 636,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013603",
+      "ward_name": "West Green",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013803",
+      "ward_name": "Pimlico South",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013654",
+      "ward_name": "Camden Square",
+      "crimes_last_month": 82,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013753",
+      "ward_name": "Wormholt",
+      "crimes_last_month": 46,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013503",
+      "ward_name": "Kilburn",
+      "crimes_last_month": 247,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013703",
+      "ward_name": "Finsbury Park",
+      "crimes_last_month": 345,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013604",
+      "ward_name": "White Hart Lane",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013804",
+      "ward_name": "Queen's Park",
+      "crimes_last_month": 86,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013655",
+      "ward_name": "Camden Town",
+      "crimes_last_month": 243,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013754",
+      "ward_name": "Beddington",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013504",
+      "ward_name": "Kingsbury",
+      "crimes_last_month": 86,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013704",
+      "ward_name": "Highbury",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013605",
+      "ward_name": "Woodside",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013805",
+      "ward_name": "Regent's Park",
+      "crimes_last_month": 184,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013656",
+      "ward_name": "Fortune Green",
+      "crimes_last_month": 84,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013755",
+      "ward_name": "Belmont",
+      "crimes_last_month": 45,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013505",
+      "ward_name": "Northwick Park",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013705",
+      "ward_name": "Hillrise",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013606",
+      "ward_name": "Bedfont",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013806",
+      "ward_name": "St James's",
+      "crimes_last_month": 1534,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013657",
+      "ward_name": "Frognal",
+      "crimes_last_month": 30,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013756",
+      "ward_name": "Carshalton Central",
+      "crimes_last_month": 69,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013506",
+      "ward_name": "Preston",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013706",
+      "ward_name": "Holloway",
+      "crimes_last_month": 211,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013607",
+      "ward_name": "Brentford East",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013807",
+      "ward_name": "Vincent Square",
+      "crimes_last_month": 79,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013658",
+      "ward_name": "Gospel Oak",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013659",
+      "ward_name": "Hampstead Town",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013660",
+      "ward_name": "Haverstock",
+      "crimes_last_month": 103,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013661",
+      "ward_name": "Highgate",
+      "crimes_last_month": 144,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013662",
+      "ward_name": "Holborn & Covent Garden",
+      "crimes_last_month": 526,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013663",
+      "ward_name": "Kentish Town North",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013664",
+      "ward_name": "Kentish Town South",
+      "crimes_last_month": 144,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013665",
+      "ward_name": "Kilburn",
+      "crimes_last_month": 175,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013666",
+      "ward_name": "King's Cross",
+      "crimes_last_month": 393,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013667",
+      "ward_name": "Primrose Hill",
+      "crimes_last_month": 107,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013668",
+      "ward_name": "Regent's Park",
+      "crimes_last_month": 257,
+      "top_categories": [
+        "theft-from-the-person",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013669",
+      "ward_name": "St Pancras & Somers Town",
+      "crimes_last_month": 198,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013670",
+      "ward_name": "South Hampstead",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013671",
+      "ward_name": "West Hampstead",
+      "crimes_last_month": 128,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013672",
+      "ward_name": "Arnos Grove",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013673",
+      "ward_name": "Bowes",
+      "crimes_last_month": 52,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013674",
+      "ward_name": "Brimsdown",
+      "crimes_last_month": 155,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013675",
+      "ward_name": "Bullsmoor",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013676",
+      "ward_name": "Bush Hill Park",
+      "crimes_last_month": 69,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013677",
+      "ward_name": "Carterhatch",
+      "crimes_last_month": 140,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013678",
+      "ward_name": "Cockfosters",
+      "crimes_last_month": 45,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013679",
+      "ward_name": "Edmonton Green",
+      "crimes_last_month": 346,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013680",
+      "ward_name": "Enfield Lock",
+      "crimes_last_month": 194,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013681",
+      "ward_name": "Grange Park",
+      "crimes_last_month": 21,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013682",
+      "ward_name": "Haselbury",
+      "crimes_last_month": 174,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013683",
+      "ward_name": "Highfield",
+      "crimes_last_month": 78,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013684",
+      "ward_name": "Jubilee",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013685",
+      "ward_name": "Lower Edmonton",
+      "crimes_last_month": 163,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013686",
+      "ward_name": "New Southgate",
+      "crimes_last_month": 129,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013687",
+      "ward_name": "Oakwood",
+      "crimes_last_month": 38,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013688",
+      "ward_name": "Palmers Green",
+      "crimes_last_month": 109,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013689",
+      "ward_name": "Ponders End",
+      "crimes_last_month": 160,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013690",
+      "ward_name": "Ridgeway",
+      "crimes_last_month": 83,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013691",
+      "ward_name": "Southbury",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013692",
+      "ward_name": "Southgate",
+      "crimes_last_month": 100,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013693",
+      "ward_name": "Town",
+      "crimes_last_month": 189,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013694",
+      "ward_name": "Upper Edmonton",
+      "crimes_last_month": 241,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013695",
+      "ward_name": "Whitewebbs",
+      "crimes_last_month": 98,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013696",
+      "ward_name": "Winchmore Hill",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013697",
+      "ward_name": "Arsenal",
+      "crimes_last_month": 126,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013698",
+      "ward_name": "Barnsbury",
+      "crimes_last_month": 185,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013699",
+      "ward_name": "Bunhill",
+      "crimes_last_month": 314,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013700",
+      "ward_name": "Caledonian",
+      "crimes_last_month": 234,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013701",
+      "ward_name": "Canonbury",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013507",
+      "ward_name": "Queens Park",
+      "crimes_last_month": 231,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013808",
+      "ward_name": "West End",
+      "crimes_last_month": 2298,
+      "top_categories": [
+        "theft-from-the-person",
+        "other-theft",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013757",
+      "ward_name": "Carshalton South & Clockhouse",
+      "crimes_last_month": 40,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013608",
+      "ward_name": "Brentford West",
+      "crimes_last_month": 74,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013508",
+      "ward_name": "Queensbury",
+      "crimes_last_month": 127,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013809",
+      "ward_name": "Westbourne",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013758",
+      "ward_name": "Cheam",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013609",
+      "ward_name": "Chiswick Gunnersbury",
+      "crimes_last_month": 167,
+      "top_categories": [
+        "shoplifting",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013509",
+      "ward_name": "Roundwood",
+      "crimes_last_month": 245,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013707",
+      "ward_name": "Junction",
+      "crimes_last_month": 321,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013810",
+      "ward_name": "Abbey",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013759",
+      "ward_name": "Hackbridge",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013610",
+      "ward_name": "Chiswick Homefields",
+      "crimes_last_month": 89,
+      "top_categories": [
+        "vehicle-crime",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013510",
+      "ward_name": "Stonebridge",
+      "crimes_last_month": 254,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013708",
+      "ward_name": "Laycock",
+      "crimes_last_month": 216,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013811",
+      "ward_name": "Cannon Hill",
+      "crimes_last_month": 34,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "bicycle-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013760",
+      "ward_name": "North Cheam",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013611",
+      "ward_name": "Chiswick Riverside",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013511",
+      "ward_name": "Sudbury",
+      "crimes_last_month": 98,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013709",
+      "ward_name": "Mildmay",
+      "crimes_last_month": 151,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013812",
+      "ward_name": "Colliers Wood",
+      "crimes_last_month": 97,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013813",
+      "ward_name": "Cricket Green",
+      "crimes_last_month": 79,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013814",
+      "ward_name": "Figge's Marsh",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013815",
+      "ward_name": "Graveney",
+      "crimes_last_month": 47,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013816",
+      "ward_name": "Hillside",
+      "crimes_last_month": 39,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013817",
+      "ward_name": "Lavender Fields",
+      "crimes_last_month": 73,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013818",
+      "ward_name": "Longthornton",
+      "crimes_last_month": 89,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013819",
+      "ward_name": "Lower Morden",
+      "crimes_last_month": 47,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013820",
+      "ward_name": "Merton Park",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013821",
+      "ward_name": "Pollards Hill",
+      "crimes_last_month": 98,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013822",
+      "ward_name": "Ravensbury",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013823",
+      "ward_name": "Raynes Park",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013824",
+      "ward_name": "St Helier",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013825",
+      "ward_name": "Village",
+      "crimes_last_month": 42,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013826",
+      "ward_name": "Wandle",
+      "crimes_last_month": 34,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013827",
+      "ward_name": "West Barnes",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013828",
+      "ward_name": "Wimbledon Park",
+      "crimes_last_month": 55,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013829",
+      "ward_name": "Wimbledon Town & Dundonald",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013710",
+      "ward_name": "St Mary's & St James'",
+      "crimes_last_month": 272,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013612",
+      "ward_name": "Cranford",
+      "crimes_last_month": 123,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013711",
+      "ward_name": "St Peter's & Canalside",
+      "crimes_last_month": 169,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013613",
+      "ward_name": "Feltham North",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013712",
+      "ward_name": "Tollington",
+      "crimes_last_month": 198,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013614",
+      "ward_name": "Feltham West",
+      "crimes_last_month": 117,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013512",
+      "ward_name": "Tokyngton",
+      "crimes_last_month": 65,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013761",
+      "ward_name": "St Helier East",
+      "crimes_last_month": 57,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013713",
+      "ward_name": "Tufnell Park",
+      "crimes_last_month": 98,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013615",
+      "ward_name": "Hanworth Park",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013513",
+      "ward_name": "Welsh Harp",
+      "crimes_last_month": 142,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013762",
+      "ward_name": "St Helier West",
+      "crimes_last_month": 120,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013714",
+      "ward_name": "Bellingham",
+      "crimes_last_month": 183,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013616",
+      "ward_name": "Hanworth Village",
+      "crimes_last_month": 129,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013514",
+      "ward_name": "Wembley Central",
+      "crimes_last_month": 205,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013763",
+      "ward_name": "South Beddington & Roundshaw",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013715",
+      "ward_name": "Blackheath",
+      "crimes_last_month": 224,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013617",
+      "ward_name": "Heston Central",
+      "crimes_last_month": 125,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013515",
+      "ward_name": "Wembley Hill",
+      "crimes_last_month": 216,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013764",
+      "ward_name": "Stonecot",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013716",
+      "ward_name": "Brockley",
+      "crimes_last_month": 178,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013618",
+      "ward_name": "Heston East",
+      "crimes_last_month": 102,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013619",
+      "ward_name": "Heston West",
+      "crimes_last_month": 177,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013620",
+      "ward_name": "Hounslow Central",
+      "crimes_last_month": 293,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013621",
+      "ward_name": "Hounslow East",
+      "crimes_last_month": 119,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013622",
+      "ward_name": "Hounslow Heath",
+      "crimes_last_month": 144,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013623",
+      "ward_name": "Hounslow South",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013624",
+      "ward_name": "Hounslow West",
+      "crimes_last_month": 166,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013625",
+      "ward_name": "Isleworth",
+      "crimes_last_month": 112,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013626",
+      "ward_name": "Osterley & Spring Grove",
+      "crimes_last_month": 97,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013627",
+      "ward_name": "Syon & Brentford Lock",
+      "crimes_last_month": 138,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013628",
+      "ward_name": "Barnet Vale",
+      "crimes_last_month": 100,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013629",
+      "ward_name": "Brunswick Park",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013630",
+      "ward_name": "Burnt Oak",
+      "crimes_last_month": 209,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013631",
+      "ward_name": "Childs Hill",
+      "crimes_last_month": 223,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013632",
+      "ward_name": "Colindale North",
+      "crimes_last_month": 156,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013633",
+      "ward_name": "Colindale South",
+      "crimes_last_month": 146,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013634",
+      "ward_name": "Cricklewood",
+      "crimes_last_month": 165,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013635",
+      "ward_name": "East Barnet",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013636",
+      "ward_name": "East Finchley",
+      "crimes_last_month": 87,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013637",
+      "ward_name": "Edgware",
+      "crimes_last_month": 159,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013638",
+      "ward_name": "Edgwarebury",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013639",
+      "ward_name": "Finchley Church End",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013640",
+      "ward_name": "Friern Barnet",
+      "crimes_last_month": 137,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013641",
+      "ward_name": "Garden Suburb",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013642",
+      "ward_name": "Golders Green",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013643",
+      "ward_name": "Hendon",
+      "crimes_last_month": 252,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013644",
+      "ward_name": "High Barnet",
+      "crimes_last_month": 64,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013645",
+      "ward_name": "Mill Hill",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013646",
+      "ward_name": "Totteridge & Woodside",
+      "crimes_last_month": 77,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013647",
+      "ward_name": "Underhill",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013648",
+      "ward_name": "West Finchley",
+      "crimes_last_month": 163,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013649",
+      "ward_name": "West Hendon",
+      "crimes_last_month": 209,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013650",
+      "ward_name": "Whetstone",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013651",
+      "ward_name": "Woodhouse",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013717",
+      "ward_name": "Catford South",
+      "crimes_last_month": 139,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013765",
+      "ward_name": "Sutton Central",
+      "crimes_last_month": 207,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013516",
+      "ward_name": "Wembley Park",
+      "crimes_last_month": 175,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013718",
+      "ward_name": "Crofton Park",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013766",
+      "ward_name": "Sutton North",
+      "crimes_last_month": 78,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013517",
+      "ward_name": "Willesden Green",
+      "crimes_last_month": 177,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013719",
+      "ward_name": "Deptford",
+      "crimes_last_month": 244,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013767",
+      "ward_name": "Sutton South",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013518",
+      "ward_name": "Central Greenford",
+      "crimes_last_month": 131,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013720",
+      "ward_name": "Downham",
+      "crimes_last_month": 201,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013768",
+      "ward_name": "Sutton West & East Cheam",
+      "crimes_last_month": 49,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013519",
+      "ward_name": "Dormers Wells",
+      "crimes_last_month": 103,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013721",
+      "ward_name": "Evelyn",
+      "crimes_last_month": 140,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013769",
+      "ward_name": "The Wrythe",
+      "crimes_last_month": 101,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013520",
+      "ward_name": "Ealing Broadway",
+      "crimes_last_month": 231,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013722",
+      "ward_name": "Forest Hill",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013770",
+      "ward_name": "Wallington North",
+      "crimes_last_month": 69,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013521",
+      "ward_name": "Ealing Common",
+      "crimes_last_month": 126,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013723",
+      "ward_name": "Grove Park",
+      "crimes_last_month": 118,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013771",
+      "ward_name": "Wallington South",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "other-theft",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013522",
+      "ward_name": "East Acton",
+      "crimes_last_month": 117,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013724",
+      "ward_name": "Hither Green",
+      "crimes_last_month": 195,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013772",
+      "ward_name": "Worcester Park North",
+      "crimes_last_month": 39,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013523",
+      "ward_name": "Greenford Broadway",
+      "crimes_last_month": 151,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013725",
+      "ward_name": "Ladywell",
+      "crimes_last_month": 198,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013773",
+      "ward_name": "Worcester Park South",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013524",
+      "ward_name": "Hanger Hill",
+      "crimes_last_month": 130,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013726",
+      "ward_name": "Lee Green",
+      "crimes_last_month": 101,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013774",
+      "ward_name": "Barnes",
+      "crimes_last_month": 83,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013525",
+      "ward_name": "Hanwell Broadway",
+      "crimes_last_month": 142,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013727",
+      "ward_name": "Lewisham Central",
+      "crimes_last_month": 243,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013728",
+      "ward_name": "New Cross Gate",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013729",
+      "ward_name": "Perry Vale",
+      "crimes_last_month": 82,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013730",
+      "ward_name": "Rushey Green",
+      "crimes_last_month": 297,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013731",
+      "ward_name": "Sydenham",
+      "crimes_last_month": 141,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013732",
+      "ward_name": "Telegraph Hill",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013733",
+      "ward_name": "Addison",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013734",
+      "ward_name": "Avonmore",
+      "crimes_last_month": 47,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013735",
+      "ward_name": "Brook Green",
+      "crimes_last_month": 88,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013736",
+      "ward_name": "College Park & Old Oak",
+      "crimes_last_month": 188,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013737",
+      "ward_name": "Coningham",
+      "crimes_last_month": 116,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013738",
+      "ward_name": "Fulham Reach",
+      "crimes_last_month": 105,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013739",
+      "ward_name": "Fulham Town",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013740",
+      "ward_name": "Grove",
+      "crimes_last_month": 65,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013741",
+      "ward_name": "Hammersmith Broadway",
+      "crimes_last_month": 221,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013742",
+      "ward_name": "Lillie",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013743",
+      "ward_name": "Munster",
+      "crimes_last_month": 55,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013744",
+      "ward_name": "Palace & Hurlingham",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013745",
+      "ward_name": "Parsons Green & Sandford",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013746",
+      "ward_name": "Ravenscourt",
+      "crimes_last_month": 87,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013747",
+      "ward_name": "Sands End",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013748",
+      "ward_name": "Shepherd's Bush Green",
+      "crimes_last_month": 277,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013749",
+      "ward_name": "Walham Green",
+      "crimes_last_month": 140,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013750",
+      "ward_name": "Wendell Park",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013751",
+      "ward_name": "West Kensington",
+      "crimes_last_month": 107,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013526",
+      "ward_name": "Lady Margaret",
+      "crimes_last_month": 114,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013775",
+      "ward_name": "East Sheen",
+      "crimes_last_month": 58,
+      "top_categories": [
+        "vehicle-crime",
+        "burglary",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013527",
+      "ward_name": "North Acton",
+      "crimes_last_month": 259,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013776",
+      "ward_name": "Fulwell & Hampton Hill",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013528",
+      "ward_name": "North Greenford",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013777",
+      "ward_name": "Ham, Petersham & Richmond Riverside",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013529",
+      "ward_name": "North Hanwell",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013778",
+      "ward_name": "Hampton",
+      "crimes_last_month": 56,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013530",
+      "ward_name": "Northfield",
+      "crimes_last_month": 69,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013779",
+      "ward_name": "Hampton North",
+      "crimes_last_month": 82,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013531",
+      "ward_name": "Northolt Mandeville",
+      "crimes_last_month": 148,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013780",
+      "ward_name": "Hampton Wick & South Teddington",
+      "crimes_last_month": 44,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013532",
+      "ward_name": "Northolt West End",
+      "crimes_last_month": 132,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013781",
+      "ward_name": "Heathfield",
+      "crimes_last_month": 68,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013882",
+      "ward_name": "Cann Hall",
+      "crimes_last_month": 150,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013533",
+      "ward_name": "Norwood Green",
+      "crimes_last_month": 165,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013782",
+      "ward_name": "Kew",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013883",
+      "ward_name": "Cathall",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013534",
+      "ward_name": "Perivale",
+      "crimes_last_month": 175,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013783",
+      "ward_name": "Mortlake & Barnes Common",
+      "crimes_last_month": 88,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013884",
+      "ward_name": "Chapel End",
+      "crimes_last_month": 86,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013535",
+      "ward_name": "Pitshanger",
+      "crimes_last_month": 62,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013784",
+      "ward_name": "North Richmond",
+      "crimes_last_month": 65,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013885",
+      "ward_name": "Chingford Green",
+      "crimes_last_month": 78,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013536",
+      "ward_name": "South Acton",
+      "crimes_last_month": 225,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013785",
+      "ward_name": "St Margarets & North Twickenham",
+      "crimes_last_month": 57,
+      "top_categories": [
+        "vehicle-crime",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013886",
+      "ward_name": "Endlebury",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013537",
+      "ward_name": "Southall Broadway",
+      "crimes_last_month": 302,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013786",
+      "ward_name": "South Richmond",
+      "crimes_last_month": 141,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013887",
+      "ward_name": "Forest",
+      "crimes_last_month": 131,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013888",
+      "ward_name": "Grove Green",
+      "crimes_last_month": 108,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013889",
+      "ward_name": "Hale End & Highams Park South",
+      "crimes_last_month": 70,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013890",
+      "ward_name": "Hatch Lane & Highams Park North",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013891",
+      "ward_name": "High Street",
+      "crimes_last_month": 204,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013892",
+      "ward_name": "Higham Hill",
+      "crimes_last_month": 106,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013893",
+      "ward_name": "Hoe Street",
+      "crimes_last_month": 109,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013894",
+      "ward_name": "Larkswood",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013895",
+      "ward_name": "Lea Bridge",
+      "crimes_last_month": 209,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013896",
+      "ward_name": "Leyton",
+      "crimes_last_month": 187,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013897",
+      "ward_name": "Leytonstone",
+      "crimes_last_month": 172,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013898",
+      "ward_name": "Markhouse",
+      "crimes_last_month": 59,
+      "top_categories": [
+        "anti-social-behaviour",
+        "theft-from-the-person",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013899",
+      "ward_name": "St James",
+      "crimes_last_month": 83,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013900",
+      "ward_name": "Upper Walthamstow",
+      "crimes_last_month": 48,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013901",
+      "ward_name": "Valley",
+      "crimes_last_month": 159,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013787",
+      "ward_name": "South Twickenham",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013788",
+      "ward_name": "Teddington",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013789",
+      "ward_name": "Twickenham Riverside",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013790",
+      "ward_name": "West Twickenham",
+      "crimes_last_month": 40,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013791",
+      "ward_name": "Whitton",
+      "crimes_last_month": 35,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013792",
+      "ward_name": "Abbey Road",
+      "crimes_last_month": 71,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013793",
+      "ward_name": "Bayswater",
+      "crimes_last_month": 141,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013794",
+      "ward_name": "Church Street",
+      "crimes_last_month": 185,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013795",
+      "ward_name": "Harrow Road",
+      "crimes_last_month": 201,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013796",
+      "ward_name": "Hyde Park",
+      "crimes_last_month": 351,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013797",
+      "ward_name": "Knightsbridge & Belgravia",
+      "crimes_last_month": 269,
+      "top_categories": [
+        "other-theft",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013798",
+      "ward_name": "Lancaster Gate",
+      "crimes_last_month": 185,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013799",
+      "ward_name": "Little Venice",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013800",
+      "ward_name": "Maida Vale",
+      "crimes_last_month": 130,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013801",
+      "ward_name": "Marylebone",
+      "crimes_last_month": 360,
+      "top_categories": [
+        "other-theft",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013538",
+      "ward_name": "Southall Green",
+      "crimes_last_month": 218,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013539",
+      "ward_name": "Southall West",
+      "crimes_last_month": 73,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013540",
+      "ward_name": "Southfield",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013541",
+      "ward_name": "Walpole",
+      "crimes_last_month": 190,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013542",
+      "ward_name": "Belmont",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013543",
+      "ward_name": "Canons",
+      "crimes_last_month": 25,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013544",
+      "ward_name": "Centenary",
+      "crimes_last_month": 65,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013545",
+      "ward_name": "Edgware",
+      "crimes_last_month": 102,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013546",
+      "ward_name": "Greenhill",
+      "crimes_last_month": 262,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013547",
+      "ward_name": "Harrow on the Hill",
+      "crimes_last_month": 116,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013548",
+      "ward_name": "Harrow Weald",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013549",
+      "ward_name": "Hatch End",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013550",
+      "ward_name": "Headstone",
+      "crimes_last_month": 102,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013551",
+      "ward_name": "Kenton East",
+      "crimes_last_month": 57,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013902",
+      "ward_name": "William Morris",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014104",
+      "ward_name": "Herne Hill & Loughborough Junction",
+      "crimes_last_month": 246,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013903",
+      "ward_name": "Wood Street",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014054",
+      "ward_name": "Alibon",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "other-theft",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014105",
+      "ward_name": "Kennington",
+      "crimes_last_month": 141,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013904",
+      "ward_name": "Beckton",
+      "crimes_last_month": 220,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014055",
+      "ward_name": "Barking Riverside",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014004",
+      "ward_name": "Plaistow",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014106",
+      "ward_name": "Knight's Hill",
+      "crimes_last_month": 165,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013905",
+      "ward_name": "Boleyn",
+      "crimes_last_month": 110,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014056",
+      "ward_name": "Beam",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014005",
+      "ward_name": "Shortlands & Park Langley",
+      "crimes_last_month": 55,
+      "top_categories": [
+        "violent-crime",
+        "vehicle-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014107",
+      "ward_name": "Myatt's Fields",
+      "crimes_last_month": 103,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013906",
+      "ward_name": "Canning Town North",
+      "crimes_last_month": 185,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014057",
+      "ward_name": "Becontree",
+      "crimes_last_month": 75,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014006",
+      "ward_name": "St Mary Cray",
+      "crimes_last_month": 167,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014108",
+      "ward_name": "Oval",
+      "crimes_last_month": 79,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014109",
+      "ward_name": "St Martin's",
+      "crimes_last_month": 92,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014110",
+      "ward_name": "Stockwell East",
+      "crimes_last_month": 96,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05014111",
+      "ward_name": "Stockwell West & Larkhall",
+      "crimes_last_month": 232,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014112",
+      "ward_name": "Streatham Common & Vale",
+      "crimes_last_month": 112,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014113",
+      "ward_name": "Streatham Hill East",
+      "crimes_last_month": 71,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014114",
+      "ward_name": "Streatham Hill West & Thornton",
+      "crimes_last_month": 71,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014115",
+      "ward_name": "Streatham St Leonard's",
+      "crimes_last_month": 179,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014116",
+      "ward_name": "Streatham Wells",
+      "crimes_last_month": 35,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014117",
+      "ward_name": "Vauxhall",
+      "crimes_last_month": 253,
+      "top_categories": [
+        "theft-from-the-person",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014118",
+      "ward_name": "Waterloo & South Bank",
+      "crimes_last_month": 491,
+      "top_categories": [
+        "theft-from-the-person",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014119",
+      "ward_name": "West Dulwich",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014007",
+      "ward_name": "St Paul's Cray",
+      "crimes_last_month": 194,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014058",
+      "ward_name": "Chadwell Heath",
+      "crimes_last_month": 120,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014008",
+      "ward_name": "West Wickham",
+      "crimes_last_month": 51,
+      "top_categories": [
+        "vehicle-crime",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013907",
+      "ward_name": "Canning Town South",
+      "crimes_last_month": 161,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014059",
+      "ward_name": "Eastbrook & Rush Green",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014009",
+      "ward_name": "Balham",
+      "crimes_last_month": 202,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013908",
+      "ward_name": "Custom House",
+      "crimes_last_month": 163,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014060",
+      "ward_name": "Eastbury",
+      "crimes_last_month": 107,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014010",
+      "ward_name": "Battersea Park",
+      "crimes_last_month": 146,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013909",
+      "ward_name": "East Ham",
+      "crimes_last_month": 258,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013910",
+      "ward_name": "East Ham South",
+      "crimes_last_month": 131,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013911",
+      "ward_name": "Forest Gate North",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013912",
+      "ward_name": "Forest Gate South",
+      "crimes_last_month": 242,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013913",
+      "ward_name": "Green Street East",
+      "crimes_last_month": 134,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013914",
+      "ward_name": "Green Street West",
+      "crimes_last_month": 195,
+      "top_categories": [
+        "violent-crime",
+        "theft-from-the-person",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013915",
+      "ward_name": "Little Ilford",
+      "crimes_last_month": 138,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013916",
+      "ward_name": "Manor Park",
+      "crimes_last_month": 130,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013917",
+      "ward_name": "Maryland",
+      "crimes_last_month": 121,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013918",
+      "ward_name": "Plaistow North",
+      "crimes_last_month": 203,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013919",
+      "ward_name": "Plaistow South",
+      "crimes_last_month": 127,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013920",
+      "ward_name": "Plaistow West & Canning Town East",
+      "crimes_last_month": 127,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013921",
+      "ward_name": "Plashet",
+      "crimes_last_month": 79,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013922",
+      "ward_name": "Royal Albert",
+      "crimes_last_month": 93,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013923",
+      "ward_name": "Royal Victoria",
+      "crimes_last_month": 241,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013924",
+      "ward_name": "Stratford",
+      "crimes_last_month": 383,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013925",
+      "ward_name": "Stratford Olympic Park",
+      "crimes_last_month": 383,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013926",
+      "ward_name": "Wall End",
+      "crimes_last_month": 103,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013927",
+      "ward_name": "West Ham",
+      "crimes_last_month": 121,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013928",
+      "ward_name": "Alexandra",
+      "crimes_last_month": 32,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013929",
+      "ward_name": "Berrylands",
+      "crimes_last_month": 13,
+      "top_categories": [
+        "vehicle-crime",
+        "anti-social-behaviour",
+        "other-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013930",
+      "ward_name": "Canbury Gardens",
+      "crimes_last_month": 42,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013931",
+      "ward_name": "Chessington South & Malden Rushett",
+      "crimes_last_month": 53,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013932",
+      "ward_name": "Coombe Hill",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013933",
+      "ward_name": "Coombe Vale",
+      "crimes_last_month": 28,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013934",
+      "ward_name": "Green Lane & St James",
+      "crimes_last_month": 25,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013935",
+      "ward_name": "Hook & Chessington North",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013936",
+      "ward_name": "King George's & Sunray",
+      "crimes_last_month": 30,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013937",
+      "ward_name": "Kingston Gate",
+      "crimes_last_month": 46,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013938",
+      "ward_name": "Kingston Town",
+      "crimes_last_month": 350,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013939",
+      "ward_name": "Motspur Park & Old Malden East",
+      "crimes_last_month": 22,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05013940",
+      "ward_name": "New Malden Village",
+      "crimes_last_month": 106,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013941",
+      "ward_name": "Norbiton",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013942",
+      "ward_name": "Old Malden",
+      "crimes_last_month": 34,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013943",
+      "ward_name": "St Mark's & Seething Wells",
+      "crimes_last_month": 101,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013944",
+      "ward_name": "Surbiton Hill",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013945",
+      "ward_name": "Tolworth",
+      "crimes_last_month": 78,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013946",
+      "ward_name": "Tudor",
+      "crimes_last_month": 20,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014061",
+      "ward_name": "Gascoigne",
+      "crimes_last_month": 80,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014062",
+      "ward_name": "Goresbrook",
+      "crimes_last_month": 109,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014063",
+      "ward_name": "Heath",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014011",
+      "ward_name": "East Putney",
+      "crimes_last_month": 119,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014064",
+      "ward_name": "Longbridge",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014012",
+      "ward_name": "Falconbrook",
+      "crimes_last_month": 153,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014065",
+      "ward_name": "Mayesbrook",
+      "crimes_last_month": 87,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014066",
+      "ward_name": "Northbury",
+      "crimes_last_month": 263,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014013",
+      "ward_name": "Furzedown",
+      "crimes_last_month": 120,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014067",
+      "ward_name": "Parsloes",
+      "crimes_last_month": 120,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014014",
+      "ward_name": "Lavender",
+      "crimes_last_month": 200,
+      "top_categories": [
+        "anti-social-behaviour",
+        "shoplifting",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014068",
+      "ward_name": "Thames View",
+      "crimes_last_month": 37,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014015",
+      "ward_name": "Nine Elms",
+      "crimes_last_month": 79,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05014069",
+      "ward_name": "Valence",
+      "crimes_last_month": 73,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014016",
+      "ward_name": "Northcote",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "vehicle-crime",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014070",
+      "ward_name": "Village",
+      "crimes_last_month": 126,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014017",
+      "ward_name": "Roehampton",
+      "crimes_last_month": 149,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014018",
+      "ward_name": "St Mary's",
+      "crimes_last_month": 116,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013967",
+      "ward_name": "Beam Park",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014019",
+      "ward_name": "Shaftesbury & Queenstown",
+      "crimes_last_month": 162,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014071",
+      "ward_name": "Whalebone",
+      "crimes_last_month": 103,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013968",
+      "ward_name": "Cranham",
+      "crimes_last_month": 30,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014020",
+      "ward_name": "South Balham",
+      "crimes_last_month": 66,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014072",
+      "ward_name": "Abbey Wood",
+      "crimes_last_month": 143,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013969",
+      "ward_name": "Elm Park",
+      "crimes_last_month": 114,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014021",
+      "ward_name": "Southfields",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014073",
+      "ward_name": "Blackheath Westcombe",
+      "crimes_last_month": 84,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013970",
+      "ward_name": "Emerson Park",
+      "crimes_last_month": 28,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014022",
+      "ward_name": "Thamesfield",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "anti-social-behaviour",
+        "other-theft",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014074",
+      "ward_name": "Charlton Hornfair",
+      "crimes_last_month": 95,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013971",
+      "ward_name": "Gooshays",
+      "crimes_last_month": 117,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014023",
+      "ward_name": "Tooting Bec",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014075",
+      "ward_name": "Charlton Village & Riverside",
+      "crimes_last_month": 127,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013972",
+      "ward_name": "Hacton",
+      "crimes_last_month": 39,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014024",
+      "ward_name": "Tooting Broadway",
+      "crimes_last_month": 230,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014076",
+      "ward_name": "East Greenwich",
+      "crimes_last_month": 158,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013973",
+      "ward_name": "Harold Wood",
+      "crimes_last_month": 73,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014025",
+      "ward_name": "Trinity",
+      "crimes_last_month": 100,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014077",
+      "ward_name": "Eltham Page",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013974",
+      "ward_name": "Havering-atte-Bower",
+      "crimes_last_month": 87,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014026",
+      "ward_name": "Wandle",
+      "crimes_last_month": 54,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014078",
+      "ward_name": "Eltham Park & Progress",
+      "crimes_last_month": 68,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014027",
+      "ward_name": "Wandsworth Common",
+      "crimes_last_month": 132,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013975",
+      "ward_name": "Heaton",
+      "crimes_last_month": 155,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014079",
+      "ward_name": "Eltham Town & Avery Hill",
+      "crimes_last_month": 194,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014028",
+      "ward_name": "Wandsworth Town",
+      "crimes_last_month": 177,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013976",
+      "ward_name": "Hylands & Harrow Lodge",
+      "crimes_last_month": 82,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "burglary"
+      ]
+    },
+    {
+      "ward_code": "E05014080",
+      "ward_name": "Greenwich Creekside",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05014029",
+      "ward_name": "West Hill",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013977",
+      "ward_name": "Marshalls & Rise Park",
+      "crimes_last_month": 49,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014081",
+      "ward_name": "Greenwich Park",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014030",
+      "ward_name": "West Putney",
+      "crimes_last_month": 94,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013978",
+      "ward_name": "Mawneys",
+      "crimes_last_month": 86,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013979",
+      "ward_name": "Rainham & Wennington",
+      "crimes_last_month": 159,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013980",
+      "ward_name": "Rush Green & Crowlands",
+      "crimes_last_month": 162,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013981",
+      "ward_name": "St Alban's",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05013982",
+      "ward_name": "St Andrew's",
+      "crimes_last_month": 104,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013983",
+      "ward_name": "St Edward's",
+      "crimes_last_month": 293,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013984",
+      "ward_name": "South Hornchurch",
+      "crimes_last_month": 78,
+      "top_categories": [
+        "violent-crime",
+        "criminal-damage-arson",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05013985",
+      "ward_name": "Squirrels Heath",
+      "crimes_last_month": 60,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013986",
+      "ward_name": "Upminster",
+      "crimes_last_month": 85,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013987",
+      "ward_name": "Beckenham Town & Copers Cope",
+      "crimes_last_month": 147,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013988",
+      "ward_name": "Bickley & Sundridge",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013989",
+      "ward_name": "Biggin Hill",
+      "crimes_last_month": 64,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013990",
+      "ward_name": "Bromley Common & Holwood",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05013991",
+      "ward_name": "Bromley Town",
+      "crimes_last_month": 272,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013992",
+      "ward_name": "Chelsfield",
+      "crimes_last_month": 32,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013993",
+      "ward_name": "Chislehurst",
+      "crimes_last_month": 77,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05013994",
+      "ward_name": "Clock House",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "vehicle-crime",
+        "anti-social-behaviour",
+        "violent-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013995",
+      "ward_name": "Crystal Palace & Anerley",
+      "crimes_last_month": 132,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05013996",
+      "ward_name": "Darwin",
+      "crimes_last_month": 25,
+      "top_categories": [
+        "anti-social-behaviour",
+        "vehicle-crime",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05013997",
+      "ward_name": "Farnborough & Crofton",
+      "crimes_last_month": 111,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05013998",
+      "ward_name": "Hayes & Coney Hall",
+      "crimes_last_month": 71,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05013999",
+      "ward_name": "Kelsey & Eden Park",
+      "crimes_last_month": 141,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014000",
+      "ward_name": "Mottingham",
+      "crimes_last_month": 102,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014001",
+      "ward_name": "Orpington",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014002",
+      "ward_name": "Penge & Cator",
+      "crimes_last_month": 180,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014003",
+      "ward_name": "Petts Wood & Knoll",
+      "crimes_last_month": 81,
+      "top_categories": [
+        "shoplifting",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014082",
+      "ward_name": "Greenwich Peninsula",
+      "crimes_last_month": 219,
+      "top_categories": [
+        "violent-crime",
+        "shoplifting",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014083",
+      "ward_name": "Kidbrooke Park",
+      "crimes_last_month": 72,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014084",
+      "ward_name": "Kidbrooke Village & Sutcliffe",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014085",
+      "ward_name": "Middle Park & Horn Park",
+      "crimes_last_month": 63,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014086",
+      "ward_name": "Mottingham, Coldharbour & New Eltham",
+      "crimes_last_month": 72,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014087",
+      "ward_name": "Plumstead & Glyndon",
+      "crimes_last_month": 206,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014088",
+      "ward_name": "Plumstead Common",
+      "crimes_last_month": 122,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014089",
+      "ward_name": "Shooters Hill",
+      "crimes_last_month": 76,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "public-order"
+      ]
+    },
+    {
+      "ward_code": "E05014090",
+      "ward_name": "Thamesmead Moorings",
+      "crimes_last_month": 115,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014091",
+      "ward_name": "West Thamesmead",
+      "crimes_last_month": 99,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014092",
+      "ward_name": "Woolwich Arsenal",
+      "crimes_last_month": 263,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "shoplifting"
+      ]
+    },
+    {
+      "ward_code": "E05014093",
+      "ward_name": "Woolwich Common",
+      "crimes_last_month": 119,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014094",
+      "ward_name": "Woolwich Dockyard",
+      "crimes_last_month": 90,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "drugs"
+      ]
+    },
+    {
+      "ward_code": "E05014095",
+      "ward_name": "Brixton Acre Lane",
+      "crimes_last_month": 157,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "criminal-damage-arson"
+      ]
+    },
+    {
+      "ward_code": "E05014096",
+      "ward_name": "Brixton North",
+      "crimes_last_month": 254,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "theft-from-the-person"
+      ]
+    },
+    {
+      "ward_code": "E05014097",
+      "ward_name": "Brixton Rush Common",
+      "crimes_last_month": 113,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "robbery"
+      ]
+    },
+    {
+      "ward_code": "E05014098",
+      "ward_name": "Brixton Windrush",
+      "crimes_last_month": 196,
+      "top_categories": [
+        "shoplifting",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014099",
+      "ward_name": "Clapham Common & Abbeville",
+      "crimes_last_month": 91,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014100",
+      "ward_name": "Clapham East",
+      "crimes_last_month": 240,
+      "top_categories": [
+        "theft-from-the-person",
+        "violent-crime",
+        "anti-social-behaviour"
+      ]
+    },
+    {
+      "ward_code": "E05014101",
+      "ward_name": "Clapham Park",
+      "crimes_last_month": 83,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "other-theft"
+      ]
+    },
+    {
+      "ward_code": "E05014102",
+      "ward_name": "Clapham Town",
+      "crimes_last_month": 151,
+      "top_categories": [
+        "anti-social-behaviour",
+        "violent-crime",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014103",
+      "ward_name": "Gipsy Hill",
+      "crimes_last_month": 67,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "vehicle-crime"
+      ]
+    },
+    {
+      "ward_code": "E05014053",
+      "ward_name": "Abbey",
+      "crimes_last_month": 87,
+      "top_categories": [
+        "violent-crime",
+        "anti-social-behaviour",
+        "other-theft"
+      ]
+    }
+  ]
+}
