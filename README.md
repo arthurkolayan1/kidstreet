@@ -123,6 +123,19 @@ https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_202
 - Next: additional metric dimensions (education, affordability, mobility and others) as sourced, verifiable data
 - Then: all 32 London boroughs. The architecture already supports it: the scores array grows, the boundary query widens, nothing else changes.
 
+## Visual identity
+
+- **Logo:** `public/assets/logo.png` (full lockup, white background) is used in the app header. `public/favicon.ico` and `public/assets/favicon_512.png` provide the browser tab icon and PWA/touch icon respectively, both linked from `<head>` in `public/index.html`.
+- **Colour palette:**
+  | Role | Colour | Hex |
+  |---|---|---|
+  | Primary / structure | Deep navy | `#1B3A5C` |
+  | Accent / calls to action | Warm coral | `#E8634F` |
+  | Secondary accent | Soft teal | `#4AABB3` |
+
+  These are defined as CSS custom properties (`--ks-navy`, `--ks-coral`, `--ks-teal`) at the top of `public/index.html` and used for the header logo lockup, active lens button, primary buttons, ward outline strokes, and the methodology callout. The green-to-red map/score gradient (`scoreColour()`) is a semantic data scale, not a brand colour, and is intentionally left separate from the palette above.
+- Any new UI should draw from this palette rather than introducing new colours, to keep the product visually consistent with the KidStreet brand.
+
 ## Licence and attribution
 
 Open source. Ward boundaries: Office for National Statistics, Wards (May 2024) BSC. Contains OS data © Crown copyright and database right 2024. Crime data: data.police.uk (Open Government Licence).
