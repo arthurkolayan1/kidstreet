@@ -25,9 +25,6 @@
   #pcMsg { font-size: 12px; color: #c62828; margin: 4px 24px 0; min-height: 15px; }
   .lens-note { font-size: 11.5px; color: #777; margin: 2px 24px 0; }
   .methodology { margin: 10px 24px 0; padding: 8px 12px; background: #eaf0ea; border-left: 3px solid #2e7d32; font-size: 12px; color: #333; border-radius: 0 4px 4px 0; }
-  details.prbox { margin: 10px 24px 0; background: #fff; border-left: 3px solid #1c1c1c; border-radius: 0 4px 4px 0; font-size: 12px; color: #333; }
-  details.prbox summary { padding: 8px 12px; cursor: pointer; font-weight: 600; user-select: none; }
-  details.prbox .prbody { padding: 0 12px 10px; }
   .layout { display: flex; gap: 14px; padding: 14px 24px 24px; align-items: stretch; }
   #map { flex: 1.4; min-height: 520px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
   .side { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 340px; }
@@ -51,7 +48,7 @@
 
 <header>
   <h1>Kid<span>Street</span></h1>
-  <p>Let KidStreet guide you: honest scores for how child-friendly Greenwich actually is, a reality check on estate agent claims, and what's right for your family. Open data, open methodology.</p>
+  <p>Let KidStreet guide you: honest scores for how child-friendly Greenwich actually is, and what's right for your family. Open data, open methodology.</p>
 </header>
 
 <div class="controls">
@@ -74,17 +71,6 @@
   Composite 0–100. All sources open. Disagree with the inputs? Good, they're published.
 </div>
 
-<details class="prbox">
-  <summary>Reality check: paste an estate agent or council claim, KidStreet scores its honesty</summary>
-  <div class="prbody">
-    <div style="display:flex; gap:8px; margin-top:4px;">
-      <textarea id="claimInput" rows="2" style="flex:1; font-family:inherit; font-size:12.5px; padding:8px; border:1.5px solid #ccc; border-radius:6px;" placeholder="e.g. 'Our vibrant riverside community offers unparalleled opportunities for young families...'"></textarea>
-      <button id="claimBtn" style="border:none; background:#2e7d32; color:#fff; padding:8px 18px; border-radius:6px; font-weight:600; cursor:pointer; white-space:nowrap;">Score it</button>
-    </div>
-    <div id="claimResult" style="margin-top:8px; font-size:13px;"></div>
-  </div>
-</details>
-
 <div class="layout">
   <div id="map"></div>
   <div class="side">
@@ -101,8 +87,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
 <script>
-  // Paste the ElevenLabs agent ID between the quotes when your teammate sends it.
-  const ELEVENLABS_AGENT_ID = '';
+  const ELEVENLABS_AGENT_ID = 'agent_1501kwpaz2scewg9xk6aws461npn';
 
   const ONS_WARDS_URL =
     'https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_2024_Boundaries_UK_BSC/FeatureServer/0/query'
@@ -223,24 +208,6 @@
     });
   });
 
-  document.getElementById('claimBtn').addEventListener('click', () => {
-    const text = document.getElementById('claimInput').value.trim();
-    const out = document.getElementById('claimResult');
-    if (!text) return;
-    out.innerHTML = 'Scoring&hellip;';
-    fetch('/api/narrative', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text })
-    })
-      .then(r => r.json())
-      .then(d => {
-        if (d.error) { out.innerHTML = '<span style="color:#c62828;">' + d.error + '</span>'; return; }
-        out.innerHTML = '<strong style="font-size:20px; color:' + scoreColour(d.score) + ';">' + d.score + '</strong> &mdash; <em>' + d.justification + '</em>';
-      })
-      .catch(() => { out.innerHTML = '<span style="color:#c62828;">Scoring failed.</span>'; });
-  });
-
   function findPostcode() {
     const pc = document.getElementById('pcInput').value.trim();
     const msg = document.getElementById('pcMsg');
@@ -271,7 +238,7 @@
     if (e.key === 'Enter') findPostcode();
   });
 
-  // ---- ElevenLabs voice agent (activates only when an agent ID is set) ----
+  // ---- ElevenLabs voice agent ----
   if (ELEVENLABS_AGENT_ID) {
     const s = document.createElement('script');
     s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
