@@ -9,33 +9,46 @@
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-theme-quartz.css">
 <style>
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f7f7f5; }
-  header { padding: 14px 20px 6px; }
-  header h1 { margin: 0; font-size: 22px; }
-  header p { margin: 4px 0 0; color: #555; font-size: 13px; }
-  .methodology { margin: 8px 20px 0; padding: 8px 12px; background: #eef2ee; border-left: 3px solid #2e7d32; font-size: 12.5px; color: #333; border-radius: 0 4px 4px 0; }
-  .layout { display: flex; gap: 12px; padding: 12px 20px 20px; align-items: stretch; }
-  #map { flex: 1.4; min-height: 420px; border-radius: 8px; }
-  .side { flex: 1; display: flex; flex-direction: column; gap: 12px; min-width: 320px; }
-  #detail { background: #fff; border-radius: 8px; padding: 14px 16px; min-height: 150px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-  #detail h2 { margin: 0 0 8px; font-size: 17px; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f4f1; color: #1c1c1c; }
+  header { padding: 18px 24px 4px; }
+  header h1 { margin: 0; font-size: 24px; letter-spacing: -0.3px; }
+  header h1 span { color: #2e7d32; }
+  header p { margin: 4px 0 0; color: #555; font-size: 13.5px; }
+  .lenses { display: flex; gap: 8px; margin: 14px 24px 0; flex-wrap: wrap; align-items: center; }
+  .lens { border: 1.5px solid #ccc; background: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; cursor: pointer; font-weight: 600; color: #444; }
+  .lens.active { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+  .lens-note { font-size: 11.5px; color: #777; margin: 6px 24px 0; }
+  .methodology { margin: 10px 24px 0; padding: 8px 12px; background: #eaf0ea; border-left: 3px solid #2e7d32; font-size: 12px; color: #333; border-radius: 0 4px 4px 0; }
+  .layout { display: flex; gap: 14px; padding: 14px 24px 24px; align-items: stretch; }
+  #map { flex: 1.4; min-height: 460px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .side { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 340px; }
+  #detail { background: #fff; border-radius: 10px; padding: 16px 18px; min-height: 170px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+  #detail h2 { margin: 0 0 10px; font-size: 18px; }
   #detail .hint { color: #888; font-size: 13px; }
-  .scorebar { margin: 6px 0; font-size: 13px; }
-  .scorebar .label { display: inline-block; width: 130px; color: #444; }
-  .scorebar .track { display: inline-block; width: 120px; height: 8px; background: #e5e5e5; border-radius: 4px; vertical-align: middle; }
+  .flag { display: inline-block; background: #c62828; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; }
+  .scorebar { margin: 7px 0; font-size: 13px; }
+  .scorebar .label { display: inline-block; width: 135px; color: #444; }
+  .scorebar .track { display: inline-block; width: 120px; height: 8px; background: #e7e7e7; border-radius: 4px; vertical-align: middle; }
   .scorebar .fill { display: block; height: 8px; border-radius: 4px; }
-  .scorebar .num { margin-left: 8px; font-weight: 600; }
-  .just { margin-top: 10px; font-size: 13px; color: #333; font-style: italic; border-top: 1px solid #eee; padding-top: 8px; }
-  #grid { flex: 1; min-height: 230px; }
-  .composite-big { font-size: 30px; font-weight: 700; float: right; }
+  .scorebar .num { margin-left: 8px; font-weight: 700; }
+  .just { margin-top: 12px; font-size: 13px; color: #333; font-style: italic; border-top: 1px solid #eee; padding-top: 10px; }
+  #grid { flex: 1; min-height: 260px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+  .composite-big { font-size: 32px; font-weight: 800; float: right; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>KidStreet</h1>
+  <h1>Kid<span>Street</span></h1>
   <p>Honest scores for how child-friendly Greenwich actually is. Open data, open methodology.</p>
 </header>
+
+<div class="lenses">
+  <button class="lens active" data-lens="move">Where do I move?</button>
+  <button class="lens" data-lens="hangout">Where's a good day out?</button>
+  <button class="lens" data-lens="council">What should the council fix?</button>
+</div>
+<div class="lens-note" id="lensNote"></div>
 
 <div class="methodology">
   <strong>Methodology:</strong> Safety 40% (police.uk crime density, inverted) ·
@@ -58,6 +71,29 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
 <script>
+  const LENSES = {
+    move: {
+      note: 'Published composite: safety 40% · green 30% · narrative 30%. Best score first.',
+      score: w => w.composite,
+      sortDesc: true
+    },
+    hangout: {
+      note: 'Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you\'re visiting, not buying.',
+      score: w => Math.round(0.6 * w.green + 0.4 * w.safety),
+      sortDesc: true
+    },
+    council: {
+      note: 'Same composite, worst first. Wards under 60 flagged as needing improvement.',
+      score: w => w.composite,
+      sortDesc: false,
+      flagUnder: 60
+    }
+  };
+  let activeLens = 'move';
+  let wardData = [];
+  const layersById = {};
+  let gridApi = null;
+
   const map = L.map('map').setView([51.480, 0.02], 12);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
@@ -71,17 +107,42 @@
     return '#c62828';
   }
 
-  const layersById = {};
-  let gridApi = null;
+  function lensScore(w) { return LENSES[activeLens].score(w); }
+
+  function repaint() {
+    const lens = LENSES[activeLens];
+    document.getElementById('lensNote').textContent = lens.note;
+    wardData.forEach(w => {
+      const s = lensScore(w);
+      const layer = layersById[w.id];
+      if (layer) {
+        layer.setStyle({ fillColor: scoreColour(s) });
+        layer.unbindTooltip();
+        layer.bindTooltip(w.ward + ' — ' + s, { sticky: true });
+      }
+    });
+    if (gridApi) {
+      gridApi.applyColumnState({
+        state: [{ colId: 'lensScore', sort: lens.sortDesc ? 'desc' : 'asc' }],
+        defaultState: { sort: null }
+      });
+      gridApi.refreshCells({ force: true });
+    }
+  }
 
   function showDetail(w) {
-    const rows = [
-      ['Safety (40%)', w.safety],
-      ['Green access (30%)', w.green],
-      ['Council narrative (30%)', w.narrative]
-    ];
-    let html = '<span class="composite-big" style="color:' + scoreColour(w.composite) + '">' + w.composite + '</span>';
+    const lens = LENSES[activeLens];
+    const s = lensScore(w);
+    let html = '<span class="composite-big" style="color:' + scoreColour(s) + '">' + s + '</span>';
     html += '<h2>' + w.ward + '</h2>';
+    if (lens.flagUnder && s < lens.flagUnder) {
+      html += '<span class="flag">NEEDS IMPROVEMENT</span><br>';
+    }
+    const rows = [
+      ['Safety (police.uk)', w.safety],
+      ['Green access', w.green],
+      ['Council narrative', w.narrative]
+    ];
     for (const [label, val] of rows) {
       html += '<div class="scorebar"><span class="label">' + label + '</span>'
         + '<span class="track"><span class="fill" style="width:' + val + '%;background:' + scoreColour(val) + '"></span></span>'
@@ -96,44 +157,47 @@
     const layer = layersById[w.id];
     if (layer) {
       map.fitBounds(layer.getBounds(), { padding: [30, 30] });
-      layer.setStyle({ weight: 3 });
+      layer.setStyle({ weight: 3.5 });
       setTimeout(() => layer.setStyle({ weight: 1.5 }), 1200);
     }
   }
 
+  document.querySelectorAll('.lens').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lens').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeLens = btn.dataset.lens;
+      repaint();
+    });
+  });
+
   fetch('/api/scores')
     .then(r => r.json())
     .then(data => {
+      wardData = data;
       data.forEach(w => {
         const layer = L.geoJSON(
           { type: 'Feature', geometry: w.geometry, properties: {} },
-          {
-            style: {
-              color: '#333',
-              weight: 1.5,
-              fillColor: scoreColour(w.composite),
-              fillOpacity: 0.55
-            }
-          }
+          { style: { color: '#2b2b2b', weight: 1.5, fillColor: scoreColour(w.composite), fillOpacity: 0.55 } }
         ).addTo(map);
-        layer.bindTooltip(w.ward + ' — ' + w.composite, { sticky: true });
         layer.on('click', () => selectWard(w));
         layersById[w.id] = layer;
       });
 
-      const gridOptions = {
+      gridApi = agGrid.createGrid(document.getElementById('grid'), {
         rowData: data,
         columnDefs: [
-          { field: 'ward', headerName: 'Ward', flex: 1.4 },
-          { field: 'safety', headerName: 'Safety', flex: 1 },
-          { field: 'green', headerName: 'Green', flex: 1 },
+          { field: 'ward', headerName: 'Ward', flex: 1.5 },
+          { field: 'safety', headerName: 'Safety', flex: 0.9 },
+          { field: 'green', headerName: 'Green', flex: 0.9 },
           { field: 'narrative', headerName: 'Narrative', flex: 1 },
-          { field: 'composite', headerName: 'Score', flex: 1, sort: 'desc',
-            cellStyle: p => ({ fontWeight: 700, color: scoreColour(p.value) }) }
+          { colId: 'lensScore', headerName: 'Score', flex: 0.9, sort: 'desc',
+            valueGetter: p => LENSES[activeLens].score(p.data),
+            cellStyle: p => ({ fontWeight: 800, color: scoreColour(p.value) }) }
         ],
         onRowClicked: e => selectWard(e.data)
-      };
-      gridApi = agGrid.createGrid(document.getElementById('grid'), gridOptions);
+      });
+      repaint();
     })
     .catch(err => {
       document.getElementById('detail').innerHTML =
