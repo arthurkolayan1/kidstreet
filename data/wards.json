@@ -1,0 +1,727 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "scored_at": "2026-07-04",
+    "boroughs": ["Greenwich", "Hackney"],
+    "ward_count": 44,
+    "note": "Hardcoded placeholder scores (0-100). Replace with pipeline output."
+  },
+  "dimensions": [
+    "education",
+    "green_space",
+    "safety",
+    "affordability",
+    "family_community",
+    "child_wellbeing",
+    "health_environment",
+    "mobility",
+    "economic_stability",
+    "liveability"
+  ],
+  "wards": [
+    {
+      "ward_name": "Abbey Wood",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 58,
+        "green_space": 52,
+        "safety": 61,
+        "affordability": 78,
+        "family_community": 72,
+        "child_wellbeing": 55,
+        "health_environment": 54,
+        "mobility": 64,
+        "economic_stability": 57,
+        "liveability": 56
+      }
+    },
+    {
+      "ward_name": "Blackheath Westcombe",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 88,
+        "green_space": 95,
+        "safety": 84,
+        "affordability": 28,
+        "family_community": 79,
+        "child_wellbeing": 86,
+        "health_environment": 82,
+        "mobility": 76,
+        "economic_stability": 91,
+        "liveability": 90
+      }
+    },
+    {
+      "ward_name": "Charlton Hornfair",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 62,
+        "green_space": 68,
+        "safety": 66,
+        "affordability": 65,
+        "family_community": 70,
+        "child_wellbeing": 63,
+        "health_environment": 58,
+        "mobility": 71,
+        "economic_stability": 64,
+        "liveability": 67
+      }
+    },
+    {
+      "ward_name": "Charlton Village and Riverside",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 71,
+        "green_space": 74,
+        "safety": 73,
+        "affordability": 52,
+        "family_community": 76,
+        "child_wellbeing": 72,
+        "health_environment": 65,
+        "mobility": 69,
+        "economic_stability": 74,
+        "liveability": 75
+      }
+    },
+    {
+      "ward_name": "East Greenwich",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 69,
+        "green_space": 58,
+        "safety": 70,
+        "affordability": 48,
+        "family_community": 68,
+        "child_wellbeing": 70,
+        "health_environment": 62,
+        "mobility": 82,
+        "economic_stability": 78,
+        "liveability": 74
+      }
+    },
+    {
+      "ward_name": "Eltham Page",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 64,
+        "green_space": 71,
+        "safety": 68,
+        "affordability": 70,
+        "family_community": 81,
+        "child_wellbeing": 67,
+        "health_environment": 66,
+        "mobility": 55,
+        "economic_stability": 62,
+        "liveability": 69
+      }
+    },
+    {
+      "ward_name": "Eltham Park and Progress",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 67,
+        "green_space": 76,
+        "safety": 75,
+        "affordability": 62,
+        "family_community": 83,
+        "child_wellbeing": 74,
+        "health_environment": 70,
+        "mobility": 52,
+        "economic_stability": 66,
+        "liveability": 72
+      }
+    },
+    {
+      "ward_name": "Eltham Town and Avery Hill",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 66,
+        "green_space": 78,
+        "safety": 72,
+        "affordability": 68,
+        "family_community": 80,
+        "child_wellbeing": 71,
+        "health_environment": 69,
+        "mobility": 50,
+        "economic_stability": 65,
+        "liveability": 73
+      }
+    },
+    {
+      "ward_name": "Greenwich Creekside",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 74,
+        "green_space": 55,
+        "safety": 71,
+        "affordability": 42,
+        "family_community": 65,
+        "child_wellbeing": 68,
+        "health_environment": 60,
+        "mobility": 85,
+        "economic_stability": 80,
+        "liveability": 76
+      }
+    },
+    {
+      "ward_name": "Greenwich Park",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 82,
+        "green_space": 98,
+        "safety": 80,
+        "affordability": 22,
+        "family_community": 77,
+        "child_wellbeing": 84,
+        "health_environment": 78,
+        "mobility": 79,
+        "economic_stability": 88,
+        "liveability": 92
+      }
+    },
+    {
+      "ward_name": "Greenwich Peninsula",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 60,
+        "green_space": 45,
+        "safety": 74,
+        "affordability": 35,
+        "family_community": 58,
+        "child_wellbeing": 62,
+        "health_environment": 55,
+        "mobility": 77,
+        "economic_stability": 72,
+        "liveability": 64
+      }
+    },
+    {
+      "ward_name": "Kidbrooke Park",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 63,
+        "green_space": 82,
+        "safety": 70,
+        "affordability": 58,
+        "family_community": 75,
+        "child_wellbeing": 69,
+        "health_environment": 72,
+        "mobility": 56,
+        "economic_stability": 63,
+        "liveability": 71
+      }
+    },
+    {
+      "ward_name": "Kidbrooke Village and Sutcliffe",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 65,
+        "green_space": 79,
+        "safety": 73,
+        "affordability": 55,
+        "family_community": 74,
+        "child_wellbeing": 70,
+        "health_environment": 68,
+        "mobility": 58,
+        "economic_stability": 67,
+        "liveability": 70
+      }
+    },
+    {
+      "ward_name": "Middle Park and Horn Park",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 59,
+        "green_space": 73,
+        "safety": 64,
+        "affordability": 74,
+        "family_community": 78,
+        "child_wellbeing": 61,
+        "health_environment": 63,
+        "mobility": 48,
+        "economic_stability": 58,
+        "liveability": 65
+      }
+    },
+    {
+      "ward_name": "Mottingham, Coldharbour and New Eltham",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 61,
+        "green_space": 69,
+        "safety": 67,
+        "affordability": 72,
+        "family_community": 79,
+        "child_wellbeing": 64,
+        "health_environment": 64,
+        "mobility": 46,
+        "economic_stability": 60,
+        "liveability": 66
+      }
+    },
+    {
+      "ward_name": "Plumstead and Glyndon",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 56,
+        "green_space": 54,
+        "safety": 58,
+        "affordability": 76,
+        "family_community": 73,
+        "child_wellbeing": 54,
+        "health_environment": 52,
+        "mobility": 62,
+        "economic_stability": 55,
+        "liveability": 57
+      }
+    },
+    {
+      "ward_name": "Plumstead Common",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 57,
+        "green_space": 61,
+        "safety": 60,
+        "affordability": 73,
+        "family_community": 71,
+        "child_wellbeing": 56,
+        "health_environment": 53,
+        "mobility": 63,
+        "economic_stability": 56,
+        "liveability": 59
+      }
+    },
+    {
+      "ward_name": "Shooters Hill",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 68,
+        "green_space": 86,
+        "safety": 78,
+        "affordability": 60,
+        "family_community": 82,
+        "child_wellbeing": 76,
+        "health_environment": 74,
+        "mobility": 44,
+        "economic_stability": 68,
+        "liveability": 77
+      }
+    },
+    {
+      "ward_name": "Thamesmead Moorings",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 52,
+        "green_space": 48,
+        "safety": 54,
+        "affordability": 82,
+        "family_community": 69,
+        "child_wellbeing": 48,
+        "health_environment": 50,
+        "mobility": 51,
+        "economic_stability": 50,
+        "liveability": 50
+      }
+    },
+    {
+      "ward_name": "West Thamesmead",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 54,
+        "green_space": 50,
+        "safety": 56,
+        "affordability": 80,
+        "family_community": 70,
+        "child_wellbeing": 51,
+        "health_environment": 51,
+        "mobility": 53,
+        "economic_stability": 52,
+        "liveability": 52
+      }
+    },
+    {
+      "ward_name": "Woolwich Arsenal",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 60,
+        "green_space": 42,
+        "safety": 55,
+        "affordability": 66,
+        "family_community": 64,
+        "child_wellbeing": 57,
+        "health_environment": 48,
+        "mobility": 88,
+        "economic_stability": 61,
+        "liveability": 62
+      }
+    },
+    {
+      "ward_name": "Woolwich Common",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 62,
+        "green_space": 57,
+        "safety": 62,
+        "affordability": 69,
+        "family_community": 72,
+        "child_wellbeing": 60,
+        "health_environment": 54,
+        "mobility": 75,
+        "economic_stability": 59,
+        "liveability": 63
+      }
+    },
+    {
+      "ward_name": "Woolwich Dockyard",
+      "borough": "Greenwich",
+      "scores": {
+        "education": 58,
+        "green_space": 46,
+        "safety": 57,
+        "affordability": 71,
+        "family_community": 66,
+        "child_wellbeing": 55,
+        "health_environment": 49,
+        "mobility": 72,
+        "economic_stability": 57,
+        "liveability": 58
+      }
+    },
+    {
+      "ward_name": "Brownswood",
+      "borough": "Hackney",
+      "scores": {
+        "education": 72,
+        "green_space": 68,
+        "safety": 70,
+        "affordability": 38,
+        "family_community": 68,
+        "child_wellbeing": 71,
+        "health_environment": 66,
+        "mobility": 84,
+        "economic_stability": 76,
+        "liveability": 74
+      }
+    },
+    {
+      "ward_name": "Cazenove",
+      "borough": "Hackney",
+      "scores": {
+        "education": 75,
+        "green_space": 62,
+        "safety": 68,
+        "affordability": 32,
+        "family_community": 70,
+        "child_wellbeing": 73,
+        "health_environment": 64,
+        "mobility": 80,
+        "economic_stability": 78,
+        "liveability": 72
+      }
+    },
+    {
+      "ward_name": "Clissold",
+      "borough": "Hackney",
+      "scores": {
+        "education": 73,
+        "green_space": 88,
+        "safety": 72,
+        "affordability": 30,
+        "family_community": 74,
+        "child_wellbeing": 75,
+        "health_environment": 68,
+        "mobility": 83,
+        "economic_stability": 77,
+        "liveability": 80
+      }
+    },
+    {
+      "ward_name": "Dalston",
+      "borough": "Hackney",
+      "scores": {
+        "education": 65,
+        "green_space": 52,
+        "safety": 52,
+        "affordability": 40,
+        "family_community": 58,
+        "child_wellbeing": 60,
+        "health_environment": 55,
+        "mobility": 92,
+        "economic_stability": 70,
+        "liveability": 68
+      }
+    },
+    {
+      "ward_name": "De Beauvoir",
+      "borough": "Hackney",
+      "scores": {
+        "education": 78,
+        "green_space": 72,
+        "safety": 76,
+        "affordability": 26,
+        "family_community": 72,
+        "child_wellbeing": 78,
+        "health_environment": 70,
+        "mobility": 78,
+        "economic_stability": 85,
+        "liveability": 79
+      }
+    },
+    {
+      "ward_name": "Hackney Central",
+      "borough": "Hackney",
+      "scores": {
+        "education": 68,
+        "green_space": 58,
+        "safety": 58,
+        "affordability": 36,
+        "family_community": 62,
+        "child_wellbeing": 63,
+        "health_environment": 57,
+        "mobility": 90,
+        "economic_stability": 72,
+        "liveability": 66
+      }
+    },
+    {
+      "ward_name": "Hackney Downs",
+      "borough": "Hackney",
+      "scores": {
+        "education": 70,
+        "green_space": 75,
+        "safety": 65,
+        "affordability": 34,
+        "family_community": 66,
+        "child_wellbeing": 67,
+        "health_environment": 62,
+        "mobility": 86,
+        "economic_stability": 74,
+        "liveability": 71
+      }
+    },
+    {
+      "ward_name": "Hackney Wick",
+      "borough": "Hackney",
+      "scores": {
+        "education": 58,
+        "green_space": 55,
+        "safety": 60,
+        "affordability": 44,
+        "family_community": 55,
+        "child_wellbeing": 58,
+        "health_environment": 52,
+        "mobility": 74,
+        "economic_stability": 65,
+        "liveability": 61
+      }
+    },
+    {
+      "ward_name": "Haggerston",
+      "borough": "Hackney",
+      "scores": {
+        "education": 69,
+        "green_space": 60,
+        "safety": 62,
+        "affordability": 33,
+        "family_community": 64,
+        "child_wellbeing": 65,
+        "health_environment": 58,
+        "mobility": 88,
+        "economic_stability": 75,
+        "liveability": 70
+      }
+    },
+    {
+      "ward_name": "Homerton",
+      "borough": "Hackney",
+      "scores": {
+        "education": 66,
+        "green_space": 70,
+        "safety": 64,
+        "affordability": 45,
+        "family_community": 76,
+        "child_wellbeing": 68,
+        "health_environment": 61,
+        "mobility": 76,
+        "economic_stability": 68,
+        "liveability": 69
+      }
+    },
+    {
+      "ward_name": "Hoxton East and Shoreditch",
+      "borough": "Hackney",
+      "scores": {
+        "education": 64,
+        "green_space": 48,
+        "safety": 50,
+        "affordability": 28,
+        "family_community": 52,
+        "child_wellbeing": 55,
+        "health_environment": 54,
+        "mobility": 91,
+        "economic_stability": 73,
+        "liveability": 63
+      }
+    },
+    {
+      "ward_name": "Hoxton West",
+      "borough": "Hackney",
+      "scores": {
+        "education": 67,
+        "green_space": 54,
+        "safety": 56,
+        "affordability": 31,
+        "family_community": 56,
+        "child_wellbeing": 59,
+        "health_environment": 56,
+        "mobility": 89,
+        "economic_stability": 71,
+        "liveability": 65
+      }
+    },
+    {
+      "ward_name": "King's Park",
+      "borough": "Hackney",
+      "scores": {
+        "education": 61,
+        "green_space": 64,
+        "safety": 60,
+        "affordability": 50,
+        "family_community": 78,
+        "child_wellbeing": 62,
+        "health_environment": 59,
+        "mobility": 70,
+        "economic_stability": 62,
+        "liveability": 64
+      }
+    },
+    {
+      "ward_name": "Lea Bridge",
+      "borough": "Hackney",
+      "scores": {
+        "education": 63,
+        "green_space": 78,
+        "safety": 66,
+        "affordability": 42,
+        "family_community": 71,
+        "child_wellbeing": 64,
+        "health_environment": 60,
+        "mobility": 72,
+        "economic_stability": 66,
+        "liveability": 68
+      }
+    },
+    {
+      "ward_name": "London Fields",
+      "borough": "Hackney",
+      "scores": {
+        "education": 76,
+        "green_space": 92,
+        "safety": 74,
+        "affordability": 24,
+        "family_community": 73,
+        "child_wellbeing": 77,
+        "health_environment": 67,
+        "mobility": 87,
+        "economic_stability": 82,
+        "liveability": 84
+      }
+    },
+    {
+      "ward_name": "Shacklewell",
+      "borough": "Hackney",
+      "scores": {
+        "education": 71,
+        "green_space": 56,
+        "safety": 63,
+        "affordability": 35,
+        "family_community": 65,
+        "child_wellbeing": 66,
+        "health_environment": 59,
+        "mobility": 85,
+        "economic_stability": 73,
+        "liveability": 67
+      }
+    },
+    {
+      "ward_name": "Springfield",
+      "borough": "Hackney",
+      "scores": {
+        "education": 74,
+        "green_space": 85,
+        "safety": 77,
+        "affordability": 37,
+        "family_community": 80,
+        "child_wellbeing": 76,
+        "health_environment": 71,
+        "mobility": 68,
+        "economic_stability": 79,
+        "liveability": 78
+      }
+    },
+    {
+      "ward_name": "Stamford Hill West",
+      "borough": "Hackney",
+      "scores": {
+        "education": 70,
+        "green_space": 58,
+        "safety": 72,
+        "affordability": 46,
+        "family_community": 92,
+        "child_wellbeing": 74,
+        "health_environment": 63,
+        "mobility": 65,
+        "economic_stability": 64,
+        "liveability": 70
+      }
+    },
+    {
+      "ward_name": "Stoke Newington",
+      "borough": "Hackney",
+      "scores": {
+        "education": 80,
+        "green_space": 84,
+        "safety": 79,
+        "affordability": 27,
+        "family_community": 85,
+        "child_wellbeing": 81,
+        "health_environment": 72,
+        "mobility": 75,
+        "economic_stability": 84,
+        "liveability": 83
+      }
+    },
+    {
+      "ward_name": "Victoria",
+      "borough": "Hackney",
+      "scores": {
+        "education": 62,
+        "green_space": 66,
+        "safety": 61,
+        "affordability": 48,
+        "family_community": 77,
+        "child_wellbeing": 65,
+        "health_environment": 60,
+        "mobility": 71,
+        "economic_stability": 63,
+        "liveability": 66
+      }
+    },
+    {
+      "ward_name": "Woodberry Down",
+      "borough": "Hackney",
+      "scores": {
+        "education": 64,
+        "green_space": 80,
+        "safety": 68,
+        "affordability": 41,
+        "family_community": 69,
+        "child_wellbeing": 66,
+        "health_environment": 65,
+        "mobility": 73,
+        "economic_stability": 67,
+        "liveability": 72
+      }
+    }
+  ]
+}
