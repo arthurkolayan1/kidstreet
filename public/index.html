@@ -3,258 +3,59 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>KidStreet — Greenwich</title>
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-grid.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-theme-quartz.css"
-        />
+        <title>KidStreet — London</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-grid.css" />
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-theme-quartz.css" />
         <style>
-            * {
-                box-sizing: border-box;
-            }
-            body {
-                margin: 0;
-                font-family:
-                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                    sans-serif;
-                background: #f4f4f1;
-                color: #1c1c1c;
-            }
-            header {
-                padding: 18px 24px 4px;
-            }
-            header h1 {
-                margin: 0;
-                font-size: 24px;
-                letter-spacing: -0.3px;
-            }
-            header h1 span {
-                color: #2e7d32;
-            }
-            header p {
-                margin: 4px 0 0;
-                color: #555;
-                font-size: 13.5px;
-            }
-            .controls {
-                display: flex;
-                gap: 8px;
-                margin: 14px 24px 0;
-                flex-wrap: wrap;
-                align-items: center;
-            }
-            .lens {
-                border: 1.5px solid #ccc;
-                background: #fff;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 13.5px;
-                cursor: pointer;
-                font-weight: 600;
-                color: #444;
-            }
-            .lens.active {
-                background: #2e7d32;
-                border-color: #2e7d32;
-                color: #fff;
-            }
-            #askBtn {
-                display: none;
-                border: 1.5px solid #2e7d32;
-                background: #fff;
-                color: #2e7d32;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 13.5px;
-                font-weight: 700;
-                cursor: pointer;
-            }
-            #askBtn.on {
-                display: inline-block;
-            }
-            .pcwrap {
-                display: flex;
-                gap: 6px;
-                margin-left: auto;
-            }
-            #pcInput {
-                border: 1.5px solid #ccc;
-                border-radius: 20px;
-                padding: 8px 14px;
-                font-size: 13.5px;
-                width: 170px;
-            }
-            #pcBtn {
-                border: none;
-                background: #1c1c1c;
-                color: #fff;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 13.5px;
-                font-weight: 600;
-                cursor: pointer;
-            }
-            #pcMsg {
-                font-size: 12px;
-                color: #c62828;
-                margin: 4px 24px 0;
-                min-height: 15px;
-            }
-            .lens-note {
-                font-size: 11.5px;
-                color: #777;
-                margin: 2px 24px 0;
-            }
-            .methodology {
-                margin: 10px 24px 0;
-                padding: 8px 12px;
-                background: #eaf0ea;
-                border-left: 3px solid #2e7d32;
-                font-size: 12px;
-                color: #333;
-                border-radius: 0 4px 4px 0;
-            }
-            .layout {
-                display: flex;
-                gap: 14px;
-                padding: 14px 24px 24px;
-                align-items: stretch;
-            }
-            #map {
-                flex: 1.4;
-                min-height: 520px;
-                border-radius: 10px;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-            }
-            .side {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 14px;
-                min-width: 340px;
-            }
-            #detail {
-                background: #fff;
-                border-radius: 10px;
-                padding: 16px 18px;
-                min-height: 170px;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            }
-            #detail h2 {
-                margin: 0 0 10px;
-                font-size: 18px;
-            }
-            #detail .hint {
-                color: #888;
-                font-size: 13px;
-            }
-            .flag {
-                display: inline-block;
-                background: #c62828;
-                color: #fff;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 3px 8px;
-                border-radius: 4px;
-                margin-bottom: 8px;
-            }
-            .yourward {
-                display: inline-block;
-                background: #1c1c1c;
-                color: #fff;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 3px 8px;
-                border-radius: 4px;
-                margin-bottom: 8px;
-                margin-right: 6px;
-            }
-            .scorebar {
-                margin: 7px 0;
-                font-size: 13px;
-            }
-            .scorebar .label {
-                display: inline-block;
-                width: 135px;
-                color: #444;
-            }
-            .scorebar .track {
-                display: inline-block;
-                width: 120px;
-                height: 8px;
-                background: #e7e7e7;
-                border-radius: 4px;
-                vertical-align: middle;
-            }
-            .scorebar .fill {
-                display: block;
-                height: 8px;
-                border-radius: 4px;
-            }
-            .scorebar .num {
-                margin-left: 8px;
-                font-weight: 700;
-            }
-            .just {
-                margin-top: 12px;
-                font-size: 13px;
-                color: #333;
-                font-style: italic;
-                border-top: 1px solid #eee;
-                padding-top: 10px;
-            }
-            #grid {
-                flex: 1;
-                min-height: 300px;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            }
-            .composite-big {
-                font-size: 32px;
-                font-weight: 800;
-                float: right;
-            }
-            .credit {
-                margin: 0 24px 16px;
-                font-size: 10.5px;
-                color: #999;
-            }
+            * { box-sizing: border-box; }
+            body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f4f1; color: #1c1c1c; }
+            header { padding: 18px 24px 4px; }
+            header h1 { margin: 0; font-size: 24px; letter-spacing: -0.3px; }
+            header h1 span { color: #2e7d32; }
+            header p { margin: 4px 0 0; color: #555; font-size: 13.5px; }
+            .controls { display: flex; gap: 8px; margin: 14px 24px 0; flex-wrap: wrap; align-items: center; }
+            .lens { border: 1.5px solid #ccc; background: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; cursor: pointer; font-weight: 600; color: #444; }
+            .lens.active { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+            #boroughSelect { border: 1.5px solid #ccc; border-radius: 20px; padding: 8px 14px; font-size: 13.5px; font-weight: 600; color: #1c1c1c; background: #fff; cursor: pointer; }
+            .pcwrap { display: flex; gap: 6px; margin-left: auto; }
+            #pcInput { border: 1.5px solid #ccc; border-radius: 20px; padding: 8px 14px; font-size: 13.5px; width: 170px; }
+            #pcBtn { border: none; background: #1c1c1c; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+            #pcMsg { font-size: 12px; color: #c62828; margin: 4px 24px 0; min-height: 15px; }
+            .lens-note { font-size: 11.5px; color: #777; margin: 2px 24px 0; }
+            .methodology { margin: 10px 24px 0; padding: 8px 12px; background: #eaf0ea; border-left: 3px solid #2e7d32; font-size: 12px; color: #333; border-radius: 0 4px 4px 0; }
+            .layout { display: flex; gap: 14px; padding: 14px 24px 24px; align-items: stretch; }
+            #map { flex: 1.4; min-height: 520px; border-radius: 10px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); }
+            .side { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 340px; }
+            #detail { background: #fff; border-radius: 10px; padding: 16px 18px; min-height: 170px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
+            #detail h2 { margin: 0 0 10px; font-size: 18px; }
+            #detail .hint { color: #888; font-size: 13px; }
+            .flag { display: inline-block; background: #c62828; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; }
+            .yourward { display: inline-block; background: #1c1c1c; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; margin-right: 6px; }
+            .scorebar { margin: 7px 0; font-size: 13px; }
+            .scorebar .label { display: inline-block; width: 135px; color: #444; }
+            .scorebar .track { display: inline-block; width: 120px; height: 8px; background: #e7e7e7; border-radius: 4px; vertical-align: middle; }
+            .scorebar .fill { display: block; height: 8px; border-radius: 4px; }
+            .scorebar .num { margin-left: 8px; font-weight: 700; }
+            .just { margin-top: 12px; font-size: 13px; color: #333; font-style: italic; border-top: 1px solid #eee; padding-top: 10px; }
+            #grid { flex: 1; min-height: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
+            .composite-big { font-size: 32px; font-weight: 800; float: right; }
+            .credit { margin: 0 24px 16px; font-size: 10.5px; color: #999; }
         </style>
     </head>
     <body>
         <header>
             <h1>Kid<span>Street</span></h1>
-            <p>
-                Let KidStreet guide you: honest scores for how child-friendly
-                Greenwich actually is, and what's right for your family. Open
-                data, open methodology.
-            </p>
+            <p>Let KidStreet guide you: honest scores for how child-friendly London actually is, and what's right for your family. Open data, open methodology.</p>
         </header>
 
         <div class="controls">
-            <button class="lens active" data-lens="move">
-                Where do I move?
-            </button>
-            <button class="lens" data-lens="hangout">
-                Where's a good day out?
-            </button>
-            <button class="lens" data-lens="council">
-                What should the council fix?
-            </button>
+            <button class="lens active" data-lens="move">Where do I move?</button>
+            <button class="lens" data-lens="hangout">Where's a good day out?</button>
+            <button class="lens" data-lens="council">What should the council fix?</button>
+            <select id="boroughSelect" title="Choose a borough"></select>
             <div class="pcwrap">
-                <input
-                    id="pcInput"
-                    placeholder="Your postcode, e.g. SE10 8XJ"
-                />
+                <input id="pcInput" placeholder="Your postcode, e.g. SE10 8XJ" />
                 <button id="pcBtn">Find my ward</button>
             </div>
         </div>
@@ -262,10 +63,7 @@
         <div class="lens-note" id="lensNote"></div>
 
         <div class="methodology">
-            <strong>Methodology:</strong> Safety 40% (police.uk crime density,
-            inverted) · Green access 30% (London Datastore) · Council narrative
-            30% (LLM score of real council documents) · Composite 0–100. All
-            sources open. Disagree with the inputs? Good, they're published.
+            <strong>Methodology:</strong> Safety 40% (police.uk crime density, inverted) · Green access 30% (London Datastore) · Council narrative 30% (LLM score of real council documents) · Composite 0–100. All sources open. Disagree with the inputs? Good, they're published.
         </div>
 
         <div class="layout">
@@ -273,20 +71,13 @@
             <div class="side">
                 <div id="detail">
                     <h2>Select a ward</h2>
-                    <p class="hint">
-                        Click a shaded ward, a table row, or search your
-                        postcode.
-                    </p>
+                    <p class="hint">Click a shaded ward, a table row, or search your postcode.</p>
                 </div>
                 <div id="grid" class="ag-theme-quartz"></div>
             </div>
         </div>
 
-        <p class="credit">
-            Ward boundaries: Office for National Statistics (Wards May 2024,
-            super-generalised). Contains OS data &copy; Crown copyright and
-            database right 2024. Postcode lookup: postcodes.io.
-        </p>
+        <p class="credit">Ward boundaries: Office for National Statistics (Wards May 2024, super-generalised). Contains OS data &copy; Crown copyright and database right 2024. Postcode lookup: postcodes.io.</p>
 
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
@@ -301,42 +92,23 @@
                 "&outFields=WD24CD,WD24NM&outSR=4326&f=geojson";
 
             const LENSES = {
-                move: {
-                    note: "Published composite: safety 40% · green 30% · narrative 30%. Best score first.",
-                    score: (w) => w.composite,
-                    sortDesc: true,
-                },
-                hangout: {
-                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you're visiting, not buying.",
-                    score: (w) => Math.round(0.6 * w.green + 0.4 * w.safety),
-                    sortDesc: true,
-                },
-                council: {
-                    note: "Same composite, worst first. Wards under 60 flagged as needing improvement.",
-                    score: (w) => w.composite,
-                    sortDesc: false,
-                    flagUnder: 60,
-                },
+                move: { note: "Published composite: safety 40% · green 30% · narrative 30%. Best score first.", score: (w) => w.composite, sortDesc: true },
+                hangout: { note: "Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you're visiting, not buying.", score: (w) => Math.round(0.6 * w.green + 0.4 * w.safety), sortDesc: true },
+                council: { note: "Same composite, worst first. Wards under 60 flagged as needing improvement.", score: (w) => w.composite, sortDesc: false, flagUnder: 60 },
             };
             let activeLens = "move";
+            let activeBorough = "__all__";
             let wardData = [];
             let scoresByName = {};
             let yourWard = null;
             const layersByWard = {};
             let gridApi = null;
 
-            const map = L.map("map").setView([51.465, 0.06], 12);
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                attribution: "&copy; OpenStreetMap contributors",
-            }).addTo(map);
+            const map = L.map("map").setView([51.5, -0.09], 10);
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
 
             function normName(s) {
-                return s
-                    .toLowerCase()
-                    .replace(/&/g, "and")
-                    .replace(/[,.']/g, "")
-                    .replace(/\s+/g, " ")
-                    .trim();
+                return s.toLowerCase().replace(/&/g, "and").replace(/[,.']/g, "").replace(/\s+/g, " ").trim();
             }
 
             function scoreColour(s) {
@@ -347,32 +119,32 @@
                 return "#c62828";
             }
 
-            function lensScore(w) {
-                return LENSES[activeLens].score(w);
+            function lensScore(w) { return LENSES[activeLens].score(w); }
+
+            function inActiveBorough(w) {
+                return activeBorough === "__all__" || (w.borough || "") === activeBorough;
             }
 
             function repaint() {
                 const lens = LENSES[activeLens];
                 document.getElementById("lensNote").textContent = lens.note;
                 wardData.forEach((w) => {
-                    const s = lensScore(w);
                     const layer = layersByWard[normName(w.ward)];
-                    if (layer) {
-                        layer.setStyle({ fillColor: scoreColour(s) });
+                    if (!layer) return;
+                    if (inActiveBorough(w)) {
+                        const s = lensScore(w);
+                        layer.setStyle({ fillColor: scoreColour(s), fillOpacity: 0.55, opacity: 1, weight: 1.5 });
                         layer.unbindTooltip();
                         layer.bindTooltip(w.ward + " — " + s, { sticky: true });
+                    } else {
+                        // scored but not in the selected borough: dim it right down
+                        layer.setStyle({ fillColor: "#bbb", fillOpacity: 0.12, opacity: 0.4, weight: 0.5 });
+                        layer.unbindTooltip();
                     }
                 });
                 if (gridApi) {
-                    gridApi.applyColumnState({
-                        state: [
-                            {
-                                colId: "lensScore",
-                                sort: lens.sortDesc ? "desc" : "asc",
-                            },
-                        ],
-                        defaultState: { sort: null },
-                    });
+                    gridApi.applyColumnState({ state: [{ colId: "lensScore", sort: lens.sortDesc ? "desc" : "asc" }], defaultState: { sort: null } });
+                    gridApi.onFilterChanged();
                     gridApi.refreshCells({ force: true });
                 }
             }
@@ -380,48 +152,17 @@
             function showDetail(w) {
                 const lens = LENSES[activeLens];
                 const s = lensScore(w);
-                let html =
-                    '<span class="composite-big" style="color:' +
-                    scoreColour(s) +
-                    '">' +
-                    s +
-                    "</span>";
+                let html = '<span class="composite-big" style="color:' + scoreColour(s) + '">' + s + "</span>";
                 html += "<h2>" + w.ward + "</h2>";
-                if (yourWard === normName(w.ward)) {
-                    html += '<span class="yourward">YOUR WARD</span>';
-                }
-                if (lens.flagUnder && s < lens.flagUnder) {
-                    html += '<span class="flag">NEEDS IMPROVEMENT</span>';
-                }
-                if (
-                    yourWard === normName(w.ward) ||
-                    (lens.flagUnder && s < lens.flagUnder)
-                ) {
-                    html += "<br>";
-                }
-                const rows = [
-                    ["Safety (police.uk)", w.safety],
-                    ["Green access", w.green],
-                    ["Council narrative", w.narrative],
-                ];
+                if (w.borough) html += '<div style="font-size:12px;color:#888;margin:-6px 0 8px;">' + w.borough + "</div>";
+                if (yourWard === normName(w.ward)) html += '<span class="yourward">YOUR WARD</span>';
+                if (lens.flagUnder && s < lens.flagUnder) html += '<span class="flag">NEEDS IMPROVEMENT</span>';
+                if (yourWard === normName(w.ward) || (lens.flagUnder && s < lens.flagUnder)) html += "<br>";
+                const rows = [["Safety (police.uk)", w.safety], ["Green access", w.green], ["Council narrative", w.narrative]];
                 for (const [label, val] of rows) {
-                    html +=
-                        '<div class="scorebar"><span class="label">' +
-                        label +
-                        "</span>" +
-                        '<span class="track"><span class="fill" style="width:' +
-                        val +
-                        "%;background:" +
-                        scoreColour(val) +
-                        '"></span></span>' +
-                        '<span class="num">' +
-                        val +
-                        "</span></div>";
+                    html += '<div class="scorebar"><span class="label">' + label + "</span>" + '<span class="track"><span class="fill" style="width:' + val + "%;background:" + scoreColour(val) + '"></span></span>' + '<span class="num">' + val + "</span></div>";
                 }
-                html +=
-                    '<div class="just">&ldquo;' +
-                    w.justification +
-                    "&rdquo;</div>";
+                html += '<div class="just">&ldquo;' + w.justification + "&rdquo;</div>";
                 document.getElementById("detail").innerHTML = html;
             }
 
@@ -431,255 +172,156 @@
                 if (layer) {
                     map.fitBounds(layer.getBounds(), { padding: [30, 30] });
                     layer.setStyle({ weight: 3.5 });
-                    setTimeout(() => layer.setStyle({ weight: 1.5 }), 1200);
+                    setTimeout(() => layer.setStyle({ weight: inActiveBorough(w) ? 1.5 : 0.5 }), 1200);
+                }
+            }
+
+            function boroughBounds(borough) {
+                const layers = wardData.filter((w) => (w.borough || "") === borough).map((w) => layersByWard[normName(w.ward)]).filter(Boolean);
+                if (!layers.length) return null;
+                let b = layers[0].getBounds();
+                layers.slice(1).forEach((l) => { b = b.extend(l.getBounds()); });
+                return b;
+            }
+
+            function applyBorough(borough) {
+                activeBorough = borough;
+                repaint();
+                if (borough === "__all__") {
+                    map.setView([51.5, -0.09], 10);
+                } else {
+                    const b = boroughBounds(borough);
+                    if (b) map.fitBounds(b, { padding: [30, 30] });
                 }
             }
 
             document.querySelectorAll(".lens").forEach((btn) => {
                 btn.addEventListener("click", () => {
-                    document
-                        .querySelectorAll(".lens")
-                        .forEach((b) => b.classList.remove("active"));
+                    document.querySelectorAll(".lens").forEach((b) => b.classList.remove("active"));
                     btn.classList.add("active");
                     activeLens = btn.dataset.lens;
                     repaint();
                 });
             });
 
+            document.getElementById("boroughSelect").addEventListener("change", (e) => applyBorough(e.target.value));
+
             function findPostcode() {
                 const pc = document.getElementById("pcInput").value.trim();
                 const msg = document.getElementById("pcMsg");
                 msg.textContent = "";
                 if (!pc) return;
-                fetch(
-                    "https://api.postcodes.io/postcodes/" +
-                        encodeURIComponent(pc),
-                )
+                fetch("https://api.postcodes.io/postcodes/" + encodeURIComponent(pc))
                     .then((r) => r.json())
                     .then((data) => {
-                        if (data.status !== 200 || !data.result) {
-                            msg.textContent =
-                                "Postcode not recognised. Check the spelling.";
-                            return;
-                        }
+                        if (data.status !== 200 || !data.result) { msg.textContent = "Postcode not recognised. Check the spelling."; return; }
                         const wardName = data.result.admin_ward || "";
                         const w = scoresByName[normName(wardName)];
-                        if (!w) {
-                            msg.textContent = wardName
-                                ? "That postcode is in " +
-                                  wardName +
-                                  ", outside Greenwich. Greenwich only for now — more boroughs coming."
-                                : "Could not resolve that postcode to a ward.";
-                            return;
-                        }
+                        if (!w) { msg.textContent = wardName ? "That postcode is in " + wardName + ", which we haven't scored yet. More boroughs coming." : "Could not resolve that postcode to a ward."; return; }
                         yourWard = normName(w.ward);
+                        if (w.borough && w.borough !== activeBorough) { document.getElementById("boroughSelect").value = w.borough; applyBorough(w.borough); }
                         selectWard(w);
                     })
-                    .catch(() => {
-                        msg.textContent =
-                            "Postcode lookup unavailable right now.";
-                    });
+                    .catch(() => { msg.textContent = "Postcode lookup unavailable right now."; });
             }
-            document
-                .getElementById("pcBtn")
-                .addEventListener("click", findPostcode);
-            document
-                .getElementById("pcInput")
-                .addEventListener("keydown", (e) => {
-                    if (e.key === "Enter") findPostcode();
-                });
+            document.getElementById("pcBtn").addEventListener("click", findPostcode);
+            document.getElementById("pcInput").addEventListener("keydown", (e) => { if (e.key === "Enter") findPostcode(); });
 
-            // Voice agent recommendation: rank the already-loaded scores by the user's
-            // stated priorities. Uses wardData (the hardcoded /api/scores JSON) directly.
-            function recommendWards({
-                safety_importance = 5,
-                green_importance = 5,
-                narrative_importance = 5,
-                top_n = 3,
-            } = {}) {
-                if (!wardData.length)
-                    return {
-                        error: "Ward data is still loading, ask again in a moment.",
-                    };
-                const raw = [
-                    Number(safety_importance) || 0,
-                    Number(green_importance) || 0,
-                    Number(narrative_importance) || 0,
-                ];
+            function recommendWards({ safety_importance = 5, green_importance = 5, narrative_importance = 5, top_n = 3 } = {}) {
+                if (!wardData.length) return { error: "Ward data is still loading, ask again in a moment." };
+                const raw = [Number(safety_importance) || 0, Number(green_importance) || 0, Number(narrative_importance) || 0];
                 const total = raw[0] + raw[1] + raw[2] || 1;
                 const [wSafety, wGreen, wNarrative] = raw.map((w) => w / total);
-                const ranked = wardData
-                    .map((w) => ({
-                        w,
-                        score: Math.round(
-                            wSafety * w.safety +
-                                wGreen * w.green +
-                                wNarrative * w.narrative,
-                        ),
-                    }))
-                    .sort((a, b) => b.score - a.score);
+                const pool = wardData.filter(inActiveBorough);
+                const ranked = pool.map((w) => ({ w, score: Math.round(wSafety * w.safety + wGreen * w.green + wNarrative * w.narrative) })).sort((a, b) => b.score - a.score);
                 const n = Math.max(1, Math.min(Number(top_n) || 3, 5));
                 const top = ranked.slice(0, n);
-                if (top[0]) selectWard(top[0].w); // highlight the best match on the map + detail panel
+                if (top[0]) selectWard(top[0].w);
                 return {
-                    top: top.map(({ w, score }) => ({
-                        ward: w.ward,
-                        matchScore: score,
-                        safety: w.safety,
-                        green: w.green,
-                        narrative: w.narrative,
-                    })),
-                    spoken:
-                        "Top match: " +
-                        top
-                            .map((t) => t.w.ward + " (" + t.score + ")")
-                            .join(", ") +
-                        ".",
+                    top: top.map(({ w, score }) => ({ ward: w.ward, borough: w.borough, matchScore: score, safety: w.safety, green: w.green, narrative: w.narrative })),
+                    spoken: "Top match: " + top.map((t) => t.w.ward + " (" + t.score + ")").join(", ") + ".",
                 };
             }
 
-            // ---- ElevenLabs voice agent ----
             if (ELEVENLABS_AGENT_ID) {
                 const s = document.createElement("script");
                 s.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
                 s.async = true;
                 document.body.appendChild(s);
-
                 const el = document.createElement("elevenlabs-convai");
                 el.setAttribute("agent-id", ELEVENLABS_AGENT_ID);
                 el.setAttribute("action-text", "Ask KidStreet");
                 document.body.appendChild(el);
-
                 el.addEventListener("elevenlabs-convai:call", (event) => {
                     event.detail.config.clientTools = {
-                        recommend_wards: async (params) =>
-                            recommendWards(params || {}),
-                        get_ward_scores: () => {
-                            return JSON.stringify(
-                                wardData.map((w) => ({
-                                    ward: w.ward,
-                                    safety: w.safety,
-                                    green: w.green,
-                                    narrative: w.narrative,
-                                    composite: w.composite,
-                                    justification: w.justification,
-                                })),
-                            );
-                        },
+                        recommend_wards: async (params) => recommendWards(params || {}),
+                        get_ward_scores: () => JSON.stringify(wardData.filter(inActiveBorough).map((w) => ({ ward: w.ward, borough: w.borough, safety: w.safety, green: w.green, narrative: w.narrative, composite: w.composite, justification: w.justification }))),
                         show_ward: ({ ward }) => {
                             const w = scoresByName[normName(ward || "")];
-                            if (!w)
-                                return (
-                                    "Ward not found: " +
-                                    ward +
-                                    ". Use exact Greenwich ward names from get_ward_scores."
-                                );
+                            if (!w) return "Ward not found: " + ward + ". Use exact ward names from get_ward_scores.";
                             selectWard(w);
-                            return (
-                                "Now showing " +
-                                w.ward +
-                                " (composite " +
-                                w.composite +
-                                ") on the map."
-                            );
+                            return "Now showing " + w.ward + " (composite " + w.composite + ") on the map.";
                         },
                     };
                 });
+                const askBtn = document.getElementById("askBtn");
+                if (askBtn) { askBtn.classList.add("on"); askBtn.addEventListener("click", () => { if (typeof el.startConversation === "function") el.startConversation(); }); }
             }
 
             function loadBoundaries() {
-                return fetch("/wards.geojson")
-                    .then((r) => {
-                        if (!r.ok) throw new Error("no local snapshot");
-                        return r.json();
-                    })
-                    .catch(() => fetch(ONS_WARDS_URL).then((r) => r.json()));
+                return fetch("/wards.geojson").then((r) => { if (!r.ok) throw new Error("no local snapshot"); return r.json(); }).catch(() => fetch(ONS_WARDS_URL).then((r) => r.json()));
             }
 
-            Promise.all([
-                fetch("/api/scores").then((r) => r.json()),
-                loadBoundaries(),
-            ])
+            function buildBoroughDropdown() {
+                const sel = document.getElementById("boroughSelect");
+                const boroughs = [...new Set(wardData.map((w) => w.borough).filter(Boolean))].sort();
+                let html = '<option value="__all__">All London (' + wardData.length + " wards)</option>";
+                boroughs.forEach((b) => {
+                    const count = wardData.filter((w) => w.borough === b).length;
+                    html += '<option value="' + b + '">' + b + " (" + count + ")</option>";
+                });
+                sel.innerHTML = html;
+            }
+
+            Promise.all([fetch("/api/scores").then((r) => r.json()), loadBoundaries()])
                 .then(([scores, geo]) => {
                     wardData = scores;
-                    scores.forEach((w) => {
-                        scoresByName[normName(w.ward)] = w;
-                    });
+                    scores.forEach((w) => { scoresByName[normName(w.ward)] = w; });
 
                     geo.features.forEach((f) => {
                         const wname = f.properties.WD24NM || "";
                         const w = scoresByName[normName(wname)];
                         if (!w) return;
-                        const layer = L.geoJSON(f, {
-                            style: {
-                                color: "#2b2b2b",
-                                weight: 1.5,
-                                fillColor: scoreColour(w.composite),
-                                fillOpacity: 0.55,
-                            },
-                        }).addTo(map);
+                        const layer = L.geoJSON(f, { style: { color: "#2b2b2b", weight: 1.5, fillColor: scoreColour(w.composite), fillOpacity: 0.55 } }).addTo(map);
                         layer.on("click", () => selectWard(w));
                         layersByWard[normName(w.ward)] = layer;
                     });
 
                     const matched = Object.keys(layersByWard).length;
                     if (matched < scores.length) {
-                        console.warn(
-                            "Unmatched wards:",
-                            scores
-                                .filter((w) => !layersByWard[normName(w.ward)])
-                                .map((w) => w.ward),
-                        );
+                        console.warn("Unmatched wards:", scores.filter((w) => !layersByWard[normName(w.ward)]).map((w) => w.ward));
                     }
 
-                    gridApi = agGrid.createGrid(
-                        document.getElementById("grid"),
-                        {
-                            rowData: scores,
-                            columnDefs: [
-                                {
-                                    field: "ward",
-                                    headerName: "Ward",
-                                    flex: 1.6,
-                                },
-                                {
-                                    field: "safety",
-                                    headerName: "Safety",
-                                    flex: 0.8,
-                                },
-                                {
-                                    field: "green",
-                                    headerName: "Green",
-                                    flex: 0.8,
-                                },
-                                {
-                                    field: "narrative",
-                                    headerName: "Narrative",
-                                    flex: 0.9,
-                                },
-                                {
-                                    colId: "lensScore",
-                                    headerName: "Score",
-                                    flex: 0.8,
-                                    sort: "desc",
-                                    valueGetter: (p) =>
-                                        LENSES[activeLens].score(p.data),
-                                    cellStyle: (p) => ({
-                                        fontWeight: 800,
-                                        color: scoreColour(p.value),
-                                    }),
-                                },
-                            ],
-                            onRowClicked: (e) => selectWard(e.data),
-                        },
-                    );
+                    buildBoroughDropdown();
+
+                    gridApi = agGrid.createGrid(document.getElementById("grid"), {
+                        rowData: scores,
+                        columnDefs: [
+                            { field: "ward", headerName: "Ward", flex: 1.6 },
+                            { field: "borough", headerName: "Borough", flex: 1.2 },
+                            { field: "safety", headerName: "Safety", flex: 0.8 },
+                            { field: "green", headerName: "Green", flex: 0.8 },
+                            { field: "narrative", headerName: "Narrative", flex: 0.9 },
+                            { colId: "lensScore", headerName: "Score", flex: 0.8, sort: "desc", valueGetter: (p) => LENSES[activeLens].score(p.data), cellStyle: (p) => ({ fontWeight: 800, color: scoreColour(p.value) }) },
+                        ],
+                        isExternalFilterPresent: () => activeBorough !== "__all__",
+                        doesExternalFilterPass: (node) => inActiveBorough(node.data),
+                        onRowClicked: (e) => selectWard(e.data),
+                    });
                     repaint();
                 })
                 .catch((err) => {
-                    document.getElementById("detail").innerHTML =
-                        '<h2>Data failed to load</h2><p class="hint">' +
-                        err +
-                        "</p>";
+                    document.getElementById("detail").innerHTML = '<h2>Data failed to load</h2><p class="hint">' + err + "</p>";
                 });
         </script>
     </body>
