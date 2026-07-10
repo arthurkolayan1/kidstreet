@@ -112,6 +112,38 @@ export default {
       return Array.isArray(raw.wards) ? raw.wards : [];
     }
 
+    // Published composite weights. Must stay in sync with the methodology strip in
+    // public/index.html — if you change one, change the other in the same commit.
+    // Play (8) was split out of the former Green weight (20 -> 12 + 8): both measure
+    // physical space, but play provision is benchmarked against London Plan Policy S4
+    // (10 sqm playable space per child) rather than generic access to green space.
+    const WEIGHTS = {
+      safety: 30,
+      education: 20,
+      transport: 15,
+      green_space: 12,
+      family_fit: 10,
+      play: 8,
+      planning: 5,
+    };
+
+    // A dimension with a null/absent score is excluded and the remaining weights are
+    // renormalised, so missing data never silently counts as zero. (Currently this
+    // applies to the 15 City of London wards, where ONS publishes no ward-level child
+    // population, so play is null.)
+    function compositeOf(s) {
+      let num = 0;
+      let den = 0;
+      for (const [dim, weight] of Object.entries(WEIGHTS)) {
+        const v = s[dim];
+        if (typeof v === "number" && isFinite(v)) {
+          num += weight * v;
+          den += weight;
+        }
+      }
+      return den > 0 ? Math.round(num / den) : 0;
+    }
+
     // Same score bands the UI uses for its map/table colouring (see scoreColour() in
     // public/index.html) so the templated sentence below never contradicts the colour a ward
     // is painted. Keep these two in sync if the bands change.
@@ -161,14 +193,19 @@ export default {
       try {
         const wards = await loadWards();
 
-        // Flat contract kept unchanged for the existing map/table/voice-agent code in
-        // public/index.html: {ward, borough, safety, green, narrative, composite, justification}.
-        // `narrative` and `composite` are approximated from the richer pipeline dimensions until
-        // the live OpenRouter narrative pass (see /api/narrative) is run per-ward:
-        //   narrative proxy = average of education, planning and family_fit scores (the three
-        //   "is this place investing in and suited to families" signals we have real data for).
-        // `lat`/`lng` (ward centroid) are included so the frontend can filter/rank recommendations
-        // by distance from a user-supplied location instead of only by score.
+        // Flat contract for the map/table/voice-agent code in public/index.html. All
+        // pre-play fields ({ward, borough, safety, green, narrative, composite,
+        // justification, lat, lng}) are kept so nothing downstream breaks; play fields
+        // are additive:
+        //   play           0-100, capped benchmark score (null where no child population)
+        //   playM2PerChild raw sqm of playable space per child aged 0-15
+        //   playRatio      playM2PerChild / 10 (London Plan Policy S4 benchmark);
+        //                  < 1 is a deficit, >= 1 meets the benchmark
+        //   playAreaM2 / playChildren  the two raw inputs, for full transparency
+        // `narrative` remains the average of education, planning and family_fit (the
+        // three "is this place investing in and suited to families" signals), kept for
+        // the voice agent tools and the day-out lens. `composite` is now the published
+        // seven-dimension weighted blend (see WEIGHTS above), null-aware.
         const scores = wards.map((w) => {
           const s = w.scores || {};
           const safety = Number(s.safety) || 0;
@@ -182,9 +219,7 @@ export default {
                   narrativeParts.length,
               )
             : 0;
-          const composite = Math.round(
-            0.4 * safety + 0.3 * green + 0.3 * narrative,
-          );
+          const play = w.dimensions?.play_provision || {};
           return {
             ward: w.ward_name,
             borough: w.borough,
@@ -192,8 +227,17 @@ export default {
             lng: w.centroid?.lng ?? null,
             safety,
             green,
+            transport: s.transport ?? null,
+            education: s.education ?? null,
+            planning: s.planning ?? null,
+            family: s.family_fit ?? null,
+            play: s.play ?? null,
+            playAreaM2: play.play_area_m2 ?? null,
+            playChildren: play.children_0_15 ?? null,
+            playM2PerChild: play.m2_per_child ?? null,
+            playRatio: play.ratio_vs_benchmark ?? null,
             narrative,
-            composite,
+            composite: compositeOf(s),
             justification: templatedJustification(w, safety, green, narrative),
           };
         });
@@ -215,8 +259,8 @@ export default {
     }
 
     // Richer per-ward detail for the voice agent and detail panel: every dimension's raw facts
-    // (named schools, stations, parks, planning applications) alongside its score. Optional
-    // ?borough= filter. Optional /api/wards/<ward name> for a single ward.
+    // (named schools, stations, parks, planning applications, play provision) alongside its
+    // score. Optional ?borough= filter. Optional /api/wards/<ward name> for a single ward.
     if (
       url.pathname === "/api/wards" ||
       url.pathname.startsWith("/api/wards/")
