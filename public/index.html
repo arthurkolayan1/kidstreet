@@ -800,6 +800,115 @@
                 }
             }
 
+            // Nulls sort last in either direction; equal play scores
+            // (hundreds tie at the capped 100) are broken by the raw
+            // m² per child so the ordering stays meaningful.
+            function nullsLast(a, b, nodeA, nodeB, isDesc) {
+                const an = a == null,
+                    bn = b == null;
+                if (an && bn) return 0;
+                if (an) return isDesc ? -1 : 1;
+                if (bn) return isDesc ? 1 : -1;
+                if (typeof a === "string") return a.localeCompare(b);
+                return a - b;
+            }
+            function playAware(a, b, nodeA, nodeB, isDesc) {
+                const base = nullsLast(a, b, nodeA, nodeB, isDesc);
+                if (base !== 0) return base;
+                const ma = nodeA?.data?.playM2PerChild;
+                const mb = nodeB?.data?.playM2PerChild;
+                if (ma == null || mb == null) return 0;
+                return ma - mb;
+            }
+            const wardColumnDefs = [
+                {
+                    field: "ward",
+                    headerName: "Ward",
+                    flex: 1.6,
+                },
+                {
+                    field: "borough",
+                    headerName: "Borough",
+                    flex: 1.2,
+                },
+                {
+                    field: "safety",
+                    headerName: "Safety",
+                    flex: 0.8,
+                    valueFormatter: (p) =>
+                        p.value == null ? "–" : p.value,
+                },
+                {
+                    field: "green",
+                    headerName: "Green",
+                    flex: 0.8,
+                    valueFormatter: (p) =>
+                        p.value == null ? "–" : p.value,
+                },
+                {
+                    field: "narrative",
+                    headerName: "Narrative",
+                    flex: 0.9,
+                    valueFormatter: (p) =>
+                        p.value == null ? "–" : p.value,
+                },
+                {
+                    field: "play",
+                    headerName: "Play",
+                    flex: 0.8,
+                    comparator: playAware,
+                    valueFormatter: (p) =>
+                        p.value == null ? "–" : p.value,
+                },
+                {
+                    colId: "lensScore",
+                    headerName: "Score",
+                    flex: 0.8,
+                    sort: "desc",
+                    comparator: playAware,
+                    valueGetter: (p) =>
+                        LENSES[activeLens].score(p.data),
+                    cellStyle: (p) => ({
+                        fontWeight: 800,
+                        color: lensColour(p.data),
+                    }),
+                },
+                    ];
+            const boroughColumnDefs = [
+                {
+                    field: "borough",
+                    headerName: "Borough",
+                    flex: 1.4,
+                },
+                {
+                    colId: "deficitPct",
+                    headerName: "Below benchmark",
+                    flex: 1.1,
+                    sort: "desc",
+                    valueGetter: (p) => p.data.deficitPct,
+                    valueFormatter: (p) =>
+                p.data.scored
+                    ? p.data.deficit + " / " + p.data.scored
+                    : "\u2013",
+                    cellStyle: (p) => ({
+                fontWeight: 800,
+                color: boroughColour(p.data.borough),
+                    }),
+                },
+                {
+                    field: "medianM2",
+                    headerName: "Median m\u00b2/child",
+                    flex: 1.0,
+                    valueFormatter: (p) =>
+                p.value == null ? "\u2013" : p.value,
+                },
+                {
+                    field: "worstLabel",
+                    headerName: "Worst ward (m\u00b2/child)",
+                    flex: 1.5,
+                },
+            ];
+
             document.querySelectorAll(".lens").forEach((btn) => {
                 btn.addEventListener("click", () => {
                     document
@@ -1107,114 +1216,6 @@
                     computeLensDistributions();
                     buildBoroughDropdown();
 
-                    // Nulls sort last in either direction; equal play scores
-                    // (hundreds tie at the capped 100) are broken by the raw
-                    // m² per child so the ordering stays meaningful.
-                    function nullsLast(a, b, nodeA, nodeB, isDesc) {
-                        const an = a == null,
-                            bn = b == null;
-                        if (an && bn) return 0;
-                        if (an) return isDesc ? -1 : 1;
-                        if (bn) return isDesc ? 1 : -1;
-                        if (typeof a === "string") return a.localeCompare(b);
-                        return a - b;
-                    }
-                    function playAware(a, b, nodeA, nodeB, isDesc) {
-                        const base = nullsLast(a, b, nodeA, nodeB, isDesc);
-                        if (base !== 0) return base;
-                        const ma = nodeA?.data?.playM2PerChild;
-                        const mb = nodeB?.data?.playM2PerChild;
-                        if (ma == null || mb == null) return 0;
-                        return ma - mb;
-                    }
-                    const wardColumnDefs = [
-                                {
-                                    field: "ward",
-                                    headerName: "Ward",
-                                    flex: 1.6,
-                                },
-                                {
-                                    field: "borough",
-                                    headerName: "Borough",
-                                    flex: 1.2,
-                                },
-                                {
-                                    field: "safety",
-                                    headerName: "Safety",
-                                    flex: 0.8,
-                                    valueFormatter: (p) =>
-                                        p.value == null ? "–" : p.value,
-                                },
-                                {
-                                    field: "green",
-                                    headerName: "Green",
-                                    flex: 0.8,
-                                    valueFormatter: (p) =>
-                                        p.value == null ? "–" : p.value,
-                                },
-                                {
-                                    field: "narrative",
-                                    headerName: "Narrative",
-                                    flex: 0.9,
-                                    valueFormatter: (p) =>
-                                        p.value == null ? "–" : p.value,
-                                },
-                                {
-                                    field: "play",
-                                    headerName: "Play",
-                                    flex: 0.8,
-                                    comparator: playAware,
-                                    valueFormatter: (p) =>
-                                        p.value == null ? "–" : p.value,
-                                },
-                                {
-                                    colId: "lensScore",
-                                    headerName: "Score",
-                                    flex: 0.8,
-                                    sort: "desc",
-                                    comparator: playAware,
-                                    valueGetter: (p) =>
-                                        LENSES[activeLens].score(p.data),
-                                    cellStyle: (p) => ({
-                                        fontWeight: 800,
-                                        color: lensColour(p.data),
-                                    }),
-                                },
-                            ];
-                    const boroughColumnDefs = [
-                        {
-                            field: "borough",
-                            headerName: "Borough",
-                            flex: 1.4,
-                        },
-                        {
-                            colId: "deficitPct",
-                            headerName: "Below benchmark",
-                            flex: 1.1,
-                            sort: "desc",
-                            valueGetter: (p) => p.data.deficitPct,
-                            valueFormatter: (p) =>
-                                p.data.scored
-                                    ? p.data.deficit + " / " + p.data.scored
-                                    : "\u2013",
-                            cellStyle: (p) => ({
-                                fontWeight: 800,
-                                color: boroughColour(p.data.borough),
-                            }),
-                        },
-                        {
-                            field: "medianM2",
-                            headerName: "Median m\u00b2/child",
-                            flex: 1.0,
-                            valueFormatter: (p) =>
-                                p.value == null ? "\u2013" : p.value,
-                        },
-                        {
-                            field: "worstLabel",
-                            headerName: "Worst ward (m\u00b2/child)",
-                            flex: 1.5,
-                        },
-                    ];
                     gridApi = agGrid.createGrid(
                         document.getElementById("grid"),
                         {
