@@ -265,7 +265,7 @@
                 Play provision (GLA)
             </button>
             <button class="lens" data-lens="boroughs">
-                Borough roll-up
+                Play deficit by borough
             </button>
             <select id="boroughSelect" title="Choose a borough"></select>
             <div class="pcwrap">
@@ -362,7 +362,7 @@
                     flagUnder: 60,
                 },
                 boroughs: {
-                    note: "Borough roll-up for GLA: share of each borough's scored wards below the 10 m\u00b2/child play benchmark. Green = no deficit wards; red = half or more. Click a borough for its summary.",
+                    note: "Each borough is coloured by the share of its wards providing under 10 m\u00b2 of playable space per child aged 0\u201315 \u2014 the Mayor's London Plan Policy S4 standard. Dark green = every scored ward meets it; red = half or more fall short. Click a borough for its summary.",
                     isBorough: true,
                     score: (w) => {
                         const d = boroughStats[w.borough];
@@ -510,7 +510,16 @@
                 });
             }
 
+            const lensColourCache = {};
             function lensColour(w) {
+                const key = activeLens + "|" + w.code;
+                const hit = lensColourCache[key];
+                if (hit) return hit;
+                const c = computeLensColour(w);
+                lensColourCache[key] = c;
+                return c;
+            }
+            function computeLensColour(w) {
                 const lens = LENSES[activeLens];
                 if (lens.isBorough) return boroughColour(w.borough);
                 const s = lens.score(w);
@@ -569,6 +578,8 @@
                             opacity: 1,
                             weight: 1.5,
                         });
+                        if (layer._ksTipLens === activeLens) return;
+                        layer._ksTipLens = activeLens;
                         layer.unbindTooltip();
                         let tip;
                         if (lens.isBorough) {
@@ -602,7 +613,10 @@
                             opacity: 0.4,
                             weight: 0.5,
                         });
-                        layer.unbindTooltip();
+                        if (layer._ksTipLens) {
+                            layer.unbindTooltip();
+                            layer._ksTipLens = null;
+                        }
                     }
                 });
                 if (gridApi) {
@@ -723,13 +737,13 @@
                     "</span>";
                 html += "<h2>" + borough + "</h2>";
                 html +=
-                    '<div style="font-size:12px;color:#888;margin:-6px 0 10px;">Borough roll-up · play provision vs London Plan Policy S4</div>';
+                    '<div style="font-size:12px;color:#888;margin:-6px 0 10px;">Share of scored wards providing under 10 m² of playable space per child (London Plan Policy S4)</div>';
                 if (!d.scored) {
                     html +=
                         '<p class="hint">No wards in this borough have published child population data, so play provision cannot be benchmarked here.</p>';
                 } else {
                     html +=
-                        '<div class="scorebar"><span class="label">Below benchmark</span><strong>' +
+                        '<div class="scorebar"><span class="label">Under 10 m²/child</span><strong>' +
                         d.deficit +
                         " of " +
                         d.scored +
@@ -882,7 +896,7 @@
                 },
                 {
                     colId: "deficitPct",
-                    headerName: "Below benchmark",
+                    headerName: "Wards under 10 m\u00b2/child",
                     flex: 1.1,
                     sort: "desc",
                     valueGetter: (p) => p.data.deficitPct,
