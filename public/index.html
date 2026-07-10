@@ -264,6 +264,9 @@
             <button class="lens" data-lens="play">
                 Play provision (GLA)
             </button>
+            <button class="lens" data-lens="boroughs">
+                Borough roll-up
+            </button>
             <select id="boroughSelect" title="Choose a borough"></select>
             <div class="pcwrap">
                 <input
@@ -358,6 +361,15 @@
                     sortDesc: false,
                     flagUnder: 60,
                 },
+                boroughs: {
+                    note: "Borough roll-up for GLA: share of each borough's scored wards below the 10 m\u00b2/child play benchmark. Green = no deficit wards; red = half or more. Click a borough for its summary.",
+                    isBorough: true,
+                    score: (w) => {
+                        const d = boroughStats[w.borough];
+                        return d && d.scored ? d.deficitPct : null;
+                    },
+                    sortDesc: true,
+                },
                 play: {
                     note: "GLA borough-planning layer: playable space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (City of London). Worst first.",
                     score: (w) => w.play,
@@ -416,9 +428,81 @@
                 "#2e7d32",
             ];
             const lensSorted = {}; // lens key -> sorted score values
+            let boroughStats = {};
+            let boroughRows = [];
+
+            function computeBoroughStats() {
+                const groups = {};
+                wardData.forEach((w) => {
+                    (groups[w.borough] = groups[w.borough] || []).push(w);
+                });
+                boroughStats = {};
+                boroughRows = [];
+                Object.keys(groups).forEach((b) => {
+                    const ws = groups[b];
+                    const scored = ws.filter((w) => w.playRatio != null);
+                    const deficit = scored.filter((w) => w.playRatio < 1);
+                    const m2s = scored
+                        .map((w) => w.playM2PerChild)
+                        .sort((x, y) => x - y);
+                    const median = m2s.length
+                        ? m2s.length % 2
+                            ? m2s[(m2s.length - 1) / 2]
+                            : (m2s[m2s.length / 2 - 1] + m2s[m2s.length / 2]) /
+                              2
+                        : null;
+                    const worst = scored
+                        .slice()
+                        .sort(
+                            (x, y) => x.playM2PerChild - y.playM2PerChild,
+                        )[0];
+                    const children = scored.reduce(
+                        (a, w) => a + (w.playChildren || 0),
+                        0,
+                    );
+                    const stat = {
+                        isBoroughRow: true,
+                        borough: b,
+                        total: ws.length,
+                        scored: scored.length,
+                        deficit: deficit.length,
+                        deficitPct: scored.length
+                            ? Math.round(
+                                  (100 * deficit.length) / scored.length,
+                              )
+                            : null,
+                        medianM2:
+                            median != null ? Math.round(median * 10) / 10 : null,
+                        worstWards: scored
+                            .slice()
+                            .sort(
+                                (x, y) => x.playM2PerChild - y.playM2PerChild,
+                            )
+                            .slice(0, 3),
+                        worstLabel: worst
+                            ? worst.ward + " (" + worst.playM2PerChild + ")"
+                            : "–",
+                        children,
+                    };
+                    boroughStats[b] = stat;
+                    boroughRows.push(stat);
+                });
+            }
+
+            function boroughColour(b) {
+                const d = boroughStats[b];
+                if (!d || !d.scored) return "#9e9e9e";
+                const p = d.deficit / d.scored;
+                if (p === 0) return "#2e7d32";
+                if (p < 0.1) return "#7cb342";
+                if (p < 0.25) return "#f9a825";
+                if (p < 0.5) return "#ef6c00";
+                return "#c62828";
+            }
 
             function computeLensDistributions() {
                 Object.keys(LENSES).forEach((key) => {
+                    if (LENSES[key].isBorough) return;
                     lensSorted[key] = wardData
                         .map((w) => LENSES[key].score(w))
                         .filter((v) => v != null)
@@ -428,6 +512,7 @@
 
             function lensColour(w) {
                 const lens = LENSES[activeLens];
+                if (lens.isBorough) return boroughColour(w.borough);
                 const s = lens.score(w);
                 if (s == null) return "#9e9e9e";
                 if (lens.isPlay) {
@@ -486,7 +571,18 @@
                         });
                         layer.unbindTooltip();
                         let tip;
-                        if (lens.isPlay) {
+                        if (lens.isBorough) {
+                            const d = boroughStats[w.borough];
+                            tip =
+                                d && d.scored
+                                    ? w.borough +
+                                      " \u2014 " +
+                                      d.deficit +
+                                      " of " +
+                                      d.scored +
+                                      " wards below play benchmark"
+                                    : w.borough + " \u2014 no play data";
+                        } else if (lens.isPlay) {
                             tip =
                                 s == null
                                     ? w.ward + " — no child population data"
@@ -616,6 +712,54 @@
                 document.getElementById("detail").innerHTML = html;
             }
 
+            function showBoroughDetail(borough) {
+                const d = boroughStats[borough];
+                if (!d) return;
+                let html =
+                    '<span class="composite-big" style="color:' +
+                    boroughColour(borough) +
+                    '">' +
+                    (d.deficitPct == null ? "–" : d.deficitPct + "%") +
+                    "</span>";
+                html += "<h2>" + borough + "</h2>";
+                html +=
+                    '<div style="font-size:12px;color:#888;margin:-6px 0 10px;">Borough roll-up · play provision vs London Plan Policy S4</div>';
+                if (!d.scored) {
+                    html +=
+                        '<p class="hint">No wards in this borough have published child population data, so play provision cannot be benchmarked here.</p>';
+                } else {
+                    html +=
+                        '<div class="scorebar"><span class="label">Below benchmark</span><strong>' +
+                        d.deficit +
+                        " of " +
+                        d.scored +
+                        " scored wards</strong></div>";
+                    html +=
+                        '<div class="scorebar"><span class="label">Median provision</span><strong>' +
+                        d.medianM2 +
+                        " m² per child</strong> (benchmark 10)</div>";
+                    html +=
+                        '<div class="scorebar"><span class="label">Children 0–15</span><strong>' +
+                        d.children.toLocaleString() +
+                        "</strong></div>";
+                    if (d.total > d.scored)
+                        html +=
+                            '<div style="font-size:11.5px;color:#a15c00;margin:6px 0;">' +
+                            (d.total - d.scored) +
+                            " ward(s) without child population data excluded.</div>";
+                    html +=
+                        '<div class="just" style="font-style:normal;"><strong>Lowest provision:</strong><br>' +
+                        d.worstWards
+                            .map(
+                                (w) =>
+                                    w.ward + " — " + w.playM2PerChild + " m²/child",
+                            )
+                            .join("<br>") +
+                        "</div>";
+                }
+                document.getElementById("detail").innerHTML = html;
+            }
+
             function selectWard(w) {
                 showDetail(w);
                 const layer = layersByWard[w.code];
@@ -662,9 +806,21 @@
                         .querySelectorAll(".lens")
                         .forEach((b) => b.classList.remove("active"));
                     btn.classList.add("active");
+                    const wasBorough = LENSES[activeLens].isBorough;
                     activeLens = btn.dataset.lens;
+                    const isBorough = LENSES[activeLens].isBorough;
+                    if (gridApi && isBorough && !wasBorough) {
+                        gridApi.setGridOption(
+                            "columnDefs",
+                            boroughColumnDefs,
+                        );
+                        gridApi.setGridOption("rowData", boroughRows);
+                    } else if (gridApi && !isBorough && wasBorough) {
+                        gridApi.setGridOption("columnDefs", wardColumnDefs);
+                        gridApi.setGridOption("rowData", wardData);
+                    }
                     repaint();
-                    applyLensSort();
+                    if (!isBorough) applyLensSort();
                 });
             });
 
@@ -929,7 +1085,11 @@
                                 fillOpacity: 0.55,
                             },
                         }).addTo(map);
-                        layer.on("click", () => selectWard(w));
+                        layer.on("click", () => {
+                            if (LENSES[activeLens].isBorough)
+                                showBoroughDetail(w.borough);
+                            else selectWard(w);
+                        });
                         layersByWard[w.code] = layer;
                     });
 
@@ -943,6 +1103,7 @@
                         );
                     }
 
+                    computeBoroughStats();
                     computeLensDistributions();
                     buildBoroughDropdown();
 
@@ -966,17 +1127,7 @@
                         if (ma == null || mb == null) return 0;
                         return ma - mb;
                     }
-                    gridApi = agGrid.createGrid(
-                        document.getElementById("grid"),
-                        {
-                            rowData: scores,
-                            defaultColDef: {
-                                // desc <-> asc only; removes AG Grid's third
-                                // "no sort" state that leaves the table jumbled
-                                sortingOrder: ["desc", "asc"],
-                                comparator: nullsLast,
-                            },
-                            columnDefs: [
+                    const wardColumnDefs = [
                                 {
                                     field: "ward",
                                     headerName: "Ward",
@@ -1029,12 +1180,68 @@
                                         color: lensColour(p.data),
                                     }),
                                 },
-                            ],
+                            ];
+                    const boroughColumnDefs = [
+                        {
+                            field: "borough",
+                            headerName: "Borough",
+                            flex: 1.4,
+                        },
+                        {
+                            colId: "deficitPct",
+                            headerName: "Below benchmark",
+                            flex: 1.1,
+                            sort: "desc",
+                            valueGetter: (p) => p.data.deficitPct,
+                            valueFormatter: (p) =>
+                                p.data.scored
+                                    ? p.data.deficit + " / " + p.data.scored
+                                    : "\u2013",
+                            cellStyle: (p) => ({
+                                fontWeight: 800,
+                                color: boroughColour(p.data.borough),
+                            }),
+                        },
+                        {
+                            field: "medianM2",
+                            headerName: "Median m\u00b2/child",
+                            flex: 1.0,
+                            valueFormatter: (p) =>
+                                p.value == null ? "\u2013" : p.value,
+                        },
+                        {
+                            field: "worstLabel",
+                            headerName: "Worst ward (m\u00b2/child)",
+                            flex: 1.5,
+                        },
+                    ];
+                    gridApi = agGrid.createGrid(
+                        document.getElementById("grid"),
+                        {
+                            rowData: scores,
+                            defaultColDef: {
+                                // desc <-> asc only; removes AG Grid's third
+                                // "no sort" state that leaves the table jumbled
+                                sortingOrder: ["desc", "asc"],
+                                comparator: nullsLast,
+                            },
+                            columnDefs: wardColumnDefs,
                             isExternalFilterPresent: () =>
-                                activeBorough !== "__all__",
+                                activeBorough !== "__all__" &&
+                                !LENSES[activeLens].isBorough,
                             doesExternalFilterPass: (node) =>
                                 inActiveBorough(node.data),
-                            onRowClicked: (e) => selectWard(e.data),
+                            onRowClicked: (e) => {
+                                if (e.data && e.data.isBoroughRow) {
+                                    document.getElementById(
+                                        "boroughSelect",
+                                    ).value = e.data.borough;
+                                    applyBorough(e.data.borough);
+                                    showBoroughDetail(e.data.borough);
+                                } else {
+                                    selectWard(e.data);
+                                }
+                            },
                         },
                     );
                     repaint();
