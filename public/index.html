@@ -936,6 +936,26 @@
                     computeLensDistributions();
                     buildBoroughDropdown();
 
+                    // Nulls sort last in either direction; equal play scores
+                    // (hundreds tie at the capped 100) are broken by the raw
+                    // m² per child so the ordering stays meaningful.
+                    function nullsLast(a, b, nodeA, nodeB, isDesc) {
+                        const an = a == null,
+                            bn = b == null;
+                        if (an && bn) return 0;
+                        if (an) return isDesc ? -1 : 1;
+                        if (bn) return isDesc ? 1 : -1;
+                        if (typeof a === "string") return a.localeCompare(b);
+                        return a - b;
+                    }
+                    function playAware(a, b, nodeA, nodeB, isDesc) {
+                        const base = nullsLast(a, b, nodeA, nodeB, isDesc);
+                        if (base !== 0) return base;
+                        const ma = nodeA?.data?.playM2PerChild;
+                        const mb = nodeB?.data?.playM2PerChild;
+                        if (ma == null || mb == null) return 0;
+                        return ma - mb;
+                    }
                     gridApi = agGrid.createGrid(
                         document.getElementById("grid"),
                         {
@@ -944,6 +964,7 @@
                                 // desc <-> asc only; removes AG Grid's third
                                 // "no sort" state that leaves the table jumbled
                                 sortingOrder: ["desc", "asc"],
+                                comparator: nullsLast,
                             },
                             columnDefs: [
                                 {
@@ -981,6 +1002,7 @@
                                     field: "play",
                                     headerName: "Play",
                                     flex: 0.8,
+                                    comparator: playAware,
                                     valueFormatter: (p) =>
                                         p.value == null ? "–" : p.value,
                                 },
@@ -989,6 +1011,7 @@
                                     headerName: "Score",
                                     flex: 0.8,
                                     sort: "desc",
+                                    comparator: playAware,
                                     valueGetter: (p) =>
                                         LENSES[activeLens].score(p.data),
                                     cellStyle: (p) => ({
