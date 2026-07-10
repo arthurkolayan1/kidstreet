@@ -335,7 +335,19 @@
                 },
                 hangout: {
                     note: "Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you're visiting, not buying.",
-                    score: (w) => Math.round(0.6 * w.green + 0.4 * w.safety),
+                    score: (w) => {
+                        let num = 0,
+                            den = 0;
+                        if (w.green != null) {
+                            num += 0.6 * w.green;
+                            den += 0.6;
+                        }
+                        if (w.safety != null) {
+                            num += 0.4 * w.safety;
+                            den += 0.4;
+                        }
+                        return den ? Math.round(num / den) : null;
+                    },
                     sortDesc: true,
                 },
                 council: {
@@ -467,6 +479,22 @@
                     html +=
                         '<div style="font-size:12px;color:#888;margin:-6px 0 8px;">' +
                         w.borough +
+                        "</div>";
+                const covered = [
+                    w.safety,
+                    w.education,
+                    w.transport,
+                    w.green,
+                    w.family,
+                    w.play,
+                    w.planning,
+                ].filter((v) => v != null).length;
+                if (covered < 7)
+                    html +=
+                        '<div style="font-size:11.5px;color:#a15c00;margin:0 0 8px;">' +
+                        "Scored on " +
+                        covered +
+                        " of 7 dimensions — missing data is excluded from the composite, not counted as zero." +
                         "</div>";
                 if (yourWard === normName(w.ward))
                     html += '<span class="yourward">YOUR WARD</span>';
@@ -657,9 +685,10 @@
                         // median treatment of 0 contribution only if play was
                         // actually requested; otherwise play has zero weight anyway
                         score: Math.round(
-                            wSafety * w.safety +
-                                wGreen * w.green +
-                                wNarrative * w.narrative +
+                            wSafety * (w.safety == null ? 0 : w.safety) +
+                                wGreen * (w.green == null ? 0 : w.green) +
+                                wNarrative *
+                                    (w.narrative == null ? 0 : w.narrative) +
                                 wPlay * (w.play == null ? 0 : w.play),
                         ),
                     }))
@@ -862,16 +891,22 @@
                                     field: "safety",
                                     headerName: "Safety",
                                     flex: 0.8,
+                                    valueFormatter: (p) =>
+                                        p.value == null ? "–" : p.value,
                                 },
                                 {
                                     field: "green",
                                     headerName: "Green",
                                     flex: 0.8,
+                                    valueFormatter: (p) =>
+                                        p.value == null ? "–" : p.value,
                                 },
                                 {
                                     field: "narrative",
                                     headerName: "Narrative",
                                     flex: 0.9,
+                                    valueFormatter: (p) =>
+                                        p.value == null ? "–" : p.value,
                                 },
                                 {
                                     field: "play",
