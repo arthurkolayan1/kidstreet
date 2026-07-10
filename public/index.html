@@ -279,7 +279,9 @@
         <div class="methodology">
             <strong>Methodology:</strong> Safety 30% (police.uk crime density,
             inverted) · Education 20% · Transport 15% · Green access 12% ·
-            Family fit 10% · Play provision 8% (OS Open Greenspace playable
+            Family presence 10% (share of households with dependent children —
+            who lives there now, not suitability) · Play provision 8% (OS Open
+            Greenspace playable
             space per child aged 0–15, scored against the London Plan Policy S4
             benchmark of 10 m² per child) · Planning 5% · Composite 0–100,
             missing dimensions excluded and weights renormalised, never counted
@@ -329,7 +331,7 @@
 
             const LENSES = {
                 move: {
-                    note: "Published composite: safety 30% · education 20% · transport 15% · green 12% · family 10% · play 8% · planning 5%. Best score first. Colours rank wards in London-wide fifths (relative); the number is the absolute score.",
+                    note: "Published composite: safety 30% · education 20% · transport 15% · green 12% · family presence 10% · play 8% · planning 5%. Best score first. Colours rank wards in London-wide fifths (relative); the number is the absolute score.",
                     score: (w) => w.composite,
                     sortDesc: true,
                 },
@@ -572,7 +574,7 @@
                     ["Education", w.education],
                     ["Transport", w.transport],
                     ["Green access", w.green],
-                    ["Family fit", w.family],
+                    ["Family presence", w.family],
                     ["Play provision", w.play],
                     ["Planning", w.planning],
                 ];
