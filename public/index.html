@@ -451,18 +451,24 @@
                     }
                 });
                 if (gridApi) {
-                    gridApi.applyColumnState({
-                        state: [
-                            {
-                                colId: "lensScore",
-                                sort: lens.sortDesc ? "desc" : "asc",
-                            },
-                        ],
-                        defaultState: { sort: null },
-                    });
                     gridApi.onFilterChanged();
                     gridApi.refreshCells({ force: true });
                 }
+            }
+
+            // Applied only when the lens actually changes (and once on load) so a
+            // manual column sort survives borough switches and ward clicks.
+            function applyLensSort() {
+                if (!gridApi) return;
+                gridApi.applyColumnState({
+                    state: [
+                        {
+                            colId: "lensScore",
+                            sort: LENSES[activeLens].sortDesc ? "desc" : "asc",
+                        },
+                    ],
+                    defaultState: { sort: null },
+                });
             }
 
             function showDetail(w) {
@@ -599,6 +605,7 @@
                     btn.classList.add("active");
                     activeLens = btn.dataset.lens;
                     repaint();
+                    applyLensSort();
                 });
             });
 
@@ -876,6 +883,11 @@
                         document.getElementById("grid"),
                         {
                             rowData: scores,
+                            defaultColDef: {
+                                // desc <-> asc only; removes AG Grid's third
+                                // "no sort" state that leaves the table jumbled
+                                sortingOrder: ["desc", "asc"],
+                            },
                             columnDefs: [
                                 {
                                     field: "ward",
@@ -936,6 +948,7 @@
                         },
                     );
                     repaint();
+                    applyLensSort();
                 })
                 .catch((err) => {
                     document.getElementById("detail").innerHTML =
