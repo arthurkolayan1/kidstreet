@@ -248,6 +248,7 @@ export default {
           const play = w.dimensions?.play_provision || {};
           return {
             ward: w.ward_name,
+            code: w.ward_code,
             borough: w.borough,
             lat: w.centroid?.lat ?? null,
             lng: w.centroid?.lng ?? null,
