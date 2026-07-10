@@ -369,6 +369,7 @@
             let activeBorough = "__all__";
             let wardData = [];
             let scoresByName = {};
+            let scoresByCode = {};
             let yourWard = null;
             const layersByWard = {};
             let gridApi = null;
@@ -473,7 +474,7 @@
                 const lens = LENSES[activeLens];
                 document.getElementById("lensNote").textContent = lens.note;
                 wardData.forEach((w) => {
-                    const layer = layersByWard[normName(w.ward)];
+                    const layer = layersByWard[w.code];
                     if (!layer) return;
                     if (inActiveBorough(w)) {
                         const s = lensScore(w);
@@ -560,12 +561,12 @@
                         covered +
                         " of 7 dimensions — missing data is excluded from the composite, not counted as zero." +
                         "</div>";
-                if (yourWard === normName(w.ward))
+                if (yourWard === w.code)
                     html += '<span class="yourward">YOUR WARD</span>';
                 if (lens.flagUnder && s < lens.flagUnder)
                     html += '<span class="flag">NEEDS IMPROVEMENT</span>';
                 if (
-                    yourWard === normName(w.ward) ||
+                    yourWard === w.code ||
                     (lens.flagUnder && s < lens.flagUnder)
                 )
                     html += "<br>";
@@ -617,7 +618,7 @@
 
             function selectWard(w) {
                 showDetail(w);
-                const layer = layersByWard[normName(w.ward)];
+                const layer = layersByWard[w.code];
                 if (layer) {
                     map.fitBounds(layer.getBounds(), { padding: [30, 30] });
                     layer.setStyle({ weight: 3.5 });
@@ -634,7 +635,7 @@
             function boroughBounds(borough) {
                 const layers = wardData
                     .filter((w) => (w.borough || "") === borough)
-                    .map((w) => layersByWard[normName(w.ward)])
+                    .map((w) => layersByWard[w.code])
                     .filter(Boolean);
                 if (!layers.length) return null;
                 let b = layers[0].getBounds();
@@ -690,7 +691,11 @@
                             return;
                         }
                         const wardName = data.result.admin_ward || "";
-                        const w = scoresByName[normName(wardName)];
+                        const wardCode =
+                            (data.result.codes || {}).admin_ward || "";
+                        const w =
+                            scoresByCode[wardCode] ||
+                            scoresByName[normName(wardName)];
                         if (!w) {
                             msg.textContent = wardName
                                 ? "That postcode is in " +
@@ -699,7 +704,7 @@
                                 : "Could not resolve that postcode to a ward.";
                             return;
                         }
-                        yourWard = normName(w.ward);
+                        yourWard = w.code;
                         if (w.borough && w.borough !== activeBorough) {
                             document.getElementById("boroughSelect").value =
                                 w.borough;
@@ -907,11 +912,14 @@
                     wardData = scores;
                     scores.forEach((w) => {
                         scoresByName[normName(w.ward)] = w;
+                        if (w.code) scoresByCode[w.code] = w;
                     });
 
                     geo.features.forEach((f) => {
-                        const wname = f.properties.WD24NM || "";
-                        const w = scoresByName[normName(wname)];
+                        // join by unique ONS code — several London wards share a
+                        // name (Abbey, Woodside...) and fringe wards outside
+                        // London can share names with scored wards
+                        const w = scoresByCode[f.properties.WD24CD];
                         if (!w) return;
                         const layer = L.geoJSON(f, {
                             style: {
@@ -922,7 +930,7 @@
                             },
                         }).addTo(map);
                         layer.on("click", () => selectWard(w));
-                        layersByWard[normName(w.ward)] = layer;
+                        layersByWard[w.code] = layer;
                     });
 
                     const matched = Object.keys(layersByWard).length;
@@ -930,7 +938,7 @@
                         console.warn(
                             "Unmatched wards:",
                             scores
-                                .filter((w) => !layersByWard[normName(w.ward)])
+                                .filter((w) => !layersByWard[w.code])
                                 .map((w) => w.ward),
                         );
                     }
