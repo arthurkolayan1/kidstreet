@@ -196,7 +196,13 @@ export default {
         );
       }
       if (isNum(s.family_fit)) {
-        parts.push(scoreWord(s.family_fit) + " family fit");
+        const pctKids =
+          dims.family_fit?.pct_households_with_dependent_children;
+        parts.push(
+          pctKids != null
+            ? pctKids + "% of households have children"
+            : scoreWord(s.family_fit) + " family presence",
+        );
       }
       if (isNum(s.planning) && facilityCount) {
         parts.push(
