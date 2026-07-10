@@ -261,6 +261,9 @@
             <button class="lens" data-lens="council">
                 What should the council fix?
             </button>
+            <button class="lens" data-lens="play">
+                Play provision (GLA)
+            </button>
             <select id="boroughSelect" title="Choose a borough"></select>
             <div class="pcwrap">
                 <input
@@ -274,9 +277,15 @@
         <div class="lens-note" id="lensNote"></div>
 
         <div class="methodology">
-            <strong>Methodology:</strong> Safety 40% (police.uk crime density,
-            inverted) · Green access 30% (London Datastore) · Council narrative
-            30% (LLM score of real council documents) · Composite 0–100. All
+            <strong>Methodology:</strong> Safety 30% (police.uk crime density,
+            inverted) · Education 20% · Transport 15% · Green access 12% ·
+            Family fit 10% · Play provision 8% (OS Open Greenspace playable
+            space per child aged 0–15, scored against the London Plan Policy S4
+            benchmark of 10 m² per child) · Planning 5% · Composite 0–100,
+            missing dimensions excluded and weights renormalised, never counted
+            as zero. Play measures space <em>within</em> each ward, not
+            walking-distance access (that's v2); City of London wards have no
+            published child population, so play is shown as no data there. All
             sources open. Disagree with the inputs? Good, they're published.
         </div>
 
@@ -296,8 +305,11 @@
 
         <p class="credit">
             Ward boundaries: Office for National Statistics (Wards May 2024,
-            super-generalised). Contains OS data &copy; Crown copyright and
-            database right 2024. Postcode lookup: postcodes.io.
+            super-generalised). Play provision: OS Open Greenspace &copy; Crown
+            copyright and database right, Open Government Licence; child
+            population from ONS mid-2024 ward estimates via Nomis. Contains OS
+            data &copy; Crown copyright and database right 2024. Postcode
+            lookup: postcodes.io.
         </p>
 
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -314,7 +326,7 @@
 
             const LENSES = {
                 move: {
-                    note: "Published composite: safety 40% · green 30% · narrative 30%. Best score first.",
+                    note: "Published composite: safety 30% · education 20% · transport 15% · green 12% · family 10% · play 8% · planning 5%. Best score first.",
                     score: (w) => w.composite,
                     sortDesc: true,
                 },
@@ -328,6 +340,12 @@
                     score: (w) => w.composite,
                     sortDesc: false,
                     flagUnder: 60,
+                },
+                play: {
+                    note: "GLA borough-planning layer: playable space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. 100 = meets the benchmark; lower = deficit. Grey = no published child population (City of London). Worst first.",
+                    score: (w) => w.play,
+                    sortDesc: false,
+                    isPlay: true,
                 },
             };
             let activeLens = "move";
@@ -359,6 +377,7 @@
             }
 
             function scoreColour(s) {
+                if (s == null) return "#9e9e9e";
                 if (s >= 75) return "#2e7d32";
                 if (s >= 65) return "#7cb342";
                 if (s >= 55) return "#f9a825";
@@ -387,12 +406,24 @@
                         const s = lensScore(w);
                         layer.setStyle({
                             fillColor: scoreColour(s),
-                            fillOpacity: 0.55,
+                            fillOpacity: s == null ? 0.35 : 0.55,
                             opacity: 1,
                             weight: 1.5,
                         });
                         layer.unbindTooltip();
-                        layer.bindTooltip(w.ward + " — " + s, { sticky: true });
+                        let tip;
+                        if (lens.isPlay) {
+                            tip =
+                                s == null
+                                    ? w.ward + " — no child population data"
+                                    : w.ward +
+                                      " — " +
+                                      w.playM2PerChild +
+                                      " m²/child (benchmark 10)";
+                        } else {
+                            tip = w.ward + " — " + (s == null ? "no data" : s);
+                        }
+                        layer.bindTooltip(tip, { sticky: true });
                     } else {
                         // scored but not in the selected borough: dim it right down
                         layer.setStyle({
@@ -426,7 +457,7 @@
                     '<span class="composite-big" style="color:' +
                     scoreColour(s) +
                     '">' +
-                    s +
+                    (s == null ? "–" : s) +
                     "</span>";
                 html += "<h2>" + w.ward + "</h2>";
                 if (w.borough)
@@ -445,8 +476,12 @@
                     html += "<br>";
                 const rows = [
                     ["Safety (police.uk)", w.safety],
+                    ["Education", w.education],
+                    ["Transport", w.transport],
                     ["Green access", w.green],
-                    ["Council narrative", w.narrative],
+                    ["Family fit", w.family],
+                    ["Play provision", w.play],
+                    ["Planning", w.planning],
                 ];
                 for (const [label, val] of rows) {
                     html +=
@@ -454,13 +489,29 @@
                         label +
                         "</span>" +
                         '<span class="track"><span class="fill" style="width:' +
-                        val +
+                        (val == null ? 0 : val) +
                         "%;background:" +
                         scoreColour(val) +
                         '"></span></span>' +
                         '<span class="num">' +
-                        val +
+                        (val == null ? "no data" : val) +
                         "</span></div>";
+                }
+                if (w.playM2PerChild != null) {
+                    html +=
+                        '<div class="just" style="font-style:normal;">' +
+                        "Play space: <strong>" +
+                        w.playM2PerChild +
+                        " m² per child</strong> (" +
+                        (w.playChildren != null
+                            ? w.playChildren.toLocaleString() +
+                              " children aged 0–15, "
+                            : "") +
+                        (w.playRatio >= 1
+                            ? "meets the 10 m²/child London Plan benchmark)"
+                            : Math.round(w.playRatio * 100) +
+                              "% of the 10 m²/child London Plan benchmark)") +
+                        "</div>";
                 }
                 html +=
                     '<div class="just">&ldquo;' +
@@ -578,6 +629,7 @@
                 safety_importance = 5,
                 green_importance = 5,
                 narrative_importance = 5,
+                play_importance = 0,
                 top_n = 3,
             } = {}) {
                 if (!wardData.length)
@@ -588,17 +640,24 @@
                     Number(safety_importance) || 0,
                     Number(green_importance) || 0,
                     Number(narrative_importance) || 0,
+                    Number(play_importance) || 0,
                 ];
-                const total = raw[0] + raw[1] + raw[2] || 1;
-                const [wSafety, wGreen, wNarrative] = raw.map((w) => w / total);
+                const total = raw[0] + raw[1] + raw[2] + raw[3] || 1;
+                const [wSafety, wGreen, wNarrative, wPlay] = raw.map(
+                    (w) => w / total,
+                );
                 const pool = wardData.filter(inActiveBorough);
                 const ranked = pool
                     .map((w) => ({
                         w,
+                        // wards with no play data (City of London) get the pool
+                        // median treatment of 0 contribution only if play was
+                        // actually requested; otherwise play has zero weight anyway
                         score: Math.round(
                             wSafety * w.safety +
                                 wGreen * w.green +
-                                wNarrative * w.narrative,
+                                wNarrative * w.narrative +
+                                wPlay * (w.play == null ? 0 : w.play),
                         ),
                     }))
                     .sort((a, b) => b.score - a.score);
@@ -644,6 +703,8 @@
                                     safety: w.safety,
                                     green: w.green,
                                     narrative: w.narrative,
+                                    play: w.play,
+                                    playM2PerChild: w.playM2PerChild,
                                     composite: w.composite,
                                     justification: w.justification,
                                 })),
@@ -808,6 +869,13 @@
                                     field: "narrative",
                                     headerName: "Narrative",
                                     flex: 0.9,
+                                },
+                                {
+                                    field: "play",
+                                    headerName: "Play",
+                                    flex: 0.8,
+                                    valueFormatter: (p) =>
+                                        p.value == null ? "–" : p.value,
                                 },
                                 {
                                     colId: "lensScore",
