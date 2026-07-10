@@ -226,8 +226,10 @@ export default {
         // seven-dimension weighted blend (see WEIGHTS above), null-aware.
         const scores = wards.map((w) => {
           const s = w.scores || {};
-          const safety = Number(s.safety) || 0;
-          const green = Number(s.green_space) || 0;
+          const num = (v) =>
+            typeof v === "number" && isFinite(v) ? v : null;
+          const safety = num(s.safety);
+          const green = num(s.green_space);
           const narrativeParts = [s.education, s.planning, s.family_fit].filter(
             (v) => v != null,
           );
@@ -236,7 +238,7 @@ export default {
                 narrativeParts.reduce((a, b) => a + b, 0) /
                   narrativeParts.length,
               )
-            : 0;
+            : null;
           const play = w.dimensions?.play_provision || {};
           return {
             ward: w.ward_name,
