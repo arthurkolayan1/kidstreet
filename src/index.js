@@ -156,36 +156,54 @@ export default {
     }
 
     // Builds a real, per-ward sentence from the pipeline's own facts (no LLM call, no generic
-    // placeholder). Cites a named park/school when one is available so the sentence is concrete
-    // rather than boilerplate, and stays consistent with the numeric bars shown alongside it.
-    function templatedJustification(w, safety, green, narrative) {
+    // placeholder). Every phrase quotes the SAME per-dimension score shown in the detail-panel
+    // bars (a phrase's adjective comes from that dimension's own score, never a blend), so the
+    // sentence can never contradict the numbers beside it. Dimensions with no data are simply
+    // omitted. Cites a named park/school when one is available so the sentence is concrete
+    // rather than boilerplate.
+    function templatedJustification(w) {
+      const s = w.scores || {};
       const dims = w.dimensions || {};
       const park = dims.green_space?.notable_parks?.[0];
       const outstandingSchool = dims.education?.schools?.find(
-        (s) => s.ofsted === "Outstanding",
+        (x) => x.ofsted === "Outstanding",
       )?.name;
       const facilityCount = dims.planning?.upcoming_facility_count;
+      const isNum = (v) => typeof v === "number" && isFinite(v);
 
       const parts = [];
-      parts.push(
-        scoreWord(safety) +
-          " safety" +
-          (dims.safety?.crimes_last_month != null
-            ? " (" + dims.safety.crimes_last_month + " crimes/mo)"
-            : ""),
-      );
-      parts.push(
-        scoreWord(green) + " green space" + (park ? " near " + park : ""),
-      );
-      parts.push(
-        scoreWord(narrative) +
-          " family fit" +
-          (outstandingSchool
-            ? ", incl. " + outstandingSchool
-            : facilityCount
-              ? ", " + facilityCount + " child-facility approvals since 2023"
+      if (isNum(s.safety)) {
+        parts.push(
+          scoreWord(s.safety) +
+            " safety" +
+            (dims.safety?.crimes_last_month != null
+              ? " (" + dims.safety.crimes_last_month + " crimes/mo)"
               : ""),
-      );
+        );
+      }
+      if (isNum(s.green_space)) {
+        parts.push(
+          scoreWord(s.green_space) +
+            " green space" +
+            (park ? " near " + park : ""),
+        );
+      }
+      if (isNum(s.education)) {
+        parts.push(
+          scoreWord(s.education) +
+            " schools" +
+            (outstandingSchool ? ", incl. " + outstandingSchool : ""),
+        );
+      }
+      if (isNum(s.family_fit)) {
+        parts.push(scoreWord(s.family_fit) + " family fit");
+      }
+      if (isNum(s.planning) && facilityCount) {
+        parts.push(
+          facilityCount + " child-facility approvals since 2023",
+        );
+      }
+      if (!parts.length) return "Insufficient data for a summary.";
       return parts.join("; ") + ".";
     }
 
@@ -238,7 +256,7 @@ export default {
             playRatio: play.ratio_vs_benchmark ?? null,
             narrative,
             composite: compositeOf(s),
-            justification: templatedJustification(w, safety, green, narrative),
+            justification: templatedJustification(w),
           };
         });
 
