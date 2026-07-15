@@ -100,6 +100,21 @@
                 background: #fff;
                 cursor: pointer;
             }
+            #boroughChip {
+                border: 1.5px solid #1b3a5c;
+                border-radius: 20px;
+                padding: 7px 14px;
+                font-size: 13px;
+                font-weight: 600;
+                color: #1b3a5c;
+                background: #eef4fa;
+                cursor: pointer;
+                margin: 8px 0 2px;
+            }
+            #boroughChip:hover {
+                background: #1b3a5c;
+                color: #fff;
+            }
             .pcwrap {
                 display: flex;
                 gap: 6px;
@@ -299,6 +314,9 @@
         </div>
         <div id="pcMsg"></div>
         <div class="lens-note" id="lensNote"></div>
+        <button id="boroughChip" style="display: none">
+            ✕ Showing <span id="boroughChipName"></span> — back to all London
+        </button>
 
         <div class="methodology">
             <strong>Methodology:</strong> Safety 30% (police.uk street-crime
@@ -867,6 +885,17 @@
 
             function applyBorough(borough) {
                 activeBorough = borough;
+                // Reset chip: visible whenever a borough filter is active,
+                // one click (or Escape) back to the all-London view — the
+                // dropdown alone was too hidden as the only way back.
+                const chip = document.getElementById("boroughChip");
+                if (borough === "__all__") {
+                    chip.style.display = "none";
+                } else {
+                    document.getElementById("boroughChipName").textContent =
+                        borough;
+                    chip.style.display = "inline-block";
+                }
                 repaint();
                 if (borough === "__all__") {
                     map.setView([51.5, -0.09], 10);
@@ -875,6 +904,22 @@
                     if (b) map.fitBounds(b, { padding: [30, 30] });
                 }
             }
+
+            function resetToAllLondon() {
+                document.getElementById("boroughSelect").value = "__all__";
+                applyBorough("__all__");
+            }
+            document
+                .getElementById("boroughChip")
+                .addEventListener("click", resetToAllLondon);
+            document.addEventListener("keydown", (e) => {
+                if (
+                    e.key === "Escape" &&
+                    activeBorough !== "__all__" &&
+                    document.activeElement.tagName !== "INPUT"
+                )
+                    resetToAllLondon();
+            });
 
             // Nulls sort last in either direction; equal play scores
             // (hundreds tie at the capped 100) are broken by the raw
@@ -1330,7 +1375,23 @@
                         layer.on("click", () => {
                             if (LENSES[activeLens].isBorough)
                                 showBoroughDetail(w.borough);
-                            else selectWard(w);
+                            else {
+                                // Clicking a ward outside the active borough
+                                // filter follows it there, so the table and
+                                // detail panel never disagree about which
+                                // borough is in view
+                                if (
+                                    activeBorough !== "__all__" &&
+                                    w.borough &&
+                                    w.borough !== activeBorough
+                                ) {
+                                    document.getElementById(
+                                        "boroughSelect",
+                                    ).value = w.borough;
+                                    applyBorough(w.borough);
+                                }
+                                selectWard(w);
+                            }
                         });
                         layersByWard[w.code] = layer;
                     });
