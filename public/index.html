@@ -239,6 +239,17 @@
                 overflow: hidden;
                 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
             }
+            /* Compact headers: full words, never "Sa..." — combined with
+               per-column minWidth + wrapHeaderText in the grid config */
+            #grid .ag-header-cell-text {
+                font-size: 11.5px;
+                line-height: 1.15;
+                white-space: normal;
+            }
+            #grid .ag-header-cell {
+                padding-left: 7px;
+                padding-right: 7px;
+            }
             .composite-big {
                 font-size: 32px;
                 font-weight: 800;
@@ -281,7 +292,7 @@
             <div class="pcwrap">
                 <input
                     id="pcInput"
-                    placeholder="Your postcode, e.g. SE10 8XJ"
+                    placeholder="Ward name or postcode"
                 />
                 <button id="pcBtn">Find my ward</button>
             </div>
@@ -878,16 +889,19 @@
                     field: "ward",
                     headerName: "Ward",
                     flex: 1.6,
+                    minWidth: 110,
                 },
                 {
                     field: "borough",
                     headerName: "Borough",
                     flex: 1.2,
+                    minWidth: 92,
                 },
                 {
                     field: "safety",
                     headerName: "Safety",
                     flex: 0.8,
+                    minWidth: 62,
                     valueFormatter: (p) =>
                         p.value == null ? "–" : p.value,
                 },
@@ -895,15 +909,17 @@
                     field: "green",
                     headerName: "Green",
                     flex: 0.8,
+                    minWidth: 60,
                     valueFormatter: (p) =>
                         p.value == null ? "–" : p.value,
                 },
                 {
                     field: "narrative",
-                    headerName: "Family & schools",
+                    headerName: "Family",
                     headerTooltip:
                         "Average of the education, planning and family presence scores",
                     flex: 0.9,
+                    minWidth: 62,
                     valueFormatter: (p) =>
                         p.value == null ? "–" : p.value,
                 },
@@ -911,6 +927,7 @@
                     field: "play",
                     headerName: "Play",
                     flex: 0.8,
+                    minWidth: 54,
                     comparator: playAware,
                     valueFormatter: (p) =>
                         p.value == null ? "–" : p.value,
@@ -919,6 +936,7 @@
                     colId: "lensScore",
                     headerName: "Score",
                     flex: 0.8,
+                    minWidth: 60,
                     sort: "desc",
                     comparator: playAware,
                     valueGetter: (p) =>
@@ -994,11 +1012,64 @@
                     applyBorough(e.target.value),
                 );
 
+            // Focus the map/panel/table on a ward and remember it as "yours".
+            function goToWard(w) {
+                yourWard = w.code;
+                if (w.borough && w.borough !== activeBorough) {
+                    document.getElementById("boroughSelect").value =
+                        w.borough;
+                    applyBorough(w.borough);
+                }
+                selectWard(w);
+            }
+
+            // Try the query as a ward name first (exact, then prefix, then
+            // contains — several London wards share a name, e.g. Abbey, so
+            // duplicates are surfaced rather than silently dropped). Returns
+            // true if handled, false to fall through to postcode lookup.
+            function findWardByName(query, msg) {
+                const q = normName(query);
+                if (q.length < 3) return false;
+                const exact = wardData.filter(
+                    (w) => normName(w.ward) === q,
+                );
+                let matches = exact;
+                if (!matches.length)
+                    matches = wardData.filter((w) =>
+                        normName(w.ward).startsWith(q),
+                    );
+                if (!matches.length)
+                    matches = wardData.filter((w) =>
+                        normName(w.ward).includes(q),
+                    );
+                if (!matches.length) return false;
+                goToWard(matches[0]);
+                if (matches.length > 1) {
+                    msg.textContent =
+                        "Showing " +
+                        matches[0].ward +
+                        " (" +
+                        matches[0].borough +
+                        "). Also matches: " +
+                        matches
+                            .slice(1, 4)
+                            .map((w) => w.ward + " (" + w.borough + ")")
+                            .join(", ") +
+                        (matches.length > 4 ? "…" : "") +
+                        " — add the borough or use your postcode to be exact.";
+                }
+                return true;
+            }
+
             function findPostcode() {
                 const pc = document.getElementById("pcInput").value.trim();
                 const msg = document.getElementById("pcMsg");
                 msg.textContent = "";
                 if (!pc) return;
+                // Ward name first: anything that doesn't look like a
+                // postcode (no digits) can only be a ward name; queries
+                // with digits go straight to postcodes.io.
+                if (!/\d/.test(pc) && findWardByName(pc, msg)) return;
                 fetch(
                     "https://api.postcodes.io/postcodes/" +
                         encodeURIComponent(pc),
@@ -1006,8 +1077,9 @@
                     .then((r) => r.json())
                     .then((data) => {
                         if (data.status !== 200 || !data.result) {
-                            msg.textContent =
-                                "Postcode not recognised. Check the spelling.";
+                            msg.textContent = /\d/.test(pc)
+                                ? "Postcode not recognised. Check the spelling."
+                                : "No ward or postcode matched. Check the spelling.";
                             return;
                         }
                         const wardName = data.result.admin_ward || "";
@@ -1024,13 +1096,7 @@
                                 : "Could not resolve that postcode to a ward.";
                             return;
                         }
-                        yourWard = w.code;
-                        if (w.borough && w.borough !== activeBorough) {
-                            document.getElementById("boroughSelect").value =
-                                w.borough;
-                            applyBorough(w.borough);
-                        }
-                        selectWard(w);
+                        goToWard(w);
                     })
                     .catch(() => {
                         msg.textContent =
