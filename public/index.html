@@ -744,6 +744,18 @@
                         (val == null ? "no data" : val) +
                         "</span></div>";
                 }
+                // A bare safety 0 invites "surely not" — say what it means.
+                // The ~5% of wards above the p95 crime-density clip all score
+                // 0, and they are almost all town centres (West End, Camden
+                // Town, Brixton, Lewisham Central...) where recorded street
+                // crime concentrates around shops, stations and nightlife.
+                if (w.safety != null && w.safety <= 2)
+                    html +=
+                        '<div style="font-size:11.5px;color:#888;margin:6px 0 2px;">' +
+                        "A safety score of " +
+                        w.safety +
+                        " puts this ward in the ~5% of London wards with the highest street-crime density — typically town centres, where recorded crime concentrates around shops, stations and nightlife. It counts all incidents per km², visitors included, not risk per resident." +
+                        "</div>";
                 if (w.playM2PerChild != null) {
                     html +=
                         '<div class="just" style="font-style:normal;">' +
@@ -936,7 +948,7 @@
                     colId: "lensScore",
                     headerName: "Score",
                     flex: 0.8,
-                    minWidth: 60,
+                    minWidth: 78,
                     sort: "desc",
                     comparator: playAware,
                     valueGetter: (p) =>
