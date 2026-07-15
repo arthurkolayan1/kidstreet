@@ -206,7 +206,10 @@ export default {
       }
       if (isNum(s.planning) && facilityCount) {
         parts.push(
-          facilityCount + " child-facility approvals since 2023",
+          facilityCount +
+            " child-facility approval" +
+            (facilityCount === 1 ? "" : "s") +
+            " since 2023",
         );
       }
       if (!parts.length) return "Insufficient data for a summary.";
