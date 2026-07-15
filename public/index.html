@@ -109,7 +109,7 @@
                 color: #1b3a5c;
                 background: #eef4fa;
                 cursor: pointer;
-                margin: 8px 0 2px;
+                margin: 8px 24px 2px;
             }
             #boroughChip:hover {
                 background: #1b3a5c;
@@ -125,7 +125,7 @@
                 border-radius: 20px;
                 padding: 8px 14px;
                 font-size: 13.5px;
-                width: 170px;
+                width: 208px;
             }
             #pcBtn {
                 border: none;
@@ -264,6 +264,64 @@
             #grid .ag-header-cell {
                 padding-left: 7px;
                 padding-right: 7px;
+            }
+            /* ---------- Mobile ---------- */
+            /* Without this, .side's min-width: 340px starves the map of
+               width entirely on phones — the map was invisible on mobile. */
+            @media (max-width: 860px) {
+                header {
+                    padding: 14px 12px 2px;
+                }
+                header h1 {
+                    font-size: 21px;
+                }
+                .controls {
+                    margin: 10px 12px 0;
+                    gap: 6px;
+                }
+                .lens,
+                #boroughSelect {
+                    padding: 7px 12px;
+                    font-size: 12.5px;
+                }
+                .pcwrap {
+                    margin-left: 0;
+                    width: 100%;
+                }
+                #pcInput {
+                    flex: 1;
+                    width: auto;
+                    min-width: 0;
+                }
+                #pcMsg,
+                .lens-note {
+                    margin-left: 12px;
+                    margin-right: 12px;
+                }
+                #boroughChip {
+                    margin: 8px 12px 2px;
+                }
+                .methodology {
+                    margin: 10px 12px 0;
+                    font-size: 11.5px;
+                }
+                .layout {
+                    flex-direction: column;
+                    padding: 12px 12px 18px;
+                    gap: 12px;
+                }
+                #map {
+                    flex: none;
+                    width: 100%;
+                    min-height: 0;
+                    height: 55vh;
+                }
+                .side {
+                    min-width: 0;
+                }
+                #grid {
+                    min-height: 340px;
+                }
             }
             .composite-big {
                 font-size: 32px;
@@ -434,6 +492,14 @@
             let gridApi = null;
 
             const map = L.map("map").setView([51.5, -0.09], 10);
+            // Leaflet caches its container size at init; on mobile the
+            // container height comes from a media query and changes on
+            // rotation, so recalc on resize or the tiles render half-blank.
+            let resizeTimer = null;
+            window.addEventListener("resize", () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => map.invalidateSize(), 200);
+            });
             L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
