@@ -4,6 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>KidStreet — London</title>
+        <meta
+            name="description"
+            content="Honest child-friendliness scores for all 704 London wards, from open data with a published methodology. Play provision benchmarked against London Plan Policy S4."
+        />
+        <meta property="og:title" content="KidStreet — London" />
+        <meta
+            property="og:description"
+            content="Child-friendliness scores for all 704 London wards from open data. Play provision benchmarked against the London Plan Policy S4 standard of 10 m² per child."
+        />
+        <meta property="og:type" content="website" />
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <link
             rel="icon"
@@ -280,18 +290,26 @@
         <div class="lens-note" id="lensNote"></div>
 
         <div class="methodology">
-            <strong>Methodology:</strong> Safety 30% (police.uk crime density,
-            inverted) · Education 20% · Transport 15% · Green access 12% ·
-            Family presence 10% (share of households with dependent children —
-            who lives there now, not suitability) · Play provision 8% (OS Open
-            Greenspace playable
+            <strong>Methodology:</strong> Safety 30% (police.uk street-crime
+            density per km², inverted — a deliberate design: dense,
+            high-footfall central wards score lowest, and the worst ~5% of
+            wards all score 0, so a zero means "highest crime density in
+            London", not "no data") · Education 20% · Transport 15% (stations
+            in or adjacent to the ward — stations serve catchments larger
+            than one ward — weighted 3× vs bus stops, per km²) · Green space
+            12% (parks &amp; playgrounds <em>within</em> the ward — cross-boundary
+            access, e.g. living beside Regent's Park in the next ward over, is
+            v2, same caveat as play) · Family presence 10% (share of households with dependent
+            children — who lives there now, not suitability) · Play provision
+            8% (OS Open Greenspace playable
             space per child aged 0–15, scored against the London Plan Policy S4
             benchmark of 10 m² per child) · Planning 5% · Composite 0–100,
             missing dimensions excluded and weights renormalised, never counted
             as zero. Play measures space <em>within</em> each ward, not
-            walking-distance access (that's v2); City of London wards have no
-            published child population, so play is shown as no data there. All
-            sources open. Disagree with the inputs? Good, they're published.
+            walking-distance access (that's v2); 15 of the City of London's 25
+            wards have no published child population, so play is shown as no
+            data there. All sources open. Disagree with the inputs? Good,
+            they're published.
         </div>
 
         <div class="layout">
@@ -339,7 +357,7 @@
                     sortDesc: true,
                 },
                 hangout: {
-                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. Narrative excluded — you're visiting, not buying. Colours rank wards in London-wide fifths.",
+                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. The family/schools blend is excluded — you're visiting, not buying. Colours rank wards in London-wide fifths.",
                     score: (w) => {
                         let num = 0,
                             den = 0;
@@ -371,7 +389,7 @@
                     sortDesc: true,
                 },
                 play: {
-                    note: "GLA borough-planning layer: playable space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (City of London). Worst first.",
+                    note: "GLA borough-planning layer: playable space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (15 of the City of London's 25 wards). Worst first.",
                     score: (w) => w.play,
                     sortDesc: false,
                     isPlay: true,
@@ -479,8 +497,20 @@
                                 (x, y) => x.playM2PerChild - y.playM2PerChild,
                             )
                             .slice(0, 3),
+                        // flag tiny child populations (mostly City of London)
+                        // so a "worst ward" with 8 resident children is read
+                        // as the statistical footnote it is, not a crisis
                         worstLabel: worst
-                            ? worst.ward + " (" + worst.playM2PerChild + ")"
+                            ? worst.ward +
+                              " (" +
+                              worst.playM2PerChild +
+                              (worst.playChildren != null &&
+                              worst.playChildren < 100
+                                  ? " · only " +
+                                    worst.playChildren +
+                                    " children"
+                                  : "") +
+                              ")"
                             : "–",
                         children,
                     };
@@ -684,7 +714,7 @@
                     ["Safety (police.uk)", w.safety],
                     ["Education", w.education],
                     ["Transport", w.transport],
-                    ["Green access", w.green],
+                    ["Green space (in-ward)", w.green],
                     ["Family presence", w.family],
                     ["Play provision", w.play],
                     ["Planning", w.planning],
@@ -766,7 +796,16 @@
                         d.worstWards
                             .map(
                                 (w) =>
-                                    w.ward + " — " + w.playM2PerChild + " m²/child",
+                                    w.ward +
+                                    " — " +
+                                    w.playM2PerChild +
+                                    " m²/child" +
+                                    (w.playChildren != null &&
+                                    w.playChildren < 100
+                                        ? " (only " +
+                                          w.playChildren +
+                                          " children)"
+                                        : ""),
                             )
                             .join("<br>") +
                         "</div>";
@@ -861,7 +900,9 @@
                 },
                 {
                     field: "narrative",
-                    headerName: "Narrative",
+                    headerName: "Family & schools",
+                    headerTooltip:
+                        "Average of the education, planning and family presence scores",
                     flex: 0.9,
                     valueFormatter: (p) =>
                         p.value == null ? "–" : p.value,
@@ -1239,6 +1280,11 @@
                                 // "no sort" state that leaves the table jumbled
                                 sortingOrder: ["desc", "asc"],
                                 comparator: nullsLast,
+                                // headers wrap onto a second line instead of
+                                // truncating to "Sa...", "Narr..." etc. in the
+                                // narrow side panel
+                                wrapHeaderText: true,
+                                autoHeaderHeight: true,
                             },
                             columnDefs: wardColumnDefs,
                             isExternalFilterPresent: () =>
