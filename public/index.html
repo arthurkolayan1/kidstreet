@@ -613,6 +613,8 @@
                     min-width: 0;
                 }
                 #grid {
+                    flex: none;
+                    height: 62vh;
                     min-height: 340px;
                 }
             }
@@ -1973,7 +1975,10 @@
                         " children</strong> live in them</div>" +
                         '<p class="hint">Click any ward, a table row, or search your postcode for the full breakdown.</p>';
 
-                    gridApi = agGrid.createGrid(
+                    try {
+                        if (typeof agGrid === "undefined")
+                            throw new Error("AG Grid script not loaded");
+                        gridApi = agGrid.createGrid(
                         document.getElementById("grid"),
                         {
                             rowData: scores,
@@ -2006,7 +2011,14 @@
                                 }
                             },
                         },
-                    );
+                        );
+                    } catch (gridErr) {
+                        console.warn("Table unavailable:", gridErr);
+                        document.getElementById("grid").innerHTML =
+                            '<div style="padding:18px;font-size:13px;color:var(--ink-soft)">' +
+                            "The ward table could not load on this connection \u2014 the map above has every ward, and search still works." +
+                            "</div>";
+                    }
                     repaint();
                     applyLensSort();
                 })
