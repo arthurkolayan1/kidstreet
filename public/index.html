@@ -26,6 +26,16 @@
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+        />
         <link
             rel="stylesheet"
             href="https://unpkg.com/ag-grid-community@31.3.2/styles/ag-grid.css"
@@ -39,34 +49,73 @@
                 box-sizing: border-box;
             }
             :root {
-                --ks-navy: #1b3a5c;
-                --ks-coral: #e8634f;
-                --ks-teal: #4aabb3;
+                --paper: #f7f5f0;
+                --panel: #fdfcfa;
+                --ink: #29241e;
+                --ink-soft: #6b645c;
+                --ink-faint: #9a938c;
+                --line: #e3ded4;
+                --line-soft: #edeae2;
+                --green: #2e7d54;
+                --coral: #c9573c;
+                --amber: #e4b458;
+                --focus: #3b6fc9;
+                --shadow: 0 1px 3px rgba(74, 62, 44, 0.1),
+                    0 4px 14px rgba(74, 62, 44, 0.08);
+                /* legacy aliases so nothing old breaks */
+                --ks-navy: var(--ink);
+                --ks-coral: var(--coral);
+                --ks-teal: var(--green);
             }
             body {
                 margin: 0;
-                font-family:
-                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                    sans-serif;
-                background: #f4f4f1;
-                color: #1c1c1c;
+                font-family: "Archivo", -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", sans-serif;
+                font-variant-numeric: tabular-nums;
+                background: var(--paper);
+                color: var(--ink);
             }
             header {
                 padding: 18px 24px 4px;
+                display: flex;
+                align-items: baseline;
+                gap: 16px;
+                flex-wrap: wrap;
             }
             header h1 {
                 margin: 0;
-                font-size: 24px;
-                letter-spacing: -0.3px;
-                color: var(--ks-navy);
+                font-family: "Instrument Serif", serif;
+                font-weight: 400;
+                font-size: 32px;
+                letter-spacing: 0;
+                color: var(--ink);
             }
             header h1 span {
-                color: var(--ks-coral);
+                color: var(--green);
             }
-            header p {
-                margin: 4px 0 0;
-                color: #555;
-                font-size: 13.5px;
+            header .tagline {
+                margin: 0;
+                font-family: "Instrument Serif", serif;
+                font-style: italic;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            header .region-pill {
+                margin-left: auto;
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--ink-soft);
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                padding: 6px 12px;
+                white-space: nowrap;
+            }
+            header .region-pill::before {
+                content: "●";
+                color: var(--green);
+                margin-right: 6px;
+                font-size: 10px;
             }
             .controls {
                 display: flex;
@@ -76,44 +125,60 @@
                 align-items: center;
             }
             .lens {
-                border: 1.5px solid #ccc;
-                background: #fff;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 13.5px;
+                border: 1px solid var(--line);
+                background: var(--panel);
+                padding: 8px 15px;
+                border-radius: 9px;
+                font-family: inherit;
+                font-size: 13px;
                 cursor: pointer;
                 font-weight: 600;
-                color: #444;
+                color: var(--ink-soft);
+                transition: background 0.15s, color 0.15s, border-color 0.15s;
+            }
+            .lens:hover {
+                border-color: var(--ink-faint);
+                color: var(--ink);
             }
             .lens.active {
-                background: var(--ks-coral);
-                border-color: var(--ks-coral);
-                color: #fff;
+                background: var(--ink);
+                border-color: var(--ink);
+                color: var(--paper);
             }
             #boroughSelect {
-                border: 1.5px solid #ccc;
-                border-radius: 20px;
-                padding: 8px 14px;
-                font-size: 13.5px;
-                font-weight: 600;
-                color: #1c1c1c;
-                background: #fff;
-                cursor: pointer;
-            }
-            #boroughChip {
-                border: 1.5px solid #1b3a5c;
-                border-radius: 20px;
-                padding: 7px 14px;
+                border: 1px solid var(--line);
+                border-radius: 9px;
+                padding: 8px 12px;
+                font-family: inherit;
                 font-size: 13px;
                 font-weight: 600;
-                color: #1b3a5c;
-                background: #eef4fa;
+                color: var(--ink);
+                background: var(--panel);
+                cursor: pointer;
+            }
+            .lens:focus-visible,
+            #boroughSelect:focus-visible,
+            #pcInput:focus-visible,
+            #pcBtn:focus-visible,
+            #boroughChip:focus-visible {
+                outline: 2px solid var(--focus);
+                outline-offset: 2px;
+            }
+            #boroughChip {
+                border: 1px solid var(--ink);
+                border-radius: 999px;
+                padding: 7px 14px;
+                font-family: inherit;
+                font-size: 12.5px;
+                font-weight: 600;
+                color: var(--ink);
+                background: var(--panel);
                 cursor: pointer;
                 margin: 8px 24px 2px;
             }
             #boroughChip:hover {
-                background: #1b3a5c;
-                color: #fff;
+                background: var(--ink);
+                color: var(--paper);
             }
             .pcwrap {
                 display: flex;
@@ -121,41 +186,57 @@
                 margin-left: auto;
             }
             #pcInput {
-                border: 1.5px solid #ccc;
-                border-radius: 20px;
+                border: 1px solid var(--line);
+                border-radius: 9px;
                 padding: 8px 14px;
-                font-size: 13.5px;
+                font-family: inherit;
+                font-size: 13px;
                 width: 208px;
+                background: var(--panel);
+                color: var(--ink);
+            }
+            #pcInput::placeholder {
+                color: var(--ink-faint);
             }
             #pcBtn {
                 border: none;
-                background: var(--ks-navy);
-                color: #fff;
+                background: var(--ink);
+                color: var(--paper);
                 padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 13.5px;
-                font-weight: 600;
+                border-radius: 9px;
+                font-family: inherit;
+                font-size: 13px;
+                font-weight: 700;
                 cursor: pointer;
+            }
+            #pcBtn:hover {
+                background: #40382f;
             }
             #pcMsg {
                 font-size: 12px;
-                color: #c62828;
+                color: var(--coral);
                 margin: 4px 24px 0;
                 min-height: 15px;
             }
             .lens-note {
                 font-size: 11.5px;
-                color: #777;
-                margin: 2px 24px 0;
+                color: var(--ink-soft);
+                margin: 4px 24px 0;
+                max-width: 1080px;
             }
             .methodology {
                 margin: 10px 24px 0;
-                padding: 8px 12px;
-                background: #eaf5f6;
-                border-left: 3px solid var(--ks-teal);
+                padding: 10px 14px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-left: 3px solid var(--green);
                 font-size: 12px;
-                color: #333;
-                border-radius: 0 4px 4px 0;
+                color: var(--ink-soft);
+                border-radius: 0 10px 10px 0;
+                line-height: 1.55;
+            }
+            .methodology strong {
+                color: var(--ink);
             }
             .layout {
                 display: flex;
@@ -165,9 +246,71 @@
             }
             #map {
                 flex: 1.4;
-                min-height: 520px;
+                min-height: 540px;
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+                border: 1px solid var(--line);
+                background: var(--paper);
+            }
+            .leaflet-tile {
+                filter: saturate(0.55) brightness(1.03) contrast(0.97);
+            }
+            .leaflet-tooltip {
+                font-family: "Archivo", sans-serif;
+                font-size: 12px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                color: var(--ink);
+                box-shadow: var(--shadow);
+            }
+            .ks-legend {
+                background: var(--panel);
+                border: 1px solid var(--line);
                 border-radius: 10px;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+                box-shadow: var(--shadow);
+                padding: 9px 11px;
+                font-family: "Archivo", sans-serif;
+                font-size: 11px;
+                color: var(--ink-soft);
+                line-height: 1.5;
+                max-width: 210px;
+            }
+            .ks-legend .lg-title {
+                font-weight: 700;
+                color: var(--ink);
+                margin-bottom: 4px;
+                font-size: 11px;
+            }
+            .ks-legend .lg-row {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .ks-legend .lg-swatch {
+                width: 11px;
+                height: 11px;
+                border-radius: 3px;
+                flex: none;
+            }
+            .maphint {
+                position: absolute;
+                top: 14px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 900;
+                background: var(--ink);
+                color: var(--paper);
+                font-size: 12.5px;
+                font-weight: 600;
+                padding: 8px 16px;
+                border-radius: 999px;
+                box-shadow: var(--shadow);
+                pointer-events: none;
+                transition: opacity 0.5s;
+                white-space: nowrap;
+            }
+            .maphint.gone {
+                opacity: 0;
             }
             .side {
                 flex: 1;
@@ -177,39 +320,71 @@
                 min-width: 340px;
             }
             #detail {
-                background: #fff;
-                border-radius: 10px;
-                padding: 16px 18px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                padding: 18px 20px;
                 min-height: 170px;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                box-shadow: var(--shadow);
             }
             #detail h2 {
                 margin: 0 0 10px;
-                font-size: 18px;
-                color: var(--ks-navy);
+                font-family: "Instrument Serif", serif;
+                font-weight: 400;
+                font-size: 28px;
+                color: var(--ink);
             }
             #detail .hint {
-                color: #888;
+                color: var(--ink-faint);
                 font-size: 13px;
+            }
+            .kicker {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                margin-bottom: 2px;
+            }
+            .ranknote {
+                font-size: 12px;
+                color: var(--ink-soft);
+                margin: -6px 0 10px;
+            }
+            .subnote {
+                font-size: 12px;
+                color: var(--ink-soft);
+                margin: -6px 0 10px;
+            }
+            .coverage {
+                font-size: 11.5px;
+                color: #a15c00;
+                margin: 0 0 8px;
+            }
+            .softnote {
+                font-size: 11.5px;
+                color: var(--ink-faint);
+                margin: 6px 0 2px;
+                line-height: 1.5;
             }
             .flag {
                 display: inline-block;
-                background: #c62828;
+                background: var(--coral);
                 color: #fff;
                 font-size: 11px;
                 font-weight: 700;
                 padding: 3px 8px;
-                border-radius: 4px;
+                border-radius: 5px;
                 margin-bottom: 8px;
             }
             .yourward {
                 display: inline-block;
-                background: var(--ks-navy);
-                color: #fff;
+                background: var(--ink);
+                color: var(--paper);
                 font-size: 11px;
                 font-weight: 700;
                 padding: 3px 8px;
-                border-radius: 4px;
+                border-radius: 5px;
                 margin-bottom: 8px;
                 margin-right: 6px;
             }
@@ -220,20 +395,28 @@
             .scorebar .label {
                 display: inline-block;
                 width: 135px;
-                color: #444;
+                color: var(--ink-soft);
             }
             .scorebar .track {
                 display: inline-block;
                 width: 120px;
                 height: 8px;
-                background: #e7e7e7;
+                background: var(--line-soft);
                 border-radius: 4px;
                 vertical-align: middle;
+                overflow: hidden;
             }
             .scorebar .fill {
                 display: block;
                 height: 8px;
                 border-radius: 4px;
+                width: var(--w, 0%);
+                animation: barGrow 0.6s cubic-bezier(0.3, 0.9, 0.3, 1);
+            }
+            @keyframes barGrow {
+                from {
+                    width: 0;
+                }
             }
             .scorebar .num {
                 margin-left: 8px;
@@ -242,17 +425,34 @@
             .just {
                 margin-top: 12px;
                 font-size: 13px;
-                color: #333;
+                color: var(--ink-soft);
                 font-style: italic;
-                border-top: 1px solid #eee;
+                border-top: 1px solid var(--line-soft);
                 padding-top: 10px;
+            }
+            .just.plain {
+                font-style: normal;
             }
             #grid {
                 flex: 1;
                 min-height: 300px;
-                border-radius: 10px;
+                border-radius: 12px;
                 overflow: hidden;
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                box-shadow: var(--shadow);
+                border: 1px solid var(--line);
+            }
+            #grid.ag-theme-quartz {
+                --ag-font-family: "Archivo", sans-serif;
+                --ag-font-size: 12.5px;
+                --ag-background-color: var(--panel);
+                --ag-foreground-color: var(--ink);
+                --ag-header-background-color: #f2efe8;
+                --ag-header-foreground-color: var(--ink-soft);
+                --ag-border-color: var(--line);
+                --ag-row-border-color: var(--line-soft);
+                --ag-row-hover-color: #f2efe8;
+                --ag-odd-row-background-color: #faf8f4;
+                --ag-wrapper-border-radius: 12px;
             }
             /* Compact headers: full words, never "Sa..." — combined with
                per-column minWidth + wrapHeaderText in the grid config */
@@ -271,9 +471,13 @@
             @media (max-width: 860px) {
                 header {
                     padding: 14px 12px 2px;
+                    gap: 8px;
                 }
                 header h1 {
-                    font-size: 21px;
+                    font-size: 26px;
+                }
+                header .region-pill {
+                    display: none;
                 }
                 .controls {
                     margin: 10px 12px 0;
@@ -316,6 +520,11 @@
                     min-height: 0;
                     height: 55vh;
                 }
+                .maphint {
+                    max-width: 88%;
+                    white-space: normal;
+                    text-align: center;
+                }
                 .side {
                     min-width: 0;
                 }
@@ -324,25 +533,30 @@
                 }
             }
             .composite-big {
-                font-size: 32px;
-                font-weight: 800;
+                font-family: "Instrument Serif", serif;
+                font-weight: 400;
+                font-size: 52px;
+                line-height: 0.9;
                 float: right;
+                margin-left: 12px;
             }
             .credit {
                 margin: 0 24px 16px;
                 font-size: 10.5px;
-                color: #999;
+                color: var(--ink-faint);
             }
         </style>
     </head>
     <body>
         <header>
             <h1>Kid<span>Street</span></h1>
-            <p>
-                Let KidStreet guide you: honest scores for how child-friendly
-                London actually is, and what's right for your family. Open data,
-                open methodology.
+            <p class="tagline">
+                how child-friendly is London, honestly &mdash; open data, open
+                methodology
             </p>
+            <span class="region-pill"
+                >Greater London<span id="wardCount"></span
+            ></span>
         </header>
 
         <div class="controls">
@@ -439,11 +653,13 @@
 
             const LENSES = {
                 move: {
+                    label: "Where do I move?",
                     note: "Published composite: safety 30% · education 20% · transport 15% · green 12% · family presence 10% · play 8% · planning 5%. Best score first. Colours rank wards in London-wide fifths (relative); the number is the absolute score.",
                     score: (w) => w.composite,
                     sortDesc: true,
                 },
                 hangout: {
+                    label: "Where's a good day out?",
                     note: "Day-out re-weight (disclosed): green 60% · safety 40%. The family/schools blend is excluded — you're visiting, not buying. Colours rank wards in London-wide fifths.",
                     score: (w) => {
                         let num = 0,
@@ -461,12 +677,14 @@
                     sortDesc: true,
                 },
                 council: {
+                    label: "What should the council fix?",
                     note: "Same composite, worst first. Wards under 60 flagged as needing improvement. Colours rank wards in London-wide fifths.",
                     score: (w) => w.composite,
                     sortDesc: false,
                     flagUnder: 60,
                 },
                 boroughs: {
+                    label: "Play deficit by borough",
                     note: "Each borough is coloured by the share of its wards providing under 10 m\u00b2 of playable space per child aged 0\u201315 \u2014 the Mayor's London Plan Policy S4 standard. Dark green = every scored ward meets it; red = half or more fall short. Click a borough for its summary.",
                     isBorough: true,
                     score: (w) => {
@@ -476,6 +694,7 @@
                     sortDesc: true,
                 },
                 play: {
+                    label: "Play provision (GLA)",
                     note: "GLA borough-planning layer: playable space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (15 of the City of London's 25 wards). Worst first.",
                     score: (w) => w.play,
                     sortDesc: false,
@@ -510,6 +729,71 @@
                 },
             ).addTo(map);
 
+            // Legend (bottom-left): swatches match whichever colouring the
+            // active lens uses; content is refreshed inside repaint().
+            let legendDiv = null;
+            const legendCtl = L.control({ position: "bottomleft" });
+            legendCtl.onAdd = () => {
+                legendDiv = L.DomUtil.create("div", "ks-legend");
+                return legendDiv;
+            };
+            legendCtl.addTo(map);
+
+            function legendHTML() {
+                const lens = LENSES[activeLens];
+                const row = (c, t) =>
+                    '<div class="lg-row"><span class="lg-swatch" style="background:' +
+                    c +
+                    '"></span>' +
+                    t +
+                    "</div>";
+                if (lens.isBorough) {
+                    return (
+                        '<div class="lg-title">Wards below the play benchmark</div>' +
+                        row(RAMP[4], "None — all scored wards meet S4") +
+                        row(RAMP[3], "Under 10%") +
+                        row(RAMP[2], "10–24%") +
+                        row(RAMP[1], "25–49%") +
+                        row(RAMP[0], "Half or more") +
+                        row(NO_DATA, "No child population data")
+                    );
+                }
+                if (lens.isPlay) {
+                    return (
+                        '<div class="lg-title">Play space vs London Plan S4</div>' +
+                        row(RAMP[0], "Under \u00bc of benchmark") +
+                        row(RAMP[1], "Under \u00bd of benchmark") +
+                        row(RAMP[2], "Below 10 m\u00b2/child") +
+                        row(RAMP[3], "Meets the benchmark") +
+                        row(RAMP[4], "3\u00d7 the benchmark or more") +
+                        row(NO_DATA, "No child population data")
+                    );
+                }
+                return (
+                    '<div class="lg-title">London-wide fifths</div>' +
+                    row(RAMP[0], "Lowest-scoring fifth") +
+                    row(RAMP[1], "Second fifth") +
+                    row(RAMP[2], "Middle fifth") +
+                    row(RAMP[3], "Fourth fifth") +
+                    row(RAMP[4], "Highest-scoring fifth") +
+                    '<div style="margin-top:3px;color:var(--ink-faint)">Colours are relative; numbers are absolute scores.</div>'
+                );
+            }
+
+            // One-time hint over the map, gone on first selection.
+            const mapHint = document.createElement("div");
+            mapHint.className = "maphint";
+            mapHint.textContent =
+                "Tap any ward for the full score breakdown";
+            document.getElementById("map").appendChild(mapHint);
+            let hintKilled = false;
+            function killHint() {
+                if (hintKilled) return;
+                hintKilled = true;
+                mapHint.classList.add("gone");
+                setTimeout(() => mapHint.remove(), 600);
+            }
+
             function normName(s) {
                 return s
                     .toLowerCase()
@@ -519,13 +803,26 @@
                     .trim();
             }
 
+            // Warm five-step ramp, coral -> amber -> green. The two end
+            // colours differ in lightness as well as hue (coral is lighter
+            // than the deep green) so the extremes stay distinguishable for
+            // red-green colourblind users and in greyscale; the absolute
+            // number is always shown beside/inside anything coloured.
+            const NO_DATA = "#aaa49b";
+            const RAMP = [
+                "#c0492f",
+                "#d3772f",
+                "#e0ab45",
+                "#7f9c44",
+                "#35663c",
+            ];
             function scoreColour(s) {
-                if (s == null) return "#9e9e9e";
-                if (s >= 75) return "#2e7d32";
-                if (s >= 65) return "#7cb342";
-                if (s >= 55) return "#f9a825";
-                if (s >= 45) return "#ef6c00";
-                return "#c62828";
+                if (s == null) return NO_DATA;
+                if (s >= 75) return RAMP[4];
+                if (s >= 65) return RAMP[3];
+                if (s >= 55) return RAMP[2];
+                if (s >= 45) return RAMP[1];
+                return RAMP[0];
             }
 
             // Map/table colouring is RELATIVE per lens (London-wide quintiles),
@@ -533,13 +830,7 @@
             // bands paint the whole map one colour because each lens has a very
             // different score distribution (composites compress high, the play
             // score caps at 100); ranking guarantees the map discriminates.
-            const QUINTILE_COLOURS = [
-                "#c62828",
-                "#ef6c00",
-                "#f9a825",
-                "#7cb342",
-                "#2e7d32",
-            ];
+            const QUINTILE_COLOURS = RAMP;
             const lensSorted = {}; // lens key -> sorted score values
             let boroughStats = {};
             let boroughRows = [];
@@ -616,13 +907,13 @@
 
             function boroughColour(b) {
                 const d = boroughStats[b];
-                if (!d || !d.scored) return "#9e9e9e";
+                if (!d || !d.scored) return NO_DATA;
                 const p = d.deficit / d.scored;
-                if (p === 0) return "#2e7d32";
-                if (p < 0.1) return "#7cb342";
-                if (p < 0.25) return "#f9a825";
-                if (p < 0.5) return "#ef6c00";
-                return "#c62828";
+                if (p === 0) return RAMP[4];
+                if (p < 0.1) return RAMP[3];
+                if (p < 0.25) return RAMP[2];
+                if (p < 0.5) return RAMP[1];
+                return RAMP[0];
             }
 
             function computeLensDistributions() {
@@ -648,17 +939,17 @@
                 const lens = LENSES[activeLens];
                 if (lens.isBorough) return boroughColour(w.borough);
                 const s = lens.score(w);
-                if (s == null) return "#9e9e9e";
+                if (s == null) return NO_DATA;
                 if (lens.isPlay) {
                     // Policy-anchored bands: green keeps meaning "meets the
                     // 10 m²/child benchmark", graded either side of it.
                     const r = w.playRatio;
-                    if (r == null) return "#9e9e9e";
-                    if (r < 0.25) return "#c62828";
-                    if (r < 0.5) return "#ef6c00";
-                    if (r < 1) return "#f9a825";
-                    if (r < 3) return "#7cb342";
-                    return "#2e7d32";
+                    if (r == null) return NO_DATA;
+                    if (r < 0.25) return RAMP[0];
+                    if (r < 0.5) return RAMP[1];
+                    if (r < 1) return RAMP[2];
+                    if (r < 3) return RAMP[3];
+                    return RAMP[4];
                 }
                 const vals = lensSorted[activeLens] || [];
                 if (!vals.length) return scoreColour(s);
@@ -701,7 +992,7 @@
                             fillColor: lensColour(w),
                             fillOpacity: s == null ? 0.35 : 0.55,
                             opacity: 1,
-                            weight: 1.5,
+                            weight: 1,
                         });
                         if (layer._ksTipLens === activeLens) return;
                         layer._ksTipLens = activeLens;
@@ -733,7 +1024,7 @@
                     } else {
                         // scored but not in the selected borough: dim it right down
                         layer.setStyle({
-                            fillColor: "#bbb",
+                            fillColor: "#b8b2a8",
                             fillOpacity: 0.12,
                             opacity: 0.4,
                             weight: 0.5,
@@ -748,6 +1039,7 @@
                     gridApi.onFilterChanged();
                     gridApi.refreshCells({ force: true });
                 }
+                if (legendDiv) legendDiv.innerHTML = legendHTML();
             }
 
             // Applied only when the lens actually changes (and once on load) so a
@@ -766,6 +1058,7 @@
             }
 
             function showDetail(w) {
+                killHint();
                 const lens = LENSES[activeLens];
                 const s = lensScore(w);
                 let html =
@@ -774,12 +1067,25 @@
                     '">' +
                     (s == null ? "–" : s) +
                     "</span>";
-                html += "<h2>" + w.ward + "</h2>";
                 if (w.borough)
+                    html += '<div class="kicker">' + w.borough + "</div>";
+                html += "<h2>" + w.ward + "</h2>";
+                // Factual rank on the active lens — same ordering the table
+                // uses, so the panel and the table never disagree.
+                const rankVals = lensSorted[activeLens] || [];
+                if (s != null && rankVals.length && !lens.isBorough) {
+                    let better = 0;
+                    for (const v of rankVals)
+                        if (lens.sortDesc ? v > s : v < s) better++;
                     html +=
-                        '<div style="font-size:12px;color:#888;margin:-6px 0 8px;">' +
-                        w.borough +
+                        '<div class="ranknote">#' +
+                        (better + 1) +
+                        " of " +
+                        rankVals.length +
+                        " scored wards · " +
+                        (lens.label || "") +
                         "</div>";
+                }
                 const covered = [
                     w.safety,
                     w.education,
@@ -791,7 +1097,7 @@
                 ].filter((v) => v != null).length;
                 if (covered < 7)
                     html +=
-                        '<div style="font-size:11.5px;color:#a15c00;margin:0 0 8px;">' +
+                        '<div class="coverage">' +
                         "Scored on " +
                         covered +
                         " of 7 dimensions — missing data is excluded from the composite, not counted as zero." +
@@ -819,7 +1125,7 @@
                         '<div class="scorebar"><span class="label">' +
                         label +
                         "</span>" +
-                        '<span class="track"><span class="fill" style="width:' +
+                        '<span class="track"><span class="fill" style="--w:' +
                         (val == null ? 0 : val) +
                         "%;background:" +
                         scoreColour(val) +
@@ -835,14 +1141,14 @@
                 // crime concentrates around shops, stations and nightlife.
                 if (w.safety != null && w.safety <= 2)
                     html +=
-                        '<div style="font-size:11.5px;color:#888;margin:6px 0 2px;">' +
+                        '<div class="softnote">' +
                         "A safety score of " +
                         w.safety +
                         " puts this ward in the ~5% of London wards with the highest street-crime density — typically town centres, where recorded crime concentrates around shops, stations and nightlife. It counts all incidents per km², visitors included, not risk per resident." +
                         "</div>";
                 if (w.playM2PerChild != null) {
                     html +=
-                        '<div class="just" style="font-style:normal;">' +
+                        '<div class="just plain">' +
                         "Play space: <strong>" +
                         w.playM2PerChild +
                         " m² per child</strong> (" +
@@ -864,6 +1170,7 @@
             }
 
             function showBoroughDetail(borough) {
+                killHint();
                 const d = boroughStats[borough];
                 if (!d) return;
                 let html =
@@ -874,7 +1181,7 @@
                     "</span>";
                 html += "<h2>" + borough + "</h2>";
                 html +=
-                    '<div style="font-size:12px;color:#888;margin:-6px 0 10px;">Share of scored wards providing under 10 m² of playable space per child (London Plan Policy S4)</div>';
+                    '<div class="subnote">Share of scored wards providing under 10 m² of playable space per child (London Plan Policy S4)</div>';
                 if (!d.scored) {
                     html +=
                         '<p class="hint">No wards in this borough have published child population data, so play provision cannot be benchmarked here.</p>';
@@ -895,11 +1202,11 @@
                         "</strong></div>";
                     if (d.total > d.scored)
                         html +=
-                            '<div style="font-size:11.5px;color:#a15c00;margin:6px 0;">' +
+                            '<div class="coverage" style="margin:6px 0;">' +
                             (d.total - d.scored) +
                             " ward(s) without child population data excluded.</div>";
                     html +=
-                        '<div class="just" style="font-style:normal;"><strong>Lowest provision:</strong><br>' +
+                        '<div class="just plain"><strong>Lowest provision:</strong><br>' +
                         d.worstWards
                             .map(
                                 (w) =>
@@ -929,7 +1236,7 @@
                     setTimeout(
                         () =>
                             layer.setStyle({
-                                weight: inActiveBorough(w) ? 1.5 : 0.5,
+                                weight: inActiveBorough(w) ? 1 : 0.5,
                             }),
                         1200,
                     );
@@ -1432,8 +1739,8 @@
                         if (!w) return;
                         const layer = L.geoJSON(f, {
                             style: {
-                                color: "#1b3a5c",
-                                weight: 1.5,
+                                color: "#575047",
+                                weight: 1,
                                 fillColor: scoreColour(w.composite),
                                 fillOpacity: 0.55,
                             },
@@ -1475,6 +1782,8 @@
                     computeBoroughStats();
                     computeLensDistributions();
                     buildBoroughDropdown();
+                    document.getElementById("wardCount").textContent =
+                        " · " + scores.length + " wards";
 
                     gridApi = agGrid.createGrid(
                         document.getElementById("grid"),
