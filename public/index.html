@@ -78,7 +78,7 @@
             header {
                 padding: 18px 24px 4px;
                 display: flex;
-                align-items: baseline;
+                align-items: center;
                 gap: 16px;
                 flex-wrap: wrap;
             }
@@ -100,7 +100,6 @@
                 font-weight: 500;
             }
             header .region-pill {
-                margin-left: auto;
                 font-size: 12px;
                 font-weight: 600;
                 color: var(--ink-soft);
@@ -639,6 +638,13 @@
                 how child-friendly is London, honestly &mdash; open data, open
                 methodology
             </p>
+            <div class="pcwrap">
+                <input
+                    id="pcInput"
+                    placeholder="Ward name or postcode"
+                />
+                <button id="pcBtn">Find my ward</button>
+            </div>
             <span class="region-pill"
                 >Greater London<span id="wardCount"></span
             ></span>
@@ -661,13 +667,6 @@
                 Play deficit by borough
             </button>
             <select id="boroughSelect" title="Choose a borough"></select>
-            <div class="pcwrap">
-                <input
-                    id="pcInput"
-                    placeholder="Ward name or postcode"
-                />
-                <button id="pcBtn">Find my ward</button>
-            </div>
         </div>
         <div id="pcMsg"></div>
         <div class="lens-note" id="lensNote"></div>
