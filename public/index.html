@@ -224,6 +224,78 @@
                 margin: 4px 24px 0;
                 max-width: 1080px;
             }
+            .stats {
+                display: flex;
+                gap: 10px;
+                margin: 14px 24px 0;
+                flex-wrap: wrap;
+            }
+            .stat {
+                flex: 1;
+                min-width: 155px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                padding: 12px 16px 11px;
+                box-shadow: var(--shadow);
+            }
+            .stat .n {
+                font-family: "Instrument Serif", serif;
+                font-size: 30px;
+                line-height: 1;
+                color: var(--ink);
+                display: block;
+            }
+            .stat .n.coral {
+                color: var(--coral);
+            }
+            .stat .n.green {
+                color: var(--green);
+            }
+            .stat .l {
+                font-size: 11px;
+                color: var(--ink-soft);
+                line-height: 1.4;
+                display: block;
+                margin-top: 4px;
+            }
+            .methodology summary {
+                cursor: pointer;
+                font-weight: 600;
+                color: var(--ink);
+                list-style: none;
+            }
+            .methodology summary::-webkit-details-marker {
+                display: none;
+            }
+            .methodology summary::after {
+                content: " →";
+                color: var(--green);
+            }
+            .methodology[open] summary::after {
+                content: "";
+            }
+            .methodology[open] summary {
+                margin-bottom: 6px;
+            }
+            .glance-row {
+                font-size: 13px;
+                margin: 8px 0;
+                color: var(--ink-soft);
+            }
+            .glance-row strong {
+                color: var(--ink);
+            }
+            .vision {
+                margin: 4px 24px 6px;
+                font-family: "Instrument Serif", serif;
+                font-style: italic;
+                font-size: 17px;
+                color: var(--ink);
+            }
+            .vision span {
+                color: var(--green);
+            }
             .methodology {
                 margin: 10px 24px 0;
                 padding: 10px 14px;
@@ -509,6 +581,20 @@
                     margin: 10px 12px 0;
                     font-size: 11.5px;
                 }
+                .stats {
+                    margin: 12px 12px 0;
+                }
+                .stat {
+                    min-width: 46%;
+                    padding: 10px 12px 9px;
+                }
+                .stat .n {
+                    font-size: 25px;
+                }
+                .vision {
+                    margin: 4px 12px 6px;
+                    font-size: 15px;
+                }
                 .layout {
                     flex-direction: column;
                     padding: 12px 12px 18px;
@@ -590,8 +676,14 @@
             ✕ Showing <span id="boroughChipName"></span> — back to all London
         </button>
 
-        <div class="methodology">
-            <strong>Methodology:</strong> Safety 30% (police.uk street-crime
+        <div class="stats" id="statStrip"></div>
+
+        <details class="methodology">
+            <summary>
+                Methodology &mdash; seven weighted, open-data dimensions.
+                Every input published.
+            </summary>
+            Safety 30% (police.uk street-crime
             density per km², inverted — a deliberate design: dense,
             high-footfall central wards score lowest, and the worst ~5% of
             wards all score 0, so a zero means "highest crime density in
@@ -611,7 +703,7 @@
             wards have no published child population, so play is shown as no
             data there. All sources open. Disagree with the inputs? Good,
             they're published.
-        </div>
+        </details>
 
         <div class="layout">
             <div id="map"></div>
@@ -627,6 +719,10 @@
             </div>
         </div>
 
+        <p class="vision">
+            The child-friendliness layer for every city on Earth.
+            <span>Starting with London.</span>
+        </p>
         <p class="credit">
             Ward boundaries: Office for National Statistics (Wards May 2024,
             super-generalised). Play provision: OS Open Greenspace &copy; Crown
@@ -1784,6 +1880,100 @@
                     buildBoroughDropdown();
                     document.getElementById("wardCount").textContent =
                         " · " + scores.length + " wards";
+
+                    // Headline stats, computed from the same dataset the map
+                    // draws — the strip can never disagree with the product.
+                    const playScored = wardData.filter(
+                        (w) => w.playRatio != null,
+                    );
+                    const belowWards = playScored.filter(
+                        (w) => w.playRatio < 1,
+                    );
+                    const kidsBelow = belowWards.reduce(
+                        (a, w) => a + (w.playChildren || 0),
+                        0,
+                    );
+                    const stat = (n, l, cls) =>
+                        '<div class="stat"><span class="n' +
+                        (cls ? " " + cls : "") +
+                        '">' +
+                        n +
+                        '</span><span class="l">' +
+                        l +
+                        "</span></div>";
+                    document.getElementById("statStrip").innerHTML =
+                        stat(
+                            scores.length,
+                            "London wards scored on open data",
+                        ) +
+                        stat(
+                            "7",
+                            "weighted dimensions, methodology published in full",
+                        ) +
+                        stat(
+                            kidsBelow.toLocaleString("en-GB"),
+                            "children aged 0–15 live in the " +
+                                belowWards.length +
+                                " wards providing under the Mayor's 10 m²/child play standard",
+                            "coral",
+                        ) +
+                        stat(
+                            "£0",
+                            "council funding — independent by design",
+                            "green",
+                        );
+
+                    // London at a glance: real numbers in the panel before any
+                    // click, so the first screen is never an empty prompt.
+                    const comps = wardData
+                        .map((w) => w.composite)
+                        .filter((v) => v != null)
+                        .sort((a, b) => a - b);
+                    const medianComp = comps.length
+                        ? comps.length % 2
+                            ? comps[(comps.length - 1) / 2]
+                            : Math.round(
+                                  (comps[comps.length / 2 - 1] +
+                                      comps[comps.length / 2]) /
+                                      2,
+                              )
+                        : "–";
+                    // Ties at the top are shown as ties — an arbitrary
+                    // tie-break would be exactly the kind of editorialising
+                    // the methodology promises not to do.
+                    const maxComp = Math.max(
+                        ...wardData.map((w) => w.composite ?? -1),
+                    );
+                    const topWards = wardData.filter(
+                        (w) => w.composite === maxComp,
+                    );
+                    const topLabel =
+                        topWards
+                            .slice(0, 3)
+                            .map((w) => w.ward + " (" + w.borough + ")")
+                            .join(", ") +
+                        (topWards.length > 3
+                            ? " +" + (topWards.length - 3) + " more"
+                            : "");
+                    document.getElementById("detail").innerHTML =
+                        '<div class="kicker">Greater London</div>' +
+                        "<h2>London at a glance</h2>" +
+                        '<div class="glance-row">Median ward composite: <strong>' +
+                        medianComp +
+                        " / 100</strong></div>" +
+                        '<div class="glance-row">Highest-scoring ward' +
+                        (topWards.length > 1 ? "s" : "") +
+                        ": <strong>" +
+                        topLabel +
+                        "</strong> — " +
+                        maxComp +
+                        "</div>" +
+                        '<div class="glance-row"><strong>' +
+                        belowWards.length +
+                        " wards</strong> provide less playable space than the London Plan S4 standard — <strong>" +
+                        kidsBelow.toLocaleString("en-GB") +
+                        " children</strong> live in them</div>" +
+                        '<p class="hint">Click any ward, a table row, or search your postcode for the full breakdown.</p>';
 
                     gridApi = agGrid.createGrid(
                         document.getElementById("grid"),
