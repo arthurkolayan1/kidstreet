@@ -257,25 +257,6 @@
                 display: block;
                 margin-top: 4px;
             }
-            .methodology summary {
-                cursor: pointer;
-                font-weight: 600;
-                color: var(--ink);
-                list-style: none;
-            }
-            .methodology summary::-webkit-details-marker {
-                display: none;
-            }
-            .methodology summary::after {
-                content: " →";
-                color: var(--green);
-            }
-            .methodology[open] summary::after {
-                content: "";
-            }
-            .methodology[open] summary {
-                margin-bottom: 6px;
-            }
             .glance-row {
                 font-size: 13px;
                 margin: 8px 0;
@@ -293,24 +274,200 @@
             .vision span {
                 color: var(--green);
             }
+            /* ---------- Methodology block ----------
+               Weight ramp is deliberately tints of --green, NOT the
+               coral->green RAMP used by the map: there red means "bad
+               score", here colour only encodes weight, so it stays one
+               hue. Vars are scoped to .methodology so nothing leaks. */
             .methodology {
+                --w1: #1e5638;
+                --w2: #2e7d54;
+                --w3: #489470;
+                --w4: #68aa8b;
+                --w5: #8dc0a7;
+                --w6: #b1d5c3;
+                --w7: #d2e6dd;
+
                 margin: 10px 24px 0;
-                padding: 10px 14px;
+                padding: 14px 18px 16px;
                 background: var(--panel);
                 border: 1px solid var(--line);
                 border-left: 3px solid var(--green);
-                font-size: 12px;
-                color: var(--ink-soft);
                 border-radius: 0 10px 10px 0;
+                box-shadow: var(--shadow);
+                color: var(--ink-soft);
                 line-height: 1.55;
             }
-            .methodology strong {
+            .methodology summary {
+                cursor: pointer;
+                list-style: none;
+                color: var(--ink);
+                font-weight: 600;
+                font-size: 13.5px;
+                letter-spacing: -0.01em;
+            }
+            .methodology summary::-webkit-details-marker {
+                display: none;
+            }
+            .methodology summary:focus-visible {
+                outline: 2px solid var(--focus);
+                outline-offset: 3px;
+            }
+            .m-head {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 16px;
+            }
+            .m-toggle {
+                font-size: 11.5px;
+                font-weight: 600;
+                color: var(--green);
+                white-space: nowrap;
+            }
+            .m-toggle::after {
+                content: " →";
+            }
+            .methodology[open] .m-toggle::after {
+                content: " ↑";
+            }
+            .m-toggle .m-hide {
+                display: none;
+            }
+            .methodology[open] .m-toggle .m-show {
+                display: none;
+            }
+            .methodology[open] .m-toggle .m-hide {
+                display: inline;
+            }
+
+            /* The bar sits inside <summary>: a 6px sliver when shut so the
+               weighting reads at a glance without pushing the map down,
+               growing to 30px when opened. */
+            .m-bar {
+                display: flex;
+                height: 6px;
+                border-radius: 4px;
+                overflow: hidden;
+                margin-top: 9px;
+                transition: height 0.22s ease;
+            }
+            .methodology[open] .m-bar {
+                height: 30px;
+                margin-top: 12px;
+            }
+            .m-bar span {
+                display: block;
+            }
+            .m-scale {
+                display: none;
+                justify-content: space-between;
+                font-size: 10.5px;
+                color: var(--ink-faint);
+                margin-top: 5px;
+            }
+            .methodology[open] .m-scale {
+                display: flex;
+            }
+
+            .m-dims {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 36px;
+                list-style: none;
+                margin: 22px 0 26px;
+                padding: 0;
+            }
+            .m-dim {
+                display: grid;
+                grid-template-columns: 9px 40px 1fr;
+                align-items: baseline;
+                gap: 11px;
+                padding: 10px 0;
+                border-top: 1px solid var(--line-soft);
+            }
+            .m-dim i {
+                width: 9px;
+                height: 9px;
+                border-radius: 2px;
+                display: block;
+                transform: translateY(-1px);
+            }
+            .m-dim b {
+                font-family: "Instrument Serif", serif;
+                font-weight: 400;
+                font-size: 19px;
+                line-height: 1;
                 color: var(--ink);
             }
-            .methodology em {
-                font-style: normal;
+            .m-name {
+                font-size: 13.5px;
                 font-weight: 600;
                 color: var(--ink);
+            }
+            .m-src {
+                display: block;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.5;
+                color: var(--ink-soft);
+                margin-top: 3px;
+            }
+
+            /* Limits are promoted to a headed section, not left in brackets:
+               for an analyst audience these ARE the credibility case. */
+            .m-limits {
+                border-top: 2px solid var(--ink);
+                padding-top: 16px;
+                margin-bottom: 20px;
+            }
+            .m-limits h3 {
+                margin: 0 0 14px;
+                font-size: 13.5px;
+                font-weight: 700;
+                color: var(--ink);
+            }
+            .m-limits dl {
+                margin: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px 36px;
+            }
+            .m-limits div {
+                margin: 0;
+            }
+            .m-limits dt {
+                font-size: 12px;
+                font-weight: 700;
+                color: var(--ink);
+                margin-bottom: 3px;
+            }
+            .m-limits dd {
+                margin: 0;
+                font-size: 12px;
+                line-height: 1.5;
+                color: var(--ink-soft);
+            }
+
+            .m-close {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px 18px;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 14px;
+                border-top: 1px solid var(--line-soft);
+            }
+            .m-close p {
+                margin: 0;
+                font-size: 12px;
+                color: var(--ink-soft);
+                max-width: 56ch;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .m-bar {
+                    transition: none;
+                }
             }
             .layout {
                 display: flex;
@@ -577,7 +734,24 @@
                 }
                 .methodology {
                     margin: 10px 12px 0;
-                    font-size: 11.5px;
+                    padding: 12px 14px 14px;
+                }
+                .methodology summary {
+                    font-size: 12.5px;
+                }
+                .methodology[open] .m-bar {
+                    height: 22px;
+                }
+                .m-dims,
+                .m-limits dl {
+                    grid-template-columns: 1fr;
+                }
+                .m-dims {
+                    gap: 0;
+                    margin: 18px 0 22px;
+                }
+                .m-limits dl {
+                    gap: 13px;
                 }
                 .stats {
                     margin: 12px 12px 0;
@@ -678,31 +852,157 @@
 
         <div class="stats" id="statStrip"></div>
 
-        <details class="methodology">
+        <details class="methodology" id="methodology">
             <summary>
-                Methodology &mdash; seven weighted, open-data dimensions.
-                Every input published.
+                <span class="m-head">
+                    <span
+                        >Seven weighted dimensions. Every input is published
+                        open data.</span
+                    >
+                    <span class="m-toggle"
+                        ><span class="m-show">Weights and limits</span
+                        ><span class="m-hide">Hide</span></span
+                    >
+                </span>
+                <span
+                    class="m-bar"
+                    role="img"
+                    aria-label="Weighting: safety 30 per cent, education 20, transport 15, green space 12, family presence 10, play provision 8, planning 5."
+                >
+                    <span style="flex: 30; background: var(--w1)"></span>
+                    <span style="flex: 20; background: var(--w2)"></span>
+                    <span style="flex: 15; background: var(--w3)"></span>
+                    <span style="flex: 12; background: var(--w4)"></span>
+                    <span style="flex: 10; background: var(--w5)"></span>
+                    <span style="flex: 8; background: var(--w6)"></span>
+                    <span style="flex: 5; background: var(--w7)"></span>
+                </span>
+                <span class="m-scale">
+                    <span>Composite score 0&ndash;100</span>
+                    <span>Weights shown to scale</span>
+                </span>
             </summary>
-            Safety 30% (police.uk street-crime
-            density per km², inverted — a deliberate design: dense,
-            high-footfall central wards score lowest, and the worst ~5% of
-            wards all score 0, so a zero means "highest crime density in
-            London", not "no data") · Education 20% · Transport 15% (stations
-            in or adjacent to the ward — stations serve catchments larger
-            than one ward — weighted 3× vs bus stops, per km²) · Green space
-            12% (parks &amp; playgrounds <em>within</em> the ward — cross-boundary
-            access, e.g. living beside Regent's Park in the next ward over, is
-            v2, same caveat as play) · Family presence 10% (share of households with dependent
-            children — who lives there now, not suitability) · Play provision
-            8% (OS Open Greenspace playable
-            space per child aged 0–15, scored against the London Plan Policy S4
-            benchmark of 10 m² per child) · Planning 5% · Composite 0–100,
-            missing dimensions excluded and weights renormalised, never counted
-            as zero. Play measures space <em>within</em> each ward, not
-            walking-distance access (that's v2); 15 of the City of London's 25
-            wards have no published child population, so play is shown as no
-            data there. All sources open. Disagree with the inputs? Good,
-            they're published.
+
+            <ul class="m-dims">
+                <li class="m-dim">
+                    <i style="background: var(--w1)"></i><b>30%</b>
+                    <span class="m-name"
+                        >Safety
+                        <span class="m-src"
+                            >police.uk street-crime density per km&sup2;,
+                            inverted.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w2)"></i><b>20%</b>
+                    <span class="m-name"
+                        >Education
+                        <span class="m-src"
+                            >Ofsted ratings for schools serving the ward.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w3)"></i><b>15%</b>
+                    <span class="m-name"
+                        >Transport
+                        <span class="m-src"
+                            >Stations in or adjacent to the ward, weighted
+                            3&times; against bus stops, per km&sup2;. Stations
+                            serve catchments larger than one ward.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w4)"></i><b>12%</b>
+                    <span class="m-name"
+                        >Green space
+                        <span class="m-src"
+                            >Parks and playgrounds inside the ward
+                            boundary.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w5)"></i><b>10%</b>
+                    <span class="m-name"
+                        >Family presence
+                        <span class="m-src"
+                            >Share of households with dependent children. Who
+                            lives there now, not who could.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w6)"></i><b>8%</b>
+                    <span class="m-name"
+                        >Play provision
+                        <span class="m-src"
+                            >OS Open Greenspace playable space per child aged
+                            0&ndash;15, scored against the London Plan Policy S4
+                            benchmark of 10&nbsp;m&sup2; per child.</span
+                        >
+                    </span>
+                </li>
+                <li class="m-dim">
+                    <i style="background: var(--w7)"></i><b>5%</b>
+                    <span class="m-name"
+                        >Planning
+                        <span class="m-src"
+                            >Planning London Datahub application records.</span
+                        >
+                    </span>
+                </li>
+            </ul>
+
+            <div class="m-limits">
+                <h3>What the score does not tell you</h3>
+                <dl>
+                    <div>
+                        <dt>A zero on safety is data, not a gap</dt>
+                        <dd>
+                            Crime density is inverted, so dense, high-footfall
+                            central wards score lowest and the worst ~5% all
+                            land on zero. It means highest crime density in
+                            London, not no data.
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>
+                            Green space and play are measured inside the ward
+                            only
+                        </dt>
+                        <dd>
+                            Live beside Regent's Park but one ward over and you
+                            get no credit for it. Walking-distance access is v2.
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>15 City of London wards are unscored for play</dt>
+                        <dd>
+                            No published child population, so no denominator.
+                            Shown as no data rather than as a low score.
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>Missing dimensions are excluded, never zeroed</dt>
+                        <dd>
+                            Where a ward lacks an input, the remaining weights
+                            are renormalised, so absence is not punished as a
+                            bad result.
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="m-close">
+                <p>
+                    Every source is open and independently checkable. KidStreet
+                    is not funded by, or affiliated with, any London council.
+                    Disagree with the inputs? Good, they're published.
+                </p>
+            </div>
         </details>
 
         <div class="layout">
