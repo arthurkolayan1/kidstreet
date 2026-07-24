@@ -178,10 +178,19 @@
                 background: var(--ink);
                 color: var(--paper);
             }
+            /* .pcbox wraps the input row plus its validation message, so the
+               message lands directly under the search box instead of on its
+               own full-width line below the lens buttons. align-self keeps
+               the box top-aligned, so an error grows downwards rather than
+               re-centring the whole header. */
+            .pcbox {
+                margin-left: auto;
+                align-self: flex-start;
+                min-width: 0;
+            }
             .pcwrap {
                 display: flex;
                 gap: 6px;
-                margin-left: auto;
             }
             #pcInput {
                 border: 1px solid var(--line);
@@ -212,9 +221,13 @@
             }
             #pcMsg {
                 font-size: 12px;
+                line-height: 1.35;
                 color: var(--coral);
-                margin: 4px 24px 0;
-                min-height: 15px;
+                margin: 0;
+                max-width: 332px;
+            }
+            #pcMsg:not(:empty) {
+                margin-top: 5px;
             }
             .lens-note {
                 font-size: 11.5px;
@@ -715,16 +728,18 @@
                     padding: 7px 12px;
                     font-size: 12.5px;
                 }
-                .pcwrap {
+                .pcbox {
                     margin-left: 0;
                     width: 100%;
+                }
+                #pcMsg {
+                    max-width: 100%;
                 }
                 #pcInput {
                     flex: 1;
                     width: auto;
                     min-width: 0;
                 }
-                #pcMsg,
                 .lens-note {
                     margin-left: 12px;
                     margin-right: 12px;
@@ -814,12 +829,15 @@
                 how child-friendly is London, honestly &mdash; open data, open
                 methodology
             </p>
-            <div class="pcwrap">
-                <input
-                    id="pcInput"
-                    placeholder="Ward name or postcode"
-                />
-                <button id="pcBtn">Find my ward</button>
+            <div class="pcbox">
+                <div class="pcwrap">
+                    <input
+                        id="pcInput"
+                        placeholder="Ward name or postcode"
+                    />
+                    <button id="pcBtn">Find my ward</button>
+                </div>
+                <div id="pcMsg" role="status" aria-live="polite"></div>
             </div>
             <span class="region-pill"
                 >Greater London<span id="wardCount"></span
@@ -844,7 +862,6 @@
             </button>
             <select id="boroughSelect" title="Choose a borough"></select>
         </div>
-        <div id="pcMsg"></div>
         <div class="lens-note" id="lensNote"></div>
         <button id="boroughChip" style="display: none">
             ✕ Showing <span id="boroughChipName"></span> — back to all London
