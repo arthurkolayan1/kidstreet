@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>KidStreet — London</title>
+        <title>KidStreet | London</title>
         <meta
             name="description"
             content="Honest child-friendliness scores for all 704 London wards, from open data with a published methodology. Play provision benchmarked against London Plan Policy S4."
         />
-        <meta property="og:title" content="KidStreet — London" />
+        <meta property="og:title" content="KidStreet | London" />
         <meta
             property="og:description"
             content="Child-friendliness scores for all 704 London wards from open data. Play provision benchmarked against the London Plan Policy S4 standard of 10 m² per child."
@@ -694,7 +694,7 @@
                 --ag-odd-row-background-color: #faf8f4;
                 --ag-wrapper-border-radius: 12px;
             }
-            /* Compact headers: full words, never "Sa..." — combined with
+            /* Compact headers: full words, never "Sa...", combined with
                per-column minWidth + wrapHeaderText in the grid config */
             #grid .ag-header-cell-text {
                 font-size: 11.5px;
@@ -707,7 +707,7 @@
             }
             /* ---------- Mobile ---------- */
             /* Without this, .side's min-width: 340px starves the map of
-               width entirely on phones — the map was invisible on mobile. */
+               width entirely on phones, which made the map invisible on mobile. */
             @media (max-width: 860px) {
                 header {
                     padding: 14px 12px 2px;
@@ -826,7 +826,7 @@
         <header>
             <h1>Kid<span>Street</span></h1>
             <p class="tagline">
-                how child-friendly is London, honestly &mdash; open data, open
+                how child-friendly is London, honestly: open data, open
                 methodology
             </p>
             <div class="pcbox">
@@ -864,7 +864,7 @@
         </div>
         <div class="lens-note" id="lensNote"></div>
         <button id="boroughChip" style="display: none">
-            ✕ Showing <span id="boroughChipName"></span> — back to all London
+            ✕ Showing <span id="boroughChipName"></span>, back to all London
         </button>
 
         <div class="stats" id="statStrip"></div>
@@ -1052,7 +1052,7 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script src="https://unpkg.com/ag-grid-community@31.3.2/dist/ag-grid-community.min.js"></script>
         <script>
-            // Voice agent disabled for now — empty ID means the widget is never
+            // Voice agent disabled for now. An empty ID means the widget is never
             // created. To re-enable, put the saved ID back between the quotes:
             // agent_1501kwpaz2scewg9xk6aws461npn
             const ELEVENLABS_AGENT_ID = "";
@@ -1073,7 +1073,7 @@
                 },
                 hangout: {
                     label: "Where's a good day out?",
-                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. The family/schools blend is excluded — you're visiting, not buying. Colours rank wards in London-wide fifths.",
+                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. The family/schools blend is excluded because you're visiting, not buying. Colours rank wards in London-wide fifths.",
                     score: (w) => {
                         let num = 0,
                             den = 0;
@@ -1098,7 +1098,7 @@
                 },
                 boroughs: {
                     label: "Play deficit by borough",
-                    note: "Each borough is coloured by the share of its wards providing under 10 m\u00b2 of playable space per child aged 0\u201315 \u2014 the Mayor's London Plan Policy S4 standard. Dark green = every scored ward meets it; red = half or more fall short. Click a borough for its summary.",
+                    note: "Each borough is coloured by the share of its wards providing under 10 m\u00b2 of playable space per child aged 0\u201315, the Mayor's London Plan Policy S4 standard. Dark green = every scored ward meets it; red = half or more fall short. Click a borough for its summary.",
                     isBorough: true,
                     score: (w) => {
                         const d = boroughStats[w.borough];
@@ -1163,7 +1163,7 @@
                 if (lens.isBorough) {
                     return (
                         '<div class="lg-title">Wards below the play benchmark</div>' +
-                        row(RAMP[4], "None — all scored wards meet S4") +
+                        row(RAMP[4], "None: all scored wards meet S4") +
                         row(RAMP[3], "Under 10%") +
                         row(RAMP[2], "10–24%") +
                         row(RAMP[1], "25–49%") +
@@ -1416,22 +1416,22 @@
                             tip =
                                 d && d.scored
                                     ? w.borough +
-                                      " \u2014 " +
+                                      ": " +
                                       d.deficit +
                                       " of " +
                                       d.scored +
                                       " wards below play benchmark"
-                                    : w.borough + " \u2014 no play data";
+                                    : w.borough + ": no play data";
                         } else if (lens.isPlay) {
                             tip =
                                 s == null
-                                    ? w.ward + " — no child population data"
+                                    ? w.ward + ": no child population data"
                                     : w.ward +
-                                      " — " +
+                                      ": " +
                                       w.playM2PerChild +
                                       " m²/child (benchmark 10)";
                         } else {
-                            tip = w.ward + " — " + (s == null ? "no data" : s);
+                            tip = w.ward + ": " + (s == null ? "no data" : s);
                         }
                         layer.bindTooltip(tip, { sticky: true });
                     } else {
@@ -1483,7 +1483,7 @@
                 if (w.borough)
                     html += '<div class="kicker">' + w.borough + "</div>";
                 html += "<h2>" + w.ward + "</h2>";
-                // Factual rank on the active lens — same ordering the table
+                // Factual rank on the active lens, the same ordering the table
                 // uses, so the panel and the table never disagree.
                 const rankVals = lensSorted[activeLens] || [];
                 if (s != null && rankVals.length && !lens.isBorough) {
@@ -1513,7 +1513,7 @@
                         '<div class="coverage">' +
                         "Scored on " +
                         covered +
-                        " of 7 dimensions — missing data is excluded from the composite, not counted as zero." +
+                        " of 7 dimensions. Missing data is excluded from the composite, not counted as zero." +
                         "</div>";
                 if (yourWard === w.code)
                     html += '<span class="yourward">YOUR WARD</span>';
@@ -1547,7 +1547,7 @@
                         (val == null ? "no data" : val) +
                         "</span></div>";
                 }
-                // A bare safety 0 invites "surely not" — say what it means.
+                // A bare safety 0 invites "surely not", so say what it means.
                 // The ~5% of wards above the p95 crime-density clip all score
                 // 0, and they are almost all town centres (West End, Camden
                 // Town, Brixton, Lewisham Central...) where recorded street
@@ -1557,7 +1557,7 @@
                         '<div class="softnote">' +
                         "A safety score of " +
                         w.safety +
-                        " puts this ward in the ~5% of London wards with the highest street-crime density — typically town centres, where recorded crime concentrates around shops, stations and nightlife. It counts all incidents per km², visitors included, not risk per resident." +
+                        " puts this ward in the ~5% of London wards with the highest street-crime density, typically town centres, where recorded crime concentrates around shops, stations and nightlife. It counts all incidents per km², visitors included, not risk per resident." +
                         "</div>";
                 if (w.playM2PerChild != null) {
                     html +=
@@ -1624,7 +1624,7 @@
                             .map(
                                 (w) =>
                                     w.ward +
-                                    " — " +
+                                    ": " +
                                     w.playM2PerChild +
                                     " m²/child" +
                                     (w.playChildren != null &&
@@ -1672,7 +1672,7 @@
             function applyBorough(borough) {
                 activeBorough = borough;
                 // Reset chip: visible whenever a borough filter is active,
-                // one click (or Escape) back to the all-London view — the
+                // one click (or Escape) back to the all-London view, since the
                 // dropdown alone was too hidden as the only way back.
                 const chip = document.getElementById("boroughChip");
                 if (borough === "__all__") {
@@ -1867,7 +1867,7 @@
             }
 
             // Try the query as a ward name first (exact, then prefix, then
-            // contains — several London wards share a name, e.g. Abbey, so
+            // contains; several London wards share a name, e.g. Abbey, so
             // duplicates are surfaced rather than silently dropped). Returns
             // true if handled, false to fall through to postcode lookup.
             function findWardByName(query, msg) {
@@ -1899,7 +1899,7 @@
                             .map((w) => w.ward + " (" + w.borough + ")")
                             .join(", ") +
                         (matches.length > 4 ? "…" : "") +
-                        " — add the borough or use your postcode to be exact.";
+                        " (add the borough or use your postcode to be exact).";
                 }
                 return true;
             }
@@ -2145,7 +2145,7 @@
                     });
 
                     geo.features.forEach((f) => {
-                        // join by unique ONS code — several London wards share a
+                        // join by unique ONS code, since several London wards share a
                         // name (Abbey, Woodside...) and fringe wards outside
                         // London can share names with scored wards
                         const w = scoresByCode[f.properties.WD24CD];
@@ -2199,7 +2199,7 @@
                         " · " + scores.length + " wards";
 
                     // Headline stats, computed from the same dataset the map
-                    // draws — the strip can never disagree with the product.
+                    // draws, so the strip can never disagree with the product.
                     const playScored = wardData.filter(
                         (w) => w.playRatio != null,
                     );
@@ -2236,7 +2236,7 @@
                         ) +
                         stat(
                             "£0",
-                            "council funding — independent by design",
+                            "council funding, independent by design",
                             "green",
                         );
 
@@ -2255,7 +2255,7 @@
                                       2,
                               )
                         : "–";
-                    // Ties at the top are shown as ties — an arbitrary
+                    // Ties at the top are shown as ties, because an arbitrary
                     // tie-break would be exactly the kind of editorialising
                     // the methodology promises not to do.
                     const maxComp = Math.max(
@@ -2282,12 +2282,12 @@
                         (topWards.length > 1 ? "s" : "") +
                         ": <strong>" +
                         topLabel +
-                        "</strong> — " +
+                        "</strong> at " +
                         maxComp +
                         "</div>" +
                         '<div class="glance-row"><strong>' +
                         belowWards.length +
-                        " wards</strong> provide less playable space than the London Plan S4 standard — <strong>" +
+                        " wards</strong> provide less playable space than the London Plan S4 standard. <strong>" +
                         kidsBelow.toLocaleString("en-GB") +
                         " children</strong> live in them</div>" +
                         '<p class="hint">Click any ward, a table row, or search your postcode for the full breakdown.</p>';
@@ -2333,7 +2333,7 @@
                         console.warn("Table unavailable:", gridErr);
                         document.getElementById("grid").innerHTML =
                             '<div style="padding:18px;font-size:13px;color:var(--ink-soft)">' +
-                            "The ward table could not load on this connection \u2014 the map above has every ward, and search still works." +
+                            "The ward table could not load on this connection. The map above has every ward, and search still works." +
                             "</div>";
                     }
                     repaint();
