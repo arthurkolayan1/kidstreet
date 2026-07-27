@@ -103,6 +103,19 @@ async function main() {
   const planning = byCode(readJsonOut("06_planning_by_ward.json").wards);
   const familyFit = byCode(readJsonOut("07_family_fit_by_ward.json").wards);
 
+  // Play (step 10). Optional so the first seven stages still run before step 10 has
+  // ever been executed; once 10_play_by_ward.json exists it is merged like the rest.
+  let play = new Map();
+  let playSource = null;
+  try {
+    const p = readJsonOut("10_play_by_ward.json");
+    play = byCode(p.wards);
+    playSource = p.source;
+    console.log(`Play dimension loaded for ${play.size} wards (step 10).`);
+  } catch {
+    console.warn("10_play_by_ward.json not found — run pipeline/10_play.js; play will be null.");
+  }
+
   // Ward area (km^2), for density-based scores.
   const areaByCode = new Map();
   for (const w of base.wards) {
@@ -123,6 +136,14 @@ async function main() {
   // one big park (Richmond Park, big outer-London wards) should score very highly, not get
   // punished for having a big denominator. This deliberately differs from the transport/safety
   // density metrics below, where "per km^2" is the right comparison.
+  // DECLARED OVERLAP (deliberate): playground sites contribute to BOTH this green
+  // metric and the play dimension. Green counts them as outdoor amenities a child
+  // can use (presence); play scores their area per child against the S4 benchmark
+  // (adequacy). Different constructs — r = 0.286 between the two scores across 689
+  // wards, so they are not redundant. Net effect: playgrounds weigh somewhat more
+  // than parks in the composite, which is intentional in a child-friendliness index.
+  // This matches the published methodology ("parks and playgrounds inside the ward
+  // boundary") — if the definition ever changes, change the UI text in the same commit.
   const greenRaw = new Map();
   for (const [code, g] of green) {
     greenRaw.set(code, g.playground_count + g.park_reserve_count);
@@ -204,6 +225,7 @@ async function main() {
         education: educationScore.get(w.ward_code) ?? null,
         planning: planningScore.get(w.ward_code) ?? null,
         family_fit: familyScore.get(w.ward_code) ?? null,
+        play: play.get(w.ward_code)?.score ?? null,
       },
       dimensions: {
         safety: {
@@ -236,6 +258,20 @@ async function main() {
           upcoming_facility_count: p?.upcoming_facility_count ?? null,
           upcoming_facilities: p?.upcoming_facilities ?? [],
         },
+        play_provision: (() => {
+          const pl = play.get(w.ward_code);
+          return {
+            score: pl?.score ?? null,
+            play_area_m2: pl?.play_area_m2 ?? null,
+            play_site_count: pl?.play_site_count ?? null,
+            children_0_15: pl?.children_0_15 ?? null,
+            m2_per_child: pl?.m2_per_child ?? null,
+            ratio_vs_benchmark: pl?.ratio_vs_benchmark ?? null,
+            benchmark_m2_per_child: pl?.benchmark_m2_per_child ?? 10,
+            sources:
+              "OS Open Greenspace (OGL); ONS mid-2024 ward population estimates via Nomis; London Plan Policy S4 benchmark",
+          };
+        })(),
         family_fit: {
           score: familyScore.get(w.ward_code) ?? null,
           pct_households_with_dependent_children:
@@ -262,7 +298,7 @@ async function main() {
         safety:
           "data.police.uk crimes-street/all-crime, latest month, tiled poly queries, point-in-polygon joined to ward, normalized per km^2 (not population — see pipeline/06 note)",
         green_space:
-          "OpenStreetMap Overpass (leisure=playground|park|nature_reserve; leisure=garden excluded as mostly private plots), London-wide query, raw count of features per ward (not area-normalized — lots of park/playground is a genuine size-independent good). (c) OpenStreetMap contributors, ODbL.",
+          "OpenStreetMap Overpass (leisure=playground|park|nature_reserve; leisure=garden excluded as mostly private plots), London-wide query, raw count of features per ward (not area-normalized — lots of park/playground is a genuine size-independent good). NOTE, declared overlap: playground sites also feed the play dimension — counted here as outdoor amenities (presence), scored there as area per child (adequacy); r=0.286 between the two dimension scores, deliberately not deduplicated. (c) OpenStreetMap contributors, ODbL.",
         transport:
           "TfL StopPoint/Mode (tube, dlr, overground, tram) + OSM Overpass (national rail, bus stops), normalized per km^2, +5 bonus for a confirmed step-free station (TfL AccessViaLift)",
         education:
@@ -271,6 +307,9 @@ async function main() {
           "Planning London Datahub (planningdata.london.gov.uk/api-guest), approved child-relevant applications since 2023, joined by application centroid point-in-polygon",
         family_fit:
           "ONS Census 2021 via Nomis (household composition + age bands), joined at 2022-ward geography to 2024 wards",
+        play:
+          playSource ||
+          "pipeline/10_play.js not yet run — see that file for sources and method",
       },
     },
     dimensions: [
@@ -280,6 +319,7 @@ async function main() {
       "education",
       "planning",
       "family_fit",
+      "play",
     ],
     wards,
   };
