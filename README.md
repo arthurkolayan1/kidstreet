@@ -20,7 +20,7 @@ Composite = weighted blend, renormalised over the dimensions a ward actually has
 | Transport | 15 | TfL StopPoint + OSM (rail, bus) | access-based: in-ward stations + 0.5× adjacent-ward stations, ×3 vs bus stops, per km², +5 step-free bonus |
 | Green space | 12 | OSM Overpass: parks + nature reserves (gardens excluded as mostly private; playgrounds excluded — see below) | raw feature count, min-max clipped at p95 |
 | Family fit | 10 | ONS Census 2021 via Nomis (household composition + age bands) | % households with dependent children + % family-forming age |
-| Play | 8 | OS Open Greenspace 'Play Space' polygons + ONS mid-2024 ward child population via Nomis | m² of equipped play per child 0–15, scored against the London Plan Policy S4 figure of 10 m²/child |
+| Play | 8 | OS Open Greenspace (Play Space + Playing Field + Public Park Or Garden) + ONS mid-2024 ward child population via Nomis | m² of play and informal recreation space per child 0–15, scored against the London Plan Policy S4 figure of 10 m²/child; equipped-only figure published as a lower bound |
 | Planning | 5 | Planning London Datahub, approved child-relevant applications since 2023 | raw count |
 
 ### Play: benchmark, not compliance
@@ -44,6 +44,11 @@ parks in the composite — is intentional in a child-friendliness index.
 
 - OS Open Greenspace under-counts equipped play (school-grounds and some estate
   playgrounds are absent). Figures are "publicly mapped, publicly accessible play".
+- Play counts whole-site areas of parks and playing fields as an upper-bound
+  proxy for their playable fraction (no open dataset identifies playable space
+  within a park); the equipped-only figure is published alongside as the lower
+  bound. Formal/restricted facilities (bowling greens, tennis courts, golf) are
+  excluded. Definition corrected and declared July 2026.
 - Sites and features are assigned to wards by centroid point-in-polygon; a
   boundary-straddling site goes wholly to one ward.
 - The 15 City of London wards have no published ward-level child population, so
