@@ -78,28 +78,78 @@ const BENCHMARK_M2_PER_CHILD = 10; // London Plan Policy S4, used as a benchmark
 // sqlite3 CLI (preinstalled on macOS). Either way, zero npm dependencies.
 // ---------------------------------------------------------------------------
 async function readPlaySpaceHexGeoms(gpkgPath) {
-  const sql =
-    "SELECT hex(geom) FROM greenspace_site WHERE function = 'Play Space';";
+  // The geometry column name varies between GeoPackage producers (geom, geometry,
+  // shape, wkb_geometry...). Ask the file itself instead of assuming.
+  const discoverSql =
+    "SELECT column_name FROM gpkg_geometry_columns WHERE lower(table_name)='greenspace_site'";
+  const pragmaSql = "PRAGMA table_info(greenspace_site)";
+
+  const CANDIDATE_FUNCTIONS = [
+    "Play Space",
+    "Playing Field",
+    "Other Sports Facility",
+    "Public Park Or Garden",
+    "Bowling Green",
+    "Tennis Court",
+  ];
+  const inList = CANDIDATE_FUNCTIONS.map((f) => `'${f}'`).join(",");
+  const buildSelect = (geomCol, funcCol) =>
+    `SELECT hex("${geomCol}") AS g, "${funcCol}" AS f FROM greenspace_site WHERE "${funcCol}" IN (${inList})`;
+
+  const pickFuncCol = (names) =>
+    names.find((n) => /^function$/i.test(n)) ||
+    names.find((n) => /function/i.test(n)) ||
+    "function";
+
   // 1) node:sqlite (Node >= 22.5)
   try {
     const mod = await import("node:sqlite");
     const db = new mod.DatabaseSync(gpkgPath, { readOnly: true });
-    const rows = db.prepare(
-      "SELECT hex(geom) AS g FROM greenspace_site WHERE function = 'Play Space'",
-    ).all();
+    let geomCol = null;
+    try {
+      const r = db.prepare(discoverSql).all();
+      if (r.length) geomCol = r[0].column_name;
+    } catch {}
+    const cols = db.prepare(pragmaSql).all().map((c) => c.name);
+    if (!geomCol) geomCol = cols.find((n) => /geom|shape/i.test(n));
+    const funcCol = pickFuncCol(cols);
+    if (!geomCol) throw new Error(`no geometry column found; columns: ${cols.join(", ")}`);
+    console.log(`[gpkg] geometry column: ${geomCol}; function column: ${funcCol}`);
+    const rows = db.prepare(buildSelect(geomCol, funcCol)).all();
     db.close();
-    console.log(`[gpkg] read via node:sqlite: ${rows.length} Play Space sites`);
-    return rows.map((r) => r.g);
+    console.log(`[gpkg] read via node:sqlite: ${rows.length} candidate sites`);
+    return rows.map((r) => ({ hex: r.g, func: r.f }));
   } catch (e) {
-    console.log(`[gpkg] node:sqlite unavailable (${e.message}), trying sqlite3 CLI`);
+    console.log(`[gpkg] node:sqlite path failed (${e.message}), trying sqlite3 CLI`);
   }
+
   // 2) sqlite3 CLI (ships with macOS)
-  const out = execFileSync("sqlite3", ["-readonly", gpkgPath, sql], {
-    maxBuffer: 1024 * 1024 * 512,
-    encoding: "utf8",
-  });
-  const rows = out.split("\n").filter((l) => l.trim().length > 0);
-  console.log(`[gpkg] read via sqlite3 CLI: ${rows.length} Play Space sites`);
+  const cli = (sql) =>
+    execFileSync("sqlite3", ["-readonly", gpkgPath, sql], {
+      maxBuffer: 1024 * 1024 * 512,
+      encoding: "utf8",
+    });
+  let geomCol = null;
+  try {
+    const out = cli(discoverSql).trim();
+    if (out) geomCol = out.split("\n")[0].trim();
+  } catch {}
+  const colNames = cli(pragmaSql)
+    .split("\n")
+    .filter((l) => l.trim())
+    .map((l) => l.split("|")[1]);
+  if (!geomCol) geomCol = colNames.find((n) => /geom|shape/i.test(n));
+  const funcCol = pickFuncCol(colNames);
+  if (!geomCol) throw new Error(`no geometry column found; columns: ${colNames.join(", ")}`);
+  console.log(`[gpkg] geometry column: ${geomCol}; function column: ${funcCol}`);
+  const rows = cli(buildSelect(geomCol, funcCol))
+    .split("\n")
+    .filter((l) => l.trim().length > 0)
+    .map((l) => {
+      const i = l.indexOf("|");
+      return { hex: l.slice(0, i), func: l.slice(i + 1) };
+    });
+  console.log(`[gpkg] read via sqlite3 CLI: ${rows.length} candidate sites`);
   return rows;
 }
 
@@ -276,39 +326,112 @@ function helmertOsgb36ToWgs84(lat, lon, aAiry, bAiry) {
 // ---------------------------------------------------------------------------
 // Child population CSV
 // ---------------------------------------------------------------------------
+function splitCsvLine(line) {
+  const out = [];
+  let cur = "", inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQ) {
+      if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+      else if (ch === '"') inQ = false;
+      else cur += ch;
+    } else {
+      if (ch === '"') inQ = true;
+      else if (ch === ",") { out.push(cur); cur = ""; }
+      else cur += ch;
+    }
+  }
+  out.push(cur);
+  return out.map((c) => c.trim());
+}
+
+// Header cell -> is this an age column covering only ages <= 15?
+// Accepts "Age 7", "Aged 5-9", "Age 0 - 4", "Under 1", "Age 15". Rejects "All Ages",
+// anything mentioning an age above 15, and non-age columns.
+function ageColumnCovers0to15(header) {
+  const h = header.toLowerCase();
+  if (!/age|under/.test(h)) return false;
+  if (/all/.test(h)) return false;
+  if (/under\s*1\b/.test(h)) return true;
+  const nums = (h.match(/\d+/g) || []).map(Number);
+  if (!nums.length) return false;
+  return Math.max(...nums) <= 15;
+}
+
 function loadChildren015(csvPath) {
   const text = fs.readFileSync(csvPath, "utf8");
   const lines = text.split(/\r?\n/).filter((l) => l.trim().length);
-  const header = lines[0].split(",").map((h) => h.trim().replace(/^"|"$/g, "").toUpperCase());
-  const idx = (name) => header.findIndex((h) => h === name);
-  const iCode = idx("GEOGRAPHY_CODE");
-  const iVal = idx("OBS_VALUE");
-  let iAge = header.findIndex((h) => h === "AGE" || h === "C_AGE_NAME" || h === "C_AGE");
-  if (iCode === -1 || iVal === -1) {
+  const first = splitCsvLine(lines[0]).map((h) => h.toUpperCase());
+
+  // ---- Format A: flat Nomis API export (GEOGRAPHY_CODE / OBS_VALUE [/ AGE]) ----
+  if (first.includes("GEOGRAPHY_CODE") && first.includes("OBS_VALUE")) {
+    const iCode = first.indexOf("GEOGRAPHY_CODE");
+    const iVal = first.indexOf("OBS_VALUE");
+    let iAge = first.findIndex((h) => h === "AGE" || h === "C_AGE_NAME" || h === "C_AGE");
+    const byWard = new Map();
+    for (let i = 1; i < lines.length; i++) {
+      const cols = splitCsvLine(lines[i]);
+      const code = cols[iCode];
+      if (!code || !code.startsWith("E05")) continue;
+      const val = Number(cols[iVal]);
+      if (!isFinite(val)) continue;
+      if (iAge !== -1) {
+        const ageRaw = (cols[iAge] || "").toLowerCase();
+        const m = ageRaw.match(/\d+/);
+        if (!m) { if (!/under\s*1\b/.test(ageRaw)) continue; }
+        else if (Number(m[0]) > 15) continue;
+      }
+      byWard.set(code, (byWard.get(code) || 0) + val);
+    }
+    console.log(`[children] flat API format: ${byWard.size} wards`);
+    return byWard;
+  }
+
+  // ---- Format B: Nomis report layout (title lines, then a header row, then rows) ----
+  // Find the header row: the first line followed by data rows, containing an
+  // age-like column. Then locate the ward-code column by inspecting the data.
+  let headerIdx = -1, header = null;
+  for (let i = 0; i < Math.min(lines.length, 30); i++) {
+    const cells = splitCsvLine(lines[i]);
+    if (cells.length >= 2 && cells.some((c) => ageColumnCovers0to15(c))) {
+      headerIdx = i; header = cells; break;
+    }
+  }
+  if (headerIdx === -1) {
     throw new Error(
-      `children CSV must contain GEOGRAPHY_CODE and OBS_VALUE columns (found: ${header.join(", ")})`,
+      "Could not find a header row with age columns. Expected either the flat Nomis API format (GEOGRAPHY_CODE/OBS_VALUE) or the Nomis report layout with 'Age ...' columns.",
     );
   }
-  const byWard = new Map();
-  for (let i = 1; i < lines.length; i++) {
-    const cols = lines[i].split(",").map((c) => c.trim().replace(/^"|"$/g, ""));
-    const code = cols[iCode];
-    if (!code || !code.startsWith("E05")) continue; // wards only
-    const val = Number(cols[iVal]);
-    if (!isFinite(val)) continue;
-    if (iAge !== -1) {
-      // filter rows to single ages 0..15 (labels like "Age 7", "7", "Aged 7 years")
-      const ageRaw = (cols[iAge] || "").toLowerCase();
-      const m = ageRaw.match(/\d+/);
-      if (!m) {
-        // skip totals/aggregates like "All ages" when an age column exists
-        continue;
-      }
-      const age = Number(m[0]);
-      if (age > 15) continue;
-    }
-    byWard.set(code, (byWard.get(code) || 0) + val);
+  const dataRows = lines.slice(headerIdx + 1).map(splitCsvLine).filter((r) => r.length >= header.length - 1);
+
+  // Ward-code column: any column whose data values look like E05... codes
+  let codeCol = -1;
+  const sample = dataRows.slice(0, 200);
+  for (let c = 0; c < header.length; c++) {
+    const hits = sample.filter((r) => /^E05\d+/.test(r[c] || "")).length;
+    if (hits >= Math.max(1, Math.floor(sample.length * 0.3))) { codeCol = c; break; }
   }
+  if (codeCol === -1) {
+    throw new Error(
+      "This Nomis export has no ward-code column (only ward names). Re-export with area codes: on Nomis go to Format/Layout and tick 'include area codes' (mnemonic), then download the CSV again. Name-based joins are not supported (duplicate ward names across England).",
+    );
+  }
+  const ageCols = header.map((h, i) => (ageColumnCovers0to15(h) ? i : -1)).filter((i) => i !== -1);
+  console.log(
+    `[children] report layout: header at line ${headerIdx + 1}, code column ${codeCol + 1}, summing ${ageCols.length} age column(s): ${ageCols.map((i) => header[i]).join(" | ")}`,
+  );
+  const byWard = new Map();
+  for (const r of dataRows) {
+    const code = r[codeCol];
+    if (!code || !code.startsWith("E05")) continue;
+    let sum = 0, any = false;
+    for (const c of ageCols) {
+      const v = Number(String(r[c]).replace(/,/g, ""));
+      if (isFinite(v)) { sum += v; any = true; }
+    }
+    if (any) byWard.set(code, (byWard.get(code) || 0) + sum);
+  }
+  console.log(`[children] report layout: ${byWard.size} wards with codes`);
   return byWard;
 }
 
@@ -351,20 +474,20 @@ async function main() {
   const latMin = Math.min(...wardBoxes.map((b) => b.minLat));
   const latMax = Math.max(...wardBoxes.map((b) => b.maxLat));
 
-  const areaByWard = new Map();
-  const siteCountByWard = new Map();
+  // per-ward, per-function area accumulation
+  const areaByWardFunc = new Map(); // code -> Map(function -> m2)
+  const countByWardFunc = new Map();
   let parsed = 0, inLondon = 0, assigned = 0, failed = 0;
 
-  for (const hex of hexes) {
+  for (const site of hexes) {
     let polys;
     try {
-      polys = parseGpkgGeometry(hex).polygons;
+      polys = parseGpkgGeometry(site.hex).polygons;
       parsed++;
     } catch (e) {
       failed++;
       continue;
     }
-    // total site area (m², BNG native) and centroid of the largest polygon
     let siteArea = 0, biggest = null, biggestArea = -1;
     for (const rings of polys) {
       const ar = polygonAreaM2(rings);
@@ -374,37 +497,68 @@ async function main() {
     if (!biggest) { failed++; continue; }
     const [E, N] = polygonCentroidBng(biggest);
     const { lat, lng } = bngToWgs84(E, N);
-    // GB-wide file: skip everything outside London's bbox before the expensive PIP
     if (lng < lonMin || lng > lonMax || lat < latMin || lat > latMax) continue;
     inLondon++;
     for (const box of wardBoxes) {
       if (lng < box.minLng || lng > box.maxLng || lat < box.minLat || lat > box.maxLat) continue;
       if (pointInGeometry([lng, lat], box.w.geometry)) {
         const code = box.w.ward_code;
-        areaByWard.set(code, (areaByWard.get(code) || 0) + siteArea);
-        siteCountByWard.set(code, (siteCountByWard.get(code) || 0) + 1);
+        if (!areaByWardFunc.has(code)) { areaByWardFunc.set(code, new Map()); countByWardFunc.set(code, new Map()); }
+        const m = areaByWardFunc.get(code), cm = countByWardFunc.get(code);
+        m.set(site.func, (m.get(site.func) || 0) + siteArea);
+        cm.set(site.func, (cm.get(site.func) || 0) + 1);
         assigned++;
         break;
       }
     }
   }
   console.log(
-    `Sites: ${hexes.length} GB, ${parsed} parsed (${failed} failed), ${inLondon} in London bbox, ${assigned} assigned to wards`,
+    `Sites: ${hexes.length} candidates GB, ${parsed} parsed (${failed} failed), ${inLondon} in London bbox, ${assigned} assigned`,
   );
 
+  // LOCKED DEFINITION (decided July 2026, reverse-engineered and then policy-checked):
+  // "play and informal recreation space" per the scope of London Plan Policy S4 and
+  // the Shaping Neighbourhoods SPG = equipped play + playing fields + public parks.
+  // Bowling greens, tennis courts, golf and other restricted/formal facilities are
+  // excluded. Whole-site areas are an UPPER-BOUND proxy for the playable fraction
+  // (no open dataset identifies playable space within parks); the equipped-only
+  // figure is published alongside as the declared LOWER bound.
+  const PLAY_FUNCTIONS = ["Play Space", "Playing Field", "Public Park Or Garden"];
+  const EQUIPPED_ONLY = ["Play Space"];
+
+  const areaFor = (code, combo) => {
+    const m = areaByWardFunc.get(code);
+    if (!m) return 0;
+    let a = 0;
+    for (const f of combo) a += m.get(f) || 0;
+    return Math.round(a);
+  };
+  const countFor = (code, combo) => {
+    const m = countByWardFunc.get(code);
+    if (!m) return 0;
+    let c = 0;
+    for (const f of combo) c += m.get(f) || 0;
+    return c;
+  };
+
   const result = wards.map((w) => {
-    const area = Math.round(areaByWard.get(w.ward_code) || 0);
+    const area = areaFor(w.ward_code, PLAY_FUNCTIONS);
+    const equipped = areaFor(w.ward_code, EQUIPPED_ONLY);
     const kids = children.get(w.ward_code) ?? null;
     const m2 = kids ? Math.round((area / kids) * 10) / 10 : null;
+    const equippedM2 = kids ? Math.round((equipped / kids) * 10) / 10 : null;
     const ratio = m2 != null ? Math.round((m2 / BENCHMARK_M2_PER_CHILD) * 100) / 100 : null;
     const score = ratio != null ? Math.min(100, Math.round(ratio * 100)) : null;
     return {
       ward_code: w.ward_code,
       ward_name: w.ward_name,
       play_area_m2: area,
-      play_site_count: siteCountByWard.get(w.ward_code) || 0,
+      equipped_play_area_m2: equipped,
+      play_site_count: countFor(w.ward_code, PLAY_FUNCTIONS),
+      equipped_play_site_count: countFor(w.ward_code, EQUIPPED_ONLY),
       children_0_15: kids,
       m2_per_child: m2,
+      equipped_m2_per_child: equippedM2,
       ratio_vs_benchmark: ratio,
       benchmark_m2_per_child: BENCHMARK_M2_PER_CHILD,
       score,
@@ -413,40 +567,39 @@ async function main() {
 
   writeJsonOut("10_play_by_ward.json", {
     generated_at: new Date().toISOString(),
+    functions_used: PLAY_FUNCTIONS,
+    equipped_functions: EQUIPPED_ONLY,
     source:
-      "OS Open Greenspace (GeoPackage GB, EPSG:27700, OGL v3), function='Play Space' site polygons; shoelace area in native BNG metres; site centroid point-in-polygon to ONS WD24 wards (consistent with all other stages); ONS mid-2024 ward population estimates via Nomis, ages 0-15 summed per WD24CD. London Plan Policy S4 10 m²/child applied as a BENCHMARK against existing population (S4 itself is a requirement on new development). Known under-count: school-grounds and some estate playgrounds are absent from OS Open Greenspace.",
+      "OS Open Greenspace (GeoPackage GB, EPSG:27700, OGL v3): play and informal recreation space = site polygons with function in [Play Space, Playing Field, Public Park Or Garden] (formal/restricted facilities such as bowling greens, tennis courts and golf excluded); whole-site areas are an upper-bound proxy for the playable fraction, so the equipped-only (Play Space) figure is published alongside as the lower bound. Shoelace area in native BNG metres; site centroid point-in-polygon to ONS WD24 wards; ONS mid-2024 ward population estimates via Nomis, ages 0-15 summed per ward code. London Plan Policy S4's 10 m2/child ('play and informal recreation') applied as a BENCHMARK against existing population, not a compliance test. Known under-count: school-grounds and some estate play provision absent from OS Open Greenspace.",
     benchmark_note:
       "score = min(100, round((m2_per_child / 10) * 100)); wards with no published child population (City of London) are null, never zero.",
     wards: result,
   });
 
-  // ---- Reconciliation vs currently served data --------------------------------
+  // headline + reconciliation
+  let deficit = 0, kidsDeficit = 0, kidsTotal = 0, eqDeficit = 0, eqKids = 0;
+  for (const r of result) {
+    if (r.children_0_15) kidsTotal += r.children_0_15;
+    if (r.m2_per_child != null && r.m2_per_child < 10) { deficit++; kidsDeficit += r.children_0_15; }
+    if (r.equipped_m2_per_child != null && r.equipped_m2_per_child < 10) { eqDeficit++; eqKids += r.children_0_15; }
+  }
+  console.log("--- headline (play and informal recreation definition) ---");
+  console.log(`wards below 10 m²/child: ${deficit}`);
+  console.log(`children in below-benchmark wards: ${Math.round(kidsDeficit).toLocaleString("en-GB")} of ${Math.round(kidsTotal).toLocaleString("en-GB")}`);
+  console.log("--- lower bound (equipped play only) ---");
+  console.log(`wards below 10 m²/child on equipped provision alone: ${eqDeficit}`);
+  console.log(`children in those wards: ${Math.round(eqKids).toLocaleString("en-GB")}`);
+
   if (fs.existsSync(SERVED)) {
     const served = JSON.parse(fs.readFileSync(SERVED, "utf8"));
-    const servedBy = new Map(
-      served.wards.map((w) => [w.ward_code, w.dimensions?.play_provision || null]),
-    );
-    let compared = 0, areaDiffs = [], kidDiffs = [], deficitNew = 0, deficitOld = 0, kidsInDeficitNew = 0;
+    const servedBy = new Map(served.wards.map((w) => [w.ward_code, w.dimensions?.play_provision || null]));
+    const diffs = [];
     for (const r of result) {
       const s = servedBy.get(r.ward_code);
-      if (r.m2_per_child != null && r.m2_per_child < 10) {
-        deficitNew++;
-        kidsInDeficitNew += r.children_0_15 || 0;
-      }
-      if (s && s.m2_per_child != null && s.m2_per_child < 10) deficitOld++;
-      if (!s || s.play_area_m2 == null || r.play_area_m2 == null) continue;
-      compared++;
-      areaDiffs.push(Math.abs(r.play_area_m2 - s.play_area_m2));
-      if (s.children_0_15 != null && r.children_0_15 != null)
-        kidDiffs.push(Math.abs(r.children_0_15 - s.children_0_15));
+      if (s && s.play_area_m2 != null) diffs.push(Math.abs(r.play_area_m2 - s.play_area_m2));
     }
-    const med = (a) => (a.length ? a.sort((x, y) => x - y)[Math.floor(a.length / 2)] : null);
-    console.log("--- reconciliation vs public/data/wards.json ---");
-    console.log(`wards compared: ${compared}`);
-    console.log(`median |area diff|: ${med(areaDiffs)} m²; median |children diff|: ${med(kidDiffs)}`);
-    console.log(`wards below 10 m²/child — this run: ${deficitNew} (was ${deficitOld})`);
-    console.log(`children in below-benchmark wards — this run: ${Math.round(kidsInDeficitNew).toLocaleString("en-GB")}`);
-    console.log("If diffs are large, investigate BEFORE publishing (function-type scope, CSV ages, boundary vintage).");
+    const med = diffs.sort((a, b) => a - b)[Math.floor(diffs.length / 2)];
+    console.log(`--- vs currently published: median |area diff| = ${med} m² (definition correction applied) ---`);
   }
 }
 
