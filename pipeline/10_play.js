@@ -1,5 +1,7 @@
-// Step 10: play provision dimension — OS Open Greenspace "Play Space" area per child,
-// benchmarked against the London Plan Policy S4 figure of 10 m² per child.
+// Step 10: play provision dimension — OS Open Greenspace play and informal recreation
+// area per child (site function in Play Space, Playing Field or Public Park Or Garden),
+// benchmarked against the London Plan Policy S4 figure of 10 m² per child. The
+// equipped-only subset (Play Space alone) is computed alongside as the lower bound.
 //
 // This stage makes the play dimension REPRODUCIBLE. The served dataset previously
 // contained play_provision numbers with no generating code in this repo (step 9's
@@ -33,9 +35,13 @@
 //   3. pipeline/out/01_wards_base.json (committed) — WD24 ward geometry.
 //
 // Method:
-//   - SELECT id, function, geom FROM greenspace_site WHERE function = 'Play Space'
-//     ("Play Space" is OS's equipped-play typology; Playing Field etc. are NOT
-//     included — that is a deliberate, declared scope choice: equipped play only.)
+//   - SELECT geom, function FROM greenspace_site WHERE function IN
+//     ('Play Space', 'Playing Field', 'Public Park Or Garden') — the "play and
+//     informal recreation" scope. Formal/restricted facilities (bowling greens,
+//     tennis courts, golf, allotments) are excluded. Whole-site areas are an
+//     upper-bound proxy for the playable fraction, so the equipped-only subset
+//     (Play Space alone, OS's equipped-play typology) is computed alongside as the
+//     declared lower bound. See PLAY_FUNCTIONS and EQUIPPED_ONLY below.
 //   - Area: shoelace on the BNG polygon rings (outer minus holes), in m².
 //   - Ward assignment: site CENTROID point-in-polygon against WD24 boundaries —
 //     consistent with every other stage in this pipeline (crime, green, planning).
@@ -45,7 +51,9 @@
 //   - m2_per_child = ward play area / ward children 0-15;
 //     ratio = m2_per_child / 10; score = min(100, round(ratio * 100)) — the exact
 //     formula the served dataset already uses (verified against all 689 scored wards).
-//   - Wards with no published child population (City of London) => score null.
+//   - Wards with no published ward-level child population (the 15 City of London
+//     wards where ONS publishes none) => score null. The City's other wards are
+//     scored, some with very small child counts.
 //
 // Output: pipeline/out/10_play_by_ward.json
 // Also prints a reconciliation report against public/data/wards.json so a re-run
