@@ -18,7 +18,7 @@ Composite = weighted blend, renormalised over the dimensions a ward actually has
 | Safety | 30 | data.police.uk street-level crime, latest month | crimes/km², inverted, min-max clipped at p95 |
 | Education | 20 | Ofsted state-funded schools (Aug 2025), geocoded via postcodes.io | % Good/Outstanding, rescaled |
 | Transport | 15 | TfL StopPoint + OSM (rail, bus) | access-based: in-ward stations + 0.5× adjacent-ward stations, ×3 vs bus stops, per km², +5 step-free bonus |
-| Green space | 12 | OSM Overpass: parks + nature reserves (gardens excluded as mostly private; playgrounds excluded — see below) | raw feature count, min-max clipped at p95 |
+| Green space | 12 | OSM Overpass: parks + nature reserves + playgrounds (gardens excluded as mostly private plots; playgrounds also feed the play dimension, see the declared-overlap note below) | raw feature count (playground_count + park_reserve_count), min-max clipped at p95 |
 | Family fit | 10 | ONS Census 2021 via Nomis (household composition + age bands) | % households with dependent children + % family-forming age |
 | Play | 8 | OS Open Greenspace (Play Space + Playing Field + Public Park Or Garden) + ONS mid-2024 ward child population via Nomis | m² of play and informal recreation space per child 0–15, scored against the London Plan Policy S4 figure of 10 m²/child; equipped-only figure published as a lower bound |
 | Planning | 5 | Planning London Datahub, approved child-relevant applications since 2023 | raw count |
