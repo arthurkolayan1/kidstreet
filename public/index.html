@@ -938,9 +938,10 @@
                         >Green space
                         <span class="m-src"
                             >Parks and playgrounds inside the ward boundary.
-                            Playgrounds also count in the play dimension
-                            &mdash; a deliberate, declared overlap: presence
-                            here, adequacy there.</span
+                            Playgrounds also count in the play dimension,
+                            on purpose. Here they count as somewhere nearby;
+                            in the play dimension they count as space per
+                            child.</span
                         >
                     </span>
                 </li>
@@ -1014,8 +1015,7 @@
                         <dd>
                             A park counts in full even though not all of it is
                             playable. The equipped-play-only lower bound is
-                            published in the repository alongside every ward's
-                            figure.
+                            shown on every ward panel and in the repository.
                         </dd>
                     </div>
                     <div>
@@ -1133,7 +1133,7 @@
                 },
                 play: {
                     label: "Play provision (GLA)",
-                    note: "GLA borough-planning layer: play and informal recreation space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (15 of the City of London's 25 wards). Worst first. Note: six City of London micro-wards have fewer than 50 resident children, so their m²/child figures are fragile in either direction — a handful of polygons or families changes the result; their ward panels say so explicitly.",
+                    note: "GLA borough-planning layer: play and informal recreation space per child (0–15) vs the London Plan Policy S4 benchmark of 10 m² per child. Colours: red = under a quarter of the benchmark, orange/amber = deficit, light green = benchmark met, dark green = 3× or more. Grey = no published child population (15 of the City of London's 25 wards). Worst first. Note: six City of London micro-wards have fewer than 50 resident children, so their m²/child figures are fragile in either direction, because a handful of polygons or families changes the result; their ward panels say so explicitly.",
                     score: (w) => w.play,
                     sortDesc: false,
                     isPlay: true,
@@ -1538,7 +1538,7 @@
                         '<div class="coverage">' +
                         "Scored on " +
                         covered +
-                        " of 7 dimensions. Missing data is excluded from the composite, not counted as zero." +
+                        " of 7 dimensions. Where a dimension is missing, we leave it out of the score instead of scoring it zero." +
                         "</div>";
                 if (yourWard === w.code)
                     html += '<span class="yourward">YOUR WARD</span>';
@@ -1593,7 +1593,7 @@
                         (w.playChildren != null && w.playChildren < 50
                             ? "only " +
                               w.playChildren.toLocaleString() +
-                              " resident children aged 0–15 — too few for a reliable comparison against the 10 m²/child London Plan benchmark)"
+                              " resident children aged 0–15, too few for a reliable comparison against the 10 m²/child London Plan benchmark)"
                             : (w.playChildren != null
                                   ? w.playChildren.toLocaleString() +
                                     " children aged 0–15, "
@@ -1603,6 +1603,14 @@
                                   : Math.round(w.playRatio * 100) +
                                     "% of the 10 m²/child London Plan benchmark)")) +
                         "</div>";
+                    if (w.playEquippedM2PerChild != null) {
+                        html +=
+                            '<div class="just plain">' +
+                            "Equipped playgrounds only: <strong>" +
+                            w.playEquippedM2PerChild +
+                            " m² per child</strong> (the lower bound; the line above counts whole parks and playing fields)" +
+                            "</div>";
+                    }
                 }
                 html +=
                     '<div class="just">&ldquo;' +
