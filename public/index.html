@@ -849,17 +849,11 @@
             <button class="lens active" data-lens="move">
                 Where do I move?
             </button>
-            <button class="lens" data-lens="hangout">
-                Where's a good day out?
-            </button>
-            <button class="lens" data-lens="council">
-                What should the council fix?
-            </button>
             <button class="lens" data-lens="play">
                 Play provision (GLA)
             </button>
             <button class="lens" data-lens="playEquipped">
-                Playgrounds only (GLA)
+                Playgrounds only
             </button>
             <button class="lens" data-lens="boroughs">
                 Play deficit by borough
@@ -1106,31 +1100,6 @@
                     score: (w) => w.composite,
                     sortDesc: true,
                 },
-                hangout: {
-                    label: "Where's a good day out?",
-                    note: "Day-out re-weight (disclosed): green 60% · safety 40%. The family/schools blend is excluded because you're visiting, not buying. Colours rank wards in London-wide fifths.",
-                    score: (w) => {
-                        let num = 0,
-                            den = 0;
-                        if (w.green != null) {
-                            num += 0.6 * w.green;
-                            den += 0.6;
-                        }
-                        if (w.safety != null) {
-                            num += 0.4 * w.safety;
-                            den += 0.4;
-                        }
-                        return den ? Math.round(num / den) : null;
-                    },
-                    sortDesc: true,
-                },
-                council: {
-                    label: "What should the council fix?",
-                    note: "Same composite, worst first. Wards under 60 flagged as needing improvement. Colours rank wards in London-wide fifths.",
-                    score: (w) => w.composite,
-                    sortDesc: false,
-                    flagUnder: 60,
-                },
                 boroughs: {
                     label: "Play deficit by borough",
                     note: "Each borough is coloured by the share of its wards providing under 10 m\u00b2 of playable space per child aged 0\u201315, the Mayor's London Plan Policy S4 standard. Dark green = every scored ward meets it; red = half or more fall short. Click a borough for its summary.",
@@ -1150,7 +1119,7 @@
                     ratioField: "playRatio",
                 },
                 playEquipped: {
-                    label: "Playgrounds only (GLA)",
+                    label: "Playgrounds only",
                     note: "Equipped playgrounds only (OS Open Greenspace 'Play Space'), m² per child aged 0–15, against the same 10 m²/child benchmark. Strip out parks and playing fields and 684 of 689 scored wards fall below the benchmark, so equipped playground provision is low almost everywhere. Same colours as the play layer: red under a quarter of the benchmark, up to dark green at 3× or more. OS Open Greenspace under-counts school and estate playgrounds, so read this as a floor.",
                     score: (w) =>
                         w.playEquippedM2PerChild == null
