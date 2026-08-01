@@ -269,6 +269,10 @@ export default {
             playM2PerChild: play.m2_per_child ?? null,
             playRatio: play.ratio_vs_benchmark ?? null,
             playEquippedM2PerChild: play.equipped_m2_per_child ?? null,
+            playEquippedRatio:
+              play.equipped_m2_per_child != null
+                ? play.equipped_m2_per_child / 10
+                : null,
             narrative,
             composite: compositeOf(s),
             justification: templatedJustification(w),
