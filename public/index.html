@@ -858,6 +858,9 @@
             <button class="lens" data-lens="play">
                 Play provision (GLA)
             </button>
+            <button class="lens" data-lens="playEquipped">
+                Playgrounds only (GLA)
+            </button>
             <button class="lens" data-lens="boroughs">
                 Play deficit by borough
             </button>
@@ -1144,6 +1147,23 @@
                     score: (w) => w.play,
                     sortDesc: false,
                     isPlay: true,
+                    ratioField: "playRatio",
+                },
+                playEquipped: {
+                    label: "Playgrounds only (GLA)",
+                    note: "Equipped playgrounds only (OS Open Greenspace 'Play Space'), m² per child aged 0–15, against the same 10 m²/child benchmark. Strip out parks and playing fields and 684 of 689 scored wards fall below the benchmark, so equipped playground provision is low almost everywhere. Same colours as the play layer: red under a quarter of the benchmark, up to dark green at 3× or more. OS Open Greenspace under-counts school and estate playgrounds, so read this as a floor.",
+                    score: (w) =>
+                        w.playEquippedM2PerChild == null
+                            ? null
+                            : Math.min(
+                                  100,
+                                  Math.round(
+                                      (w.playEquippedM2PerChild / 10) * 100,
+                                  ),
+                              ),
+                    sortDesc: false,
+                    isPlay: true,
+                    ratioField: "playEquippedRatio",
                 },
             };
             let activeLens = "move";
@@ -1402,7 +1422,7 @@
                 if (lens.isPlay) {
                     // Policy-anchored bands: green keeps meaning "meets the
                     // 10 m²/child benchmark", graded either side of it.
-                    const r = w.playRatio;
+                    const r = w[lens.ratioField || "playRatio"];
                     if (r == null) return NO_DATA;
                     if (r < 0.25) return RAMP[0];
                     if (r < 0.5) return RAMP[1];
