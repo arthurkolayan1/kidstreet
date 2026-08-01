@@ -1293,6 +1293,16 @@
                             : (m2s[m2s.length / 2 - 1] + m2s[m2s.length / 2]) /
                               2
                         : null;
+                    const eq2s = scored
+                        .map((w) => w.playEquippedM2PerChild)
+                        .filter((v) => v != null)
+                        .sort((x, y) => x - y);
+                    const medianEq = eq2s.length
+                        ? eq2s.length % 2
+                            ? eq2s[(eq2s.length - 1) / 2]
+                            : (eq2s[eq2s.length / 2 - 1] + eq2s[eq2s.length / 2]) /
+                              2
+                        : null;
                     const worst = scored
                         .slice()
                         .sort(
@@ -1315,6 +1325,10 @@
                             : null,
                         medianM2:
                             median != null ? Math.round(median * 10) / 10 : null,
+                        medianEquipped:
+                            medianEq != null
+                                ? Math.round(medianEq * 10) / 10
+                                : null,
                         worstWards: scored
                             .slice()
                             .sort(
@@ -1612,7 +1626,7 @@
                 if (w.playM2PerChild != null) {
                     html +=
                         '<div class="just plain">' +
-                        "Play space: <strong>" +
+                        "Play &amp; informal recreation: <strong>" +
                         w.playM2PerChild +
                         " m² per child</strong> (" +
                         (w.playChildren != null && w.playChildren < 50
@@ -1629,11 +1643,18 @@
                                     "% of the 10 m²/child London Plan benchmark)")) +
                         "</div>";
                     if (w.playEquippedM2PerChild != null) {
+                        const parksFields =
+                            Math.round(
+                                (w.playM2PerChild - w.playEquippedM2PerChild) *
+                                    10,
+                            ) / 10;
                         html +=
                             '<div class="just plain">' +
-                            "Equipped playgrounds only: <strong>" +
+                            "That splits into <strong>" +
                             w.playEquippedM2PerChild +
-                            " m² per child</strong> (the lower bound; the line above counts whole parks and playing fields)" +
+                            " m²/child</strong> of equipped playgrounds and <strong>" +
+                            parksFields +
+                            " m²/child</strong> of parks &amp; playing fields." +
                             "</div>";
                     }
                 }
@@ -1668,9 +1689,14 @@
                         d.scored +
                         " scored wards</strong></div>";
                     html +=
-                        '<div class="scorebar"><span class="label">Median provision</span><strong>' +
+                        '<div class="scorebar"><span class="label">Median, incl. parks &amp; fields</span><strong>' +
                         d.medianM2 +
                         " m² per child</strong> (benchmark 10)</div>";
+                    if (d.medianEquipped != null)
+                        html +=
+                            '<div class="scorebar"><span class="label">Median, equipped playgrounds</span><strong>' +
+                            d.medianEquipped +
+                            " m² per child</strong></div>";
                     html +=
                         '<div class="scorebar"><span class="label">Children 0–15</span><strong>' +
                         d.children.toLocaleString() +
