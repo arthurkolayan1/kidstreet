@@ -228,6 +228,8 @@ export default {
         //   playM2PerChild raw sqm of playable space per child aged 0-15
         //   playRatio      playM2PerChild / 10 (London Plan Policy S4 benchmark);
         //                  < 1 is a deficit, >= 1 meets the benchmark
+        //   playEquippedM2PerChild  lower bound: equipped play (Play Space) only,
+        //                  per child, whole-site playM2PerChild is the upper bound
         //   playAreaM2 / playChildren  the two raw inputs, for full transparency
         // `narrative` remains the average of education, planning and family_fit (the
         // three "is this place investing in and suited to families" signals), kept for
@@ -266,6 +268,7 @@ export default {
             playChildren: play.children_0_15 ?? null,
             playM2PerChild: play.m2_per_child ?? null,
             playRatio: play.ratio_vs_benchmark ?? null,
+            playEquippedM2PerChild: play.equipped_m2_per_child ?? null,
             narrative,
             composite: compositeOf(s),
             justification: templatedJustification(w),
