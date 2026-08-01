@@ -268,6 +268,9 @@ async function main() {
             m2_per_child: pl?.m2_per_child ?? null,
             ratio_vs_benchmark: pl?.ratio_vs_benchmark ?? null,
             benchmark_m2_per_child: pl?.benchmark_m2_per_child ?? 10,
+            equipped_m2_per_child: pl?.equipped_m2_per_child ?? null,
+            equipped_play_area_m2: pl?.equipped_play_area_m2 ?? null,
+            equipped_play_site_count: pl?.equipped_play_site_count ?? null,
             sources:
               "OS Open Greenspace (OGL); ONS mid-2024 ward population estimates via Nomis; London Plan Policy S4 benchmark",
           };
