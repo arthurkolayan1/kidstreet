@@ -1512,15 +1512,40 @@
                 // uses, so the panel and the table never disagree.
                 const rankVals = lensSorted[activeLens] || [];
                 if (s != null && rankVals.length && !lens.isBorough) {
-                    let better = 0;
-                    for (const v of rankVals)
+                    let better = 0,
+                        same = 0;
+                    for (const v of rankVals) {
                         if (lens.sortDesc ? v > s : v < s) better++;
+                        else if (v === s) same++;
+                    }
+                    const rank = better + 1;
+                    // Worst-first lenses (sortDesc false) rank from the bottom, so
+                    // say "lowest" to stop #1 reading as best. Big ties are common on
+                    // the play lens (many wards at 0), so flag them rather than showing
+                    // #1 on dozens of different wards.
+                    const dir = lens.sortDesc ? "" : "lowest ";
+                    const rankStr =
+                        same > 1
+                            ? "joint #" +
+                              rank +
+                              " " +
+                              dir +
+                              "of " +
+                              rankVals.length +
+                              " scored wards (" +
+                              same +
+                              " tied)"
+                            : "#" +
+                              rank +
+                              " " +
+                              dir +
+                              "of " +
+                              rankVals.length +
+                              " scored wards";
                     html +=
-                        '<div class="ranknote">#' +
-                        (better + 1) +
-                        " of " +
-                        rankVals.length +
-                        " scored wards · " +
+                        '<div class="ranknote">' +
+                        rankStr +
+                        " · " +
                         (lens.label || "") +
                         "</div>";
                 }
