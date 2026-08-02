@@ -932,6 +932,7 @@
                         >Safety
                         <span class="m-src"
                             >police.uk street-crime density per km&sup2;,
+                            single month (June 2026 in this build),
                             inverted.</span
                         >
                     </span>
@@ -962,7 +963,8 @@
                     <span class="m-name"
                         >Green space
                         <span class="m-src"
-                            >Parks and playgrounds inside the ward boundary.
+                            >OpenStreetMap parks, playgrounds and nature
+                            reserves inside the ward boundary.
                             Playgrounds also count in the play dimension,
                             on purpose. Here they count as somewhere nearby;
                             in the play dimension they count as space per
@@ -1022,7 +1024,10 @@
                             roughly 5% of wards with the highest density all
                             land on zero. A zero means the most recorded crime
                             per km&sup2; in London, usually a busy town centre,
-                            not missing data.
+                            not missing data. The data is a single month of
+                            police.uk street crime, June 2026 in this build;
+                            one month carries noise, and police.uk publishes
+                            about two months behind.
                         </dd>
                     </div>
                     <div>
@@ -1105,8 +1110,9 @@
             super-generalised). Play provision: OS Open Greenspace &copy; Crown
             copyright and database right, Open Government Licence; child
             population from ONS mid-2024 ward estimates via Nomis. Contains OS
-            data &copy; Crown copyright and database right 2024. Postcode
-            lookup: postcodes.io.
+            data &copy; Crown copyright and database right 2024. Green space:
+            &copy; OpenStreetMap contributors (ODbL). Crime: data.police.uk,
+            Open Government Licence. Postcode lookup: postcodes.io.
         </p>
 
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
