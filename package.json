@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "ag-grid-community": "^31.3.2",
+    "leaflet": "^1.9.4",
+    "playwright": "^1.62.1"
+  }
+}

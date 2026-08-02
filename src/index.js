@@ -216,6 +216,124 @@ export default {
       return parts.join("; ") + ".";
     }
 
+    // One short factual caption per dimension, shown under each score bar in
+    // the ward panel. Same source facts as templatedJustification (which is
+    // kept for the voice agent), but split per dimension so each number on
+    // the card explains itself instead of everything being crammed into one
+    // run-on quote at the bottom.
+    function fmtPeriod(p) {
+      // "2026-04" -> "Apr 2026"
+      const m = /^(\d{4})-(\d{2})$/.exec(p || "");
+      if (!m) return null;
+      const months = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ");
+      const mi = Number(m[2]) - 1;
+      return months[mi] ? months[mi] + " " + m[1] : null;
+    }
+    function humanCat(c) {
+      if (c === "anti-social-behaviour") return "anti-social behaviour";
+      return String(c || "").replace(/-/g, " ");
+    }
+    function plural(n, one, many) {
+      return n + " " + (n === 1 ? one : many || one + "s");
+    }
+    function dimensionNotes(w) {
+      const dims = w.dimensions || {};
+      const n = {};
+
+      const saf = dims.safety;
+      if (saf && saf.crimes_last_month != null) {
+        const when = fmtPeriod(saf.period);
+        let t =
+          plural(saf.crimes_last_month, "recorded street crime") +
+          (when ? " in " + when : " last month");
+        const cats = (saf.top_categories || []).slice(0, 2).map(humanCat);
+        if (cats.length) t += "; mostly " + cats.join(" and ");
+        n.safety = t + ".";
+      }
+
+      const ed = dims.education;
+      if (ed) {
+        if (ed.school_count) {
+          let t = plural(ed.school_count, "state school");
+          if (ed.pct_good_or_outstanding != null)
+            t += ", " + ed.pct_good_or_outstanding + "% rated Good or Outstanding";
+          const outstanding = (ed.schools || []).find(
+            (s) => s.ofsted === "Outstanding",
+          );
+          if (outstanding) t += ", incl. " + outstanding.name;
+          n.education = t + ".";
+        } else {
+          n.education = "No state-funded schools located in the ward.";
+        }
+      }
+
+      const tr = dims.transport;
+      if (tr) {
+        const st = tr.station_count || 0;
+        const adj = tr.stations_in_adjacent_wards || 0;
+        const bus = tr.bus_stop_count || 0;
+        let t = st
+          ? plural(st, "station") + " in the ward"
+          : "No stations in the ward";
+        if (adj) t += ", " + adj + " one ward over";
+        t += "; " + plural(bus, "bus stop") + ".";
+        n.transport = t;
+      }
+
+      const gr = dims.green_space;
+      if (gr) {
+        const parks = gr.park_reserve_count || 0;
+        const pg = gr.playground_count || 0;
+        let t = plural(parks, "park or reserve", "parks and reserves");
+        const notable = (gr.notable_parks || [])[0];
+        if (notable) t += " incl. " + notable;
+        t += ", " + plural(pg, "playground");
+        n.green = t + ".";
+      }
+
+      const fam = dims.family_fit;
+      if (fam && fam.pct_households_with_dependent_children != null) {
+        let t =
+          fam.pct_households_with_dependent_children +
+          "% of households have dependent children";
+        if (fam.pct_population_family_forming_age != null)
+          t += "; " + fam.pct_population_family_forming_age + "% aged 25–49";
+        n.family = t + ".";
+      }
+
+      const pp = dims.play_provision;
+      if (pp && pp.play_site_count != null) {
+        n.play =
+          plural(pp.play_site_count, "play or greenspace site") +
+          ", of which " +
+          plural(pp.equipped_play_site_count || 0, "equipped playground") +
+          ".";
+      }
+
+      const pl = dims.planning;
+      if (pl) {
+        const c = pl.upcoming_facility_count || 0;
+        if (c) {
+          const types = [
+            ...new Set(
+              (pl.upcoming_facilities || [])
+                .map((f) => (f.type || "").replace(/_/g, " "))
+                .filter(Boolean),
+            ),
+          ].slice(0, 3);
+          n.planning =
+            plural(c, "child-facility approval") +
+            " since 2023" +
+            (types.length ? " (" + types.join(", ") + ")" : "") +
+            ".";
+        } else {
+          n.planning = "No child-facility planning approvals since 2023.";
+        }
+      }
+
+      return n;
+    }
+
     if (url.pathname === "/api/scores") {
       try {
         const wards = await loadWards();
@@ -276,6 +394,7 @@ export default {
             narrative,
             composite: compositeOf(s),
             justification: templatedJustification(w),
+            notes: dimensionNotes(w),
           };
         });
 

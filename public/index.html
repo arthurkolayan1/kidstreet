@@ -637,6 +637,20 @@
                 margin: 7px 0;
                 font-size: 13px;
             }
+            /* The row the active lens ranks by: tinted so "what am I looking
+               at" survives the headline number staying the overall score. */
+            .scorebar.hl {
+                background: #f0ede5;
+                margin: 7px -8px;
+                padding: 5px 8px 6px;
+                border-radius: 8px;
+            }
+            .dimnote {
+                font-size: 11.5px;
+                color: var(--ink-soft);
+                line-height: 1.45;
+                margin-top: 1px;
+            }
             .scorebar .label {
                 display: inline-block;
                 width: 135px;
@@ -808,13 +822,26 @@
                     min-height: 340px;
                 }
             }
+            .composite-wrap {
+                float: right;
+                margin-left: 12px;
+                text-align: right;
+            }
             .composite-big {
                 font-family: "Instrument Serif", serif;
                 font-weight: 400;
                 font-size: 52px;
                 line-height: 0.9;
-                float: right;
-                margin-left: 12px;
+                display: block;
+            }
+            .composite-tag {
+                display: block;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                margin-top: 3px;
             }
             .credit {
                 margin: 0 24px 16px;
@@ -949,8 +976,8 @@
                         >Family presence
                         <span class="m-src"
                             >Share of households with dependent children, plus
-                            the share of residents aged 25&ndash;49. Who lives
-                            there now, not who could.</span
+                            the share of residents aged 25&ndash;49: a measure
+                            of the families already living there.</span
                         >
                     </span>
                 </li>
@@ -989,12 +1016,13 @@
                 <h3>What the score does not tell you</h3>
                 <dl>
                     <div>
-                        <dt>A zero on safety is data, not a gap</dt>
+                        <dt>Why some wards score 0 on safety</dt>
                         <dd>
-                            Crime density is inverted, so dense, high-footfall
-                            central wards score lowest and the worst ~5% all
-                            land on zero. It means highest crime density in
-                            London, not no data.
+                            The score inverts street-crime density, and the
+                            roughly 5% of wards with the highest density all
+                            land on zero. A zero means the most recorded crime
+                            per km&sup2; in London, usually a busy town centre,
+                            not missing data.
                         </dd>
                     </div>
                     <div>
@@ -1003,8 +1031,10 @@
                             only
                         </dt>
                         <dd>
-                            Live beside Regent's Park but one ward over and you
-                            get no credit for it. Walking-distance access is v2.
+                            Only parks and playgrounds inside the ward boundary
+                            count, so a ward bordering a large park gets nothing
+                            for it. A future version will measure
+                            walking-distance access instead.
                         </dd>
                     </div>
                     <div>
@@ -1044,9 +1074,10 @@
 
             <div class="m-close">
                 <p>
-                    Every source is open and independently checkable. KidStreet
-                    is not funded by, or affiliated with, any London council.
-                    Disagree with the inputs? Good, they're published.
+                    Every source is open and independently checkable, so if
+                    you disagree with an input you can go and check it.
+                    KidStreet is not funded by, or affiliated with, any London
+                    council.
                 </p>
             </div>
         </details>
@@ -1505,16 +1536,22 @@
                 });
             }
 
+            let lastDetailWard = null;
             function showDetail(w) {
                 killHint();
+                lastDetailWard = w;
                 const lens = LENSES[activeLens];
                 const s = lensScore(w);
+                // The headline number is ALWAYS the overall composite: the
+                // card summarises the ward, and swapping the big number per
+                // lens made "100 · joint #131 lowest" read as a bug. The lens
+                // instead drives the rank line and a highlight on its row.
                 let html =
-                    '<span class="composite-big" style="color:' +
-                    lensColour(w) +
+                    '<span class="composite-wrap"><span class="composite-big" style="color:' +
+                    scoreColour(w.composite) +
                     '">' +
-                    (s == null ? "–" : s) +
-                    "</span>";
+                    (w.composite == null ? "–" : w.composite) +
+                    '</span><span class="composite-tag">overall</span></span>';
                 if (w.borough)
                     html += '<div class="kicker">' + w.borough + "</div>";
                 html += "<h2>" + w.ward + "</h2>";
@@ -1529,35 +1566,55 @@
                         else if (v === s) same++;
                     }
                     const rank = better + 1;
+                    const isOverall = activeLens === "move";
+                    // Metric lenses state their own score explicitly ("12/100")
+                    // because the headline number stays the overall composite,
+                    // and (on Playgrounds only) the ranked score isn't any of
+                    // the bar values on the card.
+                    const prefix = isOverall
+                        ? ""
+                        : lens.label + ": " + s + "/100 · ";
+                    const suffix = isOverall ? " on the overall score" : "";
                     // Worst-first lenses (sortDesc false) rank from the bottom, so
-                    // say "lowest" to stop #1 reading as best. Big ties are common on
-                    // the play lens (many wards at 0), so flag them rather than showing
-                    // #1 on dozens of different wards.
+                    // say "lowest" to stop #1 reading as best. When hundreds of
+                    // wards tie (the play lenses cap at 100), a rank number is
+                    // meaningless, so say what the tie actually is instead.
                     const dir = lens.sortDesc ? "" : "lowest ";
-                    const rankStr =
-                        same > 1
-                            ? "joint #" +
-                              rank +
-                              " " +
-                              dir +
-                              "of " +
-                              rankVals.length +
-                              " scored wards (" +
-                              same +
-                              " tied)"
-                            : "#" +
-                              rank +
-                              " " +
-                              dir +
-                              "of " +
-                              rankVals.length +
-                              " scored wards";
-                    html +=
-                        '<div class="ranknote">' +
-                        rankStr +
-                        " · " +
-                        (lens.label || "") +
-                        "</div>";
+                    let rankStr;
+                    if (same > 30) {
+                        rankStr =
+                            prefix +
+                            "level with " +
+                            (same - 1) +
+                            " other wards" +
+                            suffix;
+                    } else if (same > 1) {
+                        rankStr =
+                            prefix +
+                            "joint #" +
+                            rank +
+                            " " +
+                            dir +
+                            "of " +
+                            rankVals.length +
+                            " scored wards" +
+                            suffix +
+                            " (" +
+                            same +
+                            " tied)";
+                    } else {
+                        rankStr =
+                            prefix +
+                            "#" +
+                            rank +
+                            " " +
+                            dir +
+                            "of " +
+                            rankVals.length +
+                            " scored wards" +
+                            suffix;
+                    }
+                    html += '<div class="ranknote">' + rankStr + "</div>";
                 }
                 const covered = [
                     w.safety,
@@ -1585,17 +1642,25 @@
                 )
                     html += "<br>";
                 const rows = [
-                    ["Safety (police.uk)", w.safety],
-                    ["Education", w.education],
-                    ["Transport", w.transport],
-                    ["Green space (in-ward)", w.green],
-                    ["Family presence", w.family],
-                    ["Play provision", w.play],
-                    ["Planning", w.planning],
+                    ["safety", "Safety (police.uk)", w.safety],
+                    ["education", "Education", w.education],
+                    ["transport", "Transport", w.transport],
+                    ["green", "Green space (in-ward)", w.green],
+                    ["family", "Family presence", w.family],
+                    ["play", "Play provision", w.play],
+                    ["planning", "Planning", w.planning],
                 ];
-                for (const [label, val] of rows) {
+                // Which card row the active lens ranks by, so it reads as
+                // "ranked by this row" while the headline stays the overall.
+                const hlKey =
+                    { play: "play", playEquipped: "play" }[activeLens] ||
+                    null;
+                const notes = w.notes || {};
+                for (const [key, label, val] of rows) {
                     html +=
-                        '<div class="scorebar"><span class="label">' +
+                        '<div class="scorebar' +
+                        (key === hlKey ? " hl" : "") +
+                        '"><span class="label">' +
                         label +
                         "</span>" +
                         '<span class="track"><span class="fill" style="--w:' +
@@ -1605,7 +1670,11 @@
                         '"></span></span>' +
                         '<span class="num">' +
                         (val == null ? "no data" : val) +
-                        "</span></div>";
+                        "</span>" +
+                        (notes[key]
+                            ? '<div class="dimnote">' + notes[key] + "</div>"
+                            : "") +
+                        "</div>";
                 }
                 // A bare safety 0 invites "surely not", so say what it means.
                 // The ~5% of wards above the p95 crime-density clip all score
@@ -1654,10 +1723,10 @@
                             "</div>";
                     }
                 }
-                html +=
-                    '<div class="just">&ldquo;' +
-                    w.justification +
-                    "&rdquo;</div>";
+                // The old one-quote summary blob is gone: its facts now live
+                // as per-dimension captions under each score bar, where each
+                // number can explain itself. `justification` stays in the API
+                // for the voice agent.
                 document.getElementById("detail").innerHTML = html;
             }
 
@@ -1930,6 +1999,10 @@
                     }
                     repaint();
                     if (!isBorough) applyLensSort();
+                    // Re-render the open ward card so its rank line and row
+                    // highlight follow the lens instead of going stale.
+                    if (!isBorough && lastDetailWard)
+                        showDetail(lastDetailWard);
                 });
             });
 
