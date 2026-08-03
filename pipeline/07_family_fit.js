@@ -39,25 +39,56 @@ function normalize(str) {
 
 async function main() {
   // --- Household composition (Census 2021 TS003), all England & Wales wards, paginated ---
-  const hhBase = 'https://www.nomisweb.co.uk/api/v01/dataset/NM_2023_1.data.csv?geography=2092957699TYPE153&c2021_hhcomp_15=0,5,8,10,13&measures=20100&select=geography_code,geography_name,c2021_hhcomp_15_name,obs_value';
-  const hhPage1 = await cachedNomisCsv('nomis_hhcomp_p1', hhBase);
-  const hhPage2 = await cachedNomisCsv('nomis_hhcomp_p2', hhBase + '&recordoffset=25000');
-  const hhRows = [...csvToObjects(hhPage1), ...csvToObjects(hhPage2)];
+  //
+  // BUG FIX 2026-08-03: this stage previously requested only cells 0,5,8,10,13 and
+  // filtered rows by name. In the data actually served, ward-level "% households with
+  // dependent children" came out at roughly HALF the Census-wide reality (median 14.8%
+  // across London wards vs ~29% nationally; East Sheen 9.1%, which is not credible),
+  // consistent with the largest category (married/civil partnership couple with
+  // dependent children) never making it into the sum — a wrong cell id gets silently
+  // dropped by the name filter rather than erroring. We now request ALL cells and match
+  // the four "with dependent children" categories BY NAME with a non-dependent guard,
+  // print exactly which category names were summed, and hard-fail if the resulting
+  // London median is outside a plausible 20-40% band. Cache keys changed so a stale
+  // narrow download is never reused.
+  const hhBase = 'https://www.nomisweb.co.uk/api/v01/dataset/NM_2023_1.data.csv?geography=2092957699TYPE153&c2021_hhcomp_15=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15&measures=20100&select=geography_code,geography_name,c2021_hhcomp_15_name,obs_value';
+  const hhRows = [];
+  for (let page = 0; page < 12; page++) {
+    const csv = await cachedNomisCsv(
+      `nomis_hhcomp_all_p${page + 1}`,
+      hhBase + (page ? `&recordoffset=${page * 25000}` : ''),
+    );
+    const rows = csvToObjects(csv);
+    hhRows.push(...rows);
+    if (rows.length < 25000) break;
+  }
   console.log(`Household composition rows: ${hhRows.length}`);
 
   const totalHouseholds = new Map(); // WD22CD -> total
   const childHouseholds = new Map(); // WD22CD -> sum of "with dependent children" categories
   const wardNameByCode22 = new Map();
+  const summedCategories = new Set();
+  const isChildCategory = (name) => {
+    const n = (name || '').toLowerCase();
+    return n.includes('dependent children') && !n.includes('non-dependent');
+  };
   for (const r of hhRows) {
     const code = r.GEOGRAPHY_CODE;
     wardNameByCode22.set(code, r.GEOGRAPHY_NAME);
     const val = Number(r.OBS_VALUE) || 0;
     if (r.C2021_HHCOMP_15_NAME.startsWith('Total')) {
       totalHouseholds.set(code, val);
-    } else if (r.C2021_HHCOMP_15_NAME.includes('dependent children')) {
+    } else if (isChildCategory(r.C2021_HHCOMP_15_NAME)) {
+      summedCategories.add(r.C2021_HHCOMP_15_NAME);
       childHouseholds.set(code, (childHouseholds.get(code) || 0) + val);
     }
   }
+  console.log('Categories summed as "with dependent children":');
+  for (const c of summedCategories) console.log(`  - ${c}`);
+  if (summedCategories.size !== 4)
+    console.warn(
+      `WARNING: expected 4 dependent-children categories, matched ${summedCategories.size}. Check the classification names above.`,
+    );
 
   // --- Age bands (Census 2021 TS007B), all England & Wales wards, single request ---
   const ageUrl = 'https://www.nomisweb.co.uk/api/v01/dataset/NM_2018_1.data.csv?geography=2092957699TYPE153&c2021_age_12a=0,6,7&measures=20100&select=geography_code,geography_name,c2021_age_12a_name,obs_value';
@@ -116,6 +147,21 @@ async function main() {
       total_population: pop || null
     };
   });
+
+  // Sanity gate: Census-wide, roughly 29% of households have dependent children, so a
+  // London ward median far below that means categories are missing from the sum (the
+  // exact failure this stage shipped with). Fail loudly rather than write bad data.
+  const pcts = result
+    .map((r) => r.pct_households_with_dependent_children)
+    .filter((v) => v != null)
+    .sort((a, b) => a - b);
+  const medianPct = pcts[Math.floor(pcts.length / 2)];
+  console.log(`London ward median % households with dependent children: ${medianPct}`);
+  if (medianPct < 20 || medianPct > 40) {
+    throw new Error(
+      `Implausible median (${medianPct}%): expected roughly 20-40%. The dependent-children sum is missing categories or double-counting — inspect the "Categories summed" list above. NOT writing output.`,
+    );
+  }
 
   console.log(`Matched by ward code (WD22CD==WD24CD): ${matchedByCode}, by normalized name: ${matchedByName}, unmatched: ${unmatched}`);
   if (unmatchedList.length) console.log('Unmatched wards (likely 2022->2024 boundary changes):', unmatchedList.slice(0, 20));
