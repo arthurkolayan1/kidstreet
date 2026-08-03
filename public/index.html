@@ -931,9 +931,11 @@
                     <span class="m-name"
                         >Safety
                         <span class="m-src"
-                            >police.uk street-crime density per km&sup2;,
-                            single month (June 2026 in this build),
-                            inverted.</span
+                            >police.uk street crimes per 1,000 residents
+                            (Census 2021 population), single month (June 2026
+                            in this build). The score is the share of London
+                            wards with more crime per resident, so 70 means
+                            fewer crimes per resident than 70% of wards.</span
                         >
                     </span>
                 </li>
@@ -942,8 +944,10 @@
                     <span class="m-name"
                         >Education
                         <span class="m-src"
-                            >Ofsted ratings for state-funded schools located
-                            in the ward.</span
+                            >Ofsted ratings of state-funded schools located in
+                            the ward, averaged: all Outstanding scores 100, all
+                            Good scores 67, lower ratings pull the average
+                            down. Schools awaiting a rating are left out.</span
                         >
                     </span>
                 </li>
@@ -952,9 +956,13 @@
                     <span class="m-name"
                         >Transport
                         <span class="m-src"
-                            >Stations in or adjacent to the ward, weighted
-                            3&times; against bus stops, per km&sup2;. Stations
-                            serve catchments larger than one ward.</span
+                            >Stations in the ward, half-credit for stations one
+                            ward over (they serve catchments larger than one
+                            ward), and bus stops at a twentieth of a station's
+                            weight. Scored as the ward's standing among all
+                            London wards. No longer divided by ward area, which
+                            unfairly punished wards that are large because of
+                            their parks.</span
                         >
                     </span>
                 </li>
@@ -977,9 +985,13 @@
                     <span class="m-name"
                         >Family presence
                         <span class="m-src"
-                            >Share of households with dependent children, plus
-                            the share of residents aged 25&ndash;49: a measure
-                            of the families already living there.</span
+                            >Share of households with dependent children
+                            (Census 2021), scored as the ward's standing among
+                            all London wards: a measure of the families already
+                            living there. The share of residents aged
+                            25&ndash;49 is shown on ward panels as context but
+                            no longer scored, because it tracked young adults
+                            in general rather than families.</span
                         >
                     </span>
                 </li>
@@ -992,8 +1004,13 @@
                             space (equipped play areas, playing fields and
                             public parks; formal facilities such as bowling
                             greens and tennis courts excluded) per child aged
-                            0&ndash;15, scored against the London Plan Policy S4
-                            benchmark of 10&nbsp;m&sup2; per child.</span
+                            0&ndash;15, scored as the ward's standing among all
+                            London wards. The London Plan Policy S4 figure of
+                            10&nbsp;m&sup2; per child stays on every ward panel
+                            and drives the play map layer as a benchmark, but
+                            no longer caps this score: meeting the benchmark
+                            used to score 100, which 8 in 10 wards did, so the
+                            dimension ranked almost nothing.</span
                         >
                     </span>
                 </li>
@@ -1020,14 +1037,16 @@
                     <div>
                         <dt>Why some wards score 0 on safety</dt>
                         <dd>
-                            The score inverts street-crime density, and the
-                            roughly 5% of wards with the highest density all
-                            land on zero. A zero means the most recorded crime
-                            per km&sup2; in London, usually a busy town centre,
-                            not missing data. The data is a single month of
-                            police.uk street crime, June 2026 in this build;
-                            one month carries noise, and police.uk publishes
-                            about two months behind.
+                            The safety score ranks wards by street crimes per
+                            resident, so a zero means the very most recorded
+                            crime per resident in London, usually a busy town
+                            centre or shopping district, not missing data. A
+                            few City of London wards have no published
+                            population, so they keep the previous area-based
+                            score, marked on their panels. The data is a
+                            single month of police.uk street crime, June 2026
+                            in this build; one month carries noise, and
+                            police.uk publishes about two months behind.
                         </dd>
                     </div>
                     <div>
@@ -1683,16 +1702,17 @@
                         "</div>";
                 }
                 // A bare safety 0 invites "surely not", so say what it means.
-                // The ~5% of wards above the p95 crime-density clip all score
-                // 0, and they are almost all town centres (West End, Camden
-                // Town, Brixton, Lewisham Central...) where recorded street
-                // crime concentrates around shops, stations and nightlife.
+                // Safety now ranks wards by street crimes per RESIDENT, so
+                // the bottom scores are almost all town centres and shopping
+                // districts, where recorded crime concentrates around shops,
+                // stations and nightlife and the visitor crowd dwarfs the
+                // resident population the count is divided by.
                 if (w.safety != null && w.safety <= 2)
                     html +=
                         '<div class="softnote">' +
                         "A safety score of " +
                         w.safety +
-                        " puts this ward in the ~5% of London wards with the highest street-crime density, typically town centres, where recorded crime concentrates around shops, stations and nightlife. It counts all incidents per km², visitors included, not risk per resident." +
+                        " puts this ward among the London wards with the very most recorded street crime per resident, typically a town centre or shopping district, where crime concentrates around shops, stations and nightlife. Incidents involving visitors count against the resident population, so busy destinations rank worse than quiet residential wards." +
                         "</div>";
                 if (w.playM2PerChild != null) {
                     html +=

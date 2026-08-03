@@ -246,17 +246,52 @@ export default {
         let t =
           plural(saf.crimes_last_month, "recorded street crime") +
           (when ? " in " + when : " last month");
-        const cats = (saf.top_categories || []).slice(0, 2).map(humanCat);
-        if (cats.length) t += "; mostly " + cats.join(" and ");
+        // Comparative framing: the safety score IS the share of London wards with more
+        // crime per resident (see pipeline/12_score_fix.js), so quote it directly.
+        // The old caption named the top two categories, which read "mostly violent
+        // crime and anti-social behaviour" on 538 of 704 wards — alarming and
+        // uninformative. Categories are now only named when a ward's top category is
+        // UNUSUAL for London (i.e. not violent crime or ASB).
+        if (saf.crimes_per_1000 != null && typeof saf.score === "number") {
+          // Below the midpoint, flip the phrasing: "fewer crimes than 0% of wards"
+          // is technically true and reads like a bug.
+          t +=
+            saf.score >= 50
+              ? "; fewer crimes per resident than " +
+                saf.score +
+                "% of London wards"
+              : "; more crimes per resident than " +
+                (100 - saf.score) +
+                "% of London wards";
+        }
+        const topCat = (saf.top_categories || [])[0];
+        if (
+          topCat &&
+          topCat !== "violent-crime" &&
+          topCat !== "anti-social-behaviour"
+        ) {
+          t += ". Unusually for London, " + humanCat(topCat) + " tops the list here";
+        }
         n.safety = t + ".";
       }
 
       const ed = dims.education;
       if (ed) {
         if (ed.school_count) {
+          // The education score is now the average Ofsted grade of rated schools
+          // (Outstanding 100, Good 67, RI 33, Inadequate 0 — see pipeline/12_score_fix.js),
+          // so the caption lists the rating mix that produced it instead of the old
+          // "% Good or Outstanding", which said 100% almost everywhere.
           let t = plural(ed.school_count, "state school");
-          if (ed.pct_good_or_outstanding != null)
-            t += ", " + ed.pct_good_or_outstanding + "% rated Good or Outstanding";
+          const counts = {};
+          for (const sc of ed.schools || []) {
+            if (sc.ofsted) counts[sc.ofsted] = (counts[sc.ofsted] || 0) + 1;
+          }
+          const order = ["Outstanding", "Good", "Requires improvement", "Inadequate"];
+          const mix = order
+            .filter((r) => counts[r])
+            .map((r) => counts[r] + " " + r);
+          if (mix.length) t += ": " + mix.join(", ");
           const outstanding = (ed.schools || []).find(
             (s) => s.ofsted === "Outstanding",
           );
