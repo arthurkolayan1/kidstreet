@@ -1584,10 +1584,18 @@
                 // uses, so the panel and the table never disagree.
                 const rankVals = lensSorted[activeLens] || [];
                 if (s != null && rankVals.length && !lens.isBorough) {
+                    // Rank ALWAYS counts from the best, on every lens: #1 is
+                    // the best ward in London for the active metric. The play
+                    // lenses still ORDER the map and table worst-first to
+                    // spotlight deficit, but a rank number that flips meaning
+                    // per tab ("#685 lowest" for a top-five ward) read as a
+                    // bug, so the rank line and the sort direction are now
+                    // decoupled. Higher score = better holds for every
+                    // non-borough lens.
                     let better = 0,
                         same = 0;
                     for (const v of rankVals) {
-                        if (lens.sortDesc ? v > s : v < s) better++;
+                        if (v > s) better++;
                         else if (v === s) same++;
                     }
                     const rank = better + 1;
@@ -1600,11 +1608,10 @@
                         ? ""
                         : lens.label + ": " + s + "/100 · ";
                     const suffix = isOverall ? " on the overall score" : "";
-                    // Worst-first lenses (sortDesc false) rank from the bottom, so
-                    // say "lowest" to stop #1 reading as best. When hundreds of
-                    // wards tie (the play lenses cap at 100), a rank number is
-                    // meaningless, so say what the tie actually is instead.
-                    const dir = lens.sortDesc ? "" : "lowest ";
+                    // When a large group of wards ties (the Playgrounds-only
+                    // score still caps at 100), a rank number is meaningless,
+                    // so say what the tie actually is instead.
+                    const dir = "";
                     let rankStr;
                     if (same > 30) {
                         rankStr =
