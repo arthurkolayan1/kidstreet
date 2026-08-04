@@ -59,7 +59,22 @@
 //   node pipeline/12_score_fix.js --dry     # report only, no write
 //
 // Reads:  public/data/wards.json, pipeline/out/07_family_fit_by_ward.json
+//         pipeline/cache/ward_population_total_mid2024.csv (OPTIONAL, preferred)
 // Writes: public/data/wards.json (scores.* + dimensions.* noted above)
+//
+// Safety denominator: ONS mid-2024 ward population estimates when the CSV above
+// is present, falling back to Census 2021 (from the step-07 output) per ward, and
+// to the legacy area-density score where neither exists. Census 2021 populations
+// are five years stale and understate fast-growing new-build wards (the docklands
+// effect), overstating their crime per resident — hence the preference for the
+// mid-2024 estimates. Each ward's dimensions.safety.population_basis says which
+// source scored it.
+//
+// How to produce the CSV (browser, ~2 min, same flow as the children file in
+// pipeline/10_play.js): nomisweb.co.uk → Query data → Population estimates -
+// small area based → geography: 2024 wards (London), age: All ages,
+// date: mid-2024 → download CSV → save to the path above. Flat API format
+// (GEOGRAPHY_CODE/OBS_VALUE) and the Nomis report layout are both accepted.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -68,7 +83,99 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SERVED = path.join(__dirname, "..", "public", "data", "wards.json");
 const FAMILY_OUT = path.join(__dirname, "out", "07_family_fit_by_ward.json");
+const POP_CSV = path.join(__dirname, "cache", "ward_population_total_mid2024.csv");
 const DRY = process.argv.includes("--dry");
+
+// --- mid-2024 total population CSV (optional) ---
+function splitCsvLine(line) {
+  const out = [];
+  let cur = "",
+    inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQ) {
+      if (ch === '"' && line[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else if (ch === '"') inQ = false;
+      else cur += ch;
+    } else {
+      if (ch === '"') inQ = true;
+      else if (ch === ",") {
+        out.push(cur);
+        cur = "";
+      } else cur += ch;
+    }
+  }
+  out.push(cur);
+  return out.map((c) => c.trim());
+}
+
+function loadMid2024Population(csvPath) {
+  if (!fs.existsSync(csvPath)) return null;
+  const lines = fs
+    .readFileSync(csvPath, "utf8")
+    .split(/\r?\n/)
+    .filter((l) => l.trim().length);
+  const first = splitCsvLine(lines[0]).map((h) => h.toUpperCase());
+
+  // Format A: flat Nomis API export (GEOGRAPHY_CODE / OBS_VALUE [/ AGE]).
+  if (first.includes("GEOGRAPHY_CODE") && first.includes("OBS_VALUE")) {
+    const iCode = first.indexOf("GEOGRAPHY_CODE");
+    const iVal = first.indexOf("OBS_VALUE");
+    const iAge = first.findIndex(
+      (h) => h === "AGE" || h === "C_AGE" || h === "C_AGE_NAME",
+    );
+    const allAges = new Map();
+    const summed = new Map();
+    for (let i = 1; i < lines.length; i++) {
+      const cols = splitCsvLine(lines[i]);
+      const code = cols[iCode];
+      if (!code || !code.startsWith("E05")) continue;
+      const val = Number(cols[iVal]);
+      if (!isFinite(val)) continue;
+      if (iAge !== -1 && /all\s*ages|total/i.test(cols[iAge] || "")) {
+        allAges.set(code, val);
+      }
+      summed.set(code, (summed.get(code) || 0) + val);
+    }
+    // Prefer explicit All-Ages rows; otherwise the per-age rows sum to the total.
+    const byWard = allAges.size ? allAges : summed;
+    console.log(
+      `[population] mid-2024 flat format: ${byWard.size} wards (${allAges.size ? "All-Ages rows" : "summed age rows"})`,
+    );
+    return byWard;
+  }
+
+  // Format B: Nomis report layout. Header text varies (the value column can be
+  // headed "All Ages" or just the date, e.g. "2024"), so key off the DATA
+  // instead: any row containing an E05... ward code is a data row, the code
+  // cell identifies the ward, and the last numeric cell on the row is the
+  // population. The report's own metadata lines ("Age : All Ages") are what
+  // guarantee these are totals — the user exports with age: All ages.
+  const byWard = new Map();
+  for (const line of lines) {
+    const cells = splitCsvLine(line);
+    const codeIdx = cells.findIndex((c) => /^E05\d+$/.test(c));
+    if (codeIdx === -1) continue;
+    let val = null;
+    for (let c = cells.length - 1; c >= 0; c--) {
+      if (c === codeIdx) continue;
+      const n = Number(String(cells[c]).replace(/,/g, ""));
+      if (cells[c] !== "" && isFinite(n)) {
+        val = n;
+        break;
+      }
+    }
+    if (val != null && val > 0) byWard.set(cells[codeIdx], val);
+  }
+  if (!byWard.size)
+    throw new Error(
+      "ward_population_total_mid2024.csv: no rows with E05... ward codes found. On Nomis, tick 'include area codes' (mnemonic) under Format/Layout and re-download.",
+    );
+  console.log(`[population] mid-2024 report layout: ${byWard.size} wards`);
+  return byWard;
+}
 
 // --- percentile scoring: share of scored wards strictly below, 0-100 ---
 function percentileScores(rawByCode, { invert = false } = {}) {
@@ -110,9 +217,38 @@ function main() {
   const served = JSON.parse(fs.readFileSync(SERVED, "utf8"));
   const wards = Array.isArray(served.wards) ? served.wards : served;
   const family = JSON.parse(fs.readFileSync(FAMILY_OUT, "utf8")).wards;
-  const popByCode = new Map(
+  const census2021 = new Map(
     family.map((f) => [f.ward_code, f.total_population ?? null]),
   );
+  const mid2024 = loadMid2024Population(POP_CSV);
+  if (!mid2024)
+    console.log(
+      "[population] no mid-2024 CSV at pipeline/cache/ward_population_total_mid2024.csv — safety falls back to Census 2021 populations (see header for the 2-minute Nomis export).",
+    );
+  // Per-ward denominator: mid-2024 estimate preferred, Census 2021 fallback.
+  const popByCode = new Map();
+  const popBasisByCode = new Map();
+  for (const f of family) {
+    const code = f.ward_code;
+    const m = mid2024?.get(code);
+    if (m != null && m > 0) {
+      popByCode.set(code, m);
+      popBasisByCode.set(code, "ONS mid-2024 estimate");
+    } else if (f.total_population != null && f.total_population > 0) {
+      popByCode.set(code, f.total_population);
+      popBasisByCode.set(code, "Census 2021");
+    } else {
+      popByCode.set(code, null);
+      popBasisByCode.set(code, null);
+    }
+  }
+  // Wards in the CSV but missing from the family file still get a denominator.
+  if (mid2024)
+    for (const [code, v] of mid2024)
+      if (!popByCode.has(code) && v > 0) {
+        popByCode.set(code, v);
+        popBasisByCode.set(code, "ONS mid-2024 estimate");
+      }
   const famByCode = new Map(family.map((f) => [f.ward_code, f]));
 
   // Refresh the served family_fit DISPLAY fields from the (re-run) step-07 output
@@ -208,19 +344,25 @@ function main() {
 
     // safety
     const pop = popByCode.get(code);
+    const basis = popBasisByCode.get(code);
     const crimes = d.safety?.crimes_last_month;
     const sf = safScore.get(code);
     if (d.safety) {
+      delete d.safety.population_2021; // superseded by population + population_basis
       if (sf != null) {
         s.safety = sf;
         d.safety.score = sf;
-        d.safety.population_2021 = pop;
+        d.safety.population = pop;
+        d.safety.population_basis = basis;
         d.safety.crimes_per_1000 =
           Math.round(((crimes / pop) * 1000) * 10) / 10;
         d.safety.method =
-          "Street crimes per 1,000 residents (Census 2021 population), percentile-ranked and inverted: the score is the share of London wards with more crime per resident.";
+          "Street crimes per 1,000 residents (" +
+          basis +
+          "), percentile-ranked and inverted: the score is the share of London wards with more crime per resident.";
       } else {
-        d.safety.population_2021 = null;
+        d.safety.population = null;
+        d.safety.population_basis = null;
         d.safety.crimes_per_1000 = null;
         d.safety.method =
           "No published ward-level population (City of London); previous area-density score retained.";
@@ -258,6 +400,12 @@ function main() {
   }
 
   // --- reports ---
+  const basisCounts = {};
+  for (const w of wards) {
+    const b = w.dimensions.safety?.population_basis || "none (legacy score)";
+    basisCounts[b] = (basisCounts[b] || 0) + 1;
+  }
+  console.log("Safety denominator basis:", JSON.stringify(basisCounts));
   console.log(`Wards with at least one changed score: ${changed}/${wards.length}`);
   for (const name of [
     "Evelyn",

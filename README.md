@@ -15,7 +15,7 @@ Composite = weighted blend, renormalised over the dimensions a ward actually has
 
 | Dimension | Weight | Source | Method |
 |---|---|---|---|
-| Safety | 30 | data.police.uk street-level crime, latest month + Census 2021 ward population | crimes per 1,000 residents, percentile-ranked across London wards, inverted (score = share of wards with more crime per resident); wards with no published population (City of London) keep the legacy area-density score, declared per ward |
+| Safety | 30 | data.police.uk street-level crime, latest month + ONS mid-2024 ward population estimates (Census 2021 fallback per ward, declared in `population_basis`) | crimes per 1,000 residents, percentile-ranked across London wards, inverted (score = share of wards with more crime per resident); wards with no published population (City of London) keep the legacy area-density score, declared per ward |
 | Education | 20 | Ofsted state-funded schools (Aug 2025), geocoded via postcodes.io | average Ofsted grade of rated schools, linear on the 4-point scale (Outstanding 100, Good 67, RI 33, Inadequate 0); unrated schools excluded; no rated school = null |
 | Transport | 15 | TfL StopPoint + OSM (rail, bus) | access-based: in-ward stations + 0.5× adjacent-ward stations + bus stops at 1/20 station weight, percentile-ranked (no area division — it penalised wards that are large because of parkland), +5 step-free bonus |
 | Green space | 12 | OSM Overpass: parks + nature reserves + playgrounds (gardens excluded as mostly private plots; playgrounds also feed the play dimension, see the declared-overlap note below) | raw feature count (playground_count + park_reserve_count), min-max clipped at p95 |
@@ -94,4 +94,3 @@ Cloudflare Worker (`src/index.js`) serving `public/` as static assets plus
 data.police.uk, ONS, Ofsted, Planning London Datahub under OGL v3.
 OS Open Greenspace © Crown copyright, OGL v3.
 OpenStreetMap © OpenStreetMap contributors, ODbL.
-
