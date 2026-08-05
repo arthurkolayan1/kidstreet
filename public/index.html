@@ -94,6 +94,19 @@
             header h1 span {
                 color: var(--green);
             }
+            /* The wordmark doubles as the home control: one click from any
+               ward or borough back to the whole-of-London view. */
+            header h1#brandHome {
+                cursor: pointer;
+                border-radius: 6px;
+            }
+            header h1#brandHome:hover span {
+                opacity: 0.75;
+            }
+            header h1#brandHome:focus-visible {
+                outline: 2px solid var(--green);
+                outline-offset: 4px;
+            }
             header .tagline {
                 margin: 0;
                 color: var(--ink-soft);
@@ -852,7 +865,14 @@
     </head>
     <body>
         <header>
-            <h1>Kid<span>Street</span></h1>
+            <h1
+                id="brandHome"
+                role="button"
+                tabindex="0"
+                title="Back to the whole-of-London view"
+            >
+                Kid<span>Street</span>
+            </h1>
             <p class="tagline">
                 how child-friendly is London, honestly: open data, open
                 methodology
@@ -1904,6 +1924,28 @@
             document
                 .getElementById("boroughChip")
                 .addEventListener("click", resetToAllLondon);
+
+            // Clicking the wordmark is the "home" affordance people expect
+            // from a logo: drop any borough filter, clear the ward card and
+            // go back to the zoomed-out London view. applyBorough already
+            // resets the map view for the __all__ branch.
+            function resetHome() {
+                resetToAllLondon();
+                document.getElementById("detail").innerHTML =
+                    '<h2>Select a ward</h2><p class="hint">Click a shaded ward, a table row, or search your postcode.</p>';
+                const msg = document.getElementById("pcMsg");
+                if (msg) msg.textContent = "";
+            }
+            const brandHome = document.getElementById("brandHome");
+            if (brandHome) {
+                brandHome.addEventListener("click", resetHome);
+                brandHome.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        resetHome();
+                    }
+                });
+            }
             document.addEventListener("keydown", (e) => {
                 if (
                     e.key === "Escape" &&
