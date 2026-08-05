@@ -945,10 +945,15 @@
                     <span class="m-name"
                         >Education
                         <span class="m-src"
-                            >Ofsted ratings of state-funded schools located in
-                            the ward, averaged: all Outstanding scores 100, all
-                            Good scores 67, lower ratings pull the average
-                            down. Schools awaiting a rating are left out.</span
+                            >Ofsted ratings of state-funded schools in the ward,
+                            averaged: all Outstanding scores 100, all Good 67,
+                            lower ratings pull the average down. Schools
+                            without a rating are left out. Snapshot of 31
+                            August 2025. Ofsted stopped issuing single-word
+                            grades in September 2024 and moved to report cards
+                            in November 2025, so this is a closing stock of
+                            older judgements: schools still show them, but each
+                            new inspection retires one.</span
                         >
                     </span>
                 </li>
@@ -1006,12 +1011,14 @@
                             public parks; formal facilities such as bowling
                             greens and tennis courts excluded) per child aged
                             0&ndash;15, scored as the ward's standing among all
-                            London wards. The London Plan Policy S4 figure of
+                            London wards. Site areas are clipped to the ward
+                            boundary, so a park crossing several wards is split
+                            between them. The London Plan Policy S4 figure of
                             10&nbsp;m&sup2; per child stays on every ward panel
                             and drives the play map layer as a benchmark, but
-                            no longer caps this score: meeting the benchmark
-                            used to score 100, which 8 in 10 wards did, so the
-                            dimension ranked almost nothing.</span
+                            does not cap this score: 84% of wards clear the
+                            benchmark once parks count, so capping handed most
+                            of London an identical 100.</span
                         >
                     </span>
                 </li>
@@ -1025,8 +1032,9 @@
                             or expanded schools, nurseries, playgrounds, health
                             and community centres, youth and children's centres,
                             and new parks and open space. Located to each ward by
-                            the application's coordinates, a forward-looking
-                            signal of where an area is investing in children.</span
+                            the application's coordinates. Applications are
+                            sorted by keywords in their descriptions, which
+                            misfiles some of them.</span
                         >
                     </span>
                 </li>
@@ -1038,16 +1046,21 @@
                     <div>
                         <dt>Why some wards score 0 on safety</dt>
                         <dd>
-                            The safety score ranks wards by street crimes per
-                            resident, so a zero means the very most recorded
-                            crime per resident in London, usually a busy town
-                            centre or shopping district, not missing data. A
-                            few City of London wards have no published
-                            population, so they keep the previous area-based
-                            score, marked on their panels. The data is a
-                            single month of police.uk street crime, June 2026
-                            in this build; one month carries noise, and
-                            police.uk publishes about two months behind.
+                            Nine wards score 0, for two different reasons.
+                            Four have the most recorded crime per resident in
+                            London: West End (175 crimes per 1,000 residents),
+                            Tower, St James&rsquo;s and Farringdon Without. All
+                            four are places people travel to, so much of the
+                            crime is against visitors while the denominator
+                            counts only residents. The other five are City of
+                            London wards with no published population at all,
+                            Bread Street, Bridge, Cordwainer, Cornhill and
+                            Langbourn, which sit on an older area-based score
+                            and are not comparable with the other 689. Their
+                            panels say so. Crime is a single month of police.uk
+                            street crime, June 2026 in this build; one month
+                            carries noise, and police.uk publishes about two
+                            months behind.
                         </dd>
                     </div>
                     <div>
@@ -1056,10 +1069,12 @@
                             only
                         </dt>
                         <dd>
-                            Only parks and playgrounds inside the ward boundary
-                            count, so a ward bordering a large park gets nothing
-                            for it. A future version will measure
-                            walking-distance access instead.
+                            Only what lies inside the ward counts. A park
+                            crossing a boundary is split between the wards it
+                            covers, so each gets its share, but a park wholly
+                            over the line counts for nothing however close it
+                            is. A future version will measure walking-distance
+                            access instead.
                         </dd>
                     </div>
                     <div>
@@ -1078,12 +1093,16 @@
                         </dd>
                     </div>
                     <div>
-                        <dt>The play definition was corrected in July 2026</dt>
+                        <dt>Play areas were re-measured in August 2026</dt>
                         <dd>
-                            The measure now states its function types and is
-                            reproducible from the public pipeline; headline
-                            figures were updated accordingly. Details in the
-                            repository README.
+                            Sites used to be assigned whole to the ward holding
+                            their centre point. That credited East Sheen with
+                            9.8&nbsp;km&sup2; of play space inside a
+                            6.0&nbsp;km&sup2; ward, because Richmond Park&rsquo;s
+                            centre falls there, and gave neighbouring wards none
+                            of the same park. Areas are now clipped to ward
+                            boundaries, and the build fails if any ward holds
+                            more play space than it has land.
                         </dd>
                     </div>
                     <div>
@@ -1177,7 +1196,7 @@
                 },
                 playEquipped: {
                     label: "Playgrounds only",
-                    note: "Equipped playgrounds only (OS Open Greenspace 'Play Space'), m² per child aged 0–15, against the same 10 m²/child benchmark. Strip out parks and playing fields and 684 of 689 scored wards fall below the benchmark, so equipped playground provision is low almost everywhere. Same colours as the play layer: red under a quarter of the benchmark, up to dark green at 3× or more. OS Open Greenspace under-counts school and estate playgrounds, so read this as a floor.",
+                    note: "Equipped playgrounds only (OS Open Greenspace 'Play Space'), m² per child aged 0–15, against the same 10 m²/child benchmark. Strip out parks and playing fields and 682 of 689 scored wards fall below the benchmark, so equipped playground provision is low almost everywhere. Same colours as the play layer: red under a quarter of the benchmark, up to dark green at 3× or more. OS Open Greenspace under-counts school and estate playgrounds, so read this as a floor.",
                     score: (w) =>
                         w.playEquippedM2PerChild == null
                             ? null
