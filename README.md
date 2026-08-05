@@ -20,7 +20,7 @@ Composite = weighted blend, renormalised over the dimensions a ward actually has
 | Transport | 15 | TfL StopPoint + OSM (rail, bus) | access-based: in-ward stations + 0.5x adjacent-ward stations + bus stops at 1/20 station weight, percentile-ranked (no area division, which penalised wards that are large because of parkland), +5 step-free bonus |
 | Green space | 12 | OSM Overpass: parks + nature reserves + playgrounds (gardens excluded as mostly private plots; playgrounds also feed the play dimension, see the declared-overlap note below) | raw feature count (playground_count + park_reserve_count), min-max normalised and clipped at the 95th percentile |
 | Family fit | 10 | ONS Census 2021 via Nomis (household composition + age bands) | % households with dependent children, percentile-ranked; the 25 to 49 age share is displayed as context but not scored (summed on raw scales it swamped the children share and measured young-adult density, not families) |
-| Play | 8 | OS Open Greenspace (Play Space + Playing Field + Public Park Or Garden), clipped to ONS WD24 ward boundaries, + ONS mid-2024 ward child population via Nomis | m² of play and informal recreation space per child 0 to 15, percentile-ranked; the London Plan Policy S4 figure of 10 m²/child remains the displayed benchmark and drives the play map lens, but no longer caps the score (84% of wards clear it once parks count, so the capped score ranked almost nothing); equipped-only figure published as a lower bound |
+| Play | 8 | OS Open Greenspace (Play Space + Playing Field + Public Park Or Garden), clipped to ONS WD24 BGC ward boundaries, + ONS mid-2024 ward child population via Nomis | m² of play and informal recreation space per child 0 to 15, percentile-ranked; the London Plan Policy S4 figure of 10 m²/child remains the displayed benchmark and drives the play map lens, but no longer caps the score (84% of wards clear it once parks count, so the capped score ranked almost nothing); equipped-only figure published as a lower bound |
 | Planning | 5 | Planning London Datahub, approved child-relevant applications since 2023 | raw count, min-max normalised and clipped at the 95th percentile |
 
 Percentile scores read as "standing among all scored London wards": 0 = lowest in
@@ -51,20 +51,39 @@ London's 1,698,384). On equipped playgrounds alone, 682 of 689 fall below.
 Site polygons are **clipped to ward boundaries**, so only the part of a site inside a
 ward counts towards that ward, and a park spanning several wards is divided between
 them. Areas are computed by shoelace in the data's native British National Grid
-(EPSG:27700), so they are true square metres with no reprojection. Sites are joined
-to ONS WD24 boundaries by `WD24CD` code, never by name. A site falling in more than
-one ward is counted once per ward, which is why the London site-record total (6,878
-play sites, 3,586 of them equipped) exceeds the number of distinct sites.
+(EPSG:27700), so they are true square metres with no reprojection. A site falling in
+more than one ward is counted once per ward, which is why the London site-record
+total (6,878 play sites, 3,586 of them equipped) exceeds the number of distinct sites.
 
 Until August 2026 each site was assigned whole to the ward holding its centre point.
-That credited East Sheen with 9.8 km² of play space inside a 6.0 km² ward, because
-Richmond Park's centre falls there, while giving neighbouring wards none of the same
-park. Step 10 now writes `ward_land_area_m2` and `play_share_of_ward_pct` alongside
-the areas, and **fails the build** if any ward holds more play space than it has
-land, so that class of error cannot ship again silently.
+That credited East Sheen with 9.78 km² of play space inside a 5.93 km² ward, 165% of
+its own land area, because Richmond Park's centre falls there, while giving Ham,
+Petersham & Richmond Riverside none of the same park despite physically containing a
+large part of it. Two errors in opposite directions from one cause.
 
-Note that clipping applies to the play dimension. Planning applications are still
-located to a ward by their coordinates, which is correct for a point feature.
+The clipping is a separate stage, **`pipeline/13_play_clip.js`**, which intersects
+each site polygon with each ward polygon and patches `public/data/wards.json` in
+place. Step 10 still measures by centroid and is left alone, so the before and after
+can be compared. Three things worth knowing about stage 13:
+
+- It does **not** use the ward geometry in `out/01_wards_base.json`. Those are ONS
+  **BSC** (super-generalised) boundaries, a median of nine vertices per ward: correct
+  in aggregate (704 wards total 1,572 km² against Greater London's real 1,569) but far
+  too coarse to clip a park against. Stage 13 fetches **BGC** (generalised, 20 m)
+  boundaries in EPSG:27700 instead, so wards arrive in the same British National Grid
+  the GeoPackage already uses and no reprojection happens anywhere.
+- It reads the child denominator from the published dataset it is about to patch,
+  not from the Nomis CSV. Clipping changes areas, never child counts, so the before
+  and after use an identical denominator and one manual download disappears.
+- It writes `ward_land_area_m2` and `play_share_of_ward_pct` alongside the areas and
+  **fails loudly** if any ward ends up with more play space than it has land. That
+  condition is geometrically impossible and is exactly what the centroid rule was
+  producing undetected. Step 12's saturation report catches flat scores; this catches
+  impossible ones.
+
+Stage 13 requires `polygon-clipping` (`npm install`). Clipping applies to the play
+dimension only. Planning applications are still located to a ward by their
+coordinates, which is correct for a point feature.
 
 ### Declared overlap: playgrounds count twice, on purpose
 
@@ -113,21 +132,31 @@ driven by the underlying dimension scores, not by the weighting.
 
 ## Pipeline
 
-`pipeline/01...12_*.js`, plain Node, no build step, cached fetches in `pipeline/cache/`.
+`pipeline/01...13_*.js`, plain Node, no build step, cached fetches in `pipeline/cache/`.
+
 Order: `01` wards (ONS WD24 boundaries, joined by WD24CD code, never by name) then
 `02` crime, `03` green, `04` transport, `05` education, `06` planning,
 `07` family fit, **`10` play**, `08` merge (writes `out/wards_final.json`), then
-copy to `public/data/wards.json`, then `09` transport access re-score (edits the
-public file in place; must run **after** the copy or transport reverts to the old
-containment scoring), then `12` scoring fix (edits the public file in place; applies
-the percentile and per-resident scoring described above and refreshes the family
-display fields from `out/07_family_fit_by_ward.json`, so it must run last).
+copy to `public/data/wards.json`. Three stages then edit the public file in place,
+in this order:
+
+1. `09` transport access re-score. Must run **after** the copy or transport reverts
+   to the old containment scoring.
+2. `13` play clip. Re-measures play by clipping site polygons to BGC ward boundaries.
+3. `12` scoring fix. Applies the percentile and per-resident scoring described above
+   and refreshes the family display fields from `out/07_family_fit_by_ward.json`.
+   **Must run last**, and must run again after `13`, or the play score keeps the
+   percentiles from the unclipped areas.
+
 `11` re-scores safety in place after a crime refresh (`02` then `11`); after a
 crime refresh, run `12` again so safety returns to per-resident percentiles.
 
 Step 10 needs two files in `pipeline/cache/` (both open, both documented in the
 header of `pipeline/10_play.js`): the OS Open Greenspace GeoPackage and an ONS
-mid-2024 children-0-15 CSV from Nomis.
+mid-2024 children-0-15 CSV from Nomis. Step 13 needs the same GeoPackage, plus
+`npm install` for `polygon-clipping`; it caches the BGC boundaries it fetches to
+`pipeline/cache/wd24_bgc_27700.json` and reads child counts from the served file
+rather than the Nomis CSV.
 
 ## Serving
 
