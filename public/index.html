@@ -861,7 +861,7 @@
                 <div class="pcwrap">
                     <input
                         id="pcInput"
-                        placeholder="Ward name or postcode"
+                        placeholder="Ward, borough or postcode"
                     />
                     <button id="pcBtn">Find my ward</button>
                 </div>
@@ -2061,6 +2061,29 @@
             // contains; several London wards share a name, e.g. Abbey, so
             // duplicates are surfaced rather than silently dropped). Returns
             // true if handled, false to fall through to postcode lookup.
+            // Jump to a borough: reuses the dropdown filter so search and the
+            // dropdown always behave identically. Returns true if handled.
+            function findBoroughByName(query, msg, exactOnly) {
+                const q = normName(query);
+                if (q.length < 3) return false;
+                const boroughs = [
+                    ...new Set(wardData.map((w) => w.borough).filter(Boolean)),
+                ];
+                let match = boroughs.find((b) => normName(b) === q);
+                if (!match && !exactOnly)
+                    match = boroughs.find((b) => normName(b).startsWith(q));
+                if (!match && !exactOnly)
+                    match = boroughs.find((b) => normName(b).includes(q));
+                if (!match) return false;
+                document.getElementById("boroughSelect").value = match;
+                applyBorough(match);
+                const n = wardData.filter((w) => w.borough === match).length;
+                msg.textContent =
+                    "Showing all " + n + " wards in " + match +
+                    ". Click a ward, or search a ward name or postcode for one.";
+                return true;
+            }
+
             function findWardByName(query, msg) {
                 const q = normName(query);
                 if (q.length < 3) return false;
@@ -2068,6 +2091,11 @@
                     (w) => normName(w.ward) === q,
                 );
                 let matches = exact;
+                // A bare borough name beats a partial ward match: 17 London
+                // boroughs prefix-match a ward (Hounslow -> Hounslow Central),
+                // and someone typing just "Hounslow" wants the borough.
+                if (!matches.length && findBoroughByName(query, msg, true))
+                    return true;
                 if (!matches.length)
                     matches = wardData.filter((w) =>
                         normName(w.ward).startsWith(q),
@@ -2076,7 +2104,7 @@
                     matches = wardData.filter((w) =>
                         normName(w.ward).includes(q),
                     );
-                if (!matches.length) return false;
+                if (!matches.length) return findBoroughByName(query, msg, false);
                 goToWard(matches[0]);
                 if (matches.length > 1) {
                     msg.textContent =
