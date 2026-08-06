@@ -2098,6 +2098,33 @@
                     // highlight follow the lens instead of going stale.
                     if (!isBorough && lastDetailWard)
                         showDetail(lastDetailWard);
+                    // The borough lens ranks boroughs, not wards, so an open
+                    // ward card had nothing to say on the way in. Switch it to
+                    // the summary for the borough that ward sits in and frame
+                    // that borough on the map. The borough FILTER is left
+                    // alone on purpose: setting it dims the other 32 boroughs
+                    // grey, and comparing them is the entire point of this
+                    // lens.
+                    if (
+                        isBorough &&
+                        !wasBorough &&
+                        lastDetailWard &&
+                        lastDetailWard.borough
+                    ) {
+                        showBoroughDetail(lastDetailWard.borough);
+                        const bb = boroughBounds(lastDetailWard.borough);
+                        if (bb) map.fitBounds(bb, { padding: [30, 30] });
+                    }
+                    // Coming back the other way the ward card is restored
+                    // above, so refit the ward or the map and the card
+                    // disagree about what is in view.
+                    if (!isBorough && wasBorough && lastDetailWard) {
+                        const wl = layersByWard[lastDetailWard.code];
+                        if (wl)
+                            map.fitBounds(wl.getBounds(), {
+                                padding: [30, 30],
+                            });
+                    }
                 });
             });
 
