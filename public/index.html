@@ -2645,6 +2645,34 @@
                     }
                     repaint();
                     applyLensSort();
+
+                    // KIDSTREET DEEP LINKS
+                    // The static ward and borough pages under /areas/ link back
+                    // into the map with ?ward= or ?borough=. Without this the
+                    // buttons on all 738 of those pages land on the default view.
+                    try {
+                        const qs = new URLSearchParams(location.search);
+                        const qWard = qs.get("ward");
+                        const qBorough = qs.get("borough");
+                        if (qWard) {
+                            const hit = scoresByName[normName(qWard)];
+                            if (hit) selectWard(hit);
+                        } else if (qBorough) {
+                            const target = normName(qBorough);
+                            const match = [
+                                ...new Set(
+                                    wardData.map((w) => w.borough).filter(Boolean),
+                                ),
+                            ].find((b) => normName(b) === target);
+                            if (match) {
+                                document.getElementById("boroughSelect").value =
+                                    match;
+                                applyBorough(match);
+                            }
+                        }
+                    } catch (deepLinkErr) {
+                        console.warn("Deep link ignored:", deepLinkErr);
+                    }
                 })
                 .catch((err) => {
                     document.getElementById("detail").innerHTML =
