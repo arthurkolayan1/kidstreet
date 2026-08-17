@@ -306,22 +306,41 @@
                coral->green RAMP used by the map: there red means "bad
                score", here colour only encodes weight, so it stays one
                hue. Vars are scoped to .methodology so nothing leaks. */
+            /* browse block, restyled */
             .ward-page-link {
-                margin: 14px 0 2px;
-                font-size: 13px;
+                margin: 16px 0 2px;
+                font-size: 12.5px;
+                line-height: 1.4;
+            }
+            .ward-page-link a {
+                color: var(--green);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(46, 125, 84, 0.3);
+            }
+            .ward-page-link a:hover {
+                border-bottom-color: var(--green);
             }
             .browse {
-                max-width: 1100px;
-                margin: 8px auto 0;
-                padding: 0 18px;
+                margin: 20px 24px 14px;
+                padding-top: 16px;
+                border-top: 1px solid var(--line);
             }
             .browse h2 {
-                font-size: 17px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--ink-soft);
                 margin: 0 0 6px;
             }
-            .browse p {
-                font-size: 13px;
-                margin: 0 0 10px;
+            /* :first-of-type so the measure applies to the intro only.
+               A plain child-paragraph selector also caught .browse-more and,
+               being class+element, out-specified it. */
+            .browse > p:first-of-type {
+                font-size: 12.5px;
+                color: var(--ink-soft);
+                margin: 0 0 12px;
+                max-width: 62ch;
             }
             .browse ul {
                 list-style: none;
@@ -329,11 +348,29 @@
                 margin: 0 0 12px;
                 display: flex;
                 flex-wrap: wrap;
-                gap: 6px 14px;
-                font-size: 13px;
+                gap: 7px 16px;
+                font-size: 12.5px;
+            }
+            .browse a {
+                color: var(--green);
+                text-decoration: none;
+            }
+            .browse a:hover {
+                text-decoration: underline;
             }
             .browse-more {
-                font-size: 13px;
+                font-size: 12.5px;
+                color: var(--ink-faint);
+                margin: 0;
+                max-width: none;
+            }
+            @media (max-width: 640px) {
+                .browse {
+                    margin: 18px 16px 12px;
+                }
+                .browse ul {
+                    gap: 6px 12px;
+                }
             }
 
             .methodology {
@@ -1197,9 +1234,9 @@
         <section class="browse" id="browseAll" hidden>
             <h2>Browse every ward</h2>
             <p>
-                Every one of London's 704 wards has a page of its own, with the
-                schools inside its boundary, its parks, its recorded crime and
-                what is in the planning pipeline.
+                Every ward has a page of its own: the schools inside its
+                boundary, its parks, its recorded crime and what is in the
+                planning pipeline.
             </p>
             <ul id="browseBoroughs"></ul>
             <p class="browse-more">
