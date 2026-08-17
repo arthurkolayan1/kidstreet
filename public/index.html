@@ -306,6 +306,36 @@
                coral->green RAMP used by the map: there red means "bad
                score", here colour only encodes weight, so it stays one
                hue. Vars are scoped to .methodology so nothing leaks. */
+            .ward-page-link {
+                margin: 14px 0 2px;
+                font-size: 13px;
+            }
+            .browse {
+                max-width: 1100px;
+                margin: 8px auto 0;
+                padding: 0 18px;
+            }
+            .browse h2 {
+                font-size: 17px;
+                margin: 0 0 6px;
+            }
+            .browse p {
+                font-size: 13px;
+                margin: 0 0 10px;
+            }
+            .browse ul {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 12px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px 14px;
+                font-size: 13px;
+            }
+            .browse-more {
+                font-size: 13px;
+            }
+
             .methodology {
                 --w1: #1e5638;
                 --w2: #2e7d54;
@@ -1164,6 +1194,21 @@
             The child-friendliness layer for every city on Earth.
             <span>Starting with London.</span>
         </p>
+        <section class="browse" id="browseAll" hidden>
+            <h2>Browse every ward</h2>
+            <p>
+                Every one of London's 704 wards has a page of its own, with the
+                schools inside its boundary, its parks, its recorded crime and
+                what is in the planning pipeline.
+            </p>
+            <ul id="browseBoroughs"></ul>
+            <p class="browse-more">
+                <a href="/areas/">All 33 boroughs ranked for families</a> ·
+                <a href="/guides/safest-areas-in-london-for-families/">The safest areas in London, ward by ward</a> ·
+                <a href="/guides/london-playground-gap/">London's playground gap</a>
+            </p>
+        </section>
+
         <p class="credit">
             Ward boundaries: Office for National Statistics (Wards May 2024,
             super-generalised). Play provision: OS Open Greenspace &copy; Crown
@@ -1322,6 +1367,17 @@
                 hintKilled = true;
                 mapHint.classList.add("gone");
                 setTimeout(() => mapHint.remove(), 600);
+            }
+
+            // Must stay identical to slug() in pipeline/14_seo_pages.mjs,
+            // or these links point at pages that do not exist.
+            function ksSlug(s) {
+                return String(s)
+                    .toLowerCase()
+                    .replace(/&/g, "and")
+                    .replace(/['’]/g, "")
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-|-$/g, "");
             }
 
             function normName(s) {
@@ -1794,6 +1850,20 @@
                             " m²/child</strong> of parks &amp; playing fields." +
                             "</div>";
                     }
+                }
+                // KIDSTREET INTERNAL LINKS
+                // Permanent, shareable URL for this ward. The map's state lives
+                // in memory, so without this there is nothing a user can send
+                // someone, and nothing for a crawler to follow.
+                if (w.ward && w.borough) {
+                    html +=
+                        '<p class="ward-page-link"><a href="/areas/' +
+                        ksSlug(w.borough) +
+                        "/" +
+                        ksSlug(w.ward) +
+                        '/">Full profile for ' +
+                        w.ward +
+                        ": schools, parks, crime and planning</a></p>";
                 }
                 // The old one-quote summary blob is gone: its facts now live
                 // as per-dimension captions under each score bar, where each
@@ -2644,6 +2714,34 @@
                     }
                     repaint();
                     applyLensSort();
+
+                    // KIDSTREET INTERNAL LINKS: borough list, built from live
+                    // data so it cannot drift from what the generator wrote.
+                    try {
+                        const bs = [
+                            ...new Set(
+                                wardData.map((w) => w.borough).filter(Boolean),
+                            ),
+                        ].sort((a, b) => a.localeCompare(b));
+                        if (bs.length) {
+                            document.getElementById("browseBoroughs").innerHTML =
+                                bs
+                                    .map(
+                                        (b) =>
+                                            '<li><a href="/areas/' +
+                                            ksSlug(b) +
+                                            '/">' +
+                                            b +
+                                            "</a></li>",
+                                    )
+                                    .join("");
+                            document
+                                .getElementById("browseAll")
+                                .removeAttribute("hidden");
+                        }
+                    } catch (browseErr) {
+                        console.warn("Browse block skipped:", browseErr);
+                    }
 
                     // KIDSTREET DEEP LINKS
                     // The static ward and borough pages under /areas/ link back
