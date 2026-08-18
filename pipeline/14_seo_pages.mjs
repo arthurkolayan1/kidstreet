@@ -638,7 +638,7 @@ for (const b of boroughList) {
 
 <p>Use the score to narrow ${N} wards down to a shortlist. Then go and visit them at school run time.</p>
 
-<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>.</p>
+<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. The <a href="/data/">underlying data</a> is open.</p>
 
 <p style="margin-top:28px"><a class="cta" href="/">Open the interactive map</a></p>`;
 
@@ -1030,6 +1030,115 @@ ${
   const csvPath = path.join(ROOT, "public", "data", "play-space-by-ward.csv");
   fs.mkdirSync(path.dirname(csvPath), { recursive: true });
   fs.writeFileSync(csvPath, csv);
+}
+
+// /data/ — the machine-readable front door. Journalists ask "can I have the
+// data" before they ask anything else, and being the citable source of a fact
+// is what gets you named rather than merely read. Figures are computed so the
+// page cannot describe a dataset that no longer matches the one it links to.
+{
+  const period = monthName(
+    wards.find((w) => w.dimensions?.safety?.period)?.dimensions.safety.period,
+  );
+  const withPlay = wards.filter(
+    (w) => typeof w.dimensions?.play_provision?.m2_per_child === "number",
+  ).length;
+  const schools = wards.reduce(
+    (a, w) => a + (w.dimensions?.education?.schools?.length || 0),
+    0,
+  );
+  const crimes = wards.reduce(
+    (a, w) => a + (w.dimensions?.safety?.crimes_last_month || 0),
+    0,
+  );
+
+  const dims = [
+    ["safety", 30, "Street crimes per 1,000 residents, percentile-ranked and inverted, so the score is the share of London wards with more crime per resident.", "Home Office street-level crime via police.uk, " + period],
+    ["education", 20, "Average Ofsted grade of rated schools inside the ward boundary, mapped Outstanding 100, Good 67, Requires improvement 33, Inadequate 0.", "Ofsted inspection outcomes"],
+    ["transport", 15, "Stations in the ward, half-weight for stations one ward over, bus stops at a twentieth of a station, percentile-ranked. Plus 5 for a confirmed step-free station in or adjacent.", "OpenStreetMap, TfL"],
+    ["green_space", 12, "Parks, open spaces and mapped playgrounds inside the ward boundary.", "OS Open Greenspace, OpenStreetMap"],
+    ["family_fit", 10, "Share of households with dependent children, percentile-ranked.", "ONS Census 2021, table TS003"],
+    ["play", 8, "Play and informal recreation space per child aged 0-15, from polygons clipped to the ward boundary.", "OS Open Greenspace, ONS mid-2024 ward population"],
+    ["planning", 5, "Count of recent planning applications touching child-related facilities.", "Planning London Datahub"],
+  ];
+
+  const dimRows = dims
+    .map(
+      ([k, w, note, src]) =>
+        `<tr><td><code>${k}</code></td><td class="n">${w}%</td><td>${note}</td><td>${src}</td></tr>`,
+    )
+    .join("");
+
+  const body = `
+<h1>The data behind KidStreet</h1>
+<p class="sub">704 wards · ${period} · open endpoints, no key, no rate limit</p>
+
+<p>Every number on this site comes from published open government data, and all of it is available to take. If you are writing something and want a cut that is not here, the endpoints below will almost certainly give it to you, and if they do not, raise an issue on <a href="https://github.com/arthurkolayan1/kidstreet">GitHub</a>.</p>
+
+<h2>Endpoints</h2>
+<table><thead><tr><th>URL</th><th>Returns</th></tr></thead><tbody>
+<tr><td><a href="/api/scores"><code>/api/scores</code></a></td><td>Flat array, one object per ward: name, borough, ONS code, centroid, the seven dimension scores, the composite, play space per child and the ratio against the 10 m² figure. This is what the map draws from.</td></tr>
+<tr><td><a href="/api/wards"><code>/api/wards</code></a></td><td>The full record for all ${N} wards, including every named school with its phase and Ofsted grade, named parks, named stations with step-free status, crime categories, and quoted planning applications.</td></tr>
+<tr><td><code>/api/wards/&lt;ward name&gt;</code></td><td>One ward. Names are matched loosely, so <a href="/api/wards/Hayes%20&amp;%20Coney%20Hall"><code>/api/wards/Hayes &amp; Coney Hall</code></a> and <code>/api/wards/hayes and coney hall</code> both work.</td></tr>
+<tr><td><code>/api/wards?borough=Bromley</code></td><td>Filter either endpoint to one borough.</td></tr>
+<tr><td><a href="/data/play-space-by-ward.csv"><code>/data/play-space-by-ward.csv</code></a></td><td>Play space per child for ${withPlay} wards, both measures, with the raw areas and child counts. Spreadsheet-ready.</td></tr>
+<tr><td><a href="/sitemap.xml"><code>/sitemap.xml</code></a></td><td>Every page on the site.</td></tr>
+</tbody></table>
+
+<h2>What is in it</h2>
+<p>The current build covers <strong>${N} wards</strong>, <strong>${schools.toLocaleString()} Ofsted-rated schools</strong> matched to ward boundaries, <strong>${crimes.toLocaleString()} street crimes</strong> matched to ward boundaries for ${period}, and play provision for <strong>${withPlay} wards</strong>. Wards with no ward-level child population published are scored on the dimensions that do have data, with the remaining weights renormalised rather than counting the gap as zero.</p>
+
+<h2>The seven dimensions</h2>
+<table><thead><tr><th>Field</th><th class="n">Weight</th><th>How it is measured</th><th>Source</th></tr></thead><tbody>${dimRows}</tbody></table>
+<p>The composite is the weighted mean of whichever dimensions have data for a ward, with the remaining weights renormalised.</p>
+<p>Four of the seven are percentile ranks against the other London wards, so a score of 70 on safety, transport, play or family presence means the ward beats 70% of London on that measure rather than scoring 70 out of some absolute maximum. Education is not a percentile: it is the average Ofsted grade mapped onto a fixed scale, which is why 275 wards share a score of 67, the value for a ward whose rated schools are all Good. Planning is a bucketed count. Green space is a bounded index rather than a rank, and its median across London is 35 rather than 50.</p>
+
+<h2>Licence and attribution</h2>
+<p>The underlying data is published under the Open Government Licence v3.0 (ONS, Ofsted, Home Office, OS Open Greenspace, Planning London Datahub) and the Open Database Licence (OpenStreetMap). Those terms carry through, so attribute the original sources as listed at the foot of the <a href="/">home page</a>.</p>
+<p>The scores, weights and derived measures are ours and you are welcome to them. Use them, quote them, publish them. A link back to kidstreet.co.uk is appreciated rather than required.</p>
+
+<h2>How current it is</h2>
+<p>Crime refreshes monthly and is currently ${period}. Population is the ONS mid-2024 estimate, household composition is Census 2021, boundaries are the ONS May 2024 wards. Ofsted, greenspace and planning refresh less predictably. Every page states the month the crime data covers, so a stale page is visible rather than silent.</p>
+
+<h2>What it cannot do</h2>
+<p>Space and schools are counted inside the ward boundary only, so a park or a school just over the line counts for nothing. Crime is recorded where it happens rather than where anyone lives, so wards containing stations, shopping streets or nightlife carry visitor crime against a small resident population. One month of crime is volatile at ward level. There is no price data, so the site cannot answer anything about affordability.</p>
+
+<p style="margin-top:28px"><a class="cta" href="/areas/">See all ${N} wards ranked</a></p>`;
+
+  write("data", page({
+    title: `The data behind KidStreet: open endpoints for all ${N} London wards | KidStreet`,
+    desc: `Open JSON and CSV for all ${N} London wards: crime per resident, named schools and Ofsted grades, play space per child, transport, green space. No key, no rate limit, OGL sources.`,
+    canonical: "/data/",
+    jsonld: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        name: "KidStreet London ward child-friendliness data",
+        description: `Ward-level child-friendliness data for all ${N} London electoral wards: recorded crime per resident, named Ofsted-rated schools and grades, station and bus access, green space, play space per child, household composition and child-related planning applications.`,
+        url: `${SITE}/data/`,
+        license: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        isAccessibleForFree: true,
+        creator: { "@type": "Organization", name: "KidStreet", url: SITE },
+        spatialCoverage: { "@type": "Place", name: "Greater London" },
+        temporalCoverage: period,
+        distribution: [
+          { "@type": "DataDownload", name: "Ward scores (JSON)", encodingFormat: "application/json", contentUrl: `${SITE}/api/scores` },
+          { "@type": "DataDownload", name: "Full ward records (JSON)", encodingFormat: "application/json", contentUrl: `${SITE}/api/wards` },
+          { "@type": "DataDownload", name: "Play space by ward (CSV)", encodingFormat: "text/csv", contentUrl: `${SITE}/data/play-space-by-ward.csv` },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+          { "@type": "ListItem", position: 2, name: "Data", item: `${SITE}/data/` },
+        ],
+      },
+    ],
+    breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › Data`,
+    body,
+  }));
 }
 
 // sitemap + robots
