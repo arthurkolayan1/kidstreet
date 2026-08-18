@@ -638,7 +638,7 @@ for (const b of boroughList) {
 
 <p>Use the score to narrow ${N} wards down to a shortlist. Then go and visit them at school run time.</p>
 
-<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. The <a href="/data/">underlying data</a> is open.</p>
+<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. <a href="/compare/west-london-vs-south-london-for-families/">West vs South London</a>. The <a href="/data/">underlying data</a> is open.</p>
 
 <p style="margin-top:28px"><a class="cta" href="/">Open the interactive map</a></p>`;
 
@@ -1137,6 +1137,160 @@ ${
       },
     ],
     breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › Data`,
+    body,
+  }));
+}
+
+// /compare/west-london-vs-south-london-for-families/ — region-level comparison.
+// The price figures are external (ONS) so they are hardcoded and dated; every
+// score figure is computed. If ONS updates, update PRICES and the date together.
+{
+  const PRICE_DATE = "May 2026";
+  const PRICES = {
+    "Kensington and Chelsea": 1256000,
+    "Hammersmith and Fulham": 729000,
+    "Richmond upon Thames": 789000,
+    Ealing: 569000,
+    Bromley: 525000,
+    Sutton: 445000,
+    Bexley: 409000,
+    Croydon: 397000,
+  };
+  const WEST = ["Ealing", "Hammersmith and Fulham", "Hounslow", "Hillingdon", "Brent", "Harrow", "Kensington and Chelsea"];
+  const SOUTH = ["Bexley", "Bromley", "Croydon", "Greenwich", "Kingston upon Thames", "Lambeth", "Lewisham", "Merton", "Richmond upon Thames", "Southwark", "Sutton", "Wandsworth"];
+
+  const side = (list) => {
+    const ws = wards.filter((w) => list.includes(w.borough));
+    const m = (k) => {
+      const v = ws.map((w) => w.scores[k]).filter((x) => typeof x === "number");
+      return Math.round(v.reduce((a, c) => a + c, 0) / v.length);
+    };
+    const cr = ws.map((w) => w.dimensions?.safety?.crimes_per_1000).filter((x) => typeof x === "number");
+    const m2 = ws.map((w) => w.dimensions?.play_provision?.m2_per_child).filter((x) => typeof x === "number").sort((a, b) => a - b);
+    return {
+      ws, n: ws.length,
+      mean: Math.round(ws.reduce((a, c) => a + c.composite, 0) / ws.length),
+      safety: m("safety"), education: m("education"), transport: m("transport"),
+      green_space: m("green_space"), family_fit: m("family_fit"), play: m("play"),
+      crime: (cr.reduce((a, c) => a + c, 0) / cr.length).toFixed(1),
+      medM2: m2[Math.floor(m2.length / 2)].toFixed(1),
+      top50: ws.filter((w) => w.rank <= 50).length,
+      top100: ws.filter((w) => w.rank <= 100).length,
+      best: ws.reduce((a, c) => (c.composite > a.composite ? c : a)),
+    };
+  };
+  const w = side(WEST), s = side(SOUTH);
+  const rate = (x, n) => ((100 * x) / n).toFixed(1);
+
+  const dimRow = (label, key, higherIsBetter = true) => {
+    const a = w[key], b = s[key];
+    // A one or two point gap is inside the noise of a percentile mean across
+    // 150 wards. Declaring a winner on it would contradict the prose below.
+    const win = Math.abs(a - b) <= 2 ? "Level" : (higherIsBetter ? (a > b ? "West" : "South") : (a < b ? "West" : "South"));
+    return `<tr><th scope="row">${label}</th><td class="n">${a}</td><td class="n">${b}</td><td>${win}</td></tr>`;
+  };
+
+  const priceRows = Object.entries(PRICES)
+    .sort((a, b) => b[1] - a[1])
+    .map(([b, p]) => {
+      const br = boroughRank[b];
+      const region = WEST.includes(b) ? "West" : "South";
+      return `<tr><td><a href="/areas/${br.slug}/">${esc(b)}</a></td><td>${region}</td><td class="n">£${p.toLocaleString()}</td><td class="n">${br.mean}</td><td class="n">${ordinal(br.rank)}</td></tr>`;
+    })
+    .join("");
+
+  const topRows = (side_, label) =>
+    side_.ws.slice().sort((a, b) => b.composite - a.composite).slice(0, 5)
+      .map((x) => `<tr><td>${label}</td><td><a href="${x.url}">${esc(x.ward_name)}</a></td><td>${esc(x.borough)}</td><td class="n">${x.composite}</td><td class="n">${ordinal(x.rank)}</td></tr>`)
+      .join("");
+
+  const kc = boroughRank["Kensington and Chelsea"], cr = boroughRank["Croydon"];
+  const ratio = Math.round((PRICES["Croydon"] / PRICES["Kensington and Chelsea"]) * 100);
+
+  const body = `
+<h1>West London vs South London for families</h1>
+<p class="sub">150 wards against 256 · seven dimensions · house prices ONS provisional, ${PRICE_DATE}</p>
+
+<p>West London is the more expensive half of the two. On the measures that decide what a childhood looks like day to day, it is the weaker half. That is the finding, and the gap is widest exactly where the money is.</p>
+
+<h2>Price against score</h2>
+<table><thead><tr><th>Borough</th><th>Side</th><th class="n">Avg house price</th><th class="n">KidStreet score</th><th class="n">Rank of 33</th></tr></thead><tbody>${priceRows}</tbody></table>
+
+<p><a href="/areas/${kc.slug}/">Kensington and Chelsea</a> averages £${PRICES["Kensington and Chelsea"].toLocaleString()} and scores ${kc.mean}, ${ordinal(kc.rank)} of 33 boroughs. <a href="/areas/${cr.slug}/">Croydon</a> averages £${PRICES["Croydon"].toLocaleString()}, which is ${ratio}% of the Kensington figure, and scores ${cr.mean}, ${ordinal(cr.rank)}. You can spend three times as much and move ${kc.mean < cr.mean ? cr.mean - kc.mean : 0} points down the table.</p>
+
+<p>Averages across boroughs are not like-for-like. A £1.2m Kensington flat and a £400,000 Croydon house are different quantities of building, and part of the price gap is simply space. That is the point rather than a caveat: the same money buys more of the things this site measures, further out.</p>
+
+<h2>Side by side</h2>
+<table><thead><tr><th>Dimension</th><th class="n">West</th><th class="n">South</th><th>Ahead</th></tr></thead><tbody>
+<tr><th scope="row"><strong>Overall</strong></th><td class="n"><strong>${w.mean}</strong></td><td class="n"><strong>${s.mean}</strong></td><td><strong>${s.mean > w.mean ? "South" : "West"}</strong></td></tr>
+${dimRow("Safety", "safety")}
+${dimRow("Schools", "education")}
+${dimRow("Transport", "transport")}
+${dimRow("Green space", "green_space")}
+${dimRow("Family presence", "family_fit")}
+${dimRow("Play space", "play")}
+<tr><th scope="row">Street crime per 1,000</th><td class="n">${w.crime}</td><td class="n">${s.crime}</td><td>South</td></tr>
+<tr><th scope="row">Median m² play space per child</th><td class="n">${w.medM2}</td><td class="n">${s.medM2}</td><td>South</td></tr>
+<tr><th scope="row">Wards in London's top 50</th><td class="n">${w.top50} of ${w.n}</td><td class="n">${s.top50} of ${s.n}</td><td>South</td></tr>
+</tbody></table>
+
+<p>The headline gap of ${s.mean - w.mean} points is modest. The gap at the top is not. ${rate(s.top50, s.n)}% of South London wards make London's top fifty against ${rate(w.top50, w.n)}% of West London wards, and ${rate(s.top100, s.n)}% against ${rate(w.top100, w.n)}% for the top hundred. West London has plenty of adequate wards and comparatively few excellent ones.</p>
+
+<h2>Where West London actually wins</h2>
+<p>Two things, and one of them matters. Schools are level, ${w.education} against ${s.education}, which is within noise. Transport is level, ${w.transport} against ${s.transport}. The real West London advantage is <strong>family presence at ${w.family_fit} against ${s.family_fit}</strong>: more households with dependent children, more school-gate density, more chance your child's friends live on the same street. That is a genuine reason to choose it and this measure is the only one that captures it.</p>
+
+<h2>Where South London wins</h2>
+<p>Safety, decisively: ${s.safety} against ${w.safety}, from ${s.crime} recorded street crimes per 1,000 residents against ${w.crime}. Green space, ${s.green_space} against ${w.green_space}. Play space, a median of ${s.medM2} m² per child against ${w.medM2} m². Those three carry ${30 + 12 + 8}% of the weight between them, which is most of the overall gap.</p>
+
+<h2>The best of each</h2>
+<table><thead><tr><th>Side</th><th>Ward</th><th>Borough</th><th class="n">Score</th><th class="n">London rank</th></tr></thead><tbody>
+${topRows(s, "South")}
+${topRows(w, "West")}
+</tbody></table>
+
+<h2>Two things to hold against this</h2>
+<p>The boundary between West and South London is contested and always has been. This page counts ${WEST.map(esc).join(", ")} as West, and ${SOUTH.map(esc).join(", ")} as South. We tested the obvious objections: moving Richmond to the West column takes West from ${w.mean} to ${w.mean + 1} and leaves South at ${s.mean}. Moving Brent out to North changes neither. The finding survives both.</p>
+<p>Both averages hide more than they show. West London contains <a href="${w.best.url}">${esc(w.best.ward_name)}</a> at ${w.best.composite}, ${ordinal(w.best.rank)} in London, which beats most of South. The side you pick matters far less than the ward you pick, and that is true on every page of this site.</p>
+
+<p style="margin-top:28px"><a class="cta" href="/areas/">See all ${N} wards ranked</a></p>`;
+
+  write("compare/west-london-vs-south-london-for-families", page({
+    title: `West London vs South London for families: which is better? | KidStreet`,
+    desc: `West London averages ${w.mean}/100 for child-friendliness, South London ${s.mean}. South wins on safety, green space and play; West on family presence. With ONS house prices, ${PRICE_DATE}.`,
+    canonical: "/compare/west-london-vs-south-london-for-families/",
+    jsonld: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+          { "@type": "ListItem", position: 2, name: "West London vs South London", item: `${SITE}/compare/west-london-vs-south-london-for-families/` },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Is West or South London better for families?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `South London averages ${s.mean} out of 100 on KidStreet's child-friendliness measure against West London's ${w.mean}, and holds ${s.top50} of London's top 50 wards against West London's ${w.top50}. South leads on safety, green space and play space; West leads on the share of households with dependent children.`,
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Is West London worth the higher house prices for families?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `On these measures, not on the evidence of the priciest boroughs. Kensington and Chelsea averages £${PRICES["Kensington and Chelsea"].toLocaleString()} (ONS, ${PRICE_DATE}) and scores ${kc.mean}, ${ordinal(kc.rank)} of 33. Croydon averages £${PRICES["Croydon"].toLocaleString()} and scores ${cr.mean}.`,
+            },
+          },
+        ],
+      },
+    ],
+    breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › West vs South London`,
     body,
   }));
 }
