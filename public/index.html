@@ -1243,14 +1243,48 @@
             The child-friendliness layer for every city on Earth.
             <span>Starting with London.</span>
         </p>
-        <section class="browse" id="browseAll" hidden>
+        <section class="browse">
             <h2>Browse every ward</h2>
             <p>
                 Every ward has a page of its own: the schools inside its
                 boundary, its parks, its recorded crime and what is in the
                 planning pipeline.
             </p>
-            <ul id="browseBoroughs"></ul>
+            <ul>
+                <li><a href="/areas/barking-and-dagenham/">Barking and Dagenham</a></li>
+                <li><a href="/areas/barnet/">Barnet</a></li>
+                <li><a href="/areas/bexley/">Bexley</a></li>
+                <li><a href="/areas/brent/">Brent</a></li>
+                <li><a href="/areas/bromley/">Bromley</a></li>
+                <li><a href="/areas/camden/">Camden</a></li>
+                <li><a href="/areas/city-of-london/">City of London</a></li>
+                <li><a href="/areas/croydon/">Croydon</a></li>
+                <li><a href="/areas/ealing/">Ealing</a></li>
+                <li><a href="/areas/enfield/">Enfield</a></li>
+                <li><a href="/areas/greenwich/">Greenwich</a></li>
+                <li><a href="/areas/hackney/">Hackney</a></li>
+                <li><a href="/areas/hammersmith-and-fulham/">Hammersmith and Fulham</a></li>
+                <li><a href="/areas/haringey/">Haringey</a></li>
+                <li><a href="/areas/harrow/">Harrow</a></li>
+                <li><a href="/areas/havering/">Havering</a></li>
+                <li><a href="/areas/hillingdon/">Hillingdon</a></li>
+                <li><a href="/areas/hounslow/">Hounslow</a></li>
+                <li><a href="/areas/islington/">Islington</a></li>
+                <li><a href="/areas/kensington-and-chelsea/">Kensington and Chelsea</a></li>
+                <li><a href="/areas/kingston-upon-thames/">Kingston upon Thames</a></li>
+                <li><a href="/areas/lambeth/">Lambeth</a></li>
+                <li><a href="/areas/lewisham/">Lewisham</a></li>
+                <li><a href="/areas/merton/">Merton</a></li>
+                <li><a href="/areas/newham/">Newham</a></li>
+                <li><a href="/areas/redbridge/">Redbridge</a></li>
+                <li><a href="/areas/richmond-upon-thames/">Richmond upon Thames</a></li>
+                <li><a href="/areas/southwark/">Southwark</a></li>
+                <li><a href="/areas/sutton/">Sutton</a></li>
+                <li><a href="/areas/tower-hamlets/">Tower Hamlets</a></li>
+                <li><a href="/areas/waltham-forest/">Waltham Forest</a></li>
+                <li><a href="/areas/wandsworth/">Wandsworth</a></li>
+                <li><a href="/areas/westminster/">Westminster</a></li>
+            </ul>
             <p class="browse-more">
                 <a href="/areas/">All 33 boroughs ranked for families</a> ·
                 <a href="/guides/safest-areas-in-london-for-families/">The safest areas in London, ward by ward</a> ·
@@ -2764,33 +2798,8 @@
                     repaint();
                     applyLensSort();
 
-                    // KIDSTREET INTERNAL LINKS: borough list, built from live
-                    // data so it cannot drift from what the generator wrote.
-                    try {
-                        const bs = [
-                            ...new Set(
-                                wardData.map((w) => w.borough).filter(Boolean),
-                            ),
-                        ].sort((a, b) => a.localeCompare(b));
-                        if (bs.length) {
-                            document.getElementById("browseBoroughs").innerHTML =
-                                bs
-                                    .map(
-                                        (b) =>
-                                            '<li><a href="/areas/' +
-                                            ksSlug(b) +
-                                            '/">' +
-                                            b +
-                                            "</a></li>",
-                                    )
-                                    .join("");
-                            document
-                                .getElementById("browseAll")
-                                .removeAttribute("hidden");
-                        }
-                    } catch (browseErr) {
-                        console.warn("Browse block skipped:", browseErr);
-                    }
+                    // Borough links are static HTML in the markup above, so a
+                    // crawler that does not run JavaScript still sees all 33.
 
                     // KIDSTREET DEEP LINKS
                     // The static ward and borough pages under /areas/ link back
