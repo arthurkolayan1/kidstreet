@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>KidStreet | London</title>
+        <title>How child-friendly is every London ward? | KidStreet</title>
+        <link rel="canonical" href="https://kidstreet.co.uk/" />
         <meta
             name="description"
-            content="Honest child-friendliness scores for all 704 London wards, from open data with a published methodology. Play provision benchmarked against London Plan Policy S4."
+            content="Child-friendliness scores for all 704 London wards, built from open data with a published method: recorded crime, Ofsted grades, play space, transport and green space."
         />
-        <meta property="og:title" content="KidStreet | London" />
+        <meta property="og:title" content="How child-friendly is every London ward? | KidStreet" />
         <meta
             property="og:description"
             content="Child-friendliness scores for all 704 London wards from open data. Play provision benchmarked against the London Plan Policy S4 standard of 10 m² per child."
@@ -25,6 +26,7 @@
             content="KidStreet: how child-friendly is London, honestly? All 704 London wards scored on open data."
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How child-friendly is every London ward? | KidStreet" />
         <meta name="twitter:image" content="https://kidstreet.co.uk/assets/ogdefault.png" />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -941,6 +943,64 @@
                 color: var(--ink-faint);
             }
         </style>
+        <!-- Structured data. The homepage had none, while 740 generated pages
+             did. This is the page every external link lands on and the one an
+             answer engine is most likely to be handed first. -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://kidstreet.co.uk/#website",
+                        "url": "https://kidstreet.co.uk/",
+                        "name": "KidStreet",
+                        "description": "Child-friendliness scores for all 704 London wards, built from open data with a published method: recorded crime, Ofsted grades, play space, transport and green space.",
+                        "inLanguage": "en-GB",
+                        "publisher": { "@id": "https://kidstreet.co.uk/#org" }
+                    },
+                    {
+                        "@type": "Organization",
+                        "@id": "https://kidstreet.co.uk/#org",
+                        "name": "KidStreet",
+                        "url": "https://kidstreet.co.uk/",
+                        "logo": "https://kidstreet.co.uk/assets/logo.png",
+                        "description": "An independent, unfunded project scoring how child-friendly every London ward is, from open government data with a published methodology."
+                    },
+                    {
+                        "@type": "Dataset",
+                        "@id": "https://kidstreet.co.uk/#dataset",
+                        "name": "KidStreet London ward child-friendliness scores",
+                        "description": "Composite child-friendliness scores for all 704 London electoral wards across seven weighted dimensions: recorded crime per resident, Ofsted grades of schools inside the ward boundary, station and bus access, green space, play space per child, share of households with dependent children, and planning applications for child-related facilities.",
+                        "url": "https://kidstreet.co.uk/areas/",
+                        "license": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                        "isAccessibleForFree": true,
+                        "creator": { "@id": "https://kidstreet.co.uk/#org" },
+                        "spatialCoverage": { "@type": "Place", "name": "Greater London" },
+                        "keywords": [
+                            "child friendliness",
+                            "London wards",
+                            "play space",
+                            "school quality",
+                            "street crime",
+                            "green space"
+                        ],
+                        "distribution": [
+                            {
+                                "@type": "DataDownload",
+                                "encodingFormat": "application/json",
+                                "contentUrl": "https://kidstreet.co.uk/api/wards"
+                            },
+                            {
+                                "@type": "DataDownload",
+                                "encodingFormat": "text/csv",
+                                "contentUrl": "https://kidstreet.co.uk/data/play-space-by-ward.csv"
+                            }
+                        ]
+                    }
+                ]
+            }
+        </script>
     </head>
     <body>
         <header>
