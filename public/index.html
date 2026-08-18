@@ -372,6 +372,26 @@
             .browse a:hover {
                 text-decoration: underline;
             }
+            .about {
+                margin: 0 24px 10px;
+                font-size: 12.5px;
+                line-height: 1.5;
+                color: var(--ink-soft);
+                max-width: 78ch;
+            }
+            .about a {
+                color: var(--green);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(46, 125, 84, 0.3);
+            }
+            .about a:hover {
+                border-bottom-color: var(--green);
+            }
+            @media (max-width: 640px) {
+                .about {
+                    margin: 0 16px 10px;
+                }
+            }
             .browse-more {
                 font-size: 12.5px;
                 color: var(--ink-faint);
@@ -965,7 +985,10 @@
                         "name": "KidStreet",
                         "url": "https://kidstreet.co.uk/",
                         "logo": "https://kidstreet.co.uk/assets/logo.png",
-                        "description": "An independent, unfunded project scoring how child-friendly every London ward is, from open government data with a published methodology."
+                        "description": "An independent, unfunded project scoring how child-friendly every London ward is, from open government data with a published methodology.",
+                        "sameAs": [
+                            "https://github.com/arthurkolayan1/kidstreet"
+                        ]
                     },
                     {
                         "@type": "Dataset",
@@ -1352,6 +1375,14 @@
             </p>
         </section>
 
+        <p class="about">
+            KidStreet is an independent project. No council funding, no
+            commercial funding, nothing sold. The scoring method is published in
+            full and the code and data behind every number are open:
+            <a href="https://github.com/arthurkolayan1/kidstreet"
+                >source and data on GitHub</a
+            >. Spotted an error? Raise an issue there and it gets fixed.
+        </p>
         <p class="credit">
             Ward boundaries: Office for National Statistics (Wards May 2024,
             super-generalised). Play provision: OS Open Greenspace &copy; Crown
