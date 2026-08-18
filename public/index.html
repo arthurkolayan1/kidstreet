@@ -306,8 +306,18 @@
             .glance-row strong {
                 color: var(--ink);
             }
+            .vision,
+            .browse,
+            .about,
+            .credit {
+                max-width: 1180px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 24px;
+                padding-right: 24px;
+            }
             .vision {
-                margin: 4px 24px 6px;
+                margin: 4px auto 6px;
                 font-family: "Instrument Serif", serif;
                 font-size: 18px;
                 color: var(--ink);
@@ -335,7 +345,7 @@
                 border-bottom-color: var(--green);
             }
             .browse {
-                margin: 20px 24px 14px;
+                margin: 20px auto 14px;
                 padding-top: 16px;
                 border-top: 1px solid var(--line);
             }
@@ -373,11 +383,10 @@
                 text-decoration: underline;
             }
             .about {
-                margin: 0 24px 10px;
+                margin: 0 auto 10px;
                 font-size: 12.5px;
                 line-height: 1.5;
                 color: var(--ink-soft);
-                max-width: 78ch;
             }
             .about a {
                 color: var(--green);
@@ -387,11 +396,6 @@
             .about a:hover {
                 border-bottom-color: var(--green);
             }
-            @media (max-width: 640px) {
-                .about {
-                    margin: 0 16px 10px;
-                }
-            }
             .browse-more {
                 font-size: 12.5px;
                 color: var(--ink-faint);
@@ -400,7 +404,7 @@
             }
             @media (max-width: 640px) {
                 .browse {
-                    margin: 18px 16px 12px;
+                    margin: 18px auto 12px;
                 }
                 .browse ul {
                     gap: 6px 12px;
@@ -908,8 +912,15 @@
                     font-size: 25px;
                 }
                 .vision {
-                    margin: 4px 12px 6px;
+                    margin: 4px auto 6px;
                     font-size: 15px;
+                }
+                .vision,
+                .browse,
+                .about,
+                .credit {
+                    padding-left: 12px;
+                    padding-right: 12px;
                 }
                 .layout {
                     flex-direction: column;
@@ -958,7 +969,7 @@
                 margin-top: 3px;
             }
             .credit {
-                margin: 0 24px 16px;
+                margin: 0 auto 16px;
                 font-size: 10.5px;
                 color: var(--ink-faint);
             }
