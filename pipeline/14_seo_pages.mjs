@@ -638,7 +638,7 @@ for (const b of boroughList) {
 
 <p>Use the score to narrow ${N} wards down to a shortlist. Then go and visit them at school run time.</p>
 
-<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. <a href="/compare/">side-by-side comparisons</a> including <a href="/compare/west-london-vs-south-london-for-families/">West vs South London</a>. The <a href="/data/">underlying data</a> is open.</p>
+<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. <a href="/regions/">London by region</a>, <a href="/compare/">side-by-side comparisons</a> including <a href="/compare/west-london-vs-south-london-for-families/">West vs South London</a>. The <a href="/data/">underlying data</a> is open.</p>
 
 <p style="margin-top:28px"><a class="cta" href="/">Open the interactive map</a></p>`;
 
@@ -1635,6 +1635,200 @@ p(`Walk fifteen minutes north-west. Ealing Broadway is a reasonable place to ren
 <h2>Region</h2>
 <p><a href="/compare/west-london-vs-south-london-for-families/">West London vs South London for families</a>, with house prices.</p>
 <p style="margin-top:24px"><a class="cta" href="/areas/">See all ${N} wards ranked</a></p>`,
+  }));
+}
+
+// /regions/ — the layer between London and the boroughs. "Best areas in south
+// west London for families" and its siblings are searched hard and the page-one
+// incumbents are removals firms and estate agents naming five areas each. These
+// pages name every ward in the region and score the areas those guides pick.
+//
+// Region boundaries are contested. Each page states its own definition.
+{
+  const REGIONS = [
+    {
+      slug: "south-west-london",
+      name: "South West London",
+      boroughs: ["Richmond upon Thames", "Kingston upon Thames", "Merton", "Wandsworth", "Sutton", "Lambeth"],
+      named: ["Ham, Petersham & Richmond Riverside", "West Putney", "Teddington", "Mortlake & Barnes Common", "Wandsworth Common", "East Putney", "Wimbledon Park", "Battersea Park", "Kingston Gate", "Barnes", "Wandsworth Town", "Clapham Common & Abbeville", "South Balham", "South Richmond", "Kingston Town", "Balham", "Clapham East"],
+      lede: (t) => [
+        `<p>Every guide to south west London for families names the same handful of places: Clapham, Battersea, Wandsworth, Richmond, Kingston. Scored on open data, the best wards in the region are in <strong>Merton and Sutton</strong>, and Clapham East ranks ${ordinal(wards.find((w) => w.ward_name === "Clapham East").rank)} of ${N} London wards.</p>`,
+        `<p>That is not a claim that Clapham is a bad place. It is a claim that the reputation and the measurements have drifted apart, and that a family shortlisting on reputation alone is shortlisting on price and postcode rather than on crime, schools, transport and space to play.</p>`,
+      ],
+    },
+    {
+      slug: "south-east-london",
+      name: "South East London",
+      boroughs: ["Bromley", "Bexley", "Greenwich", "Lewisham", "Southwark", "Croydon"],
+      named: ["Dulwich Village", "Chislehurst", "Dulwich Wood", "Forest Hill", "Blackheath Westcombe", "Beckenham Town & Copers Cope", "Crystal Palace & Upper Norwood", "Greenwich Park", "Bromley South", "Blackheath", "East Greenwich", "Dulwich Hill", "Bromley North"],
+      lede: (t) => [
+        `<p>South east London holds the highest-scoring ward in the city and the widest internal range of any region. <a href="${wards.find((w) => w.ward_name === "Hayes & Coney Hall").url}">Hayes &amp; Coney Hall</a> in Bromley scores 84 and ranks first of ${N}. Bromley Town, three miles away, scores 41.</p>`,
+        `<p>The named places do better here than in most regions. Dulwich Village and Chislehurst both land in London's top forty. Blackheath and Greenwich do not, and the reason is worth reading before you shortlist on a name.</p>`,
+      ],
+    },
+    {
+      slug: "east-london",
+      name: "East London",
+      boroughs: ["Newham", "Redbridge", "Barking and Dagenham", "Havering", "Waltham Forest", "Tower Hamlets"],
+      named: ["Upminster", "Wanstead Park", "Upper Walthamstow", "Bow East", "South Woodford", "Bow West", "Stratford", "Wanstead Village", "Leytonstone"],
+      lede: (t) => [
+        `<p>East London has ${t.n} wards and one in London's top fifty. That is the lowest strike rate of any region except the centre, and it is worth understanding before reading it as a verdict.</p>`,
+        `<p>The region scores well on the measure most guides ignore. It has the highest share of households with dependent children in London: Barking and Dagenham averages ${boroughRank["Barking and Dagenham"].wards.map((w) => w.scores.family_fit).filter((x) => typeof x === "number").reduce((a, c, i, arr) => a + c / arr.length, 0).toFixed(0)} on families nearby, the highest of any borough. Where it loses is safety, green space and play, which carry ${30 + 12 + 8}% of the weight between them.</p>`,
+      ],
+    },
+    {
+      slug: "west-london",
+      name: "West London",
+      boroughs: ["Ealing", "Hounslow", "Hillingdon", "Hammersmith and Fulham", "Kensington and Chelsea"],
+      named: ["Ickenham & South Harefield", "Pitshanger", "Northfield", "Hampton", "East Acton", "Ealing Common", "Chiswick Homefields", "South Acton", "Chiswick Gunnersbury", "Chiswick Riverside", "Fulham Town", "Ealing Broadway", "Fulham Reach"],
+      lede: (t) => [
+        `<p>West London is the most expensive region in this comparison and the weakest of the outer regions on these measures. Kensington and Chelsea averages ${boroughRank["Kensington and Chelsea"].mean} and ranks ${ordinal(boroughRank["Kensington and Chelsea"].rank)} of ${boroughList.length} boroughs, while its average house price, £1,256,000 in May 2026, is the highest of any London borough (ONS, provisional).</p>`,
+        `<p>The pattern inside the region is sharp. The winners are Hillingdon and outer Ealing, not the names on the estate agent boards. Ealing Broadway ranks ${ordinal(wards.find((w) => w.ward_name === "Ealing Broadway").rank)} and Pitshanger, a mile away, ranks ${ordinal(wards.find((w) => w.ward_name === "Pitshanger").rank)}.</p>`,
+      ],
+    },
+    {
+      slug: "north-west-london",
+      name: "North West London",
+      boroughs: ["Brent", "Harrow", "Barnet", "Camden"],
+      named: ["Totteridge & Woodside", "Mill Hill", "Pinner South", "Kenton", "Pinner", "Golders Green", "Kenton West", "Hampstead Town", "West Hampstead", "Belsize", "South Hampstead"],
+      lede: (t) => [
+        `<p>North west London contains two of London's ten best wards and several of its most famous underperformers. <a href="${wards.find((w) => w.ward_name === "Totteridge & Woodside").url}">Totteridge &amp; Woodside</a> ranks ${ordinal(wards.find((w) => w.ward_name === "Totteridge & Woodside").rank)} and <a href="${wards.find((w) => w.ward_name === "Mill Hill").url}">Mill Hill</a> ${ordinal(wards.find((w) => w.ward_name === "Mill Hill").rank)}.</p>`,
+        `<p>Hampstead is the case that will annoy people. Hampstead Town ranks ${ordinal(wards.find((w) => w.ward_name === "Hampstead Town").rank)} of ${N} and South Hampstead ${ordinal(wards.find((w) => w.ward_name === "South Hampstead").rank)}, on low shares of households with children, recorded crime counted against a small resident population, and green space measured inside the ward while the Heath sits across boundaries.</p>`,
+      ],
+    },
+    {
+      slug: "north-london",
+      name: "North London",
+      boroughs: ["Enfield", "Haringey", "Islington", "Hackney"],
+      named: ["Cockfosters", "Springfield", "Alexandra Park", "Winchmore Hill", "Highbury", "Crouch End", "Muswell Hill", "Stoke Newington"],
+      lede: (t) => [
+        `<p>North London scores ${t.mean} on average, the lowest of the outer regions, and holds one ward in London's top fifty. The reason is unusually consistent: transport.</p>`,
+        `<p>Crouch End, Muswell Hill and Stoke Newington are among the best-known family neighbourhoods in the country and all three rank in the bottom hundred of ${N} London wards. None has a tube station. Crouch End scores ${wards.find((w) => w.ward_name === "Crouch End").scores.transport} on transport and Muswell Hill ${wards.find((w) => w.ward_name === "Muswell Hill").scores.transport}. Their green space scores also understate them, because Alexandra Park sits in a neighbouring ward and this measure counts only what falls inside the boundary.</p>`,
+      ],
+    },
+    {
+      slug: "central-london",
+      name: "Central London",
+      boroughs: ["Westminster", "City of London"],
+      named: ["Little Venice", "Pimlico South", "Queenhithe", "Marylebone", "Hyde Park", "Bloomsbury", "Pimlico North"],
+      lede: (t) => [
+        `<p>Central London scores ${t.mean} across ${t.n} wards, far below every other region, and has no ward in London's top fifty. Read the number carefully, because a good deal of it is measurement rather than reality.</p>`,
+        `<p>Crime is recorded where it happens rather than where the victim lives, so wards containing Oxford Street, Piccadilly and the main stations carry visitor crime against a few thousand residents. The royal parks mostly sit outside ward boundaries. And the City's micro-wards have no published child population at all, so fifteen of them cannot be scored for play. Central London is a genuinely difficult place to raise a child on these measures, and the score exaggerates it.</p>`,
+      ],
+    },
+  ];
+
+  const period = monthName(wards.find((w) => w.dimensions?.safety?.period)?.dimensions.safety.period);
+
+  const stats = (r) => {
+    const ws = wards.filter((w) => r.boroughs.includes(w.borough)).sort((a, b) => b.composite - a.composite);
+    const m = (k) => {
+      const v = ws.map((w) => w.scores[k]).filter((x) => typeof x === "number");
+      return Math.round(v.reduce((a, c) => a + c, 0) / v.length);
+    };
+    const cr = ws.map((w) => w.dimensions?.safety?.crimes_per_1000).filter((x) => typeof x === "number");
+    const m2 = ws.map((w) => w.dimensions?.play_provision?.m2_per_child).filter((x) => typeof x === "number").sort((a, c) => a - c);
+    return {
+      ws, n: ws.length,
+      mean: Math.round(ws.reduce((a, c) => a + c.composite, 0) / ws.length),
+      s: { safety: m("safety"), education: m("education"), transport: m("transport"), green_space: m("green_space"), family_fit: m("family_fit"), play: m("play") },
+      crime: (cr.reduce((a, c) => a + c, 0) / cr.length).toFixed(1),
+      medM2: m2.length ? m2[Math.floor(m2.length / 2)].toFixed(1) : "–",
+      top50: ws.filter((w) => w.rank <= 50).length,
+    };
+  };
+
+  const LONDON = {
+    mean: Math.round(wards.reduce((a, c) => a + c.composite, 0) / wards.length),
+    crime: (() => { const v = wards.map((w) => w.dimensions?.safety?.crimes_per_1000).filter((x) => typeof x === "number"); return (v.reduce((a, c) => a + c, 0) / v.length).toFixed(1); })(),
+  };
+
+  for (const r of REGIONS) {
+    const t = stats(r);
+    const topRows = t.ws.slice(0, 12).map((w, i) =>
+      `<tr><td class="n">${i + 1}</td><td><a href="${w.url}">${esc(w.ward_name)}</a></td><td><a href="/areas/${w.boroughSlug}/">${esc(w.borough)}</a></td><td class="n">${w.composite}</td><td class="n">${ordinal(w.rank)}</td></tr>`).join("");
+
+    const namedWards = r.named.map((n) => wards.find((w) => w.ward_name === n)).filter(Boolean);
+    const namedRows = namedWards.map((w) =>
+      `<tr><td><a href="${w.url}">${esc(w.ward_name)}</a></td><td><a href="/areas/${w.boroughSlug}/">${esc(w.borough)}</a></td><td class="n">${w.composite}</td><td class="n">${ordinal(w.rank)}</td></tr>`).join("");
+
+    const borRows = r.boroughs.map((b) => boroughRank[b]).filter(Boolean).sort((a, b) => b.mean - a.mean).map((b) =>
+      `<tr><td><a href="/areas/${b.slug}/">${esc(b.name)}</a></td><td class="n">${b.mean}</td><td class="n">${b.wards.length}</td><td><a href="${b.wards[0].url}">${esc(b.wards[0].ward_name)}</a> (${b.wards[0].composite})</td></tr>`).join("");
+
+    const cmp = (label, a, b) => `<tr><th scope="row">${label}</th><td class="n">${a}</td><td class="n">${b}</td></tr>`;
+
+    const body = `
+<h1>The best areas in ${esc(r.name)} for families</h1>
+<p class="sub">${t.n} wards · average score ${t.mean} · data as at ${period}</p>
+
+${r.lede(t).join("\n")}
+
+<h2>The 12 highest-scoring wards in ${esc(r.name)}</h2>
+<table><thead><tr><th class="n">#</th><th>Ward</th><th>Borough</th><th class="n">Score</th><th class="n">London rank</th></tr></thead><tbody>${topRows}</tbody></table>
+
+<h2>The areas the guides name, scored</h2>
+<p>These are the places that appear in most published guides to ${esc(r.name)}, ranked here on the same seven measures as every other ward. Some hold up. Some do not.</p>
+<table><thead><tr><th>Ward</th><th>Borough</th><th class="n">Score</th><th class="n">London rank</th></tr></thead><tbody>${namedRows}</tbody></table>
+
+<h2>${esc(r.name)} against London</h2>
+<table><thead><tr><th>Measure</th><th class="n">${esc(r.name)}</th><th class="n">London</th></tr></thead><tbody>
+${cmp("Average ward score", t.mean, LONDON.mean)}
+${cmp("Street crime per 1,000 residents", t.crime, LONDON.crime)}
+${cmp("Median play space per child (m²)", t.medM2, "–")}
+${cmp("Wards in London's top 50", `${t.top50} of ${t.n}`, `50 of ${N}`)}
+</tbody></table>
+<p>Dimension averages across the region: safety ${t.s.safety}, schools ${t.s.education}, transport ${t.s.transport}, green space ${t.s.green_space}, families nearby ${t.s.family_fit}, play space ${t.s.play}.</p>
+
+<h2>Boroughs in ${esc(r.name)}</h2>
+<table><thead><tr><th>Borough</th><th class="n">Average</th><th class="n">Wards</th><th>Best ward</th></tr></thead><tbody>${borRows}</tbody></table>
+
+<h2>How this region is defined</h2>
+<p>There is no official boundary for ${esc(r.name)} and every guide draws it differently. This page counts ${list(r.boroughs.map(esc))}. Move a borough and the averages shift, so read the ward table rather than the regional average: the spread inside any region is far wider than the gap between regions.</p>
+
+<p style="margin-top:28px"><a class="cta" href="/areas/">All ${N} wards ranked</a></p>
+<p><a href="/compare/">Side-by-side comparisons</a> · <a href="/data/">The open data</a></p>`;
+
+    write(`regions/${r.slug}`, page({
+      title: `The best areas in ${r.name} for families: every ward ranked (2026) | KidStreet`,
+      desc: `All ${t.n} wards in ${r.name} scored on crime, schools, play space, transport and green space. Average ${t.mean}/100. Includes the areas most guides name, ranked on the same measures.`,
+      canonical: `/regions/${r.slug}/`,
+      jsonld: [
+        { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+          { "@type": "ListItem", position: 2, name: r.name, item: `${SITE}/regions/${r.slug}/` } ] },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
+          { "@type": "Question", name: `What is the best area in ${r.name} for families?`,
+            acceptedAnswer: { "@type": "Answer", text: `${t.ws[0].ward_name} in ${t.ws[0].borough} scores ${t.ws[0].composite} out of 100, the highest of the ${t.n} wards in ${r.name} and ${ordinal(t.ws[0].rank)} of ${N} across London, on a composite of recorded crime per resident, Ofsted grades, transport access, green space, play space per child, households with children and planned facilities.` } },
+          { "@type": "Question", name: `Is ${r.name} good for families?`,
+            acceptedAnswer: { "@type": "Answer", text: `${r.name} averages ${t.mean} out of 100 across its ${t.n} wards against a London average of ${LONDON.mean}, and holds ${t.top50} of London's top 50 wards. Street crime averages ${t.crime} per 1,000 residents against ${LONDON.crime} for London.` } },
+        ] },
+      ],
+      breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › ${esc(r.name)}`,
+      body,
+    }));
+  }
+
+  // index
+  const rows = REGIONS.map((r) => { const t = stats(r); return { r, t }; })
+    .sort((a, b) => b.t.mean - a.t.mean)
+    .map(({ r, t }) =>
+      `<tr><td><a href="/regions/${r.slug}/">${esc(r.name)}</a></td><td class="n">${t.n}</td><td class="n">${t.mean}</td><td class="n">${t.top50}</td><td><a href="${t.ws[0].url}">${esc(t.ws[0].ward_name)}</a> (${t.ws[0].composite})</td></tr>`).join("");
+
+  write("regions", page({
+    title: `London by region: the best areas for families, north, south, east and west | KidStreet`,
+    desc: `Every London region scored for families on crime, schools, play space, transport and green space, with all 704 wards ranked underneath.`,
+    canonical: "/regions/",
+    jsonld: [{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+      { "@type": "ListItem", position: 2, name: "Regions", item: `${SITE}/regions/` } ] }],
+    breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › Regions`,
+    body: `
+<h1>London by region, for families</h1>
+<p class="sub">Seven regions · ${N} wards · data as at ${period}</p>
+<p>Most guides to a London region name five or six areas and describe them. These pages rank every ward in the region on the same seven measures, and score the areas those guides name so you can see which reputations hold.</p>
+<table><thead><tr><th>Region</th><th class="n">Wards</th><th class="n">Average</th><th class="n">In London's top 50</th><th>Best ward</th></tr></thead><tbody>${rows}</tbody></table>
+<p>Regional averages hide more than they show. The spread inside a single region is wider than the gap between the best and worst region, which is why every page here leads with the ward table.</p>
+<p style="margin-top:24px"><a class="cta" href="/areas/">All ${N} wards ranked</a></p>`,
   }));
 }
 
