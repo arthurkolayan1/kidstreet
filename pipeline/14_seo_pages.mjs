@@ -167,7 +167,10 @@ ul.cols{columns:2;-webkit-columns:2;padding-left:18px}@media(max-width:560px){ul
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
 .cta{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:600}`;
 
-function page({ title, desc, canonical, jsonld, body, breadcrumb }) {
+function page({ title, desc, canonical, jsonld, body, breadcrumb, image }) {
+  // Without an og:image every share renders as a bare link. One default card
+  // for the whole site; pages with a headline figure of their own override it.
+  const og = image || "/assets/og-default.png";
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -181,7 +184,13 @@ function page({ title, desc, canonical, jsonld, body, breadcrumb }) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITE}${canonical}">
 <meta property="og:site_name" content="KidStreet">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="${SITE}${og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(title.split(" | ")[0])}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${SITE}${og}">
 <link rel="icon" href="/favicon.svg">
 <style>${CSS}</style>
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join("\n")}
@@ -956,6 +965,7 @@ ${
     title: `London's playground gap: ${belowEq.length} of ${hasEq.length} wards below the play space figure | KidStreet`,
     desc: `London meets its 10 m² per child play space figure on open grass. Counting equipped playgrounds only, ${belowEq.length} of ${hasEq.length} wards fall short, covering ${kidsEq.toLocaleString()} children. Ward-level data, downloadable.`,
     canonical: "/guides/london-playground-gap/",
+    image: "/assets/og-playground-gap.png",
     jsonld: [
       {
         "@context": "https://schema.org",
