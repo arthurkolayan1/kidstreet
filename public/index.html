@@ -1132,7 +1132,7 @@
                 <span
                     class="m-bar"
                     role="img"
-                    aria-label="Weighting: safety 30 per cent, education 20, transport 15, green space 12, family presence 10, play provision 8, planning 5."
+                    aria-label="Weighting: safety 30 per cent, education 20, transport 15, green space 12, families nearby 10, play space 8, new facilities planned 5."
                 >
                     <span style="flex: 30; background: var(--w1)"></span>
                     <span style="flex: 20; background: var(--w2)"></span>
@@ -1212,7 +1212,7 @@
                 <li class="m-dim">
                     <i style="background: var(--w5)"></i><b>10%</b>
                     <span class="m-name"
-                        >Family presence
+                        >Families nearby
                         <span class="m-src"
                             >Share of households with dependent children
                             (Census 2021), scored as the ward's standing among
@@ -1428,7 +1428,7 @@
                             <span>682 of 689 wards fall short</span>
                         </li>
                         <li>
-                            <a href="/compare/">Head to heads</a>
+                            <a href="/compare/">Compare areas</a>
                             <span>Thirteen comparisons, scored</span>
                         </li>
                         <li>
@@ -1476,7 +1476,7 @@
             const LENSES = {
                 move: {
                     label: "Where do I move?",
-                    note: "Published composite: safety 30% · education 20% · transport 15% · green 12% · family presence 10% · play 8% · planning 5%. Best score first. Colours rank wards in London-wide fifths (relative); the number is the absolute score.",
+                    note: "How the overall score is built: safety 30% · education 20% · transport 15% · green 12% · families nearby 10% · play 8% · new facilities 5%. Best score first. Colours rank wards in London-wide fifths (relative); the number is the absolute score.",
                     score: (w) => w.composite,
                     sortDesc: true,
                 },
@@ -2013,7 +2013,7 @@
                     ["education", "Education", w.education],
                     ["transport", "Transport", w.transport],
                     ["green", "Green space (in-ward)", w.green],
-                    ["family", "Family presence", w.family],
+                    ["family", "Families nearby", w.family],
                     ["play", "Play provision", w.play],
                     ["planning", "Planning", w.planning],
                 ];
@@ -2316,7 +2316,7 @@
                     field: "narrative",
                     headerName: "Family",
                     headerTooltip:
-                        "Average of the education, planning and family presence scores",
+                        "Average of the education, planning and families-nearby scores",
                     flex: 0.9,
                     minWidth: 62,
                     valueFormatter: (p) =>
