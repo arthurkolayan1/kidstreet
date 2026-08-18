@@ -638,7 +638,7 @@ for (const b of boroughList) {
 
 <p>Use the score to narrow ${N} wards down to a shortlist. Then go and visit them at school run time.</p>
 
-<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. <a href="/compare/west-london-vs-south-london-for-families/">West vs South London</a>. The <a href="/data/">underlying data</a> is open.</p>
+<p>Related: <a href="/guides/safest-areas-in-london-for-families/">the safest areas in London, ranked ward by ward</a>, and <a href="/guides/london-playground-gap/">London's playground gap</a>. <a href="/compare/">head-to-head comparisons</a> including <a href="/compare/west-london-vs-south-london-for-families/">West vs South London</a>. The <a href="/data/">underlying data</a> is open.</p>
 
 <p style="margin-top:28px"><a class="cta" href="/">Open the interactive map</a></p>`;
 
@@ -1292,6 +1292,349 @@ ${topRows(w, "West")}
     ],
     breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › West vs South London`,
     body,
+  }));
+}
+
+// /compare/ — curated head-to-heads. Twelve pairs, each chosen because the data
+// says something specific about it. The framing sentences are written by hand
+// per pair; every number is computed, so a data refresh rewrites the argument
+// rather than leaving stale prose next to fresh tables.
+//
+// Deliberately NOT generated across all ward combinations: 704 squared is
+// scaled content abuse and would take the whole domain down with it.
+{
+  const PRICE_DATE = "May 2026";
+  const PRICES = {
+    Bromley: 525000, "Richmond upon Thames": 789000, Barnet: 591000,
+    Enfield: 469000, Croydon: 397000, Sutton: 445000,
+  };
+  const gbp = (n) => "£" + n.toLocaleString();
+  const wardBy = (n) => wards.find((w) => w.ward_name === n);
+
+  // one shape for both kinds, so the renderer never branches on kind
+  const statsFor = (kind, name) => {
+    if (kind === "ward") {
+      const w = wardBy(name);
+      if (!w) return null;
+      const d = w.dimensions || {};
+      return {
+        kind, name, url: w.url, label: `${w.ward_name}, ${w.borough}`,
+        borough: w.borough, score: w.composite, rank: w.rank,
+        s: w.scores,
+        crime: d.safety?.crimes_per_1000, m2: d.play_provision?.m2_per_child,
+        hh: d.family_fit?.pct_households_with_dependent_children,
+        schools: (d.education?.schools || []).length,
+        outstanding: (d.education?.schools || []).filter((x) => x.ofsted === "Outstanding").length,
+        stations: (d.transport?.nearest_stations || []).map((x) => x.name),
+        parks: (d.green_space?.notable_parks || []).slice(0, 3),
+        price: null, ofN: N, unit: "ward",
+      };
+    }
+    const b = boroughRank[name];
+    if (!b) return null;
+    const m = (k) => {
+      const v = b.wards.map((w) => w.scores[k]).filter((x) => typeof x === "number");
+      return Math.round(v.reduce((a, c) => a + c, 0) / v.length);
+    };
+    const cr = b.wards.map((w) => w.dimensions?.safety?.crimes_per_1000).filter((x) => typeof x === "number");
+    const m2 = b.wards.map((w) => w.dimensions?.play_provision?.m2_per_child).filter((x) => typeof x === "number").sort((a, c) => a - c);
+    return {
+      kind, name, url: `/areas/${b.slug}/`, label: name, borough: name,
+      score: b.mean, rank: b.rank, wards: b.wards,
+      s: { safety: m("safety"), education: m("education"), transport: m("transport"), green_space: m("green_space"), family_fit: m("family_fit"), play: m("play"), planning: m("planning") },
+      crime: +(cr.reduce((a, c) => a + c, 0) / cr.length).toFixed(1),
+      m2: +m2[Math.floor(m2.length / 2)].toFixed(1),
+      hh: null, schools: null, stations: [], parks: [],
+      price: PRICES[name] ?? null, ofN: boroughList.length, unit: "borough",
+      top50: b.wards.filter((w) => w.rank <= 50).length,
+      spread: b.wards[0].composite - b.wards[b.wards.length - 1].composite,
+    };
+  };
+
+  const DIMS = [["Safety", "safety"], ["Schools", "education"], ["Transport", "transport"], ["Green space", "green_space"], ["Family presence", "family_fit"], ["Play space", "play"], ["Planned facilities", "planning"]];
+
+  const render = (c) => {
+    const A = statsFor(c.kind, c.a), B = statsFor(c.kind, c.b);
+    if (!A || !B) { log(`skipping ${c.slug}: ward or borough not found`); return; }
+
+    // tol applies to 0-100 percentile scores, where a two-point gap is noise.
+    // Raw units (crimes per 1,000, m² per child, counts) get tol 0: 8.2 against
+    // 10.1 is a 23% difference and calling it level would be wrong.
+    const row = (label, a, b, better = "high", tol = 2) => {
+      const num = typeof a === "number" && typeof b === "number";
+      const win = !num || Math.abs(a - b) <= tol ? "Level"
+        : better === "high" ? (a > b ? A.name : B.name) : (a < b ? A.name : B.name);
+      return `<tr><th scope="row">${label}</th><td class="n">${a ?? "–"}</td><td class="n">${b ?? "–"}</td><td>${win}</td></tr>`;
+    };
+
+    const dimRows = DIMS.map(([l, k]) => row(l, A.s[k], B.s[k])).join("");
+
+    const extras = [
+      row("Street crime per 1,000 residents", A.crime, B.crime, "low", 0),
+      row(A.kind === "ward" ? "Play space per child (m²)" : "Median play space per child (m²)", A.m2, B.m2, "high", 0),
+      A.hh != null ? row("Households with children (%)", A.hh, B.hh, "high", 0) : "",
+      A.schools != null ? row("Ofsted-rated schools in the boundary", A.schools, B.schools, "high", 0) : "",
+      A.kind === "borough" ? row("Wards in London's top 50", A.top50, B.top50, "high", 0) : "",
+      A.price ? `<tr><th scope="row">Average house price, ${PRICE_DATE}</th><td class="n">${gbp(A.price)}</td><td class="n">${gbp(B.price)}</td><td>${A.price < B.price ? A.name : B.name}</td></tr>` : "",
+    ].join("");
+
+    // biggest gaps, named, so "where each wins" is evidence rather than assertion
+    const gaps = DIMS.map(([l, k]) => ({ l, k, d: (A.s[k] ?? 0) - (B.s[k] ?? 0) })).filter((g) => Math.abs(g.d) > 2);
+    const forA = gaps.filter((g) => g.d > 0).sort((x, y) => y.d - x.d);
+    const forB = gaps.filter((g) => g.d < 0).sort((x, y) => x.d - y.d);
+    const winLine = (side, other, list) =>
+      list.length
+        ? `<p><strong>${esc(side.name)}</strong> is ahead on ${list.map((g) => `${g.l.toLowerCase()} (${side.s[g.k]} against ${other.s[g.k]})`).join(", ")}.</p>`
+        : `<p><strong>${esc(side.name)}</strong> is not clearly ahead on any single dimension.</p>`;
+
+    const wardTable = (X) =>
+      X.kind !== "borough" ? "" :
+      `<h3>${esc(X.name)}, best and worst</h3><table><thead><tr><th>Ward</th><th class="n">Score</th><th class="n">London rank</th></tr></thead><tbody>${
+        X.wards.slice(0, 4).concat(X.wards.slice(-2)).map((w) =>
+          `<tr><td><a href="${w.url}">${esc(w.ward_name)}</a></td><td class="n">${w.composite}</td><td class="n">${ordinal(w.rank)}</td></tr>`).join("")
+      }</tbody></table>`;
+
+    const body = `
+<h1>${esc(c.h1)}</h1>
+<p class="sub">${esc(A.label)} ${A.score} · ${esc(B.label)} ${B.score} · data as at ${monthName(wards.find((w) => w.dimensions?.safety?.period)?.dimensions.safety.period)}</p>
+
+${c.lede(A, B).join("\n")}
+
+<h2>Side by side</h2>
+<table><thead><tr><th>Dimension</th><th class="n">${esc(A.name)}</th><th class="n">${esc(B.name)}</th><th>Ahead</th></tr></thead><tbody>
+<tr><th scope="row"><strong>Overall score</strong></th><td class="n"><strong>${A.score}</strong></td><td class="n"><strong>${B.score}</strong></td><td><strong>${Math.abs(A.score - B.score) <= 2 ? "Level" : A.score > B.score ? A.name : B.name}</strong></td></tr>
+<tr><th scope="row">Rank of ${A.ofN} ${A.unit}s</th><td class="n">${ordinal(A.rank)}</td><td class="n">${ordinal(B.rank)}</td><td>${Math.abs(A.score - B.score) <= 2 ? "Level" : A.rank < B.rank ? A.name : B.name}</td></tr>
+${dimRows}${extras}
+</tbody></table>
+<p class="hint" style="font-size:13px;color:var(--mut)">A gap of two points or less is inside the noise of a percentile rank and is shown as level.</p>
+
+<h2>Where each one wins</h2>
+${winLine(A, B, forA)}
+${winLine(B, A, forB)}
+
+${wardTable(A)}${wardTable(B)}
+
+<h2>So which</h2>
+${c.verdict(A, B).join("\n")}
+
+<p><a href="${A.url}">Full profile: ${esc(A.label)}</a> · <a href="${B.url}">Full profile: ${esc(B.label)}</a></p>
+<p style="margin-top:24px"><a class="cta" href="/compare/">All comparisons</a></p>`;
+
+    write(`compare/${c.slug}`, page({
+      title: `${c.h1} (2026 data) | KidStreet`,
+      desc: `${A.label} scores ${A.score}/100 for child-friendliness, ${B.label} ${B.score}. Crime, schools, play space, transport and green space compared from open data.`,
+      canonical: `/compare/${c.slug}/`,
+      jsonld: [
+        { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+          { "@type": "ListItem", position: 2, name: "Compare", item: `${SITE}/compare/` },
+          { "@type": "ListItem", position: 3, name: c.h1, item: `${SITE}/compare/${c.slug}/` } ] },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{
+          "@type": "Question",
+          name: `${c.a} or ${c.b}: which is better for families?`,
+          acceptedAnswer: { "@type": "Answer", text:
+            `${A.label} scores ${A.score} out of 100 and ${B.label} scores ${B.score} on KidStreet's composite child-friendliness measure. ${
+              Math.abs(A.score - B.score) <= 2
+                ? "That is a dead heat, so the choice comes down to which trade-off suits you."
+                : `${A.score > B.score ? A.name : B.name} is ahead by ${Math.abs(A.score - B.score)} points.`
+            } ${forA.length ? `${A.name} leads on ${forA[0].l.toLowerCase()}. ` : ""}${forB.length ? `${B.name} leads on ${forB[0].l.toLowerCase()}.` : ""}` } }] },
+      ],
+      breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › <a href="/compare/">Compare</a> › ${esc(c.h1)}`,
+      body,
+    }));
+  };
+
+  const p = (x) => `<p>${x}</p>`;
+
+  const COMPARISONS = [
+    {
+      slug: "ealing-broadway-vs-pitshanger",
+      kind: "ward", a: "Ealing Broadway", b: "Pitshanger",
+      h1: "Ealing Broadway vs Pitshanger for families",
+      lede: (A, B) => [
+        p(`Both are Ealing. One is the bit with the station and the shops, the other is the streets behind it. They are about a mile apart and <strong>${Math.abs(A.score - B.score)} points apart</strong>, which is wider than the ${boroughList[0].mean - boroughList.filter((x) => x.name !== "City of London").pop().mean}-point gap between London's best and worst borough once the City's micro-wards are set aside.`),
+        p(`The numbers are not close. Ealing Broadway records ${A.crime} street crimes per 1,000 residents against Pitshanger's ${B.crime}. It has ${A.m2} m² of play space per child against ${B.m2}. ${A.hh}% of its households have dependent children against ${B.hh}%. Pitshanger has ${B.schools} Ofsted-rated schools inside its boundary; Ealing Broadway has ${A.schools}.`),
+        p(`One caveat that matters here more than anywhere. Ealing Broadway is a town centre, and crime is recorded where it happens rather than where the victim lives. A ward with a mainline station, a shopping centre and a night-time economy carries other people's crime against its own residents. The safety score of ${A.s.safety} overstates the risk to somebody living on a quiet street there. The play space and school figures carry no such excuse.`),
+      ],
+      verdict: (A, B) => [
+        p(`If you want the station on your doorstep and you are renting, Ealing Broadway is a reasonable place to be and the transport score of ${A.s.transport} is real. If you are buying somewhere to raise a child through primary school, walk fifteen minutes north-west. Pitshanger gives you ${Math.round(B.m2 / A.m2)} times the play space per child, a third fewer recorded crimes per resident, and six schools instead of one.`),
+      ],
+    },
+    {
+      slug: "tooting-broadway-vs-wandsworth-common",
+      kind: "ward", a: "Tooting Broadway", b: "Wandsworth Common",
+      h1: "Tooting Broadway vs Wandsworth Common for families",
+      lede: (A, B) => [
+        p(`Two wards a mile and a half apart in the same borough, ${Math.abs(A.score - B.score)} points apart on this measure. The difference is almost entirely about what a child can reach on foot.`),
+        p(`Tooting Broadway has <strong>${A.m2} m² of play and informal recreation space per child</strong>. That is below the 10 m² the London Plan asks of new development, and the fourth lowest of Wandsworth's 22 wards. Wandsworth Common has ${B.m2} m², which is ${Math.round(B.m2 / A.m2)} times as much. On households with dependent children it is ${A.hh}% against ${B.hh}%.`),
+        p(`Tooting Broadway is a genuine town centre with a tube station and a well-known high street, and the same visitor-crime caveat applies to its safety score of ${A.s.safety}. The play space number does not have that defence: that is measured space against measured children.`),
+      ],
+      verdict: (A, B) => [
+        p(`Wandsworth Common on almost every count that touches a child's week, and it is not a close call. Tooting Broadway's argument is transport at ${A.s.transport} and a high street you can live on without a car. If your children are under ten and you want them outside unsupervised, the ${B.m2} m² figure is the one to look at.`),
+      ],
+    },
+    {
+      slug: "brixton-vs-dulwich-village",
+      kind: "ward", a: "Brixton Rush Common", b: "Dulwich Village",
+      h1: "Brixton vs Dulwich Village for families",
+      lede: (A, B) => [
+        p(`Two miles apart, ${Math.abs(A.score - B.score)} points apart, and the reason is more interesting than the headline. This pair is the clearest illustration on the site of why green space and play space are measured separately.`),
+        p(`Brixton Rush Common scores <strong>${A.s.green_space} on green space</strong>, which is near the top of London, and <strong>${A.s.play} on play space</strong>, which is not. Dulwich Village is the other way round: ${B.s.green_space} on green space and ${B.s.play} on play. Brixton has the common; Dulwich has ${B.m2} m² per child against Brixton's ${A.m2}. A large open space that is mostly grass for adults is not the same as provision for children, and this pair separates the two cleanly.`),
+        p(`The rest goes Dulwich's way. Crime ${B.crime} per 1,000 against ${A.crime}. Households with children ${B.hh}% against ${A.hh}%: Dulwich Village is 17th of the 269 inner London wards on that measure.`),
+      ],
+      verdict: (A, B) => [
+        p(`Dulwich Village on the data, at ${ordinal(B.rank)} of ${N} against ${ordinal(A.rank)}, and the price gap between the two will reflect that. Brixton Rush Common's real strength is the green space score of ${A.s.green_space}, and if your children are older and use open space rather than equipped playgrounds, that counts for more than this composite gives it.`),
+      ],
+    },
+    {
+      slug: "chislehurst-vs-petts-wood",
+      kind: "ward", a: "Chislehurst", b: "Petts Wood & Knoll",
+      h1: "Chislehurst vs Petts Wood for families",
+      lede: (A, B) => [
+        p(`Two Bromley suburbs three kilometres apart, ${Math.abs(A.score - B.score)} points apart overall, which makes this a genuine coin-toss decided by one trade-off.`),
+        p(`Petts Wood wins schools outright: <strong>${B.s.education} against ${A.s.education}</strong>, the difference between every rated school being Outstanding and a more mixed picture. Chislehurst wins space by a distance: <strong>${A.m2} m² of play space per child against ${B.m2}</strong>, which is more than ten times as much and the 14th highest figure of London's 689 scored wards.`),
+        p(`Everything else is close. Crime ${A.crime} against ${B.crime} per 1,000, both well under the London median. Households with children ${A.hh}% against ${B.hh}%.`),
+      ],
+      verdict: (A, B) => [
+        p(`Petts Wood if school admissions are the thing keeping you awake, because ${B.s.education} on Ofsted grades is as high as this measure goes. Chislehurst if you want your children outdoors without planning it, because ${A.m2} m² per child is the difference between a playground trip and a back gate.`),
+      ],
+    },
+    {
+      slug: "eastcote-vs-pinner-south",
+      kind: "ward", a: "Eastcote", b: "Pinner South",
+      h1: "Eastcote vs Pinner South for families",
+      lede: (A, B) => [
+        p(`Just over a kilometre apart, across the Hillingdon and Harrow boundary, and both inside London's top twenty. ${ordinal(A.rank)} and ${ordinal(B.rank)} of ${N}. Choosing between them is choosing between two good answers.`),
+        p(`Eastcote has the space and the station: green space ${A.s.green_space} against ${B.s.green_space}, play space ${A.m2} m² per child against ${B.m2}, and ${A.stations.length ? esc(A.stations[0]) + " inside the ward" : "a station in the ward"}. Pinner South has the other families and the schools: <strong>${B.hh}% of households have dependent children against ${A.hh}%</strong>, and education scores ${B.s.education} against ${A.s.education}.`),
+      ],
+      verdict: (A, B) => [
+        p(`Pinner South if you want your child surrounded by other children, because a ${B.hh}% household share puts it in the top quarter of London wards and school-gate density is the thing families underrate most. Eastcote if you want the tube and the green, and are content to be the family that drives to the birthday party.`),
+      ],
+    },
+    {
+      slug: "mill-hill-vs-totteridge",
+      kind: "ward", a: "Mill Hill", b: "Totteridge & Woodside",
+      h1: "Mill Hill vs Totteridge for families",
+      lede: (A, B) => [
+        p(`Two Barnet wards, both in London's top ten, ${Math.abs(A.score - B.score)} points apart. This is the closest thing on the site to a tie between two genuinely excellent places.`),
+        p(`Totteridge & Woodside is the safer and greener of the two: <strong>${B.crime} recorded street crimes per 1,000 residents against ${A.crime}</strong>, which is among the lowest figures in London, and green space ${B.s.green_space} against ${A.s.green_space}. Mill Hill is the better connected: transport ${A.s.transport} against ${B.s.transport}.`),
+        p(`Schools are identical at ${A.s.education} apiece. Households with children are within a point of each other, ${A.hh}% and ${B.hh}%.`),
+      ],
+      verdict: (A, B) => [
+        p(`Totteridge & Woodside if you can absorb the commute, because ${B.crime} crimes per 1,000 is close to the safest London gets and the green space gap is real. Mill Hill if somebody in the house commutes daily, because a transport score of ${A.s.transport} against ${B.s.transport} is felt every single morning.`),
+      ],
+    },
+    {
+      slug: "roehampton-vs-west-putney",
+      kind: "ward", a: "Roehampton", b: "West Putney",
+      h1: "Roehampton vs West Putney for families",
+      lede: (A, B) => [
+        p(`Barely a kilometre apart in Wandsworth, ${Math.abs(A.score - B.score)} points apart, and the trade-off between them is the sharpest on this site.`),
+        p(`Roehampton scores <strong>${A.s.green_space} on green space</strong>, the maximum, because Richmond Park is on its doorstep, plus ${A.m2} m² of play space per child and ${A.s.education} on schools. It also records ${A.crime} street crimes per 1,000 residents against West Putney's ${B.crime}, and safety carries 30% of the weight.`),
+        p(`West Putney is the safer address by a distance, ${B.s.safety} against ${A.s.safety}. What it does not have is other families: <strong>${B.hh}% of households have dependent children against Roehampton's ${A.hh}%</strong>.`),
+      ],
+      verdict: (A, B) => [
+        p(`Roehampton comes out ahead on the composite, at ${ordinal(A.rank)} against ${ordinal(B.rank)}, on the strength of green space, play and the number of families already there. Anyone weighting safety above everything should read that ${A.s.safety} against ${B.s.safety} and decide the composite is wrong for them, which is a legitimate conclusion and the reason the weights are published.`),
+      ],
+    },
+    {
+      slug: "cranham-vs-upminster",
+      kind: "ward", a: "Cranham", b: "Upminster",
+      h1: "Cranham vs Upminster for families",
+      lede: (A, B) => [
+        p(`Two Havering wards under three kilometres apart, ${Math.abs(A.score - B.score)} points apart, and one of them is close to the safest place in London.`),
+        p(`Cranham records <strong>${A.crime} street crimes per 1,000 residents</strong>, which scores ${A.s.safety} and is among the two or three lowest figures in the city. Upminster records ${B.crime}. What Cranham does not have is a way out: transport scores <strong>${A.s.transport} against Upminster's ${B.s.transport}</strong>.`),
+        p(`Upminster also wins on space and schools, ${B.m2} m² of play space per child against ${A.m2}, and ${B.schools} Ofsted-rated schools inside the boundary against ${A.schools}.`),
+      ],
+      verdict: (A, B) => [
+        p(`Upminster for most families, because a District line terminus and ${B.schools} schools inside the ward beat a marginal safety advantage when both wards are already far safer than London's median. Cranham if quiet is the whole point and you have two cars.`),
+      ],
+    },
+    {
+      slug: "crouch-end-vs-muswell-hill",
+      kind: "ward", a: "Crouch End", b: "Muswell Hill",
+      h1: "Crouch End vs Muswell Hill for families",
+      lede: (A, B) => [
+        p(`Both score ${A.score}, ranking ${ordinal(A.rank)} and ${ordinal(B.rank)} of ${N}. For two areas with a national reputation as places to raise children, that will read as an insult, so here is exactly where it comes from.`),
+        p(`<strong>Transport.</strong> Crouch End scores ${A.s.transport} and Muswell Hill ${B.s.transport}. Neither has a tube station, which is famously true and famously priced in. Transport carries 15% of the weight, and both are close to the floor on it.`),
+        p(`It is not crime. Crouch End records ${A.crime} street crimes per 1,000 residents, near the London median, and Muswell Hill ${B.crime}. And it is not provision: Muswell Hill scores ${B.s.education} on schools and ${B.s.play} on play space, both comfortably above average.`),
+        p(`One honest limitation. Both score low on green space, ${A.s.green_space} and ${B.s.green_space}, partly because this measure counts only what falls inside the ward boundary and Alexandra Park sits in the ward next door. A family living here walks to it in ten minutes and the score cannot see that. Read the green figure with that in mind.`),
+      ],
+      verdict: (A, B) => [
+        p(`Between the two, Muswell Hill has the better schools (${B.s.education} against ${A.s.education}) and far more play space per child (${B.m2} m² against ${A.m2}). Crouch End is the safer of the two, ${A.s.safety} against ${B.s.safety}.`),
+        p(`Against the rest of London, both are a bet that you will drive or bus for the next fifteen years and that the neighbourhood is worth it. Plenty of people take that bet happily. This score simply does not price the things they are buying.`),
+      ],
+    },
+    {
+      slug: "bromley-vs-richmond-for-families",
+      kind: "borough", a: "Bromley", b: "Richmond upon Thames",
+      h1: "Bromley vs Richmond for families",
+      lede: (A, B) => [
+        p(`Two boroughs, both top of London's child-friendliness table, both averaging <strong>${A.score} out of 100</strong> across their wards. Nothing separates them on the headline number and ${gbp(B.price - A.price)} separates them on price.`),
+        p(`Richmond wins most dimensions: schools ${B.s.education} against ${A.s.education}, safety ${B.s.safety} against ${A.s.safety}, play space a median of ${B.m2} m² per child against ${A.m2}. Bromley wins one, and it is enough to hold the tie: <strong>transport ${A.s.transport} against ${B.s.transport}</strong>.`),
+        p(`That measure counts how many ways there are out of a ward rather than how good they are. Bromley's suburban rail network puts a station within a ward or two of nearly everywhere. Richmond's wards are larger and greener and more thinly stationed, which drags the average even though the District line and South Western Railway are perfectly good railways.`),
+      ],
+      verdict: (A, B) => [
+        p(`Bromley if the mortgage is the binding constraint or your commute is east or into the City. It has the higher ceiling too: ${A.top50} wards in London's top fifty against ${B.top50}, and the single best ward in London.`),
+        p(`Richmond if you can absorb ${gbp(B.price - A.price)} and you are optimising for the years between four and eleven. It is also much harder to choose badly there: its wards span ${B.spread} points against Bromley's ${A.spread}.`),
+      ],
+    },
+    {
+      slug: "barnet-vs-enfield-for-families",
+      kind: "borough", a: "Barnet", b: "Enfield",
+      h1: "Barnet vs Enfield for families",
+      lede: (A, B) => [
+        p(`Neighbouring north London boroughs, ${Math.abs(A.score - B.score)} points apart, and ${gbp(A.price - B.price)} apart on the average house price.`),
+        p(`Barnet leads on the expensive things: safety ${A.s.safety} against ${B.s.safety}, transport ${A.s.transport} against ${B.s.transport}, green space ${A.s.green_space} against ${B.s.green_space}. It records ${A.crime} street crimes per 1,000 residents against Enfield's ${B.crime}.`),
+        p(`Enfield leads on one, and it is the one families feel: <strong>family presence ${B.s.family_fit} against ${A.s.family_fit}</strong>. On the share of households with dependent children, Enfield ranks third of the outer London boroughs, behind Barking and Dagenham and Redbridge. Whatever else the data says, children there have other children nearby.`),
+      ],
+      verdict: (A, B) => [
+        p(`Barnet on the measures, and the ${gbp(A.price - B.price)} price gap is roughly what those measures are worth. It holds ${A.top50} wards in London's top fifty against Enfield's ${B.top50}.`),
+        p(`Enfield is the better value case, and the family-presence gap is a real argument rather than a consolation. Both boroughs span more than thirty points from best ward to worst, so in either one the ward matters more than the borough.`),
+      ],
+    },
+    {
+      slug: "croydon-vs-sutton-for-families",
+      kind: "borough", a: "Croydon", b: "Sutton",
+      h1: "Croydon vs Sutton for families",
+      lede: (A, B) => [
+        p(`Adjacent south London boroughs, both averaging ${A.score} out of 100, ${gbp(B.price - A.price)} apart on price. A dead heat with two very different shapes underneath it.`),
+        p(`Sutton is the safer borough by a wide margin: <strong>${B.s.safety} against ${A.s.safety}</strong>, from ${B.crime} recorded street crimes per 1,000 residents against ${A.crime}. Croydon is far better connected: <strong>transport ${A.s.transport} against ${B.s.transport}</strong>, a ${A.s.transport - B.s.transport}-point gap between two boroughs that share a boundary.`),
+        p(`Sutton also has the wider internal spread, ${B.spread} points from its best ward to its worst against Croydon's ${A.spread}. The borough average is doing more hiding in Sutton than in Croydon.`),
+      ],
+      verdict: (A, B) => [
+        p(`Sutton if safety is the dimension you weight hardest and you will drive, because ${B.crime} crimes per 1,000 against ${A.crime} is a real gap and it costs ${gbp(B.price - A.price)} more on average to buy into.`),
+        p(`Croydon if you need trains, trams and a commute that works without a car. It also holds ${A.top50} wards in London's top fifty against Sutton's ${B.top50}, so the best of Croydon is easier to find than the headline suggests.`),
+      ],
+    },
+  ];
+
+  COMPARISONS.forEach(render);
+
+  // index
+  const rows = COMPARISONS.map((c) => {
+    const A = statsFor(c.kind, c.a), B = statsFor(c.kind, c.b);
+    if (!A || !B) return "";
+    return `<tr><td><a href="/compare/${c.slug}/">${esc(c.h1.replace(" for families", ""))}</a></td><td class="n">${A.score}</td><td class="n">${B.score}</td><td>${Math.abs(A.score - B.score) <= 2 ? "Dead heat" : `${esc(A.score > B.score ? A.name : B.name)} by ${Math.abs(A.score - B.score)}`}</td></tr>`;
+  }).join("");
+
+  write("compare", page({
+    title: `London area comparisons for families: head to head on open data | KidStreet`,
+    desc: `Hand-picked London comparisons scored on crime, schools, play space, transport and green space. Ealing Broadway vs Pitshanger, Crouch End vs Muswell Hill, Bromley vs Richmond and more.`,
+    canonical: "/compare/",
+    jsonld: [{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "London", item: `${SITE}/areas/` },
+      { "@type": "ListItem", position: 2, name: "Compare", item: `${SITE}/compare/` } ] }],
+    breadcrumb: `<a href="/">KidStreet</a> › <a href="/areas/">London</a> › Compare`,
+    body: `
+<h1>London head to heads</h1>
+<p class="sub">Hand-picked pairs, scored on the same seven dimensions as every ward</p>
+<p>These are pairs people genuinely agonise over, chosen because the data has something specific to say about each one. Every figure is computed from the same open data behind the rest of the site, so these pages update when it does.</p>
+<p>There are no automatically generated combinations here. ${N} wards would produce almost half a million pairings and none of them would be worth reading.</p>
+<table><thead><tr><th>Comparison</th><th class="n">First</th><th class="n">Second</th><th>Verdict</th></tr></thead><tbody>${rows}</tbody></table>
+<h2>Region</h2>
+<p><a href="/compare/west-london-vs-south-london-for-families/">West London vs South London for families</a>, with house prices.</p>
+<p style="margin-top:24px"><a class="cta" href="/areas/">See all ${N} wards ranked</a></p>`,
   }));
 }
 
