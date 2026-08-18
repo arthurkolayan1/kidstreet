@@ -170,7 +170,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-si
 function page({ title, desc, canonical, jsonld, body, breadcrumb, image }) {
   // Without an og:image every share renders as a bare link. One default card
   // for the whole site; pages with a headline figure of their own override it.
-  const og = image || "/assets/og-default.png";
+  const og = image || "/assets/ogdefault.png";
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -965,7 +965,7 @@ ${
     title: `London's playground gap: ${belowEq.length} of ${hasEq.length} wards below the play space figure | KidStreet`,
     desc: `London meets its 10 m² per child play space figure on open grass. Counting equipped playgrounds only, ${belowEq.length} of ${hasEq.length} wards fall short, covering ${kidsEq.toLocaleString()} children. Ward-level data, downloadable.`,
     canonical: "/guides/london-playground-gap/",
-    image: "/assets/og-playground-gap.png",
+    image: "/assets/ogplaygroundgap.png",
     jsonld: [
       {
         "@context": "https://schema.org",
