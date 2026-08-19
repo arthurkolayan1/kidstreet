@@ -274,17 +274,46 @@ function wardProse(w) {
     if (outstanding.length) mix.push(`${outstanding.length} rated Outstanding`);
     if (good.length) mix.push(`${good.length} rated Good`);
     if (ri.length) mix.push(`${ri.length} rated below Good`);
+
+    // Not every school carries a grade. Since step 05 gained the quality of
+    // education fallback these are mostly schools not yet inspected in their
+    // current form (new academies, recent conversions) rather than the
+    // post-September-2024 cohort. Saying "N Ofsted-rated schools" and then
+    // listing more names than grades was wrong, and where NO school in the ward
+    // had a grade the page printed "The education score of null" with an empty
+    // list after the colon.
+    const graded = e.schools.filter((x) => x.ofsted);
+    const ungraded = e.schools.filter((x) => !x.ofsted);
+    const n = e.schools.length;
+    const ungradedNote = ungraded.length
+      ? ` ${ungraded.length === 1 ? `${esc(ungraded[0].name)} has no published Ofsted grade, usually because it has not been inspected in its current form` : `${ungraded.length} have no published Ofsted grade, usually because they have not been inspected in their current form`}, so ${ungraded.length === 1 ? "it is" : "they are"} left out of the score rather than counted as poor.`
+      : "";
+
+    // Where Ofsted issued no overall effectiveness judgement we use the quality of
+    // education grade, which is their own substitution. Say so on the page rather
+    // than presenting the two as the same thing.
+    const viaQuality = graded.filter(
+      (x) => x.grade_basis === "quality of education",
+    ).length;
+    const qualityNote = viaQuality
+      ? ` ${viaQuality === 1 ? "One of those grades is" : `${viaQuality} of those grades are`} a quality of education judgement: Ofsted stopped issuing an overall grade for inspections from September 2024, and use quality of education in its place, as we do here.`
+      : "";
+
+    const opening = graded.length
+      ? `There ${n === 1 ? "is" : "are"} <strong>${n} state-funded school${n === 1 ? "" : "s"}</strong> inside the ward boundary${graded.length === n ? "" : `, ${graded.length} of them with a published Ofsted grade`}: ${list(mix)}. The education score of ${e.score} is the average of those grades, mapped Outstanding 100, Good 67, Requires improvement 33, Inadequate 0.${qualityNote}${ungradedNote}`
+      : `There ${n === 1 ? "is" : "are"} <strong>${n} state-funded school${n === 1 ? "" : "s"}</strong> inside the ward boundary, and ${n === 1 ? "it has" : "none of them has"} a published Ofsted grade, usually because ${n === 1 ? "it has" : "they have"} not been inspected in ${n === 1 ? "its" : "their"} current form. Education is therefore not scored for this ward and its 20% weight is spread across the dimensions that are.`;
+
     p.push(
-      `<h3>Schools</h3><p>There ${e.schools.length === 1 ? "is" : "are"} <strong>${e.schools.length} Ofsted-rated school${e.schools.length === 1 ? "" : "s"}</strong> inside the ward boundary: ${list(mix)}. The education score of ${e.score} is the average Ofsted grade, mapped Outstanding 100, Good 67, Requires improvement 33, Inadequate 0. Named schools in the ward:</p><ul class="cols">${e.schools
+      `<h3>Schools</h3><p>${opening} Named schools in the ward:</p><ul class="cols">${e.schools
         .map(
           (x) =>
-            `<li>${esc(x.name)} <span style="color:var(--mut)">— ${esc(x.phase || "")}${x.ofsted ? ", " + esc(x.ofsted) : ""}</span></li>`,
+            `<li>${esc(x.name)} <span style="color:var(--mut)">— ${esc(x.phase || "")}${x.ofsted ? ", " + esc(x.ofsted) + (x.grade_basis === "quality of education" ? " (quality of education)" : "") : ", no published grade"}</span></li>`,
         )
         .join("")}</ul><p>Catchments do not follow ward boundaries. Treat this as what is physically nearby, not as an admissions forecast.</p>`,
     );
   } else {
     p.push(
-      `<h3>Schools</h3><p>No Ofsted-rated school sits inside this ward's boundary, so education is not scored here and its 20% weight is spread across the measures that are. Families here will be looking at schools in neighbouring wards.</p>`,
+      `<h3>Schools</h3><p>No state-funded school sits inside this ward's boundary, so education is not scored here and its 20% weight is spread across the dimensions that are. Families here will be looking at schools in neighbouring wards.</p>`,
     );
   }
 
@@ -404,8 +433,8 @@ for (const w of ranked) {
         acceptedAnswer: {
           "@type": "Answer",
           text: w.dimensions?.education?.schools?.length
-            ? `${w.dimensions.education.schools.length} Ofsted-rated schools sit inside the ward boundary: ${w.dimensions.education.schools.map((s) => s.name).join(", ")}.`
-            : `No Ofsted-rated school sits inside this ward boundary.`,
+            ? `${w.dimensions.education.schools.length} state-funded schools sit inside the ward boundary: ${w.dimensions.education.schools.map((s) => s.name).join(", ")}.`
+            : `No state-funded school sits inside this ward boundary.`,
         },
       },
     ],
@@ -1089,6 +1118,15 @@ ${
     (a, w) => a + (w.dimensions?.education?.schools?.length || 0),
     0,
   );
+  // Schools carrying an overall Ofsted grade. The rest were last inspected from
+  // September 2024, when Ofsted stopped issuing one, and are excluded from the
+  // education average rather than counted as poor.
+  const gradedSchools = wards.reduce(
+    (a, w) =>
+      a + (w.dimensions?.education?.schools || []).filter((x) => x.ofsted).length,
+    0,
+  );
+  const allGood67 = wards.filter((w) => w.scores.education === 67).length;
   const crimes = wards.reduce(
     (a, w) => a + (w.dimensions?.safety?.crimes_last_month || 0),
     0,
@@ -1096,7 +1134,7 @@ ${
 
   const dims = [
     ["safety", 30, "Street crimes per 1,000 residents, percentile-ranked and inverted, so the score is the share of London wards with more crime per resident.", "Home Office street-level crime via police.uk, " + period],
-    ["education", 20, "Average Ofsted grade of rated schools inside the ward boundary, mapped Outstanding 100, Good 67, Requires improvement 33, Inadequate 0.", "Ofsted inspection outcomes"],
+    ["education", 20, "Average Ofsted grade of graded schools inside the ward boundary, mapped Outstanding 100, Good 67, Requires improvement 33, Inadequate 0. Overall effectiveness, or quality of education where Ofsted issued no overall grade.", "Ofsted inspection outcomes"],
     ["transport", 15, "Stations in the ward, half-weight for stations one ward over, bus stops at a twentieth of a station, percentile-ranked. Plus 5 for a confirmed step-free station in or adjacent.", "OpenStreetMap, TfL"],
     ["green_space", 12, "Count of separate parks, nature reserves and mapped playgrounds inside the ward boundary. A site count, area-blind by design.", "OpenStreetMap (Overpass)"],
     ["family_fit", 10, "Share of households with dependent children, percentile-ranked.", "ONS Census 2021, table TS003"],
@@ -1128,13 +1166,13 @@ ${
 </tbody></table>
 
 <h2>What is in it</h2>
-<p>The current build covers <strong>${N} wards</strong>, <strong>${schools.toLocaleString()} Ofsted-rated schools</strong> matched to ward boundaries, <strong>${crimes.toLocaleString()} street crimes</strong> matched to ward boundaries for ${period}, and play provision for <strong>${withPlay} wards</strong>. Wards with no ward-level child population published are scored on the measures that do have data, with the remaining weights renormalised rather than counting the gap as zero.</p>
+<p>The current build covers <strong>${N} wards</strong>, <strong>${schools.toLocaleString()} state-funded schools</strong> matched to ward boundaries (${gradedSchools.toLocaleString()} of them carrying an overall Ofsted grade), <strong>${crimes.toLocaleString()} street crimes</strong> matched to ward boundaries for ${period}, and play provision for <strong>${withPlay} wards</strong>. Wards with no ward-level child population published are scored on the measures that do have data, with the remaining weights renormalised rather than counting the gap as zero.</p>
 
 <h2>The seven dimensions</h2>
 <table><thead><tr><th>Field</th><th class="n">Weight</th><th>How it is measured</th><th>Source</th></tr></thead><tbody>${dimRows}</tbody></table>
 <p>The composite is the weighted mean of whichever dimensions have data for a ward, with the remaining weights renormalised.</p>
 <p><strong>Where the weights come from.</strong> They are our editorial judgement, and they are the one subjective step in the build. There is no survey of parents behind them and nothing in the data sets them. That is why they are stated on every page and why every dimension is published separately: if you disagree with 30% for safety, take the scores from <code>/api/scores</code> and reweight them yourself.</p>
-<p>Four of the seven are percentile ranks against the other London wards, so a score of 70 on safety, transport, play or families nearby means the ward beats 70% of London on that measure rather than scoring 70 out of some absolute maximum. Education is not a percentile: it is the average Ofsted grade mapped onto a fixed scale, which is why 275 wards share a score of 67, the value for a ward whose rated schools are all Good. Planning is a bucketed count. Green space is a bounded index rather than a rank, and its median across London is 35 rather than 50. It counts how many separate parks and playgrounds fall inside the ward and is blind to how much land they cover, so a ward holding one very large park can score below a ward with several small ones. Play provision is the area-based measure.</p>
+<p>Four of the seven are percentile ranks against the other London wards, so a score of 70 on safety, transport, play or families nearby means the ward beats 70% of London on that measure rather than scoring 70 out of some absolute maximum. Education is not a percentile: it is the average Ofsted grade mapped onto a fixed scale, which is why ${allGood67} wards share a score of 67, the value for a ward whose graded schools are all Good. Planning is a bucketed count. Green space is a bounded index rather than a rank, and its median across London is 35 rather than 50. It counts how many separate parks and playgrounds fall inside the ward and is blind to how much land they cover, so a ward holding one very large park can score below a ward with several small ones. Play provision is the area-based measure.</p>
 
 <h2>Licence and attribution</h2>
 <p>The underlying data is published under the Open Government Licence v3.0 (ONS, Ofsted, Home Office, OS Open Greenspace, Planning London Datahub) and the Open Database Licence (OpenStreetMap). Those terms carry through, so attribute the original sources as listed at the foot of the <a href="/">home page</a>.</p>
@@ -1157,7 +1195,7 @@ ${
         "@context": "https://schema.org",
         "@type": "Dataset",
         name: "KidStreet London ward child-friendliness data",
-        description: `Ward-level child-friendliness data for all ${N} London electoral wards: recorded crime per resident, named Ofsted-rated schools and grades, station and bus access, green space, play space per child, household composition and child-related planning applications.`,
+        description: `Ward-level child-friendliness data for all ${N} London electoral wards: recorded crime per resident, named schools and their Ofsted grades, station and bus access, green space, play space per child, household composition and child-related planning applications.`,
         url: `${SITE}/data/`,
         license: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
         isAccessibleForFree: true,
@@ -1416,7 +1454,7 @@ ${topRows(w, "West")}
       row("Street crime per 1,000 residents", A.crime, B.crime, "low", 0),
       row(A.kind === "ward" ? "Play space per child (m²)" : "Median play space per child (m²)", A.m2, B.m2, "high", 0),
       A.hh != null ? row("Households with children (%)", A.hh, B.hh, "high", 0) : "",
-      A.schools != null ? row("Ofsted-rated schools in the boundary", A.schools, B.schools, "high", 0) : "",
+      A.schools != null ? row("State-funded schools in the boundary", A.schools, B.schools, "high", 0) : "",
       A.kind === "borough" ? row("Wards in London's top 50", A.top50, B.top50, "high", 0) : "",
       A.price ? `<tr><th scope="row">Average house price, ${PRICE_DATE}</th><td class="n">${gbp(A.price)}</td><td class="n">${gbp(B.price)}</td><td>${A.price < B.price ? A.name : B.name}</td></tr>` : "",
     ].join("");
@@ -1496,7 +1534,7 @@ ${c.verdict(A, B).join("\n")}
       h1: "Ealing Broadway vs Pitshanger for families",
       lede: (A, B) => [
         p(`Both are Ealing. One is the bit with the station and the shops, the other is the streets behind it. They are about a mile apart and <strong>${Math.abs(A.score - B.score)} points apart</strong>, which is wider than the ${boroughList[0].mean - boroughList.filter((x) => x.name !== "City of London").pop().mean}-point gap between London's best and worst borough once the City's micro-wards are set aside.`),
-        p(`The gap is wide. Ealing Broadway records ${A.crime} street crimes per 1,000 residents against Pitshanger's ${B.crime}. It has ${A.m2} m² of play space per child against ${B.m2}. ${A.hh}% of its households have dependent children against ${B.hh}%. Pitshanger has ${B.schools} Ofsted-rated schools inside its boundary; Ealing Broadway has ${A.schools}.`),
+        p(`The gap is wide. Ealing Broadway records ${A.crime} street crimes per 1,000 residents against Pitshanger's ${B.crime}. It has ${A.m2} m² of play space per child against ${B.m2}. ${A.hh}% of its households have dependent children against ${B.hh}%. Pitshanger has ${B.schools} state-funded schools inside its boundary; Ealing Broadway has ${A.schools}.`),
         p(`One caveat that matters here more than anywhere. Ealing Broadway is a town centre, and crime is recorded where it happens rather than where the victim lives. A ward with a mainline station, a shopping centre and a night-time economy carries other people's crime against its own residents. The safety score of ${A.s.safety} overstates the risk to somebody living on a quiet street there. The play space and school figures carry no such excuse.`),
       ],
       verdict: (A, B) => [
@@ -1587,7 +1625,7 @@ p(`Walk fifteen minutes north-west. Ealing Broadway is a reasonable place to ren
       lede: (A, B) => [
         p(`Two Havering wards under three kilometres apart, ${Math.abs(A.score - B.score)} points apart, and one of them is close to the safest place in London.`),
         p(`Cranham records <strong>${A.crime} street crimes per 1,000 residents</strong>, which scores ${A.s.safety} and is among the two or three lowest figures in the city. Upminster records ${B.crime}. Cranham's weakness is getting anywhere: transport scores <strong>${A.s.transport} against Upminster's ${B.s.transport}</strong>.`),
-        p(`Upminster also wins on space and schools, ${B.m2} m² of play space per child against ${A.m2}, and ${B.schools} Ofsted-rated schools inside the boundary against ${A.schools}.`),
+        p(`Upminster also wins on space and schools, ${B.m2} m² of play space per child against ${A.m2}, and ${B.schools} state-funded schools inside the boundary against ${A.schools}.`),
       ],
       verdict: (A, B) => [
         p(`Upminster for most families, because a District line terminus and ${B.schools} schools inside the ward beat a marginal safety advantage when both wards are already far safer than London's median. Cranham if quiet is the whole point and you have two cars.`),
