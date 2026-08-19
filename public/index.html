@@ -7,7 +7,7 @@
         <link rel="canonical" href="https://kidstreet.co.uk/" />
         <meta
             name="description"
-            content="Child-friendliness scores for all 704 London wards, built from open data with a published method: recorded crime, Ofsted grades, play space, transport and green space."
+            content="All 704 London wards scored for families on recorded crime, Ofsted grades, play space, transport and green space. Open data, published method."
         />
         <meta property="og:title" content="How child-friendly is every London ward? | KidStreet" />
         <meta
@@ -1213,12 +1213,15 @@
                     <span class="m-name"
                         >Green space
                         <span class="m-src"
-                            >OpenStreetMap parks, playgrounds and nature
-                            reserves inside the ward boundary.
-                            Playgrounds also count in the play dimension,
-                            on purpose. Here they count as somewhere nearby;
-                            in the play dimension they count as space per
-                            child.</span
+                            >A count of the separate parks, playgrounds and
+                            nature reserves inside the ward boundary
+                            (OpenStreetMap). It counts sites and is blind to
+                            the land they cover, so a ward holding one very
+                            large park can score below a ward with several
+                            small ones. Play provision, below, is the
+                            area-based measure. Playgrounds count in both, on
+                            purpose: here as somewhere nearby, there as space
+                            per child.</span
                         >
                     </span>
                 </li>
@@ -1339,6 +1342,31 @@
                             of the same park. Areas are now clipped to ward
                             boundaries, and the build fails if any ward holds
                             more play space than it has land.
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>Green space is a count of sites</dt>
+                        <dd>
+                            The green space score counts how many separate
+                            parks, playgrounds and nature reserves fall inside
+                            the ward. It is blind to how much land they cover,
+                            so a ward holding one very large park can score
+                            below a ward with several small ones. Play
+                            provision is the area-based measure, and an
+                            area-based green space score is on the list for the
+                            next build.
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>The weights are our editorial judgement</dt>
+                        <dd>
+                            The seven inputs come from open data. How heavily
+                            each one counts is a call we made: 30% for safety
+                            rests on no survey and no finding in the data. It
+                            is the one subjective step in the build, which is
+                            why every dimension is published separately at
+                            <a href="/data/">/data/</a> so you can reweight
+                            them yourself.
                         </dd>
                     </div>
                     <div>
