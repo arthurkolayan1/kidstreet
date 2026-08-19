@@ -451,6 +451,35 @@ function main() {
     );
   }
 
+  // ---------------------------------------------------------------------
+  // Metadata must describe what this step actually did. Before 2026-08-19 the
+  // served file still carried the pre-step-12 descriptions (safety and transport
+  // "per km^2", everything "min-max clipped at p95"), which contradicted both the
+  // per-ward `method` strings in the same file and the published site. Rewriting
+  // it here means a re-score can never leave the two out of step again.
+  // ---------------------------------------------------------------------
+  served.metadata = served.metadata || {};
+  served.metadata.version = "1.1.0";
+  served.metadata.scored_at = new Date().toISOString().slice(0, 10);
+  served.metadata.note =
+    "Real, sourced data across all 33 London boroughs. Four dimensions (safety, transport, play, family_fit) are PERCENTILE RANKS among scored London wards: score = round(100 x wards strictly below / (scored wards - 1)), so 70 means the ward beats 70% of London on that measure. Education is the average Ofsted grade on a fixed scale (Outstanding 100, Good 67, Requires improvement 33, Inadequate 0), not a percentile. Green space is a bounded index of the COUNT of separate sites, not their area. Planning is a bucketed count. Wards missing a metric have score:null rather than an invented value, and the composite renormalises the remaining weights. Weights (safety 30, education 20, transport 15, green_space 12, family_fit 10, play 8, planning 5) are an editorial judgement, not a survey finding.";
+  served.metadata.sources = {
+    safety:
+      "data.police.uk crimes-street/all-crime, latest published month, tiled poly queries, point-in-polygon joined to ward. Scored as street crimes per 1,000 residents (ONS mid-2024 ward estimate), percentile-ranked and INVERTED, so the score is the share of London wards with more crime per resident. NOT per km^2 (that flattered large parkland wards and was replaced 2026-08-03). Crime is recorded where it happens, so wards with stations, high streets or nightlife carry visitor crime against a resident denominator.",
+    green_space:
+      "OpenStreetMap Overpass (leisure=playground|park|nature_reserve; leisure=garden excluded as mostly private plots), London-wide query, RAW COUNT of features per ward, not area-normalised: a ward holding one very large park can score below a ward with several small ones. An area-based measure is planned. NOTE, declared overlap: playground sites also feed the play dimension, counted here as amenities present, scored there as area per child; r=0.286 between the two dimension scores, deliberately not deduplicated. (c) OpenStreetMap contributors, ODbL.",
+    transport:
+      "TfL StopPoint/Mode (tube, dlr, overground, tram) + OSM Overpass (national rail, bus stops). Raw access = stations in the ward + 0.5 x stations in adjacent wards (wards sharing a boundary) + bus stops / 20, so a station counts 20x a bus stop and a next-door station counts half. Percentile-ranked across scored wards, +5 for a confirmed step-free station in or adjacent (TfL AccessViaLift), capped at 100. NOT divided by ward area (that penalised wards that are large because of parkland and structurally anti-correlated transport with green space; removed 2026-08-03).",
+    education:
+      'Ofsted "State-funded schools inspections and outcomes as at 31 August 2025", schools geocoded to wards via postcodes.io admin_ward. Average grade of the ward\'s rated schools mapped linearly (Outstanding 100, Good 67, Requires improvement 33, Inadequate 0) and rounded. Deliberately not a percentile: the variable is lumpy and discrete, which is why 275 wards share 67. Ofsted stopped issuing single-word grades in September 2024, so this is a closing stock of older judgements.',
+    planning:
+      "Planning London Datahub (planningdata.london.gov.uk/api-guest), approved child-relevant applications since 2023, joined by application centroid point-in-polygon. Bucketed count, 5% weight. The keyword classifier misfiles some applications; read as a signal of direction rather than a score.",
+    family_fit:
+      "ONS Census 2021 via Nomis (household composition, table TS003), joined at 2022-ward geography to 2024 wards. Percentile rank of the share of households with dependent children ONLY. The 25-49 age share is carried as context and is NOT scored (it tracked young adults in general rather than families; removed 2026-08-03).",
+    play:
+      "OS Open Greenspace (GeoPackage GB, EPSG:27700, OGL v3): play and informal recreation space = site polygons with function in [Play Space, Playing Field, Public Park Or Garden] (formal/restricted facilities such as bowling greens, tennis courts and golf excluded); whole-site areas are an upper-bound proxy for the playable fraction, so the equipped-only (Play Space) figure is published alongside as the lower bound. Areas are CLIPPED to ward boundaries, so a park crossing wards is split between them. Shoelace area in native BNG metres; ONS mid-2024 ward population estimates via Nomis, ages 0-15 summed per ward code. Scored as a percentile of m2 per child. London Plan Policy S4's 10 m2/child ('play and informal recreation') is a requirement on NEW development assessed via the GLA Population Yield Calculator; applying it to existing ward populations is a BENCHMARK use, not a compliance test, and no existing ward is in breach of S4. Known under-count: school grounds and some estate play space are absent from OS Open Greenspace. In-ward containment only: a park just over the boundary counts for nothing, so this measures provision inside a line rather than access on foot.",
+  };
+
   if (DRY) {
     console.log("\n--dry: no write.");
     return;
